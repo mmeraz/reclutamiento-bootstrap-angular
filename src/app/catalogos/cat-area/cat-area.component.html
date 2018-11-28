@@ -1,0 +1,28 @@
+<div class="container">
+    <app-create-area></app-create-area>
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Area</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let a of arrayAreas">
+                <td> {{a.arnIdarean}}</td>
+                <td>{{a.arnTipo}}</td>
+                <td>
+                    <button [routerLink]="['/Edit', a.arnIdarean]" class="btn btn-danger">
+
+      </button></td>
+                <td><button (click)="deleteBusiness(a.arnIdarean)" class="btn btn-primary">
+
+      </button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

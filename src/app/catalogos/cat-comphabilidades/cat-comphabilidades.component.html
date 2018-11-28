@@ -1,0 +1,52 @@
+<!-- 
+<button mz-button (click)="basicModal.openModal()">
+  Nuevo
+</button>
+<div class="container">
+<table class="highlight">
+<thead>
+  <tr>
+      <th>ID</th>
+      <th>Competenciashabilidades</th>
+      <th>Modificar</th>
+      <th>Eliminar</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr *ngFor="let a of arrayAreas">
+    <td> {{a.cohIdcompetenciashabilidades}}</td>
+    <td>{{a.cohDescripcion}}</td>
+    <td><button mz-button >
+      Editar
+    </button></td>
+    <td><button mz-button>
+      Eliminar
+    </button></td>
+  </tr>
+
+</tbody>
+</table>
+</div>
+
+<div >
+  <mz-modal #basicModal>
+    <mz-modal-header>
+      <h4>Agregar Competenciashabilidades</h4>
+    </mz-modal-header>
+    <mz-modal-content>
+      <form [formGroup]="angForm">
+
+        <label >Area</label>
+        <input type="text" class="form-control" formControlName="cohDescripcion" #cohDescripcion/>
+
+      </form>
+    </mz-modal-content>
+    <mz-modal-footer>
+      <button mz-button [flat]="true"
+       role="button" (click)='addcompetenciashabilidades(cohDescripcion.value)'
+       mz-modal-close>Guardar</button>
+      <button mz-button [flat]="true" mz-modal-close>Cancelar</button>
+    </mz-modal-footer>
+  </mz-modal>
+</div> -->

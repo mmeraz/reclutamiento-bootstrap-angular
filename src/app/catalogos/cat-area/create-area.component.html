@@ -1,0 +1,32 @@
+<!--Boton para abrir el modal de agregar nueva area-->
+<!-- <button mz-button (click)="basicModal.openModal()" style="margin-top:10px;" [flat]="true">
+  <i mz-icon
+  [align]="'right'"
+  [icon]="'add'"
+  [size]="'small'">
+</i>
+</button> -->
+
+<!--Modal para agregar nueva área-->
+<!-- <mz-modal #basicModal>
+    <mz-modal-header>
+        <h4>Agregar Área</h4>
+    </mz-modal-header>
+    <mz-modal-content>
+        <form [formGroup]="addForm" (submit)="saveData()">
+
+            <label>Área</label>
+            <input type="text" class="form-control" name="arnTipo" formControlName="arnTipo" #arnTipo/>
+            <div *ngIf="addForm.get('arnTipo').errors && addForm.get('arnTipo').dirty">
+                <p class="red-text" *ngIf="addForm.get('arnTipo').hasError('required')">El área es requerida</p>
+                <p class="red-text" *ngIf="addForm.get('arnTipo').hasError('maxlength')">Máximo 40 carácteres</p>
+                <p class="red-text" *ngIf="addForm.get('arnTipo').hasError('pattern')">Solo se aceptan letras</p>
+            </div>
+
+        </form>
+    </mz-modal-content>
+    <mz-modal-footer>
+        <button mz-button [flat]="true" role="button" (click)='addarea(arnTipo.value)' [disabled]="addForm.invalid" mz-modal-close>Guardar</button>
+        <button mz-button [flat]="true" mz-modal-close>Cancelar</button>
+    </mz-modal-footer>
+</mz-modal> -->

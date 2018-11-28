@@ -1,0 +1,53 @@
+<!-- <div class="container">
+    <h4>Editar</h4>
+    <div class="row">
+        <div class="col s12 m6  text-center">
+            <form [formGroup]="editForm" (submit)="saveData()">
+                <label>Area</label>
+                <input type="text" class="form-control" formControlName="arnTipo" #arnTipo />
+                <div *ngIf="editForm.get('arnTipo').errors && editForm.get('arnTipo').dirty">
+                    <p class="red-text" *ngIf="editForm.get('arnTipo').hasError('required')">El tipo es requerido</p>
+                    <p class="red-text" *ngIf="editForm.get('arnTipo').hasError('maxlength')">Máximo 40 carácteres</p>
+                    <p class="red-text" *ngIf="editForm.get('arnTipo').hasError('pattern')">Solo se aceptan letras</p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <button mz-button [flat]="true" role="button" (click)="updateBusiness(arnTipo.value)" [disabled]="editForm.invalid">Guardar</button>
+
+    <button mz-button [flat]="true" [routerLink]="['/Area']">Cancelar</button>
+
+</div> -->
+
+<!--
+Boton para abrir el modal de agregar nueva area -->
+<!-- <button mz-button (click)="basicModal.openModal()">
+  Editar
+</button> -->
+
+<!--Modal para agregar nueva área-->
+<!-- <mz-modal #basicModal>
+    <mz-modal-header>
+        <h4>Editar Área</h4>
+    </mz-modal-header>
+    <mz-modal-content>
+        <form [formGroup]="editForm" (submit)="saveData()">
+
+            <label>Área</label>
+            <input type="text" class="form-control" name="arnTipo" formControlName="arnTipo" #arnTipo/>
+            <div *ngIf="editForm.get('arnTipo').errors && editForm.get('arnTipo').dirty">
+                <p class="red-text" *ngIf="editForm.get('arnTipo').hasError('required')">El tipo es requerido</p>
+                <p class="red-text" *ngIf="editForm.get('arnTipo').hasError('maxlength')">Máximo 40 carácteres</p>
+                <p class="red-text" *ngIf="editForm.get('arnTipo').hasError('pattern')">Solo se aceptan letras</p>
+            </div>
+
+        </form>
+    </mz-modal-content>
+    <mz-modal-footer>
+        <button mz-button [flat]="true" role="button" (click)='updateBusiness(arnTipo.value)' [disabled]="editForm.invalid" mz-modal-close>Editar</button>
+        <button mz-button [flat]="true" mz-modal-close [routerLink]="['/Area']">Cancelar</button>
+    </mz-modal-footer>
+</mz-modal> -->

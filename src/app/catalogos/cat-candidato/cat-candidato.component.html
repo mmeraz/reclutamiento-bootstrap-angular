@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="highlight">
+    <thead>
+      <tr>
+          <th>ID</th>
+          <th>Area</th>
+          <th>Modificar</th>
+          <th>Eliminar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let a of arrayAreas">
+        <td> {{a.arnIdarean}}</td>
+        <td>{{a.arnTipo}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>

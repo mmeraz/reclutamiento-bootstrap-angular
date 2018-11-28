@@ -1,0 +1,68 @@
+<!-- 
+<button mz-button (click)="basicModal.openModal()">
+  Nuevo
+</button>
+<div class="container">
+<table class="highlight">
+<thead>
+  <tr>
+      <th>ID</th>
+      <th>Usuario</th>
+      <th>Modificar</th>
+      <th>Eliminar</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr *ngFor="let a of arrayAreas">
+    <td> {{a.usrIdusuario}}</td>
+    <td>{{a.usrUsername}</td>
+    <td>{{a.usrNombreUsuario}</td>
+    <td>{{a.usrPassword}</td>
+    <td>{{a.usrEmail}</td>
+    <td>{{a.usrPerfil}</td>
+    <td>{{a.usrTelefono}</td>
+    <td><button mz-button >
+      Editar
+    </button></td>
+    <td><button mz-button>
+      Eliminar
+    </button></td>
+  </tr>
+
+</tbody>
+</table>
+</div>
+
+<div >
+  <mz-modal #basicModal>
+    <mz-modal-header>
+      <h4>Agregar Usuario</h4>
+    </mz-modal-header>
+    <mz-modal-content>
+      <form [formGroup]="angForm">
+
+        <label >Area</label>
+        <input type="text" class="form-control" formControlName="usrUsername" #usrUsername/>
+        <input type="text" class="form-control" formControlName="usrNombreUsuario" #usrNombreUsuario/>
+        <input type="text" class="form-control" formControlName="usrPassword" #usrPassword/>
+        <input type="text" class="form-control" formControlName="usrEmail" #usrEmail/>
+        <input type="text" class="form-control" formControlName="usrPerfile" #usrPerfil/>
+        <input type="text" class="form-control" formControlName="usrTelefono" #usrTelefono/>
+
+      </form>
+    </mz-modal-content>
+    <mz-modal-footer>
+      <button mz-button [flat]="true"
+       role="button" (click)='addusuario(usrUsername.value)'
+       (click)='addusuario(usrNombreUsuario.value)'
+       (click)='addusuario(usrPassword.value)'
+       (click)='addusuario(usrEmail.value)'
+       (click)='addusuario(usrPerfile.value)'
+       (click)='addusuario(usrTelefono.value)'
+       mz-modal-close>Guardar</button>
+      <button mz-button [flat]="true" mz-modal-close>Cancelar</button>
+    </mz-modal-footer>
+  </mz-modal>
+</div>
+ -->
