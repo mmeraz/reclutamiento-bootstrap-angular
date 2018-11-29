@@ -1,42 +1,78 @@
-<!--Top bar-->
-<header class="header">
-    <nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0 ">
-        <div class="float-left"> <a href="#" class="button-left"><span class="fa fa-fw fa-bars "></span></a> </div>
-    </nav>
-</header>
-<!--Términa el top bar-->
+<a id="show-sidebar" class="btn btn-sm btn-dark">
+    <i class="fas fa-bars"></i>
+</a>
 
-<!--Empieza el menú-->
-<div class="main">
-    <aside>
-        <div class="sidebar left ">
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="../../assets/img/ns.png" class="rounded-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                    <p>Reclutamiento</p>
-                </div>
-            </div>
-            <ul class="list-sidebar bg-defoult">
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#dashboard" class="collapsed active"> <i class="fa fa-th-large"></i> <span class="nav-label"> Solicitudes </span> <span class="fa fa-chevron-left pull-right"></span> </a>
-                    <ul class="sub-menu collapse" id="dashboard">
-                        <li><a routerLink="/Solicitud-Requerimiento">Nuevo Requerimiento</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#products" class="collapsed active"> <i class="fa fa-bar-chart-o"></i> <span class="nav-label">Candidatos</span> <span class="fa fa-chevron-left pull-right"></span> </a>
-                    <ul class="sub-menu collapse" id="products">
-                        <li><a routerLink="/Solicitud-Candidato">Nuevo Candidato</a></li>
-                    </ul>
-                </li>
-                <li> <a href="#" data-toggle="collapse" data-target="#tables" class="collapsed active"><i class="fa fa-table"></i> <span class="nav-label">Catálogos</span><span class="fa fa-chevron-left pull-right"></span></a>
-                    <ul class="sub-menu collapse" id="tables" *ngFor="let c of catalogos">
-                        <li><a routerLink="/{{c.path}}" style="font-size: 15px;">{{c.titulo}}</a></li>
-                    </ul>
-                </li>
-            </ul>
+<div class="sidebar-content">
+    <div class="sidebar-brand">
+        <a>Reclutamiento y Selección</a>
+        <div id="close-sidebar">
+            <i class="fas fa-times"></i>
         </div>
-    </aside>
+    </div>
+    <div class="sidebar-header">
+        <div class="user-pic">
+            <img class="img-responsive img-rounded" src="../../assets/img/ns.png" alt="User picture">
+        </div>
+        <div class="user-info">
+            <span class="user-name">Username
+                <strong>Smith</strong>
+            </span>
+            <span class="user-role">Administrador</span>
+        </div>
+    </div>
+    <!-- términa sidebar-header  -->
+
+    <div class="sidebar-menu">
+        <ul>
+            <li class="header-menu">
+                <span>General</span>
+            </li>
+            <li class="sidebar-dropdown">
+                <a>
+                    <i class="fa fa-tachometer-alt"></i>
+                    <span>Solicitudes</span>
+                </a>
+                <div class="sidebar-submenu">
+                    <ul>
+                        <li>
+                            <a> Nueva solicitud
+                                <span class="badge badge-pill badge-success">Pro</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="sidebar-dropdown">
+                <a>
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>Candidatos</span>
+                </a>
+                <div class="sidebar-submenu">
+                    <ul>
+                        <li>
+                            <a href="#">Nuevo candidato
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="sidebar-dropdown">
+                <a>
+                    <i class="far fa-gem"></i>
+                    <span>Catálogos</span>
+                </a>
+                <div class="sidebar-submenu">
+                    <ul *ngFor="let c of catalogos">
+                        <li>
+                            <a routerLink="/{{c.path}}">{{c.titulo}}</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- sidebar-menu  -->
 </div>
+<!-- Términa sidebar-content  -->

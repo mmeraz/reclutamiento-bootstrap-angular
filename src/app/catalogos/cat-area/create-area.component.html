@@ -1,3 +1,48 @@
+<!-- Button trigger modal -->
+<button style="margin-bottom: 15px;" type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+  <i class="fas fa-plus-square"></i>
+  </button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nueva área</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addForm" (submit)="saveData()">
+                    <div class="form-group">
+                        <label for="arnTipo">Área</label>
+                        <input maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="arnTipo" formControlName="arnTipo" #arnTipo>
+                        <div *ngIf="addForm.get('arnTipo').errors && addForm.get('arnTipo').dirty">
+                            <p style="color:darkred;" *ngIf="addForm.get('arnTipo').hasError('required')">El área es requerida</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('arnTipo').hasError('maxlength')">Máximo 40 carácteres</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('arnTipo').hasError('pattern')">Solo se aceptan letras</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addarea(arnTipo.value)' [disabled]="addForm.invalid">Guardar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
 <!--Boton para abrir el modal de agregar nueva area-->
 <!-- <button mz-button (click)="basicModal.openModal()" style="margin-top:10px;" [flat]="true">
   <i mz-icon

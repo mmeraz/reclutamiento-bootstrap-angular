@@ -12,6 +12,7 @@ import swal from 'sweetalert2';
   providers: [AreaService]
 })
 export class CatAreaComponent implements OnInit {
+  dtOptions: DataTables.Settings = {};
   arrayAreas: Catarea[];
   selectArea: Catarea;
 
@@ -24,7 +25,20 @@ export class CatAreaComponent implements OnInit {
     this.areaService.getAreas().subscribe(
       (data: Catarea[]) => this.arrayAreas = data
     );
+
+    this.dtOptions = {
+      ajax: 'data/data.json',
+      columns: [{
+        title: 'Id',
+        data: 'arnIdarean'
+      }, {
+        title: 'Área',
+        data: 'arnTipo'
+      }]
+    };
   }
+
+
   deleteBusiness(id) {
       swal({
         title: 'Está seguro?',

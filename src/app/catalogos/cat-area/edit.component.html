@@ -1,10 +1,35 @@
+<div class="container">
+    <div class="row">
+        <h3>Editar área</h3>
+        <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+
+            <form [formGroup]="editForm" (submit)="saveData()">
+                <div class="form-group">
+                    <label for="arnTipo">Área</label>
+                    <input [(ngModel)]="area.arnTipo" maxlength="40" type="text" required class="form-control" name="arnTipo" formControlName="arnTipo" #arnTipo>
+                    <div *ngIf="editForm.get('arnTipo').errors && editForm.get('arnTipo').dirty">
+                        <p class="text-danger" *ngIf="editForm.get('arnTipo').hasError('required')">El área es requerida</p>
+                        <p class="text-danger" *ngIf="editForm.get('arnTipo').hasError('maxlength')">Máximo 40 carácteres</p>
+                        <p class="text-danger" *ngIf="editForm.get('arnTipo').hasError('pattern')">Solo se aceptan letras</p>
+                    </div>
+                    <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(arnTipo.value)' [disabled]="editForm.invalid">Editar</button>
+                    <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Area">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
 <!-- <div class="container">
     <h4>Editar</h4>
     <div class="row">
         <div class="col s12 m6  text-center">
             <form [formGroup]="editForm" (submit)="saveData()">
                 <label>Area</label>
-                <input type="text" class="form-control" formControlName="arnTipo" #arnTipo />
+                <input [(ngModel)]="area.arnTipo" type="text" class="form-control" formControlName="arnTipo" #arnTipo />
                 <div *ngIf="editForm.get('arnTipo').errors && editForm.get('arnTipo').dirty">
                     <p class="red-text" *ngIf="editForm.get('arnTipo').hasError('required')">El tipo es requerido</p>
                     <p class="red-text" *ngIf="editForm.get('arnTipo').hasError('maxlength')">Máximo 40 carácteres</p>

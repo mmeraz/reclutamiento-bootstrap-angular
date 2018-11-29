@@ -1,5 +1,33 @@
 <div class="container">
+    <h2>Áreas</h2>
     <app-create-area></app-create-area>
+    <div class="row">
+        <div class="col-sm-12 col-md-offset-2 col-md-8 col-lg-8">
+            <table class="table table-sm table-striped table-bordered" id="tableArea">
+                <thead class="thead-ligth">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Área</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of arrayAreas">
+                        <th scope="row"> {{a.arnIdarean}}</th>
+                        <td>{{a.arnTipo}}</td>
+                        <td class="text-center" [routerLink]="['/Edit', a.arnIdarean]"><i style="color:#007bff;" data-toggle="tooltip" data-placement="top" title="Editar" class="fas fa-pencil-alt"></i></td>
+                        <td class="text-center" (click)="deleteBusiness(a.arnIdarean)"><i style="color:#dc3545;" data-toggle="tooltip" data-placement="top" title="Eliminar" class="fas fa-trash-alt"></i></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
     <table class="highlight">
         <thead>
             <tr>
