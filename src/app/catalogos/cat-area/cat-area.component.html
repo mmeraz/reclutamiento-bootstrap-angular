@@ -1,10 +1,10 @@
 <div class="container">
     <h2>Áreas</h2>
     <app-create-area></app-create-area>
-    <div class="row">
-        <div class="col-sm-12 col-md-offset-2 col-md-8 col-lg-8">
-            <table class="table table-sm table-striped table-bordered" id="tableArea">
-                <thead datatable [dtOptions]="dtOptions" class="thead-ligth">
+    <!-- <div class="row">
+        <div class="col-sm-12 col-md-offset-2 col-md-8 col-lg-8"> -->
+            <table datatable [dtOptions]="dtOptions" class="row-border hover"id="tableArea" >
+                <thead>
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Área</th>
@@ -12,45 +12,24 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="arrayAreas?.length !=0">
                     <tr *ngFor="let a of arrayAreas">
                         <th scope="row"> {{a.arnIdarean}}</th>
                         <td>{{a.arnTipo}}</td>
                         <td class="text-center" [routerLink]="['/Edit', a.arnIdarean]"><i style="color:#007bff;" data-toggle="tooltip" data-placement="top" title="Editar" class="fas fa-pencil-alt"></i></td>
                         <td class="text-center" (click)="deleteBusiness(a.arnIdarean)"><i style="color:#dc3545;" data-toggle="tooltip" data-placement="top" title="Eliminar" class="fas fa-trash-alt"></i></td>
                     </tr>
+                </tbody>
+                <tbody *ngIf="arrayAreas?.length == 0">
+                  <tr>
+                    <td colspan="3" class="no-data-avaible">No data!</td>
+                  </tr>
 
                 </tbody>
             </table>
         </div>
-    </div>
+    <!-- </div> -->
 
 
 
 
-    <table class="highlight">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Area</th>
-                <th>Modificar</th>
-                <th>Eliminar</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr *ngFor="let a of arrayAreas">
-                <td> {{a.arnIdarean}}</td>
-                <td>{{a.arnTipo}}</td>
-                <td>
-                    <button [routerLink]="['/Edit', a.arnIdarean]" class="btn btn-danger">
-
-      </button></td>
-                <td><button (click)="deleteBusiness(a.arnIdarean)" class="btn btn-primary">
-
-      </button></td>
-            </tr>
-
-        </tbody>
-    </table>
-</div>
