@@ -1,35 +1,68 @@
+
+<!-- Titulo principal-->
 <div class="container">
-    <h2>Áreas</h2>
-    <app-create-area></app-create-area>
-    <!-- <div class="row">
-        <div class="col-sm-12 col-md-offset-2 col-md-8 col-lg-8"> -->
-            <table datatable [dtOptions]="dtOptions" class="row-border hover"id="tableArea" >
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Área</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody *ngIf="arrayAreas?.length !=0">
-                    <tr *ngFor="let a of arrayAreas">
-                        <th scope="row"> {{a.arnIdarean}}</th>
-                        <td>{{a.arnTipo}}</td>
-                        <td class="text-center" [routerLink]="['/Edit', a.arnIdarean]"><i style="color:#007bff;" data-toggle="tooltip" data-placement="top" title="Editar" class="fas fa-pencil-alt"></i></td>
-                        <td class="text-center" (click)="deleteBusiness(a.arnIdarean)"><i style="color:#dc3545;" data-toggle="tooltip" data-placement="top" title="Eliminar" class="fas fa-trash-alt"></i></td>
-                    </tr>
-                </tbody>
-                <tbody *ngIf="arrayAreas?.length == 0">
-                  <tr>
-                    <td colspan="3" class="no-data-avaible">No data!</td>
-                  </tr>
-
-                </tbody>
-            </table>
+  <h4>Áreas</h4>
+  <hr />
+<!--Empieza el card donde se encunentra la tabla-->
+  <div class="card" style="width: 100%;">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
+          <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
+          <i class="fas fa-table" style="font-size: 15px;"> Catálogo áreas</i>
         </div>
-    <!-- </div> -->
+        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+          <app-create-area></app-create-area>
+        </div>
+      </div>
+      </div>
+    </div>
+<!--Términa el titulo del card-->
 
+<!-- Empieza el contenido del card-->
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
 
+        <!--La tabla-->
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <table datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Área</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
 
+                <tr *ngFor="let a of arrayAreas">
+                  <th scope="row">{{ a.arnIdarean }}</th>
+                  <td>{{ a.arnTipo }}</td>
 
+                  <td class="text-center" >
+
+                    <i style="color:#007bff; margin-right:20px;"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Editar"
+                      class="fas fa-pencil-alt"
+                      [routerLink]="['/Edit', a.arnIdarean]"></i>
+
+                      <i style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Eliminar"
+                      class="fas fa-trash-alt"
+                      (click)="deleteBusiness(a.arnIdarean)"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
