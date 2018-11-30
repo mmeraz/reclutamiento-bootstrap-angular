@@ -30,7 +30,7 @@ export class CatAreaComponent implements OnInit {
       pageLength: 5
     };
     this.areaService.getAreas().subscribe(result => {
-      this.arrayAreas = result;
+      this.allAreas = result;
       this.dtTrigger.next();
     });
   }
