@@ -7,7 +7,6 @@ import { ActivatedRoute} from '@angular/router';
 import swal from 'sweetalert2';
 import { Subject } from 'rxjs';
 
-
 @Component({
   selector: 'app-cat-area',
   templateUrl: './cat-area.component.html',

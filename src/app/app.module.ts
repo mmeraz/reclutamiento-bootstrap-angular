@@ -103,6 +103,7 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
     DataTablesModule,
     NgxPaginationModule
   ],
+  exports: [],
   providers: [
     appRoutingProviders
   ],
