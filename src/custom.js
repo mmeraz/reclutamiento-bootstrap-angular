@@ -30,6 +30,6 @@ jQuery(function($) {
     });
 });
 
-$(document).ready(function() {
-    $('#tableArea').DataTable();
-});
+$(document).ready( function () {
+  $('#myTable').DataTable();
+} );

@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { Observable} from 'rxjs';
 import { Catarea } from '../model/catarea.model';
 
 @Injectable({
@@ -12,14 +9,11 @@ import { Catarea } from '../model/catarea.model';
 )
 export class AreaService {
   private url = 'http://localhost:8085/api/v1/areaNegocio';
-  private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-
-
 
   constructor( private clienteHttp: HttpClient) {}
 
   getAreas() {
-    return this.clienteHttp.get<Catarea[]>(this.url + '/fetch');
+    return this.clienteHttp.get(this.url + '/fetch');
   }
 
   addarea(arnTipo) {

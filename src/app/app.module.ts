@@ -5,8 +5,8 @@ import {  HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
-
-
+import {MatInputModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CatAreaComponent } from './catalogos/cat-area/cat-area.component';
 import { CatDocumentosComponent } from './catalogos/cat-documentos/cat-documentos.component';
@@ -100,8 +100,16 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
+    CommonModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatTableModule
   ],
+  exports: [CommonModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatTableModule],
   providers: [
     appRoutingProviders
   ],
