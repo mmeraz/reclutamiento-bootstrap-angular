@@ -15,7 +15,7 @@
           </div>
           <select class="custom-select" id="inputGroupSelect02">
             <option [ngValue]="null" selected>Choose...</option>
-            <option *ngFor="let a of cliente.contactcliente" [ngValue]="a" value="2">{{a.clcNombre}}</option>
+            <option *ngFor="let a of cliente.contactos" [ngValue]="a" value="2">{{a.clcNombre}}</option>
           </select>
         </div>
 
@@ -25,12 +25,6 @@
         <div class="card-header" id="headingOne">
           <div class="row">
 
-              <div class="col-10"> <h2>Áreas</h2></div>
-              <div class="col-2">
-              <h5>
-                <app-create-area></app-create-area>
-               </h5>
-          </div>
 
         </div>
       </div>
@@ -53,17 +47,17 @@
                   </tr>
               </thead>
               <tbody class="tbody-ligth">
-                  <tr *ngFor="let a of arrayContactCliente" >
-                      <th scope="row" >{{a.clcIdconcli}}</th>
+                  <tr *ngFor="let c of contacto">
                       <th scope="row" ></th>
+                      <th scope="row" >{{c.cliIdcliente}}</th>
+                      <td >{{c.cliNombre}}</td>
+                      <td >{{c.cliRazonsocial}}</td>
+                      <td >{{c.contactcliente}}</td>
                       <td ></td>
                       <td ></td>
                       <td ></td>
-                      <td >{{a.clcNombre}}</td>
-                      <td >{{a.clcTelefono}}</td>
-                      <td >{{a.clcEmail}}</td>
-                      <td >{{a.clcTipo}}</td>
-                      <td >{{a.clcExtension}}</td>
+                      <td ></td>
+                      <td ></td>
                       <td  align="center" style="width: 6em;">
                         <a href="" ><i style="color:#007bff; margin: 20px;" data-toggle="tooltip" data-placement="top" title="Editar" class="fas fa-pencil-alt"></i></a>
                         <a href="" ><i style="color:#dc3545;" data-toggle="tooltip" data-placement="top" title="Eliminar" class="fas fa-trash-alt"></i></a>

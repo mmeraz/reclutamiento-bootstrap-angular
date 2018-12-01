@@ -14,7 +14,7 @@ import { Catcliente } from 'src/app/model/catcliente.model';
 export class CatContactclienteComponent implements OnInit {
   contacto: Catcliente[];
   cliente: Catcliente = null;
-  arrayContactCliente: Catcontactcliente[] = [];
+  contactos: Catcontactcliente[] = [];
 
   constructor(private contaclienteService: ContactClienteService,
     private fb: FormBuilder, private bs: ContactClienteService,
@@ -22,8 +22,9 @@ export class CatContactclienteComponent implements OnInit {
 
   ngOnInit() {
     this.contaclienteService.getContactcliente().subscribe
-      (contacto => this.contacto = contacto
-    );
+      ((data: Catcliente[]) => this.contacto = data );
+    console.log(this.contacto);
+    console.log(this.contactos); 
   }
 
 }

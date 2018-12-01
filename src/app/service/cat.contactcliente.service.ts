@@ -13,16 +13,12 @@ import { Catcliente} from '../model/catcliente.model';
 export class ContactClienteService {
 
     private url = 'http://localhost:8085/api/v1/cliente';
-    private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+    private httpHeaders = new HttpHeaders({ 'ContentType': 'application/json' });
 
     constructor( private clienteHttp: HttpClient) {}
 
-    getContactcliente(): Observable<Catcliente[]> {
-      return this.clienteHttp.get(this.url + '/fetch').pipe(
-        map(contacto => contacto as Catcliente[])
-      );
-
-
+    getContactcliente() {
+      return this.clienteHttp.get(this.url + '/fetchAll');
     }
 
   }
