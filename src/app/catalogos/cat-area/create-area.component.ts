@@ -29,7 +29,7 @@ export class CreateAreaComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ]*$')] ]
+        arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
       });
     }
 
@@ -43,9 +43,12 @@ export class CreateAreaComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       });
-      console.log('Area registrada');
+      this.update();
     }
 
+    update(): void {
+      window.location.reload();
+    }
     saveData() {
       alert(JSON.stringify(this.addForm.value));
     }

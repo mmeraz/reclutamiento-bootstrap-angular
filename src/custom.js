@@ -29,7 +29,3 @@ jQuery(function($) {
         $(".page-wrapper").addClass("toggled");
     });
 });
-
-$(document).ready( function () {
-  $('#myTable').DataTable();
-} );

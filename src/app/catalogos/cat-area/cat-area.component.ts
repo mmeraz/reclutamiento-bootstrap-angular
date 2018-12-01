@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Catarea } from 'src/app/model/catarea.model';
 import { AreaService } from 'src/app/service/cat.area.service';
@@ -6,6 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute} from '@angular/router';
 import swal from 'sweetalert2';
 import { Subject } from 'rxjs';
+import { DataTableDirective } from 'angular-datatables';
 
 @Component({
   selector: 'app-cat-area',
@@ -13,6 +14,9 @@ import { Subject } from 'rxjs';
   providers: [AreaService]
 })
 export class CatAreaComponent implements OnInit {
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
+
   dtOptions: DataTables.Settings = {};
   arrayAreas: Catarea[];
   allAreas: any = [];
@@ -27,7 +31,7 @@ export class CatAreaComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 5
+      pageLength: 10,
     };
     this.areaService.getAreas().subscribe(result => {
       this.allAreas = result;
@@ -35,11 +39,28 @@ export class CatAreaComponent implements OnInit {
     });
   }
 
+  OnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
+  }
 
-  deleteBusiness(id) {
+  rerender(): void {
+    setTimeout(() => {
+      this.areaService.getAreas().subscribe(result => {
+        this.allAreas = result;
+      });
+    }, 30);
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      // Destroy the table first
+      dtInstance.destroy();
+    });
+    this.ngOnInit();
+  }
+
+  deleteBusiness(id, arntipo) {
       swal({
         title: 'Está seguro?',
-      text: `¿Seguro desea eliminar al área ${id}?`,
+      text: `¿Seguro desea eliminar al área ${arntipo}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -49,12 +70,12 @@ export class CatAreaComponent implements OnInit {
       }).then(result => {
         if (result.value) {
         this.areaService.deleteBusiness(id).subscribe(data => {
-            this.arrayAreas = this.arrayAreas.filter(c => c !== id);
+            this.allAreas = this.allAreas.filter(c => c.arnIdarea !== id);
           });
           swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+          this.rerender();
         }
       });
-      console.log('Deleted');
   }
 
 }
