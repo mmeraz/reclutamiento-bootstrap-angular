@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Catarea } from 'src/app/model/catarea.model';
 import { AreaService } from 'src/app/service/cat.area.service';
@@ -16,7 +16,6 @@ import { DataTableDirective } from 'angular-datatables';
 export class CatAreaComponent implements OnInit {
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
-
   dtOptions: DataTables.Settings = {};
   arrayAreas: Catarea[];
   allAreas: any = [];

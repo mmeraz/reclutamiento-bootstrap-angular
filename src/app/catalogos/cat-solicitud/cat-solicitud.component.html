@@ -1,3 +1,392 @@
-<p>
-  cat-solicitud works!
-</p>
+<!-- Accordion wrapper -->
+<div
+  class="accordion md-accordion accordion-1"
+  id="accordionEx23"
+  role="tablist"
+>
+  <div class="card">
+    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading96">
+      <h6 class="text-uppercase mb-0 py-1">
+        <a
+          class="white-text font-weight-bold"
+          data-toggle="collapse"
+          href="#collapse96"
+          aria-expanded="true"
+          aria-controls="collapse96"
+        >
+          Datos del Requerimiento
+        </a>
+      </h6>
+    </div>
+    <div
+      id="collapse96"
+      class="collapse show"
+      role="tabpanel"
+      aria-labelledby="heading96"
+      data-parent="#accordionEx23"
+    >
+      <div class="card-body">
+        <div class="row my-4">
+          <div class="col-md-8">
+            <!-- Form Name -->
+            <legend>Solicitud</legend>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="requerimiento"
+                >Tipo Requerimiento</label
+              >
+              <div class="col-md-4">
+                <select
+                  id="requerimiento"
+                  name="requerimiento"
+                  class="form-control"
+                >
+                  <option value="1">Option one</option>
+                  <option value="2">Option two</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="prioridad"
+                >Prioridad</label
+              >
+              <div class="col-md-4">
+                <select id="prioridad" name="prioridad" class="form-control">
+                  <option value="1">Option one</option>
+                  <option value="2">Option two</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="presupuesto"
+                >Presupuesto</label
+              >
+              <div class="col-md-4">
+                <select
+                  id="presupuesto"
+                  name="presupuesto"
+                  class="form-control"
+                >
+                  <option value="1">Option one</option>
+                  <option value="2">Option two</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="vacante"
+                >Tipo Vacante</label
+              >
+              <div class="col-md-4">
+                <select id="vacante" name="vacante" class="form-control">
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading97">
+      <h6 class="text-uppercase mb-0 py-1">
+        <a
+          class="collapsed font-weight-bold white-text"
+          data-toggle="collapse"
+          href="#collapse97"
+          aria-expanded="false"
+          aria-controls="collapse97"
+        >
+          Datos del Cliente
+        </a>
+      </h6>
+    </div>
+    <div
+      id="collapse97"
+      class="collapse"
+      role="tabpanel"
+      aria-labelledby="heading97"
+      data-parent="#accordionEx23"
+    >
+      <div class="card-body">
+        <div class="row my-4">
+          <div class="col-md-8">
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="cliente"
+                >Cliente</label
+              >
+              <div class="col-md-4">
+                <select id="cliente" name="cliente" class="form-control">
+                  <option value="1">Option one</option>
+                  <option value="2">Option two</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="clcCliente"
+                >Contacto</label
+              >
+              <div class="col-md-4">
+                <select id="clcCliente" name="clcCliente" class="form-control">
+                  <option value="1">Option one</option>
+                  <option value="2">Option two</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">
+      <h6 class="text-uppercase mb-0 py-1">
+        <a
+          class="collapsed font-weight-bold white-text"
+          data-toggle="collapse"
+          href="#collapse98"
+          aria-expanded="false"
+          aria-controls="collapse98"
+        >
+          Datos del proyecto
+        </a>
+      </h6>
+    </div>
+    <div
+      id="collapse98"
+      class="collapse"
+      role="tabpanel"
+      aria-labelledby="heading98"
+      data-parent="#accordionEx23"
+    >
+      <div class="card-body">
+        <div class="row my-4">
+          <div class="col-md-8">
+            <!-- Text input -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="proyecto"
+                >Nombre del proyecto</label
+              >
+              <div class="col-md-4">
+                <input
+                  id="proyecto"
+                  name="proyecto"
+                  type="text"
+                  placeholder="nombre del proyecto"
+                  class="form-control input-md"
+                  required=""
+                />
+              </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="Puesto">Puesto</label>
+              <div class="col-md-4">
+                <input
+                  id="Puesto"
+                  name="Puesto"
+                  type="text"
+                  placeholder="Puesto del proyecto"
+                  class="form-control input-md"
+                />
+              </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="duracion"
+                >Duración proyecto</label
+              >
+              <div class="col-md-4">
+                <input
+                  id="duracion"
+                  name="duracion"
+                  type="text"
+                  placeholder=""
+                  class="form-control input-md"
+                />
+              </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="descripcion"
+                >Descripción</label
+              >
+              <div class="col-md-4">
+                <textarea
+                  class="form-control"
+                  id="descripcion"
+                  name="descripcion"
+                >Descripción del proyecto</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">
+      <h5 class="text-uppercase mb-0 py-1">
+        <a
+          class="collapsed font-weight-bold white-text"
+          data-toggle="collapse"
+          href="#collapse99"
+          aria-expanded="false"
+          aria-controls="collapse99"
+        >
+          I am the third title of accordion
+        </a>
+      </h5>
+    </div>
+    <div
+      id="collapse99"
+      class="collapse"
+      role="tabpanel"
+      aria-labelledby="heading99"
+      data-parent="#accordionEx23"
+    >
+      <div class="card-body">
+        <div class="row my-4">
+          <div class="col-md-8">
+            <h2 class="font-weight-bold mb-3 black-text">
+              Hi! I am the third one.
+            </h2>
+            <p class="">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+            <p class="mb-0">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
+          <div class="col-md-4 mt-3 pt-2">
+            <div class="view z-depth-1">
+              <img
+                src="https://mdbootstrap.com/img/Photos/Others/nature.jpeg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">
+      <h5 class="text-uppercase mb-0 py-1">
+        <a
+          class="collapsed font-weight-bold white-text"
+          data-toggle="collapse"
+          href="#collapse91"
+          aria-expanded="false"
+          aria-controls="collapse91"
+        >
+          I am the third title of accordion
+        </a>
+      </h5>
+    </div>
+    <div
+      id="collapse91"
+      class="collapse"
+      role="tabpanel"
+      aria-labelledby="heading91"
+      data-parent="#accordionEx23"
+    >
+      <div class="card-body">
+        <div class="row my-4">
+          <div class="col-md-8">
+            <h2 class="font-weight-bold mb-3 black-text">
+              Hi! I am the third one.
+            </h2>
+            <p class="">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+            <p class="mb-0">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
+          <div class="col-md-4 mt-3 pt-2">
+            <div class="view z-depth-1">
+              <img
+                src="https://mdbootstrap.com/img/Photos/Others/nature.jpeg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">
+      <h5 class="text-uppercase mb-0 py-1">
+        <a
+          class="collapsed font-weight-bold white-text"
+          data-toggle="collapse"
+          href="#collapse92"
+          aria-expanded="false"
+          aria-controls="collapse92"
+        >
+          I am the third title of accordion
+        </a>
+      </h5>
+    </div>
+    <div
+      id="collapse92"
+      class="collapse"
+      role="tabpanel"
+      aria-labelledby="heading92"
+      data-parent="#accordionEx23"
+    >
+      <div class="card-body">
+        <div class="row my-4">
+          <div class="col-md-8">
+            <h2 class="font-weight-bold mb-3 black-text">
+              Hi! I am the third one.
+            </h2>
+            <p class="">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+            <p class="mb-0">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
+          <div class="col-md-4 mt-3 pt-2">
+            <div class="view z-depth-1">
+              <img
+                src="https://mdbootstrap.com/img/Photos/Others/nature.jpeg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Accordion wrapper -->

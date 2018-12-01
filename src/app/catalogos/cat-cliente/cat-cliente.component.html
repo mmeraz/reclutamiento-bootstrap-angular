@@ -1,56 +1,51 @@
-<!-- 
-<button mz-button (click)="basicModal.openModal()">
-  Nuevo
-</button>
+
+<!-- Titulo principal-->
 <div class="container">
-<table class="highlight">
-<thead>
-  <tr>
-      <th>ID</th>
-      <th>Cliente</th>
-      <th>Modificar</th>
-      <th>Eliminar</th>
-  </tr>
-</thead>
+    <h4>Áreas</h4>
+    <hr />
+  <!--Empieza el card donde se encunentra la tabla-->
+    <div class="card" style="width: 100%;">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
+            <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
+            <i class="fas fa-table" style="font-size: 15px;"> Catálogo áreas</i>
+          </div>
+          <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+            <app-create-area></app-create-area>
+          </div>
+        </div>
+        </div>
+      </div>
+  <!--Términa el titulo del card-->
 
-<tbody>
-  <tr *ngFor="let a of arrayAreas">
-    <td> {{a.cliIdcliente}}</td>
-    <td>{{a.cliNombre}}</td>
-    <td>{{a.cliRazonsocial}}</td>
-    <td><button mz-button >
-      Editar
-    </button></td>
-    <td><button mz-button>
-      Eliminar
-    </button></td>
-  </tr>
+  <!-- Empieza el contenido del card-->
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
 
-</tbody>
-</table>
-</div>
+          <!--La tabla-->
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Razón Social</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
 
-<div > -->
-<!-- <mz-modal #basicModal>
-    <mz-modal-header>
-      <h4>Agregar Cliente</h4>
-    </mz-modal-header>
-    <mz-modal-content>
-      <form [formGroup]="angForm">
-
-        <label > Cliente</label>
-        <input type="text" class="form-control" formControlName="cliNombre" #cliNombre/>
-        <input type="text" class="form-control" formControlName="cliRazonsocial" #cliRazonsocial/>
-
-
-      </form>
-    </mz-modal-content>
-    <mz-modal-footer>
-      <button mz-button [flat]="true"
-       role="button" (click)='addcliente(cliNombre.value)'
-       (click)='addcliente(cliRazonsocial.value)'
-       mz-modal-close>Guardar</button>
-      <button mz-button [flat]="true" mz-modal-close>Cancelar</button>
-    </mz-modal-footer>
-  </mz-modal>
-</div> -->
+                  <tr *ngFor="let a of allCliente">
+                    <th scope="row">{{ a.arnIdarean }}</th>
+                    <td>{{ a.arnTipo }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>

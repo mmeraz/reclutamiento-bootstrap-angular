@@ -1,9 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Catcliente } from 'src/app/model/catcliente.model';
 import { ClienteService } from 'src/app/service/cat.cliente.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Router, ActivatedRoute} from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute} from '@angular/router';
+import { DataTableDirective } from 'angular-datatables';
+import { Subject } from 'rxjs';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cat-cliente',
@@ -11,25 +14,28 @@ import { Location } from '@angular/common';
   providers: [ClienteService]
 })
 export class CatClienteComponent implements OnInit {
-  angForm: FormGroup;
-  arrayAreas: Catcliente[];
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
+  dtOptions: DataTables.Settings = {};
+  arrayClientes: Catcliente[];
+  allCliente: any = [];
+  dtTrigger: Subject<any> = new Subject();
 
   constructor( private clienteService: ClienteService,
     private fb: FormBuilder, private bs: ClienteService,
-    private activatedRoute: ActivatedRoute) {
-      this.createForm();
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient) {
     }
 
-  ngOnInit() {
-    this.clienteService.getAreas().subscribe(
-      (data: Catcliente[]) => this.arrayAreas = data
-    );
+  ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+    };
+    this.clienteService.getClientes();
   }
   createForm() {
-    this.angForm = this.fb.group({
-      cliNombre: ['', Validators.required ],
-      cliRazonsocial: ['', Validators.required ]
-    });
+
   }
 
   addcliente(cliNombre, cliRazonsocial) {

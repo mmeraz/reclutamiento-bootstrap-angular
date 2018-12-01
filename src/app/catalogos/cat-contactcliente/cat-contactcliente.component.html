@@ -5,7 +5,7 @@
         </div>
         <select [(ngModel)]="cliente" class="custom-select" id="inputGroupSelect01">
           <option [ngValue]="null" selected>Choose...</option>
-          <option *ngFor="let c of contacto" [ngValue]="c" value="1">{{c.cliNombre}}</option>
+          <option *ngFor="let c of contacto" [ngValue]="c">{{c.cliNombre}}</option>
 
         </select>
       </div>
@@ -15,7 +15,7 @@
           </div>
           <select class="custom-select" id="inputGroupSelect02">
             <option [ngValue]="null" selected>Choose...</option>
-            <option *ngFor="let a of cliente.contactos" [ngValue]="a" value="2">{{a.clcNombre}}</option>
+            <option *ngFor="let a of cliente.contactos" [ngValue]="a">{{a.clcNombre}}</option>
           </select>
         </div>
 

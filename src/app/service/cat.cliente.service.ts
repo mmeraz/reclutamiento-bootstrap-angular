@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { Observable } from 'rxjs';
 import { Catcliente } from '../model/catcliente.model';
 
 @Injectable({
@@ -12,10 +9,11 @@ import { Catcliente } from '../model/catcliente.model';
 )
 
 export class ClienteService {
-  private url = 'http://localhost:8085/api/v1/';
+  private url = 'http://localhost:8085/api/v1/cliente';
+
   constructor( private clienteHttp: HttpClient) {}
 
-  getAreas() {
+  getClientes() {
     return this.clienteHttp.get<Catcliente[]>(this.url + '/fetch');
   }
 
