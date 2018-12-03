@@ -1,91 +1,100 @@
-<!-- Accordion wrapper -->
-<div
-  class="accordion md-accordion accordion-1"
-  id="accordionEx23"
-  role="tablist"
->
-  <div class="card">
-    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading96">
-      <h6 class="text-uppercase mb-0 py-1">
+<div>
+  <!-- Accordion wrapper -->
+  <div
+    class="accordion l-accordion accordion-12"
+    id="accordionEx2"
+    role="tablist"
+    aria-multiselectable="false"
+  >
+    <!-- Accordion card -->
+    <div class="card">
+      <!-- Card header -->
+      <div
+        class="card-header z-depth-1 teal lighten-4"
+        role="tab"
+        id="heading10"
+      >
         <a
-          class="white-text font-weight-bold"
           data-toggle="collapse"
-          href="#collapse96"
-          aria-expanded="true"
-          aria-controls="collapse96"
+          data-parent="#accordionEx2"
+          href="#collapse10"
+          aria-expanded="false"
+          aria-controls="collapse10"
         >
-          Datos del Requerimiento
+          <h6 class="mb-0 black-text font-weight-bold">
+            Datos del requerimiento
+          </h6>
         </a>
-      </h6>
-    </div>
-    <div
-      id="collapse96"
-      class="collapse show"
-      role="tabpanel"
-      aria-labelledby="heading96"
-      data-parent="#accordionEx23"
-    >
-      <div class="card-body">
-        <div class="row my-4">
-          <div class="col-md-8">
-            <!-- Form Name -->
-            <legend>Solicitud</legend>
+      </div>
 
-            <!-- Select Basic -->
+      <!-- Card body -->
+      <div
+        id="collapse10"
+        class="collapse show"
+        role="tabpanel"
+        aria-labelledby="heading10"
+        data-parent="#accordionEx2"
+      >
+        <div class="card-body rgba-teal-strong white-text">
+          <!-- Select Basic -->
+          <div class="row">
             <div class="form-group">
-              <label class="col-md-4 control-label" for="requerimiento"
+              <label class="col-md-12 control-label" for="requerimiento"
                 >Tipo Requerimiento</label
               >
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <select
+                  [(ngModel)]="requerimiento"
+                  class="custom-select"
                   id="requerimiento"
-                  name="requerimiento"
-                  class="form-control"
+                  [ngModelOptions]="{ standalone: true }"
                 >
-                  <option value="1">Option one</option>
-                  <option value="2">Option two</option>
+                  <option [ngValue]="null" selected>Selecciona uno</option>
+                  <option *ngFor="let c of allAreas" [ngValue]="c">{{
+                    c.arnTipo
+                  }}</option>
                 </select>
               </div>
             </div>
-
             <!-- Select Basic -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="prioridad"
+              <label class="col-md-12 control-label" for="prioridad"
                 >Prioridad</label
               >
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <select id="prioridad" name="prioridad" class="form-control">
-                  <option value="1">Option one</option>
-                  <option value="2">Option two</option>
+                  <option [ngValue]="null">Selecciona uno</option>
+                  <option *ngFor="let item of allPrioridad" [ngValue]="item">{{
+                    item.priNombre
+                  }}</option>
                 </select>
               </div>
             </div>
-
             <!-- Select Basic -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="presupuesto"
+              <label class="col-md-12 control-label" for="presupuesto"
                 >Presupuesto</label
               >
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <select
                   id="presupuesto"
                   name="presupuesto"
                   class="form-control"
                 >
-                  <option value="1">Option one</option>
-                  <option value="2">Option two</option>
+                  <option value="">Selecciona uno</option>
+                  <option value="s">Si</option>
+                  <option value="n">No</option>
                 </select>
               </div>
             </div>
-
             <!-- Select Basic -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="vacante"
+              <label class="col-md-12 control-label" for="vacante"
                 >Tipo Vacante</label
               >
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <select id="vacante" name="vacante" class="form-control">
-                  <option value="1">Option 1</option>
+                  <option value="1">Selecciona una</option>
                   <option value="2">Option 2</option>
                 </select>
               </div>
@@ -94,50 +103,55 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading97">
-      <h6 class="text-uppercase mb-0 py-1">
+    <!-- Accordion card -->
+
+    <!-- Accordion card -->
+    <div class="card">
+      <!-- Card header -->
+      <div
+        class="card-header z-depth-1 teal lighten-3"
+        role="tab"
+        id="heading11"
+      >
         <a
-          class="collapsed font-weight-bold white-text"
+          class="collapsed"
           data-toggle="collapse"
-          href="#collapse97"
+          data-parent="#accordionEx2"
+          href="#collapse11"
           aria-expanded="false"
-          aria-controls="collapse97"
+          aria-controls="collapse11"
         >
-          Datos del Cliente
+          <h6 class="mb-0 black-text font-weight-bold">Datos Cliente</h6>
         </a>
-      </h6>
-    </div>
-    <div
-      id="collapse97"
-      class="collapse"
-      role="tabpanel"
-      aria-labelledby="heading97"
-      data-parent="#accordionEx23"
-    >
-      <div class="card-body">
-        <div class="row my-4">
-          <div class="col-md-8">
-            <!-- Select Basic -->
+      </div>
+
+      <!-- Card body -->
+      <div
+        id="collapse11"
+        class="collapse"
+        role="tabpanel"
+        aria-labelledby="heading11"
+        data-parent="#accordionEx2"
+      >
+        <div class="card-body rgba-teal-strong white-text">
+          <div class="row">
             <div class="form-group">
-              <label class="col-md-4 control-label" for="cliente"
+              <label class="col-md-12 control-label" for="cliente"
                 >Cliente</label
               >
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <select id="cliente" name="cliente" class="form-control">
                   <option value="1">Option one</option>
                   <option value="2">Option two</option>
                 </select>
               </div>
             </div>
-
             <!-- Select Basic -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="clcCliente"
+              <label class="col-md-12 control-label" for="clcCliente"
                 >Contacto</label
               >
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <select id="clcCliente" name="clcCliente" class="form-control">
                   <option value="1">Option one</option>
                   <option value="2">Option two</option>
@@ -148,37 +162,44 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">
-      <h6 class="text-uppercase mb-0 py-1">
+    <!-- Accordion card -->
+
+    <!-- Accordion card -->
+    <div class="card">
+      <!-- Card header -->
+      <div
+        class="card-header z-depth-1 teal lighten-2"
+        role="tab"
+        id="heading12"
+      >
         <a
-          class="collapsed font-weight-bold white-text"
+          class="collapsed"
           data-toggle="collapse"
-          href="#collapse98"
+          data-parent="#accordionEx2"
+          href="#collapse12"
           aria-expanded="false"
-          aria-controls="collapse98"
+          aria-controls="collapse12"
         >
-          Datos del proyecto
+          <h6 class="mb-0 black-text font-weight-bold">Datos del proyecto</h6>
         </a>
-      </h6>
-    </div>
-    <div
-      id="collapse98"
-      class="collapse"
-      role="tabpanel"
-      aria-labelledby="heading98"
-      data-parent="#accordionEx23"
-    >
-      <div class="card-body">
-        <div class="row my-4">
-          <div class="col-md-8">
+      </div>
+
+      <!-- Card body -->
+      <div
+        id="collapse12"
+        class="collapse"
+        role="tabpanel"
+        aria-labelledby="heading12"
+        data-parent="#accordionEx2"
+      >
+        <div class="card-body rgba-teal-strong white-text">
+          <div class="row">
             <!-- Text input -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="proyecto"
+              <label class="col-md-12 control-label" for="proyecto"
                 >Nombre del proyecto</label
               >
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <input
                   id="proyecto"
                   name="proyecto"
@@ -192,8 +213,8 @@
 
             <!-- Text input -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="Puesto">Puesto</label>
-              <div class="col-md-4">
+              <label class="col-md-12 control-label" for="Puesto">Puesto</label>
+              <div class="col-md-12">
                 <input
                   id="Puesto"
                   name="Puesto"
@@ -206,10 +227,10 @@
 
             <!-- Text input -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="duracion"
+              <label class="col-md-12 control-label" for="duracion"
                 >Duración proyecto</label
               >
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <input
                   id="duracion"
                   name="duracion"
@@ -220,12 +241,25 @@
               </div>
             </div>
 
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="jornada"
+                >Jornada Laboral</label
+              >
+              <div class="col-md-12">
+                <select id="jornada" name="jornada" class="form-control">
+                  <option value="1">Option one</option>
+                  <option value="2">Option two</option>
+                </select>
+              </div>
+            </div>
+
             <!-- Textarea -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="descripcion"
+              <label class="col-md-12 control-label" for="descripcion"
                 >Descripción</label
               >
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <textarea
                   class="form-control"
                   id="descripcion"
@@ -237,156 +271,294 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">
-      <h5 class="text-uppercase mb-0 py-1">
+    <!-- Accordion card -->
+    <div class="card">
+      <!-- Card header -->
+      <div
+        class="card-header z-depth-1 teal lighten-1"
+        role="tab"
+        id="heading13"
+      >
         <a
-          class="collapsed font-weight-bold white-text"
+          class="collapsed"
           data-toggle="collapse"
-          href="#collapse99"
-          aria-expanded="false"
-          aria-controls="collapse99"
+          data-parent="#accordionEx2"
+          href="#collapse13"
+          aria-expanded="true"
+          aria-controls="collapse13"
         >
-          I am the third title of accordion
+          <h6 class="mb-0 black-text font-weight-bold">
+            Conocimiento requeridos
+          </h6>
         </a>
-      </h5>
-    </div>
-    <div
-      id="collapse99"
-      class="collapse"
-      role="tabpanel"
-      aria-labelledby="heading99"
-      data-parent="#accordionEx23"
-    >
-      <div class="card-body">
-        <div class="row my-4">
-          <div class="col-md-8">
-            <h2 class="font-weight-bold mb-3 black-text">
-              Hi! I am the third one.
-            </h2>
-            <p class="">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
-            <p class="mb-0">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
-            </p>
+      </div>
+
+      <!-- Card body -->
+      <div
+        id="collapse13"
+        class="collapse"
+        role="tabpanel"
+        aria-labelledby="heading13"
+        data-parent="#accordionEx2"
+      >
+        <div class="card-body rgba-teal-strong white-text">
+          <div class="row">
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="idioma">Idioma</label>
+              <div class="col-md-12">
+                <select id="idioma" name="idioma" class="form-control">
+                  <option value="1">Option one</option>
+                  <option value="2">Option two</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="nivel">Nivel</label>
+              <div class="col-md-12">
+                <input
+                  id="nivel"
+                  name="nivel"
+                  type="text"
+                  placeholder=""
+                  class="form-control input-md"
+                />
+              </div>
+            </div>
+            <div>
+              <i
+                style="color:#dc3545;"
+                data-toggle="tooltip"
+                data-placement="center"
+                title="Agregar"
+                class="fas fa-plus"
+                (click)="add()"
+              ></i>
+            </div>
           </div>
-          <div class="col-md-4 mt-3 pt-2">
-            <div class="view z-depth-1">
-              <img
-                src="https://mdbootstrap.com/img/Photos/Others/nature.jpeg"
-                alt=""
-                class="img-fluid"
-              />
+          <!-- Select Basic -->
+          <div class="row">
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="conocimiento"
+                >Conocimiento</label
+              >
+              <div class="col-md-12">
+                <select
+                  id="conocimiento"
+                  name="conocimiento"
+                  class="form-control"
+                >
+                  <option value="1">Option one</option>
+                  <option value="2">Option two</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="nivel">Nivel</label>
+              <div class="col-md-12">
+                <input
+                  id="nivel"
+                  name="nivel"
+                  type="text"
+                  placeholder=""
+                  class="form-control input-md"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Select Basic -->
+          <div class="row">
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="habilidades"
+                >Habilidades</label
+              >
+              <div class="col-md-12">
+                <select
+                  id="habilidades"
+                  name="habilidades"
+                  class="form-control"
+                >
+                  <option value="1">Option one</option>
+                  <option value="2">Option two</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="nivel">Nivel</label>
+              <div class="col-md-12">
+                <input
+                  id="nivel"
+                  name="nivel"
+                  type="text"
+                  placeholder=""
+                  class="form-control input-md"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion card -->
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header z-depth-1 teal" role="tab" id="heading14">
+          <a
+            class="collapsed"
+            data-toggle="collapse"
+            data-parent="#accordionEx2"
+            href="#collapse14"
+            aria-expanded="false"
+            aria-controls="collapse14"
+          >
+            <h6 class="mb-0 black-text font-weight-bold">
+              Conocimientos adicionales
+            </h6>
+          </a>
+        </div>
+
+        <!-- Card body -->
+        <div
+          id="collapse14"
+          class="collapse"
+          role="tabpanel"
+          aria-labelledby="heading14"
+          data-parent="#accordionEx2"
+        >
+          <div class="card-body rgba-teal-strong white-text">
+            <div class="row">
+              <!-- Select Basic -->
+              <div class="form-group">
+                <label class="col-md-12 control-label" for="habilidades"
+                  >Conocimiento</label
+                >
+                <div class="col-md-12">
+                  <select
+                    id="habilidades"
+                    name="habilidades"
+                    class="form-control"
+                  >
+                    <option value="1">Option one</option>
+                    <option value="2">Option two</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Text input -->
+              <div class="form-group">
+                <label class="col-md-12 control-label" for="nivel">Nivel</label>
+                <div class="col-md-12">
+                  <input
+                    id="nivel"
+                    name="nivel"
+                    type="text"
+                    placeholder=""
+                    class="form-control input-md"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Accordion card -->
+      <!-- Accordion card -->
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header z-depth-1 teal" role="tab" id="heading15">
+          <a
+            class="collapsed"
+            data-toggle="collapse"
+            data-parent="#accordionEx2"
+            href="#collapse15"
+            aria-expanded="false"
+            aria-controls="collapse15"
+          >
+            <h6 class="mb-0 black-text font-weight-bold">Percepciones</h6>
+          </a>
+        </div>
+
+        <!-- Card body -->
+        <div
+          id="collapse15"
+          class="collapse"
+          role="tabpanel"
+          aria-labelledby="heading15"
+          data-parent="#accordionEx2"
+        >
+          <div class="card-body rgba-teal-strong white-text">
+            <div class="row">
+              <!-- Select Basic -->
+              <div class="form-group">
+                <label class="col-md-12 control-label" for="percepcion"
+                  >Tipo de percepción</label
+                >
+                <div class="col-md-12">
+                  <select
+                    id="percepcion"
+                    name="percepcion"
+                    class="form-control"
+                  >
+                    <option value="1">Option one</option>
+                    <option value="2">Option two</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Text input -->
+              <div class="form-group">
+                <label class="col-md-12 control-label" for="descripcion"
+                  >Descripción</label
+                >
+                <div class="col-md-12">
+                  <input
+                    id="descripcion"
+                    name="descripcion"
+                    type="text"
+                    placeholder=""
+                    class="form-control input-md"
+                  />
+                </div>
+              </div>
+
+              <!-- Text input -->
+              <div class="form-group">
+                <label class="col-md-12 control-label" for="valor">Valor</label>
+                <div class="col-md-12">
+                  <input
+                    id="valor"
+                    name="valor"
+                    type="text"
+                    placeholder=""
+                    class="form-control input-md"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- /.Accordion wrapper -->
   </div>
-  <div class="card">
-    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">
-      <h5 class="text-uppercase mb-0 py-1">
-        <a
-          class="collapsed font-weight-bold white-text"
-          data-toggle="collapse"
-          href="#collapse91"
-          aria-expanded="false"
-          aria-controls="collapse91"
-        >
-          I am the third title of accordion
-        </a>
-      </h5>
-    </div>
-    <div
-      id="collapse91"
-      class="collapse"
-      role="tabpanel"
-      aria-labelledby="heading91"
-      data-parent="#accordionEx23"
+  <div class="row">
+    <button
+      type="button"
+      class="btn btn-success"
+      data-dismiss="modal"
+      role="button"
+      (click)="addSolicitud()"
     >
-      <div class="card-body">
-        <div class="row my-4">
-          <div class="col-md-8">
-            <h2 class="font-weight-bold mb-3 black-text">
-              Hi! I am the third one.
-            </h2>
-            <p class="">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
-            <p class="mb-0">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
-            </p>
-          </div>
-          <div class="col-md-4 mt-3 pt-2">
-            <div class="view z-depth-1">
-              <img
-                src="https://mdbootstrap.com/img/Photos/Others/nature.jpeg"
-                alt=""
-                class="img-fluid"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">
-      <h5 class="text-uppercase mb-0 py-1">
-        <a
-          class="collapsed font-weight-bold white-text"
-          data-toggle="collapse"
-          href="#collapse92"
-          aria-expanded="false"
-          aria-controls="collapse92"
-        >
-          I am the third title of accordion
-        </a>
-      </h5>
-    </div>
-    <div
-      id="collapse92"
-      class="collapse"
-      role="tabpanel"
-      aria-labelledby="heading92"
-      data-parent="#accordionEx23"
-    >
-      <div class="card-body">
-        <div class="row my-4">
-          <div class="col-md-8">
-            <h2 class="font-weight-bold mb-3 black-text">
-              Hi! I am the third one.
-            </h2>
-            <p class="">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
-            <p class="mb-0">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur.
-            </p>
-          </div>
-          <div class="col-md-4 mt-3 pt-2">
-            <div class="view z-depth-1">
-              <img
-                src="https://mdbootstrap.com/img/Photos/Others/nature.jpeg"
-                alt=""
-                class="img-fluid"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      Guardar
+    </button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">
+      Borrador
+    </button>
   </div>
 </div>
-<!-- Accordion wrapper -->

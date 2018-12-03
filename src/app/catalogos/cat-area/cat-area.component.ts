@@ -36,8 +36,7 @@ export class CatAreaComponent implements OnInit {
       this.allAreas = result;
       this.dtTrigger.next();
     });
-    console.log(this.allAreas)
-    
+    console.log(this.allAreas);
   }
 
   OnDestroy(): void {
