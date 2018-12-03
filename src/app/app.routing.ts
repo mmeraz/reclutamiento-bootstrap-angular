@@ -37,7 +37,7 @@ import { CatSolidiomaComponent } from './catalogos/cat-solidioma/cat-solidioma.c
 import { CatSolpercepcionesComponent } from './catalogos/cat-solpercepciones/cat-solpercepciones.component';
 import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacante.component';
 import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.component';
-import { LoginComponent} from './login/login.component';
+import { LoginComponent} from './pages/login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
 
@@ -46,7 +46,7 @@ import { CandidatoComponent } from './pages/candidato/candidato.component';
 import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 
 import { AuthGuard } from './Guard/auth.guard';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -55,8 +55,8 @@ import { HomeComponent } from './home/home.component';
 
 
  const appRoutes: Routes = [
+  {path: '/', component: HomeComponent },
   {path: 'Login', component: LoginComponent},
-  {path: 'Home', component: HomeComponent , canActivate: [AuthGuard]},
   {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},
@@ -95,6 +95,8 @@ import { HomeComponent } from './home/home.component';
   {path: 'Solicitud-percepciones', component: CatSolpercepcionesComponent },
   {path: 'Tipo-vacante', component: CatTipvacanteComponent },
   {path: 'Usuarios', component: CatUsuarioComponent },
+  {path: 'New-candidato', component: CandidatoComponent},
+  {path: '**', component: NotfoundComponent}
 
 
   ];

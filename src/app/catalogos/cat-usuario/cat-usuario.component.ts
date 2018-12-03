@@ -21,7 +21,7 @@ export class CatUsuarioComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.usuarioService.getAreas().subscribe(
+    this.usuarioService.getUsuarios().subscribe(
       (data: Catusuario[]) => this.arrayAreas = data
     );
   }

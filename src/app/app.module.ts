@@ -42,11 +42,13 @@ import { CatSolpercepcionesComponent } from './catalogos/cat-solpercepciones/cat
 import { CatConsolicitadoComponent } from './catalogos/cat-consolicitado/cat-consolicitado.component';
 import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.component';
 import { routing, appRoutingProviders } from './app.routing';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { EditAreaComponent } from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
 import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacante.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CandidatoComponent} from './pages/candidato/candidato.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
 
 
 
@@ -92,7 +94,9 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     EditAreaComponent,
     CreateAreaComponent,
-    HomeComponent
+    HomeComponent,
+    CandidatoComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

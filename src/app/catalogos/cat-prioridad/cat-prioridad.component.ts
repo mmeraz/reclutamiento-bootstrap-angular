@@ -22,7 +22,7 @@ export class CatPrioridadComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.prioridadService.getAreas().subscribe(
+    this.prioridadService.getPrioridades().subscribe(
       (data: Catprioridad[]) => this.arrayAreas = data
     );
   }

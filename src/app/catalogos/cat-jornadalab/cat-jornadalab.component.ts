@@ -21,7 +21,7 @@ export class CatJornadalabComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.JornadaService.getAreas().subscribe(
+    this.JornadaService.getJornadas().subscribe(
       (data: Catjornadalab[]) => this.arrayAreas = data
     );
   }
