@@ -40,6 +40,9 @@ import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.compone
 import { LoginComponent} from './login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { CandidatoComponent } from './pages/candidato/candidato.component';
+import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 
 
 
@@ -86,7 +89,8 @@ import { CreateAreaComponent } from './catalogos/cat-area/create-area.component'
   {path: 'Tipo-vacante', component: CatTipvacanteComponent },
   {path: 'Usuarios', component: CatUsuarioComponent },
   {path: 'Login', component: LoginComponent},
-
+  {path: 'New-Candidato', component: CandidatoComponent},
+  {path: 'NewSolicitud', component: SolicitudComponent},
   ];
 
  export const appRoutingProviders: any[] = [];
