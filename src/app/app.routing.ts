@@ -41,6 +41,7 @@ import { LoginComponent} from './login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
 import { AuthGuard } from './Guard/auth.guard';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -48,7 +49,9 @@ import { AuthGuard } from './Guard/auth.guard';
 
 
  const appRoutes: Routes = [
-  {path: 'Area', component: CatAreaComponent, canActivate: [AuthGuard]},
+  {path: 'Login', component: LoginComponent},
+  {path: 'Home', component: HomeComponent , canActivate: [AuthGuard]},
+  {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},
 
@@ -86,7 +89,7 @@ import { AuthGuard } from './Guard/auth.guard';
   {path: 'Solicitud-percepciones', component: CatSolpercepcionesComponent },
   {path: 'Tipo-vacante', component: CatTipvacanteComponent },
   {path: 'Usuarios', component: CatUsuarioComponent },
-  {path: 'Login', component: LoginComponent},
+
 
   ];
 

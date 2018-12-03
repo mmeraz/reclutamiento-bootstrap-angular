@@ -46,6 +46,7 @@ import { LoginComponent } from './login/login.component';
 import { EditAreaComponent } from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
 import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacante.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -90,7 +91,8 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
     CatUsuarioComponent,
     LoginComponent,
     EditAreaComponent,
-    CreateAreaComponent
+    CreateAreaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
