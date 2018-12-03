@@ -24,7 +24,7 @@ export class CatContactclienteComponent implements OnInit {
     this.contaclienteService.getContactcliente().subscribe
       ((data: Catcliente[]) => this.contacto = data );
     console.log(this.contacto);
-    console.log(this.contactos); 
+    console.log(this.contactos);
   }
 
 }

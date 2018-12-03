@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Catarea } from '../../model/catarea.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { AreaService } from '../../service/cat.area.service';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
