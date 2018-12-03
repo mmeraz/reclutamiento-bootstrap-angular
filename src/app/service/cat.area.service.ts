@@ -24,6 +24,10 @@ export class AreaService {
         .subscribe(res => console.log('Done'));
   }
 
+  refresh(): void {
+    window.location.reload();
+ }
+
   getArea(id): Observable<Catarea> {
     return this.clienteHttp.get<Catarea>(`${this.url}/fetch/${id}`);
   }

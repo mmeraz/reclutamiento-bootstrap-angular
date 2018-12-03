@@ -5,7 +5,6 @@ import {  HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { CatAreaComponent } from './catalogos/cat-area/cat-area.component';
@@ -106,8 +105,7 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DataTablesModule,
-    NgxPaginationModule
+    DataTablesModule
   ],
   exports: [],
   providers: [

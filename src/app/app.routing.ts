@@ -40,9 +40,13 @@ import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.compone
 import { LoginComponent} from './login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
+<<<<<<< HEAD
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CandidatoComponent } from './pages/candidato/candidato.component';
 import { SolicitudComponent } from './pages/solicitud/solicitud.component';
+=======
+import { AuthGuard } from './Guard/auth.guard';
+>>>>>>> 549c8030a29556ec446c5e8d9e32386640436b0b
 
 
 
@@ -50,7 +54,7 @@ import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 
 
  const appRoutes: Routes = [
-  {path: 'Area', component: CatAreaComponent, },
+  {path: 'Area', component: CatAreaComponent, canActivate: [AuthGuard]},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},
 

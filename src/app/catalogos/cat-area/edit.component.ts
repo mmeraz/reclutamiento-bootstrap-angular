@@ -3,6 +3,7 @@ import { AreaService } from 'src/app/service/cat.area.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
+import { CatAreaComponent } from './cat-area.component';
 
 @Component({
   selector: 'app-edit',
@@ -21,7 +22,7 @@ export class EditAreaComponent implements OnInit {
 
      createForm() {
       this.editForm = this.fb.group({
-        arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$')] ]
+        arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
         });
       }
 
@@ -45,7 +46,12 @@ export class EditAreaComponent implements OnInit {
         timer: 1500
       });
     });
+    this.update();
  }
+
+ update(): void {
+  window.location.reload();
+}
 
  saveData() {
   alert(JSON.stringify(this.editForm.value));

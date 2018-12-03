@@ -26,7 +26,7 @@
         <!--La tabla-->
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
-            <table datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+            <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
               <thead>
                 <tr>
                   <th scope="col">Id</th>
@@ -54,7 +54,7 @@
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.arnIdarean)"></i>
+                      (click)="deleteBusiness(a.arnIdarean,a.arnTipo)"></i>
                   </td>
                 </tr>
               </tbody>

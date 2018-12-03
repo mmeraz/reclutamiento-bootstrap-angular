@@ -1,9 +1,8 @@
 <div class="container">
     <div class="row">
-        <h3>Editar área</h3>
         <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
-
-            <form [formGroup]="editForm" (submit)="saveData()">
+            <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
+                <h1 class="h3 mb-3 font-weight-normal">Editar área</h1>
                 <div class="form-group">
                     <label for="arnTipo">Área</label>
                     <input [(ngModel)]="area.arnTipo" maxlength="40" type="text" required class="form-control" name="arnTipo" formControlName="arnTipo" #arnTipo>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Catarea } from '../../model/catarea.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { AreaService } from '../../service/cat.area.service';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
@@ -29,7 +29,11 @@ export class CreateAreaComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
+<<<<<<< HEAD
         arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+=======
+        arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+>>>>>>> 549c8030a29556ec446c5e8d9e32386640436b0b
       });
     }
 
@@ -43,9 +47,12 @@ export class CreateAreaComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       });
-      console.log('Area registrada');
+      this.update();
     }
 
+    update(): void {
+      window.location.reload();
+    }
     saveData() {
       alert(JSON.stringify(this.addForm.value));
     }

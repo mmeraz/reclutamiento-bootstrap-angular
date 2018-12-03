@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { Observable } from 'rxjs';
 import { Catcliente } from '../model/catcliente.model';
 
 @Injectable({
@@ -12,12 +9,18 @@ import { Catcliente } from '../model/catcliente.model';
 )
 
 export class ClienteService {
-  private url = 'http://localhost:8085/api/v1/';
+  private url = 'http://localhost:8085/api/v1/cliente';
+
   constructor( private clienteHttp: HttpClient) {}
 
-  getAreas() {
-    return this.clienteHttp.get<Catcliente[]>(this.url + '/fetch');
+  getClientes() {
+    return this.clienteHttp.get(this.url + '/fetchAll');
   }
+  getById(id) {
+    return this
+            .clienteHttp
+            .get(`${this.url}/fetch/${id}`);
+    }
 
   addcliente(cliNombre, cliRazonsocial  ) {
     const obj = {
@@ -27,6 +30,9 @@ export class ClienteService {
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));
   }
+  refresh(): void {
+    window.location.reload();
+ }
 
 
 }
