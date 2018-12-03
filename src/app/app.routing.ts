@@ -40,6 +40,7 @@ import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.compone
 import { LoginComponent} from './login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
+import { AuthGuard } from './Guard/auth.guard';
 
 
 
@@ -47,7 +48,7 @@ import { CreateAreaComponent } from './catalogos/cat-area/create-area.component'
 
 
  const appRoutes: Routes = [
-  {path: 'Area', component: CatAreaComponent, },
+  {path: 'Area', component: CatAreaComponent, canActivate: [AuthGuard]},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},
 
