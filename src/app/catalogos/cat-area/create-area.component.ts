@@ -29,7 +29,11 @@ export class CreateAreaComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
+<<<<<<< HEAD
+        arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+=======
         arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+>>>>>>> 549c8030a29556ec446c5e8d9e32386640436b0b
       });
     }
 

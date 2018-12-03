@@ -12,11 +12,11 @@ import { Catusuario } from '../model/catusuario.model';
 )
 
 export class UsuarioService {
-    private url = 'http://localhost:8085/api/v1/';
+    private url = 'http://localhost:8085/api/v1/Usuario';
 
     constructor( private clienteHttp: HttpClient) {}
 
-    getAreas() {
+    getUsuarios() {
       return this.clienteHttp.get<Catusuario[]>(this.url + '/fetch');
     }
 
@@ -32,7 +32,9 @@ export class UsuarioService {
       this.clienteHttp.post(this.url + '/add', obj)
           .subscribe(res => console.log('Done'));
     }
-
+    getUsuario(id): Observable<Catusuario> {
+      return this.clienteHttp.get<Catusuario>(`${this.url}/fetch/${id}`);
+    }
 
   }
 

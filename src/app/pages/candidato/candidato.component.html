@@ -1,0 +1,731 @@
+<div class="container">
+  <!-- Carta donde se encuentra el collapsible con toda la información -->
+  <div class="card" style="width: 100%;">
+    <div class="card-header">Nuevo Candidato</div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <!-- Empieza el collapsible -->
+        <div class="accordion" id="accordionExample">
+          <!--
+            Titulo del primer collapsible - tambien boton para abrir el primer collapsible
+          -->
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Datos del candidato
+                </button>
+              </h5>
+            </div>
+            <!-- Primer collapsible -->
+            <div
+              id="collapseOne"
+              class="collapse show"
+              aria-labelledby="headingOne"
+              data-parent="#accordionExample"
+            >
+              <!-- Contenido del primer collapsible -->
+              <div class="card-body">
+                <!-- Formulario para el primer collapsible -->
+                <form>
+                  <div class="form-row">
+                    <div class=" col-md-3 mb-3">
+                      <label
+                        for="nombre"
+                        class="col-form-label-sm font-weight-bold"
+                        >Nombre</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="nombre"
+                        placeholder="nombre"
+                      />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                      <label
+                        for="apePaterno"
+                        class="col-form-label-sm font-weight-bold"
+                        >Apellido Paterno</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="apePaterno"
+                        placeholder="Apellido Paterno"
+                      />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                      <label
+                        for="apeMaterno"
+                        class="col-form-label-sm font-weight-bold"
+                        >Apellido Materno</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="apeMaterno"
+                        placeholder="Apellido Materno"
+                      />
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                      <label
+                        for="edad"
+                        class="col-form-label-sm font-weight-bold"
+                        >Edad</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="edad"
+                        placeholder="Edad"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label
+                        for="email"
+                        class="col-form-label-sm font-weight-bold"
+                        >Email</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control form-control-sm"
+                        id="email"
+                        placeholder="Email"
+                      />
+                    </div>
+
+
+                    <div class="col-md-6 mb-3">
+                      <label
+                        for="edoCivil"
+                        class="col-form-label-sm font-weight-bold"
+                        >Estado Civil</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="edoCivil"
+                        placeholder="Estado Civil"
+                      />
+                    </div>
+                  </div>
+
+                    <div class="form-row">
+                    <div class="form-check form-check-inline col-md-1 mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="hijos"
+                        value=""
+                      />
+                      <label class="form-check-label" for="inlineCheckbox1"
+                        >Hijos</label
+                      >
+                    </div>
+
+                    <div class="form-check form-check-inline col-md-1 mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="visa"
+                        value=""
+                      />
+                      <label class="form-check-label" for="inlineCheckbox1"
+                        >Visa</label
+                      >
+                    </div>
+
+                    <div class="form-check form-check-inline col-md-1 mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="pasaporte"
+                        value=""
+                      />
+                      <label class="form-check-label" for="inlineCheckbox1"
+                        >Pasaporte</label
+                      >
+                    </div>
+
+                    <div class="form-check form-check-inline col-md-2 mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="dispViajar"
+                        value=""
+                      />
+                      <label class="form-check-label" for="inlineCheckbox1"
+                        >Disponibilidad para viajar</label
+                      >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                      <div class="form-group">
+                        <label for="txtDireccion" class="col-form-label-sm">Dirección</label>
+                        <textarea class="form-control form-control-sm" id="txtDireccion" rows="3"></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <!-- Button trigger modal -->
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="modal"
+                      data-target="#modalContactoCandidato"
+                    >
+                      Telefóno <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segundo titulo del collapsible -->
+          <div class="card">
+            <button
+              class="btn btn-link collapsed"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">Últimas Percepciones</h5>
+              </div>
+            </button>
+            <!-- Contenido del segundo collapsible -->
+            <div
+              id="collapseTwo"
+              class="collapse"
+              aria-labelledby="headingTwo"
+              data-parent="#accordionExample"
+            >
+              <div class="card-body">
+                <form>
+                  <!-- Button trigger modal de percepción -->
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#modalPercepcionesCandidato"
+                  >
+                    Percepción <i class="fas fa-plus"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collapsible tres -->
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link collapsed"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Asignación de solicitud
+                </button>
+              </h5>
+            </div>
+            <div
+              id="collapseThree"
+              class="collapse"
+              aria-labelledby="headingThree"
+              data-parent="#accordionExample"
+            >
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Solicitud</label>
+                    <select class="form-control" id="selectSolicitud">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collapsible 4 -->
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseFour"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Conocimientos y habilidades
+                </button>
+              </h5>
+            </div>
+
+            <div
+              id="collapseFour"
+              class="collapse show"
+              aria-labelledby="headingOne"
+              data-parent="#accordionExample"
+            >
+              <div class="card-body">
+
+                <div class="row">
+                <!-- Button trigger modal de conocimientos ténicos -->
+                <div class="col-lg-4">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#modalConoTecnico"
+                >
+                  Técnico <i class="fas fa-plus"></i>
+                </button>
+              </div>
+
+                <!-- Button trigger modal para el idioma -->
+                <div class="col-lg-4">
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  data-toggle="modal"
+                  data-target="#modalIdioma"
+                >
+                  Idioma <i class="fas fa-plus"></i>
+                </button>
+              </div>
+
+              <!--
+                Boton para el modal de habilidades
+              -->
+              <div class="col-lg-4">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-toggle="modal"
+                data-target="#modalHabilidades"
+              >
+                Habilidades <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </li>
+    </ul>
+
+  </div>
+  <!-- Terminan los collapsibles -->
+
+  <!-- Modal para el contacto del candidato, teléfono -->
+  <div
+    class="modal fade"
+    id="modalContactoCandidato"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Teléfono de contacto
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="tipoTel">Tipo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="tipoTel"
+                placeholder="Tipo"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="telContacto">Teléfono</label>
+              <input
+                type="text"
+                class="form-control"
+                id="telContacto"
+                placeholder="Teléfono"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="button" class="btn btn-success">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para las percepciones del candidato -->
+  <div
+    class="modal fade"
+    id="modalPercepcionesCandidato"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nueva percepción</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="tipoPercepcion" class="col-form-label-sm"
+                  >Tipo</label
+                >
+                <select
+                  class="form-control form-control-sm"
+                  id="tipoPercepcion"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="valorMon" class="col-form-label-sm"
+                  >Valor Monetario</label
+                >
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="valorMon"
+                  placeholder="Valor monetario"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="descripPercepcion">Descripción</label>
+                <textarea
+                  class="form-control form-control-sm"
+                  id="descripPercepcion"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="button" class="btn btn-success">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para los conocimientos ténicos candidato -->
+  <div
+    class="modal fade"
+    id="modalConoTecnico"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo conocimiento Técnico</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="tecnologia" class="col-form-label-sm"
+                  >Tecnología</label
+                >
+                <select
+                  class="form-control form-control-sm"
+                  id="tecnologia"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="tiempo" class="col-form-label-sm"
+                  >Tiempo</label
+                >
+                <select
+                  class="form-control form-control-sm"
+                  id="tiempo"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+
+
+            </div>
+
+            <!-- <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="descripPercepcion">Descripción</label>
+                <textarea
+                  class="form-control form-control-sm"
+                  id="descripPercepcion"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div> -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="button" class="btn btn-success">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <!-- Modal para los idiomas -->
+    <div
+    class="modal fade"
+    id="modalIdioma"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo idioma</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="tipoPercepcion" class="col-form-label-sm"
+                  >idioma</label
+                >
+                <select
+                  class="form-control form-control-sm"
+                  id="idioma"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="valorMon" class="col-form-label-sm"
+                  >Tiempo</label
+                >
+                <select
+                  class="form-control form-control-sm"
+                  id="idioma"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="descripPercepcion">Descripción</label>
+                <textarea
+                  class="form-control form-control-sm"
+                  id="descripPercepcion"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div> -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="button" class="btn btn-success">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <!-- Modal para las habilidades-->
+    <div
+    class="modal fade"
+    id="modalHabilidades"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nueva habilidad</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="tipoPercepcion" class="col-form-label-sm"
+                  >Habilidad</label
+                >
+                <select
+                  class="form-control form-control-sm"
+                  id="habilidad"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="valorMon" class="col-form-label-sm"
+                  >Tiempo</label
+                >
+                <select
+                  class="form-control form-control-sm"
+                  id="tiempo"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="descripPercepcion">Descripción</label>
+                <textarea
+                  class="form-control form-control-sm"
+                  id="descripPercepcion"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div> -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="button" class="btn btn-success">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

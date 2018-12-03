@@ -12,13 +12,17 @@ import { Catperfil } from '../model/catperfil.model';
 )
 
 export class PerfilService {
-    private url = 'http://localhost:8085/api/v1/';
+    private url = 'http://localhost:8085/api/v1/Perfil';
 
 
     constructor( private clienteHttp: HttpClient) {}
 
-    getAreas() {
+    getPerfiles() {
       return this.clienteHttp.get<Catperfil[]>(this.url + '/fetch');
+    }
+
+    getPerfil(id): Observable<Catperfil> {
+      return this.clienteHttp.get<Catperfil>(`${this.url}/fetch/${id}`);
     }
     addperfil(perPerfil) {
       const obj = {
@@ -27,4 +31,6 @@ export class PerfilService {
       this.clienteHttp.post(this.url + '/add', obj)
           .subscribe(res => console.log('Done'));
     }
+
+
   }
