@@ -1,7 +1,7 @@
 
 <!-- Titulo principal-->
 <div class="container">
-    <h4>Áreas</h4>
+    <h4>Clientes</h4>
     <hr />
   <!--Empieza el card donde se encunentra la tabla-->
     <div class="card" style="width: 100%;">
@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
             <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
-            <i class="fas fa-table" style="font-size: 15px;"> Catálogo áreas</i>
+            <i class="fas fa-table" style="font-size: 15px;"> Catálogo clientes</i>
           </div>
           <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
             <app-create-area></app-create-area>
@@ -26,7 +26,7 @@
           <!--La tabla-->
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
-              <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+              <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
                 <thead>
                   <tr>
                     <th scope="col">Id</th>
@@ -37,9 +37,15 @@
                 </thead>
                 <tbody>
 
-                  <tr *ngFor="let a of allCliente">
-                    <th scope="row">{{ a.arnIdarean }}</th>
-                    <td>{{ a.arnTipo }}</td>
+                  <tr *ngFor="let a of allCliente" >
+                    <th scope="row" >{{ a.cliIdcliente }}</th>
+                    <td>{{ a.cliNombre}}</td>
+                    <td>{{ a.cliRazonsocial}}</td>
+                    <td>
+                        <a href="" data-toggle="modal" data-target="#Modal">
+                            <i style="color:#007bff; margin: 20px;" data-toggle="tooltip" data-placement="top" title="Editar" class="fas fa-pencil-alt" ></i>
+                        </a>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -49,3 +55,18 @@
       </ul>
     </div>
   </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Contactos</h5>
+            </div>
+            <div class="modal-body">
+           
+            
+            </div>
+        </div>
+    </div>
+</div>

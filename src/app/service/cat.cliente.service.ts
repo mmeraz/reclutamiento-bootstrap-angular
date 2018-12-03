@@ -14,8 +14,13 @@ export class ClienteService {
   constructor( private clienteHttp: HttpClient) {}
 
   getClientes() {
-    return this.clienteHttp.get<Catcliente[]>(this.url + '/fetch');
+    return this.clienteHttp.get(this.url + '/fetchAll');
   }
+  getById(id) {
+    return this
+            .clienteHttp
+            .get(`${this.url}/fetch/${id}`);
+    }
 
   addcliente(cliNombre, cliRazonsocial  ) {
     const obj = {
@@ -25,6 +30,9 @@ export class ClienteService {
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));
   }
+  refresh(): void {
+    window.location.reload();
+ }
 
 
 }
