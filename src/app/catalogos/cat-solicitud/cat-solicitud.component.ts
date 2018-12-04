@@ -34,7 +34,7 @@ export class CatSolicitudComponent implements OnInit {
 
   ngOnInit() {
     this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
-    this.prioridadService.getAreas().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
+    this.prioridadService.getPrioridades().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
 
   }
 

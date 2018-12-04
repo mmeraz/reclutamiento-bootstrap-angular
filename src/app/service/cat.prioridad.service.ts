@@ -15,9 +15,14 @@ export class PrioridadService {
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getAreas() {
-    return this.clienteHttp.get<Catprioridad[]>(this.url + '/fetch');
+  getPrioridades() {
+    return this.clienteHttp.get(this.url + '/fetch');
   }
+
+  getPrioridad(id): Observable<Catprioridad> {
+    return this.clienteHttp.get<Catprioridad>(`${this.url}/fetch/${id}`);
+  }
+
 
   addprioridad(priNombre) {
     const obj = {

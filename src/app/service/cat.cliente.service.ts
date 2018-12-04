@@ -16,7 +16,7 @@ export class ClienteService {
   getClientes() {
     return this.clienteHttp.get(this.url + '/fetchAll');
   }
-  getById(id) {
+  getCliente(id) {
     return this
             .clienteHttp
             .get(`${this.url}/fetch/${id}`);

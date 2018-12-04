@@ -37,13 +37,24 @@ import { CatSolidiomaComponent } from './catalogos/cat-solidioma/cat-solidioma.c
 import { CatSolpercepcionesComponent } from './catalogos/cat-solpercepciones/cat-solpercepciones.component';
 import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacante.component';
 import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.component';
-import { LoginComponent} from './login/login.component';
+import { LoginComponent} from './pages/login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
+<<<<<<< HEAD
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CandidatoComponent } from './pages/candidato/candidato.component';
 import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 import { AuthGuard } from './Guard/auth.guard';
+=======
+
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { CandidatoComponent } from './pages/candidato/candidato.component';
+import { SolicitudComponent } from './pages/solicitud/solicitud.component';
+
+import { AuthGuard } from './Guard/auth.guard';
+import { HomeComponent } from './pages/home/home.component';
+
+>>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
 
 
 
@@ -51,6 +62,11 @@ import { AuthGuard } from './Guard/auth.guard';
 
 
  const appRoutes: Routes = [
+<<<<<<< HEAD
+=======
+  {path: '/', component: HomeComponent },
+  {path: 'Login', component: LoginComponent},
+>>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
   {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},
@@ -89,9 +105,10 @@ import { AuthGuard } from './Guard/auth.guard';
   {path: 'Solicitud-percepciones', component: CatSolpercepcionesComponent },
   {path: 'Tipo-vacante', component: CatTipvacanteComponent },
   {path: 'Usuarios', component: CatUsuarioComponent },
-  {path: 'Login', component: LoginComponent},
-  {path: 'New-Candidato', component: CandidatoComponent},
-  {path: 'NewSolicitud', component: SolicitudComponent},
+  {path: 'New-candidato', component: CandidatoComponent},
+  {path: '**', component: NotfoundComponent}
+
+
   ];
 
  export const appRoutingProviders: any[] = [];

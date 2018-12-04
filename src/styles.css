@@ -442,7 +442,7 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-header,
 .chiller-theme .sidebar-wrapper .sidebar-search,
 .chiller-theme .sidebar-wrapper .sidebar-menu {
-    border-top: 1px solid #337ab7;
+    border-top: 0px solid #337ab7;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
