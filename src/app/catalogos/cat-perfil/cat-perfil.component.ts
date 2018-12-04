@@ -22,7 +22,7 @@ export class CatPerfilComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.perfilService.getAreas().subscribe(
+    this.perfilService.getPerfiles().subscribe(
       (data: Catperfil[]) => this.arrayAreas = data
     );
   }

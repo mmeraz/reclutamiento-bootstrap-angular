@@ -42,12 +42,12 @@ import { CatSolpercepcionesComponent } from './catalogos/cat-solpercepciones/cat
 import { CatConsolicitadoComponent } from './catalogos/cat-consolicitado/cat-consolicitado.component';
 import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.component';
 import { routing, appRoutingProviders } from './app.routing';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { EditAreaComponent } from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
 import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacante.component';
-import { CandidatoComponent } from './pages/candidato/candidato.component';
-import { SolicitudComponent } from './pages/solicitud/solicitud.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CandidatoComponent} from './pages/candidato/candidato.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CrateCandidatoComponent } from './catalogos/cat-candidato/crate-candidato/crate-candidato.component';
 import { CreateCandidatoComponent } from './catalogos/cat-candidato/create-candidato.component';
@@ -112,7 +112,9 @@ import { CreateContecnicosComponent } from './catalogos/cat-contecnicos/create-c
     LoginComponent,
     EditAreaComponent,
     CreateAreaComponent,
+    HomeComponent,
     CandidatoComponent,
+<<<<<<< HEAD
     SolicitudComponent,
     NotfoundComponent,
     CrateCandidatoComponent,
@@ -133,6 +135,9 @@ import { CreateContecnicosComponent } from './catalogos/cat-contecnicos/create-c
     CreateComphabilidadesComponent,
     CreateIdiomaComponent,
     CreateContecnicosComponent
+=======
+    NotfoundComponent
+>>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
   ],
   imports: [
     BrowserModule,

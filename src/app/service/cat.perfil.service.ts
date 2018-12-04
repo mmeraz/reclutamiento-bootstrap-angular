@@ -9,15 +9,29 @@ import { Catperfil } from '../model/catperfil.model';
 )
 
 export class PerfilService {
+<<<<<<< HEAD
     private url = 'http://localhost:8085/api/v1/perfil';
+=======
+    private url = 'http://localhost:8085/api/v1/Perfil';
+>>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
 
 
     constructor( private clienteHttp: HttpClient) {}
 
+<<<<<<< HEAD
     getPerfils() {
       return this.clienteHttp.get(this.url + '/fetch');
     }
 
+=======
+    getPerfiles() {
+      return this.clienteHttp.get<Catperfil[]>(this.url + '/fetch');
+    }
+
+    getPerfil(id): Observable<Catperfil> {
+      return this.clienteHttp.get<Catperfil>(`${this.url}/fetch/${id}`);
+    }
+>>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
     addperfil(perPerfil) {
       const obj = {
         perPerfil: perPerfil
@@ -26,6 +40,7 @@ export class PerfilService {
           .subscribe(res => console.log('Done'));
     }
 
+<<<<<<< HEAD
     refresh(): void {
       window.location.reload();
    }
@@ -56,6 +71,8 @@ export class PerfilService {
     }
 
 
+=======
+>>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
 
   }
 

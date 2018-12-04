@@ -22,8 +22,13 @@ export class CatPrioridadComponent implements OnInit {
     }
 
   ngOnInit() {
+<<<<<<< HEAD
     this.prioridadService.getPrioridads().subscribe(
       (data: Catprioridad[]) => this.arrayPrioridad = data
+=======
+    this.prioridadService.getPrioridades().subscribe(
+      (data: Catprioridad[]) => this.arrayAreas = data
+>>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
     );
   }
   createForm() {

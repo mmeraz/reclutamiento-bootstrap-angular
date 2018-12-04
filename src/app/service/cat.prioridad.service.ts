@@ -53,7 +53,26 @@ export class PrioridadService {
                 .delete(`${this.url}/delete/${id}`);
     }
 
+<<<<<<< HEAD
 
+=======
+  getPrioridades() {
+    return this.clienteHttp.get(this.url + '/fetch');
+  }
+
+  getPrioridad(id): Observable<Catprioridad> {
+    return this.clienteHttp.get<Catprioridad>(`${this.url}/fetch/${id}`);
+  }
+
+
+  addprioridad(priNombre) {
+    const obj = {
+      priNombre: priNombre
+    };
+    this.clienteHttp.post(this.url + '/add', obj)
+        .subscribe(res => console.log('Done'));
+  }
+>>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
 
   }
 
