@@ -9,7 +9,6 @@ import { Catusuario } from '../model/catusuario.model';
 )
 
 export class UsuarioService {
-<<<<<<< HEAD
     private url = 'http://localhost:8085/api/v1/usuario';
 
     constructor( private clienteHttp: HttpClient) {}
@@ -41,14 +40,6 @@ export class UsuarioService {
     return this
             .clienteHttp
             .get(`${this.url}/fetch/${id}`);
-=======
-    private url = 'http://localhost:8085/api/v1/Usuario';
-
-    constructor( private clienteHttp: HttpClient) {}
-
-    getUsuarios() {
-      return this.clienteHttp.get<Catusuario[]>(this.url + '/fetch');
->>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
     }
 
   updateBusiness(usrUsername, usrNombreUsuario , usrPassword , usrEmail, usrPerfil , usrTelefono, usrUsuario ) {
@@ -61,7 +52,6 @@ export class UsuarioService {
       usrPerfil : usrPerfil,
       usrTelefono : usrTelefono,
       };
-<<<<<<< HEAD
     this
       .clienteHttp
       .put(`${this.url}/update/${usrUsuario}`, obj)
@@ -73,14 +63,6 @@ export class UsuarioService {
               .delete(`${this.url}/delete/${id}`);
   }
 
-=======
-      this.clienteHttp.post(this.url + '/add', obj)
-          .subscribe(res => console.log('Done'));
-    }
-    getUsuario(id): Observable<Catusuario> {
-      return this.clienteHttp.get<Catusuario>(`${this.url}/fetch/${id}`);
-    }
->>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
 
 
 }

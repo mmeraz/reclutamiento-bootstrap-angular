@@ -2,12 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Catcliente } from 'src/app/model/catcliente.model';
 import { ClienteService } from 'src/app/service/cat.cliente.service';
-import { Catcontactcliente} from 'src/app/model/catcontactcliente.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute} from '@angular/router';
-import { DataTableDirective } from 'angular-datatables';
-import { Subject } from 'rxjs';
 import swal from 'sweetalert2';
+import { Subject } from 'rxjs';
+import { DataTableDirective } from 'angular-datatables';
 
 @Component({
   selector: 'app-cat-cliente',
@@ -19,11 +18,9 @@ export class CatClienteComponent implements OnInit {
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
-  arrayClientes: Catcliente[];
+  arrayAreas: Catcliente[];
   allCliente: any = [];
   dtTrigger: Subject<any> = new Subject();
-  cliente: Catcliente = null;
-  contactos: Catcontactcliente[] = [];
 
   constructor( private clienteService: ClienteService,
     private fb: FormBuilder, private bs: ClienteService,
@@ -31,18 +28,17 @@ export class CatClienteComponent implements OnInit {
     private http: HttpClient) {
     }
 
-    ngOnInit(): void {
-      this.dtOptions = {
-        pagingType: 'full_numbers',
-        pageLength: 10,
-      };
-      this.clienteService.getClientes().subscribe(result => {
-        this.allCliente = result;
-        this.dtTrigger.next();
-      });
-      console.log(this.allCliente)
-    }
-
+  ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+    };
+    this.clienteService.getClientes().subscribe(result => {
+      this.allCliente = result;
+      this.dtTrigger.next();
+    });
+    console.log(this.allCliente);
+  }
 
   OnDestroy(): void {
     // Do not forget to unsubscribe the event
@@ -62,8 +58,25 @@ export class CatClienteComponent implements OnInit {
     this.ngOnInit();
   }
 
-  addcliente(cliNombre, cliRazonsocial) {
-    this.bs.addcliente(cliNombre, cliRazonsocial);
+  deleteBusiness(id, cliNombre, cliRazonsocial) {
+      swal({
+        title: 'Está seguro?',
+      text: `¿Seguro desea eliminar al cliente ${cliNombre}, ${cliRazonsocial}?`,
+        type: 'warning',
+        showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'Cancelar'
+      }).then(result => {
+        if (result.value) {
+        this.clienteService.deleteBusiness(id).subscribe(data => {
+            this.allCliente = this.allCliente.filter(c => c.arnIdarea !== id);
+          });
+          swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+          this.rerender();
+        }
+      });
   }
 
 }

@@ -32,7 +32,6 @@ export class CatAreaComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    
     this.areaService.getAreas().subscribe(result => {
       this.allAreas = result;
       this.dtTrigger.next();

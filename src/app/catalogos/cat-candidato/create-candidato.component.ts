@@ -39,8 +39,10 @@ export class CreateCandidatoComponent implements OnInit {
       cndApellidopat,
       cndApellidomat,
       cndcalle,
-      cndNumext) {
-      this.bs.addarea(arnTipo);
+      cndNumext,
+      cndCod
+      ) {
+      this.bs.addcandidato(arnTipo);
       swal({
         position: 'top',
         type: 'success',

@@ -8,7 +8,6 @@ import { Cattipovacante } from '../model/cattipovacante.model';
 }
 )
 export class TipoVacanteService {
-<<<<<<< HEAD
   private url = 'http://localhost:8085/api/v1/tipvacante';
 
   constructor( private clienteHttp: HttpClient) {}
@@ -53,9 +52,6 @@ export class TipoVacanteService {
               .clienteHttp
               .delete(`${this.url}/delete/${id}`);
   }
-=======
-  private url = 'http://localhost:8085/api/v1/TipoVancante';
->>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
 
   constructor( private clienteHttp: HttpClient) {}
 

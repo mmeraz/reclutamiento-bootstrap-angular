@@ -36,12 +36,12 @@ export class CreateClienteComponent implements OnInit {
     }
 
 
-    addcliente(cliNombre, cliRazonsocial) {
-      this.bs.addcliente(cliNombre, cliRazonsocial);
+    addcliente(cliNombre, cliRazonsocial ) {
+      this.bs.addcliente(cliNombre , cliRazonsocial);
       swal({
         position: 'top',
         type: 'success',
-        title: `Cliente creado  con éxito`,
+        title: `Cliente creado con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

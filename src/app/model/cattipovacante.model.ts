@@ -1,6 +1,5 @@
 export interface Cattipovacante {
 
  tvaIdtipovacante: number;
-	tvaTipo: string;
-
+ tvaTipo: string;
 }
