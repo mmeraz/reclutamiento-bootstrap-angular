@@ -22,7 +22,7 @@ export class CatEquipoComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.equipoService.getAreas().subscribe(
+    this.equipoService.getEquipos().subscribe(
       (data: Catequipo[]) => this.arrayAreas = data
     );
   }

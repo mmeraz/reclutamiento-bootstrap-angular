@@ -22,7 +22,8 @@ export class ClienteService {
             .get(`${this.url}/fetch/${id}`);
     }
 
-  addcliente(cliNombre, cliRazonsocial  ) {
+  addcliente(cliNombre, cliRazonsocial, cliIdcliente ) {
+    cliIdcliente = cliIdcliente;
     const obj = {
       cliNombre : cliNombre,
       cliRazonsocial : cliRazonsocial

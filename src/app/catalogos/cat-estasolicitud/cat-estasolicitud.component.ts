@@ -13,7 +13,7 @@ import { Catestasolicitud } from 'src/app/model/catestasolicitud.model';
 })
 export class CatEstasolicitudComponent implements OnInit {
   angForm: FormGroup;
-  arrayAreas: Catestasolicitud[];
+  arrayEstasolicitud: Catestasolicitud[];
 
   constructor( private estatussolicitudService: EstasolicitudService,
     private fb: FormBuilder, private bs: EstasolicitudService,
@@ -22,8 +22,8 @@ export class CatEstasolicitudComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.estatussolicitudService.getAreas().subscribe(
-      (data: Catestasolicitud[]) => this.arrayAreas = data
+    this.estatussolicitudService.getestasolicituds().subscribe(
+      (data: Catestasolicitud[]) => this.arrayEstasolicitud = data
     );
   }
   createForm() {
@@ -32,8 +32,8 @@ export class CatEstasolicitudComponent implements OnInit {
     });
   }
 
-  addestatussolicitud(estDescripcion) {
-    this.bs.addestatussolicitud(estDescripcion);
+  addestasolicitud(estDescripcion) {
+    this.bs.addestasolicitud(estDescripcion);
   }
 }
 
