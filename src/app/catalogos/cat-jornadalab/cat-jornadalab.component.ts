@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 })
 export class CatJornadalabComponent implements OnInit {
   angForm: FormGroup;
-  arrayAreas: Catjornadalab[];
+  arrayJornada: Catjornadalab[];
 
   constructor( private JornadaService: JornadaLAbService,
     private fb: FormBuilder, private bs: JornadaLAbService,
@@ -22,7 +22,7 @@ export class CatJornadalabComponent implements OnInit {
 
   ngOnInit() {
     this.JornadaService.getJornadas().subscribe(
-      (data: Catjornadalab[]) => this.arrayAreas = data
+      (data: Catjornadalab[]) => this.arrayJornada = data
     );
   }
   createForm() {
@@ -31,8 +31,8 @@ export class CatJornadalabComponent implements OnInit {
     });
   }
 
-  addjornadalab(jolTipo) {
-    this.bs.addjornadalab(jolTipo);
+  addjornada(jolTipo) {
+    this.bs.addjornada(jolTipo);
   }
 
 }

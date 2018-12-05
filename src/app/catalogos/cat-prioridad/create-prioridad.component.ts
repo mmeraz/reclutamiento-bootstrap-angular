@@ -30,7 +30,7 @@ export class CreatePrioridadComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        priNombre: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        priNombre: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
       });
     }
 

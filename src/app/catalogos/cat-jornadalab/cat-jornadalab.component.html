@@ -36,9 +36,10 @@
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allJornada">
+                <tr *ngFor="let a of allPrioridad">
                   <th scope="row">{{ a.jolIdjornada }}</th>
-                  <td>{{ a.jolTipo }}</td>
+                  <td>{{ a.jolTipo}}</td>
+
 
                   <td class="text-center" >
 
@@ -47,14 +48,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.jolIdjornada ]"></i>
+                      [routerLink]="['/Edit', a.jolIdjornada]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.jolIdjornada,a.jolTipo)"></i>
+                      (click)="deleteBusiness(a.jolIdjornada,jolTipo)"></i>
                   </td>
                 </tr>
               </tbody>

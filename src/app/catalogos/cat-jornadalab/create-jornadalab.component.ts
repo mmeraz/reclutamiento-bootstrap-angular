@@ -23,7 +23,7 @@ export class CreateJornadalabComponent implements OnInit {
      }
 
      ngOnInit() {
-      this.jornadalabService.getJornadalabs().subscribe(
+      this.jornadalabService.getJornadas().subscribe(
         (data: Catjornadalab[]) => this.arrayJornadalab = data
       );
     }
@@ -34,8 +34,8 @@ export class CreateJornadalabComponent implements OnInit {
     }
 
 
-    addjornadalaboral(jolTipo) {
-      this.bs.addjornadalab(jolTipo);
+    addjornada(jolTipo) {
+      this.bs.addjornada(jolTipo);
       swal({
         position: 'top',
         type: 'success',

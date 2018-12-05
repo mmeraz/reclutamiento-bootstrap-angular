@@ -1,3 +1,37 @@
-<p>
-  create-jornadalab works!
-</p>
+<!-- Button trigger modal -->
+<button  class="btn btn-link align-text-top" style="font-size: 15px;" data-toggle="modal" data-target="#exampleModal">
+  <i class="fas fa-plus"> Nuevo</i>
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nueva área</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addForm" (submit)="saveData()">
+                    <div class="form-group">
+                        <label for="jolTipo">Jornada Laboral</label>
+                        <input maxlength="25" type="text" required class="form-control" placeholder="Escribe la nueva jornada" name="jolTipo" formControlName="jolTipo" #jolTipo>
+                        <div *ngIf="addForm.get('jolTipo').errors && addForm.get('jolTipo').dirty">
+                            <p style="color:darkred;" *ngIf="addForm.get('jolTipo').hasError('required')">La jornada es requerida</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('jolTipo').hasError('maxlength')">Máximo 25 carácteres</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('jolTipo').hasError('pattern')">Solo se aceptan letras</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addjornada(jolTipo.value)' [disabled]="addForm.invalid">Guardar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
