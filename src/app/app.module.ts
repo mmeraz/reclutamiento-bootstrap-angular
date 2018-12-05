@@ -49,6 +49,8 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
 import { HomeComponent } from './pages/home/home.component';
 import { CandidatoComponent} from './pages/candidato/candidato.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
+import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
 
 
 
@@ -96,7 +98,9 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
     CreateAreaComponent,
     HomeComponent,
     CandidatoComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    CrearContactoComponent,
+    EditContactoComponent
   ],
   imports: [
     BrowserModule,

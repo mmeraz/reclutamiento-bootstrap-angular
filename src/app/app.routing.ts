@@ -45,6 +45,9 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CandidatoComponent } from './pages/candidato/candidato.component';
 import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 
+import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
+import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
+
 import { AuthGuard } from './Guard/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
 
@@ -55,7 +58,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 
  const appRoutes: Routes = [
-  {path: '/', component: HomeComponent },
+  {path: 'Home', component: HomeComponent },
   {path: 'Login', component: LoginComponent},
   {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
@@ -96,7 +99,12 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Tipo-vacante', component: CatTipvacanteComponent },
   {path: 'Usuarios', component: CatUsuarioComponent },
   {path: 'New-candidato', component: CandidatoComponent},
+  {path: 'AddContacto/:id', component: CrearContactoComponent},
+  {path: 'EditContacto/:id', component: EditContactoComponent},
   {path: '**', component: NotfoundComponent}
+
+
+
 
 
   ];

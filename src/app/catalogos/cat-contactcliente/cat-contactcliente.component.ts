@@ -4,6 +4,7 @@ import { ContactClienteService} from 'src/app/service/cat.contactcliente.service
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
 import { Catcliente } from 'src/app/model/catcliente.model';
+import swal from 'sweetalert2';
 
 
 @Component({
@@ -26,6 +27,25 @@ export class CatContactclienteComponent implements OnInit {
     console.log(this.contacto);
     console.log(this.contactos);
   }
+  deleteBusiness(id, clcIdconcli) {
+    swal({
+      title: 'Está seguro?',
+    text: `¿Seguro desea eliminar al área ${clcIdconcli}?`,
+      type: 'warning',
+      showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar!',
+      cancelButtonText: 'Cancelar'
+    }).then(result => {
+      if (result.value) {
+      this.contaclienteService.deleteBusiness(id).subscribe(data => {
+          this.contactos = this.contactos.filter(c => c.clcIdconcli !== id);
+        });
+        swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+      }
+    });
+}
 
 }
 

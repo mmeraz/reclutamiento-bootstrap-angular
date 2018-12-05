@@ -1,4 +1,4 @@
-import { Catcliente } from "./catcliente.model";
+import { Catcliente} from 'src/app/model/catcliente.model';
 
 export interface Catcontactcliente {
   clcIdconcli: number;
