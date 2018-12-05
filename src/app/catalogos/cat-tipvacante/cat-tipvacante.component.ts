@@ -14,6 +14,7 @@ import { DataTableDirective } from 'angular-datatables';
   providers: [TipoVacanteService]
 })
 export class CatTipvacanteComponent implements OnInit {
+
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
@@ -21,7 +22,7 @@ export class CatTipvacanteComponent implements OnInit {
   allTipvacante: any = [];
   dtTrigger: Subject<any> = new Subject();
 
-  constructor( private tipovacanteService: TipoVacanteService,
+  constructor( private tipvacanteService: TipoVacanteService,
     private fb: FormBuilder, private bs: TipoVacanteService,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient) {
@@ -32,7 +33,7 @@ export class CatTipvacanteComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.tipovacanteService.getTipovacantes().subscribe(result => {
+    this.tipvacanteService.getTipoVacantes().subscribe(result => {
       this.allTipvacante = result;
       this.dtTrigger.next();
     });
@@ -46,7 +47,7 @@ export class CatTipvacanteComponent implements OnInit {
 
   rerender(): void {
     setTimeout(() => {
-      this.tipovacanteService.getTipovacantes().subscribe(result => {
+      this.tipvacanteService.getTipoVacantes().subscribe(result => {
         this.allTipvacante = result;
       });
     }, 30);
@@ -60,7 +61,7 @@ export class CatTipvacanteComponent implements OnInit {
   deleteBusiness(id, tvaTipo) {
       swal({
         title: 'Está seguro?',
-      text: `¿Seguro desea eliminar al área ${tvaTipo}?`,
+      text: `¿Seguro desea eliminar al tipo de vacante ${tvaTipo}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -69,10 +70,10 @@ export class CatTipvacanteComponent implements OnInit {
         cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.value) {
-        this.tipovacanteService.deleteBusiness(id).subscribe(data => {
+        this.tipvacanteService.deleteBusiness(id).subscribe(data => {
             this.allTipvacante = this.allTipvacante.filter(c => c.tvaIdtipovacante !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+          swal('Eliminado!', 'Se ha eliminado el tipo vacante.', 'success');
           this.rerender();
         }
       });

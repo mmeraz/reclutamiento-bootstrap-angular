@@ -14,18 +14,18 @@ import swal from 'sweetalert2';
 export class CreateTipvacanteComponent implements OnInit {
 
   addForm: FormGroup;
-  arrayTipovacante: Cattipovacante[];
-  selectTipovacante: Cattipovacante;
+  arrayTipvacante: Cattipovacante[];
+  selectTipvacante: Cattipovacante;
 
-  constructor(private tipovacanteService: TipoVacanteService,
+  constructor(private tipvacanteService: TipoVacanteService,
     private fb: FormBuilder, private bs: TipoVacanteService,
     private activatedRoute: ActivatedRoute) {
       this.createForm();
      }
 
      ngOnInit() {
-      this.tipovacanteService.getTipoVacantes().subscribe(
-        (data: Cattipovacante[]) => this.arrayTipovacante = data
+      this.tipvacanteService.getTipoVacantes().subscribe(
+        (data: Cattipovacante[]) => this.arrayTipvacante = data
       );
     }
     createForm() {
@@ -35,12 +35,12 @@ export class CreateTipvacanteComponent implements OnInit {
     }
 
 
-    addtvatipo(tvaTipo)   {
+    addtipovacante(tvaTipo) {
       this.bs.addtvatipo(tvaTipo);
       swal({
         position: 'top',
         type: 'success',
-        title: `Tipo de vacante creada con éxito`,
+        title: `Área creada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

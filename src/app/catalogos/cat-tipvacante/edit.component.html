@@ -4,17 +4,18 @@
           <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
               <h1 class="h3 mb-3 font-weight-normal">Editar tipo vacante</h1>
               <div class="form-group">
-                  <label for="tvaTipo">Tipo vacante</label>
+                  <label for="tvaTipo">Tipo Vacante</label>
                   <input [(ngModel)]="tipvacante.tvaTipo" maxlength="50" type="text" required class="form-control" name="tvaTipo" formControlName="tvaTipo" #tvaTipo>
                   <div *ngIf="editForm.get('tvaTipo').errors && editForm.get('tvaTipo').dirty">
-                      <p class="text-danger" *ngIf="editForm.get('tvaTipo').hasError('required')">El tipo de vacante es requerida</p>
-                      <p class="text-danger" *ngIf="editForm.get('tvaTipo').hasError('maxlength')">Máximo 50 carácteres</p>
+                      <p class="text-danger" *ngIf="editForm.get('tvaTipo').hasError('required')">El área es requerida</p>
+                      <p class="text-danger" *ngIf="editForm.get('tvaTipo').hasError('maxlength')">Máximo 40 carácteres</p>
                       <p class="text-danger" *ngIf="editForm.get('tvaTipo').hasError('pattern')">Solo se aceptan letras</p>
                   </div>
                   <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(tvaTipo.value)' [disabled]="editForm.invalid">Editar</button>
-                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/tvaTipo">Cancelar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Tipo Vacante">Cancelar</button>
               </div>
           </form>
       </div>
   </div>
 </div>
+

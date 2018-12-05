@@ -38,7 +38,7 @@
 
                 <tr *ngFor="let a of allPercepcion">
                   <th scope="row">{{ a.preIdprestaciones }}</th>
-                  <td>{{ a.pretipo }}</td>
+                  <td>{{ a.preTipo }}</td>
 
                   <td class="text-center" >
 
@@ -54,7 +54,7 @@
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.preIdprestaciones, pretipo)"></i>
+                      (click)="deleteBusiness(a.preIdprestaciones, preTipo)"></i>
                   </td>
                 </tr>
               </tbody>

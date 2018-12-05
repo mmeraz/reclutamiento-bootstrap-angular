@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button  class="btn btn-link align-text-top" style="font-size: 15px;" data-toggle="modal" data-target="#exampleModal">
-  <i class="fas fa-plus"> Nuevo</i>
+  <i class="fas fa-plus"> Tipo vacante</i>
 </button>
 
 
@@ -9,7 +9,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nueva tipo vacante</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo tipo vacante</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -17,10 +17,10 @@
             <div class="modal-body">
                 <form [formGroup]="addForm" (submit)="saveData()">
                     <div class="form-group">
-                        <label for="tvaTipo">Tipo vacante</label>
-                        <input maxlength="50" type="text" required class="form-control" placeholder="Escribe la nuevo tipo de vacante" name="tvaTipo" formControlName="tvaTipo" #tvaTipo>
+                        <label for="tvaTipo">Tipo de vacante</label>
+                        <input maxlength="50" type="text" required class="form-control" placeholder="Escribe el tipo de vacante" name="tvaTipo" formControlName="tvaTipo" #tvaTipo>
                         <div *ngIf="addForm.get('tvaTipo').errors && addForm.get('tvaTipo').dirty">
-                            <p style="color:darkred;" *ngIf="addForm.get('tvaTipo').hasError('required')">El tipo de vacante es requerida</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('tvaTipo').hasError('required')">El área es requerida</p>
                             <p style="color:darkred;" *ngIf="addForm.get('tvaTipo').hasError('maxlength')">Máximo 50 carácteres</p>
                             <p style="color:darkred;" *ngIf="addForm.get('tvaTipo').hasError('pattern')">Solo se aceptan letras</p>
                         </div>

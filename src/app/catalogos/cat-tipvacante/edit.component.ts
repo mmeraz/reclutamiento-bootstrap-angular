@@ -11,7 +11,7 @@ import { CatTipvacanteComponent } from './cat-tipvacante.component';
 })
 export class EditComponent implements OnInit {
   editForm: FormGroup;
-  area: any = {};
+  tipvacante: any = {};
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -30,14 +30,14 @@ export class EditComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
-        this.area = res;
+        this.tipvacante = res;
       });
     });
   }
    updateBusiness(tvaTipo) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(tvaTipo, params['id']);
-       this.router.navigate(['tipvacante']);
+       this.router.navigate(['Tipo vacante']);
        swal({
         position: 'top',
         type: 'success',
