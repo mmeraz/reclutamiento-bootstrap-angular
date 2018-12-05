@@ -23,7 +23,7 @@ export class CreatePerfilComponent implements OnInit {
      }
 
      ngOnInit() {
-      this.perfilService.getPerfils().subscribe(
+      this.perfilService.getPerfiles().subscribe(
         (data: Catperfil[]) => this.arrayPerfil = data
       );
     }
@@ -35,7 +35,7 @@ export class CreatePerfilComponent implements OnInit {
 
 
     addperfil(perPerfil) {
-      this.bs.addperfil(perPerfil);
+      this.bs.addPerfil(perPerfil);
       swal({
         position: 'top',
         type: 'success',

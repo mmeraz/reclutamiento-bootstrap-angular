@@ -12,7 +12,7 @@ export class TipoVacanteService {
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getTipovancates() {
+  getTipoVacantes() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 

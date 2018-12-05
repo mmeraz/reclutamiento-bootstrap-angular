@@ -49,12 +49,10 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
 import { HomeComponent } from './pages/home/home.component';
 import { CandidatoComponent} from './pages/candidato/candidato.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
-import { CrateCandidatoComponent } from './catalogos/cat-candidato/crate-candidato/crate-candidato.component';
 import { CreateCandidatoComponent } from './catalogos/cat-candidato/create-candidato.component';
 import { EditComponent } from './catalogos/cat-candidato/edit.component';
 import { CreateClienteComponent } from './catalogos/cat-cliente/create-cliente.component';
 import { CreatePrioridadComponent } from './catalogos/cat-prioridad/create-prioridad.component';
-import { CreatePrioridaComponent } from './catalogos/cat-prioridad/create-priorida.component';
 import { CreateJornadalabComponent } from './catalogos/cat-jornadalab/create-jornadalab.component';
 import { CreatePerfilComponent } from './catalogos/cat-perfil/create-perfil.component';
 import { CreateEquipoComponent } from './catalogos/cat-equipo/create-equipo.component';
@@ -63,7 +61,6 @@ import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tip
 import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/create-prepercepcion.component';
 import { CreateEstasolicitudComponent } from './catalogos/cat-estasolicitud/create-estasolicitud.component';
 import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/create-estacandidato.component';
-import { CreateComphabildiadesComponent } from './catalogos/cat-comphabilidades/create-comphabildiades.component';
 import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/create-comphabilidades.component';
 import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.component';
 import { CreateContecnicosComponent } from './catalogos/cat-contecnicos/create-contecnicos.component';
@@ -114,15 +111,11 @@ import { CreateContecnicosComponent } from './catalogos/cat-contecnicos/create-c
     CreateAreaComponent,
     HomeComponent,
     CandidatoComponent,
-<<<<<<< HEAD
-    SolicitudComponent,
     NotfoundComponent,
-    CrateCandidatoComponent,
     CreateCandidatoComponent,
     EditComponent,
     CreateClienteComponent,
     CreatePrioridadComponent,
-    CreatePrioridaComponent,
     CreateJornadalabComponent,
     CreatePerfilComponent,
     CreateEquipoComponent,
@@ -131,13 +124,9 @@ import { CreateContecnicosComponent } from './catalogos/cat-contecnicos/create-c
     CreatePrepercepcionComponent,
     CreateEstasolicitudComponent,
     CreateEstacandidatoComponent,
-    CreateComphabildiadesComponent,
     CreateComphabilidadesComponent,
     CreateIdiomaComponent,
     CreateContecnicosComponent
-=======
-    NotfoundComponent
->>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
   ],
   imports: [
     BrowserModule,

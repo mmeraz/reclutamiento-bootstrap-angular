@@ -32,7 +32,7 @@ export class CatPerfilComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.perfilService.getPerfils().subscribe(result => {
+    this.perfilService.getPerfiles().subscribe(result => {
       this.allPerfil = result;
       this.dtTrigger.next();
     });
@@ -46,7 +46,7 @@ export class CatPerfilComponent implements OnInit {
 
   rerender(): void {
     setTimeout(() => {
-      this.perfilService.getPerfils().subscribe(result => {
+      this.perfilService.getPerfiles().subscribe(result => {
         this.allPerfil = result;
       });
     }, 30);

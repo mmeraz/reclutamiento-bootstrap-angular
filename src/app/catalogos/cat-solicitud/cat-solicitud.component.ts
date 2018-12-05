@@ -74,15 +74,15 @@ export class CatSolicitudComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
-    this.prioridadService.getPrioridades().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
-    this.tipoVacanteService.getVacantes().subscribe((data: Cattipovacante[]) => this.allVacantes = data);
-    this.idiomaService.getAreas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
-    this.clienteService.getClientes().subscribe((data: Catcliente[]) => this.allClientes = data);
-    this.jornadaService.getJornadas().subscribe((data: Catjornadalab[]) => this.allJornada = data);
-    this.conocimientoService.getAreas().subscribe((data: Catcontecnicos[]) => this.allConocimiento = data);
-    this.habilidadService.getAreas().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
-    this.percepcionService.getAreas().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
+    // this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
+    // this.prioridadService.getPrioridades().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
+    // this.tipoVacanteService.getVacantes().subscribe((data: Cattipovacante[]) => this.allVacantes = data);
+    // this.idiomaService.getAreas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
+    // this.clienteService.getClientes().subscribe((data: Catcliente[]) => this.allClientes = data);
+    // this.jornadaService.getJornadas().subscribe((data: Catjornadalab[]) => this.allJornada = data);
+    // this.conocimientoService.getAreas().subscribe((data: Catcontecnicos[]) => this.allConocimiento = data);
+    // this.habilidadService.getAreas().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
+    // this.percepcionService.getAreas().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
   }
 
   createForm() {

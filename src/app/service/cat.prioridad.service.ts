@@ -8,7 +8,7 @@ import { Catprioridad } from '../model/catprioridad.model';
 }
 )
 export class PrioridadService {
-    private url = 'http://localhost:8085/api/v1/Prioridad';
+    private url = 'http://localhost:8085/api/v1/priPrioridad';
 
     constructor( private clienteHttp: HttpClient) {}
 

@@ -24,7 +24,7 @@ export class CreateTipvacanteComponent implements OnInit {
      }
 
      ngOnInit() {
-      this.tipovacanteService.getTipovacantes().subscribe(
+      this.tipovacanteService.getTipoVacantes().subscribe(
         (data: Cattipovacante[]) => this.arrayTipovacante = data
       );
     }

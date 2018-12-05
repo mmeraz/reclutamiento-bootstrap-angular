@@ -47,7 +47,7 @@ export class CatUsuarioComponent implements OnInit {
 
     rerender(): void {
       setTimeout(() => {
-        this.usuarioService.getUsuario().subscribe(result => {
+        this.usuarioService.getUsuarios().subscribe(result => {
           this.allUsuario = result;
         });
       }, 30);
@@ -61,7 +61,7 @@ export class CatUsuarioComponent implements OnInit {
     deleteBusiness(id, usrUsername, usrNombreUsuario, usrPassword, usrEmail, usrPerfil, usrTelefono) {
         swal({
           title: 'Está seguro?',
-        text: `¿Seguro desea eliminar al usuario ${ usrUsername}?, ${usrNombreUsuario}?, ${usrPassword}?, ${usrEmail}?, ${usrPerfil}?, ${usrTelefono}? ` ,
+        text: `¿Seguro desea eliminar al usuario ${ usrUsername}?` ,
         type: 'warning',
           showCancelButton: true,
         confirmButtonColor: '#3085d6',

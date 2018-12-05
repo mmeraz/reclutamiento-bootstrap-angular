@@ -12,11 +12,11 @@ export class PerfilService {
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getAreas() {
+  getPerfiles() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addarea(perPerfil) {
+  addPerfil(perPerfil) {
     const obj = {
       perPerfil: perPerfil
     };
