@@ -7,23 +7,23 @@ import { Catusuario } from '../model/catusuario.model';
   providedIn: 'root'
 }
 )
-
 export class UsuarioService {
-    private url = 'http://localhost:8085/api/v1/usuario';
+  private url = 'http://localhost:8085/api/v1/usrUsuario';
 
-    constructor( private clienteHttp: HttpClient) {}
+  constructor( private clienteHttp: HttpClient) {}
 
-  getUsuario() {
+  getUsuarios() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addusuario(usrUsername, usrNombreUsuario , usrPassword , usrEmail, usrPerfil , usrTelefono ) {
+  addusuario(usrUsername, usrNombreUsuario, usrPassword, usrEmail, usrPerfil, usrTelefono) {
     const obj = {
       usrUsername: usrUsername,
-      usrPassword : usrPassword,
-      usrEmail : usrEmail,
-      usrPerfil : usrPerfil,
-      usrTelefono : usrTelefono
+      usrNombreUsuario: usrNombreUsuario,
+      usrPassword: usrPassword,
+      usrEmail: usrEmail,
+      usrPerfil: usrPerfil,
+      usrTelefono: usrTelefono
     };
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));
@@ -42,19 +42,19 @@ export class UsuarioService {
             .get(`${this.url}/fetch/${id}`);
     }
 
-  updateBusiness(usrUsername, usrNombreUsuario , usrPassword , usrEmail, usrPerfil , usrTelefono, usrUsuario ) {
-    usrUsuario = usrUsuario;
+  updateBusiness(usrUsername, usrNombreUsuario, usrPassword, usrEmail, usrPerfil, usrTelefono, usrIdusuario) {
+    usrIdusuario = usrIdusuario;
     const obj = {
       usrUsername: usrUsername,
-      usrNombreUsuario : usrNombreUsuario,
-      usrPassword : usrPassword,
-      usrEmail : usrEmail,
-      usrPerfil : usrPerfil,
-      usrTelefono : usrTelefono,
+      usrNombreUsuario: usrNombreUsuario,
+      usrPassword: usrPassword,
+      usrEmail: usrEmail,
+      usrPerfil: usrPerfil,
+      usrTelefono: usrTelefono
       };
     this
       .clienteHttp
-      .put(`${this.url}/update/${usrUsuario}`, obj)
+      .put(`${this.url}/update/${usrIdusuario}`, obj)
       .subscribe(res => console.log('Done editado'));
   }
   deleteBusiness(id) {
@@ -66,3 +66,4 @@ export class UsuarioService {
 
 
 }
+
