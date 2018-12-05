@@ -33,7 +33,7 @@ export class CatComphabilidadesComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.comphabilidadesService.getComphabilidadess().subscribe(result => {
+    this.comphabilidadesService.getcomphabilidadess().subscribe(result => {
       this.allComphabilidades = result;
       this.dtTrigger.next();
     });
@@ -47,7 +47,7 @@ export class CatComphabilidadesComponent implements OnInit {
 
   rerender(): void {
     setTimeout(() => {
-      this.comphabilidadesService.getComphabilidadess().subscribe(result => {
+      this.comphabilidadesService.getcomphabilidadess().subscribe(result => {
         this.allComphabilidades = result;
       });
     }, 30);

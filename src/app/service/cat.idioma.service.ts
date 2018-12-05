@@ -9,11 +9,11 @@ import { Catidioma } from '../model/catidioma.model';
 )
 
 export class IdiomaService {
-  private url = 'http://localhost:8085/api/v1/idioma';
+  private url = 'http://localhost:8085/api/v1/idiIdioma';
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getidiomass() {
+  getIdiomass() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
@@ -29,7 +29,7 @@ export class IdiomaService {
     window.location.reload();
  }
 
-  getIdioma(id): Observable<Catidioma> {
+  getIdiomas(id): Observable<Catidioma> {
     return this.clienteHttp.get<Catidioma>(`${this.url}/fetch/${id}`);
   }
   editBusiness(id) {

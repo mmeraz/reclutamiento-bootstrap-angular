@@ -16,10 +16,10 @@ export class EquipoService {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addequipo(equNombre, equDescripcion, equIdequipo) {
+  addequipo(equNombre, equDescripcion) {
     const obj = {
       equNombre: equNombre,
-      equIdequipo: equIdequipo
+      equDescripcion: equDescripcion
     };
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));

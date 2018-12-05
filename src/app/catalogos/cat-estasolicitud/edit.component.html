@@ -1,3 +1,20 @@
-<p>
-  edit works!
-</p>
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+          <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
+              <h1 class="h3 mb-3 font-weight-normal">Editar área</h1>
+              <div class="form-group">
+                  <label for="estDescripcion">estatus solicitud</label>
+                  <input [(ngModel)]="estatussol.estDescripcion" maxlength="15" type="text" required class="form-control" name="estDescripcion" formControlName="estDescripcion" #estDescripcion>
+                  <div *ngIf="editForm.get('estDescripcion').errors && editForm.get('estDescripcion').dirty">
+                      <p class="text-danger" *ngIf="editForm.get('estDescripcion').hasError('required')">El estatus candidato es requerida</p>
+                      <p class="text-danger" *ngIf="editForm.get('estDescripcion').hasError('maxlength')">Máximo 25 carácteres</p>
+                      <p class="text-danger" *ngIf="editForm.get('estDescripcion').hasError('pattern')">Solo se aceptan letras</p>
+                  </div>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(estDescripcion.value)' [disabled]="editForm.invalid">Editar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Estatus Solicitud">Cancelar</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

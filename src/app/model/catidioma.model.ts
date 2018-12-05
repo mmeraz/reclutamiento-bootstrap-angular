@@ -1,5 +1,5 @@
 export interface Catidioma {
-  idiIdioma: number;
+  idiIdidioma: number;
   idiNombre: string;
 
 }
