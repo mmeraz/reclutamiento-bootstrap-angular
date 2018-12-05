@@ -5,5 +5,5 @@ export interface Catsolidioma {
   id: number;
   idiIdioma: Catidioma;
   solSolicitud: Catsolicitud;
-  sliNivel: '';
+  sliNivel: string;
 }

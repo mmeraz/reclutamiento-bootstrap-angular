@@ -60,6 +60,7 @@ import { HomeComponent } from './pages/home/home.component';
  const appRoutes: Routes = [
   {path: 'Home', component: HomeComponent },
   {path: 'Login', component: LoginComponent},
+
   {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},

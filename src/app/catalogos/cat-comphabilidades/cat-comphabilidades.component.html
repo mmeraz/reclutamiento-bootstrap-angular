@@ -1,52 +1,68 @@
-<!-- 
-<button mz-button (click)="basicModal.openModal()">
-  Nuevo
-</button>
+
+<!-- Titulo principal-->
 <div class="container">
-<table class="highlight">
-<thead>
-  <tr>
-      <th>ID</th>
-      <th>Competenciashabilidades</th>
-      <th>Modificar</th>
-      <th>Eliminar</th>
-  </tr>
-</thead>
+  <h4>Competencias Habilidades</h4>
+  <hr />
+<!--Empieza el card donde se encunentra la tabla-->
+  <div class="card" style="width: 100%;">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
+          <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
+          <i class="fas fa-table" style="font-size: 15px;"> Catálogo competencias habilidades</i>
+        </div>
+        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+          <app-create-comphabilidades></app-create-comphabilidades>
+        </div>
+      </div>
+      </div>
+    </div>
+<!--Términa el titulo del card-->
 
-<tbody>
-  <tr *ngFor="let a of arrayAreas">
-    <td> {{a.cohIdcompetenciashabilidades}}</td>
-    <td>{{a.cohDescripcion}}</td>
-    <td><button mz-button >
-      Editar
-    </button></td>
-    <td><button mz-button>
-      Eliminar
-    </button></td>
-  </tr>
+<!-- Empieza el contenido del card-->
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
 
-</tbody>
-</table>
+        <!--La tabla-->
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Competencias Habilidades</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let a of allAreas">
+                  <th scope="row">{{ a.cohIdcompetenciashabilidades}}</th>
+                  <td>{{ a.cohDescripcion}}</td>
+
+
+                  <td class="text-center" >
+
+                    <i style="color:#007bff; margin-right:20px;"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Editar"
+                      class="fas fa-pencil-alt"
+                      [routerLink]="['/Edit', a.cohIdcompetenciashabilidades]"></i>
+
+                      <i style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Eliminar"
+                      class="fas fa-trash-alt"
+                      (click)="deleteBusiness(a.cohIdcompetenciashabilidades, a.cohDescripcion)"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
-
-<div >
-  <mz-modal #basicModal>
-    <mz-modal-header>
-      <h4>Agregar Competenciashabilidades</h4>
-    </mz-modal-header>
-    <mz-modal-content>
-      <form [formGroup]="angForm">
-
-        <label >Area</label>
-        <input type="text" class="form-control" formControlName="cohDescripcion" #cohDescripcion/>
-
-      </form>
-    </mz-modal-content>
-    <mz-modal-footer>
-      <button mz-button [flat]="true"
-       role="button" (click)='addcompetenciashabilidades(cohDescripcion.value)'
-       mz-modal-close>Guardar</button>
-      <button mz-button [flat]="true" mz-modal-close>Cancelar</button>
-    </mz-modal-footer>
-  </mz-modal>
-</div> -->

@@ -16,9 +16,9 @@ export class AreaService {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addarea(arnTipo) {
+  addarea(areaNegocio) {
     const obj = {
-      arnTipo: arnTipo
+      areaNegocio: areaNegocio
     };
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+          <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
+              <h1 class="h3 mb-3 font-weight-normal">Editar precepcion</h1>
+              <div class="form-group">
+                  <label for="preTipo">Prestaciones</label>
+                  <input [(ngModel)]="precepcion.preTipo" maxlength="25" type="text" required class="form-control" name="preTipo" formControlName="preTipo" #preTipo>
+                  <div *ngIf="editForm.get('preTipo').errors && editForm.get('preTipo').dirty">
+                      <p class="text-danger" *ngIf="editForm.get('preTipo').hasError('required')">El área es requerida</p>
+                      <p class="text-danger" *ngIf="editForm.get('preTipo').hasError('maxlength')">Máximo 25 carácteres</p>
+                      <p class="text-danger" *ngIf="editForm.get('preTipo').hasError('pattern')">Solo se aceptan letras</p>
+                  </div>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(preTipo.value)' [disabled]="editForm.invalid">Editar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/precepcion">Cancelar</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
