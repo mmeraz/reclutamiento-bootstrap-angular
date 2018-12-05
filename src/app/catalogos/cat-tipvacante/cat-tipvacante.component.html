@@ -30,13 +30,13 @@
               <thead>
                 <tr>
                   <th scope="col">Id</th>
-                  <th scope="col">Tipo vacante</th>
+                  <th scope="col">Tipo Vacante</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allTipovacante">
+                <tr *ngFor="let a of allAreas">
                   <th scope="row">{{ a.tvaIdtipovacante }}</th>
                   <td>{{ a.tvaTipo }}</td>
 
@@ -54,7 +54,7 @@
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.tvaIdtipovacante, tvaTipo)"></i>
+                      (click)="deleteBusiness(a.tvaIdtipovacante,a.tvaTipo)"></i>
                   </td>
                 </tr>
               </tbody>

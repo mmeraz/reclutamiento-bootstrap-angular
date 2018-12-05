@@ -8,11 +8,11 @@ import { Cattipovacante } from '../model/cattipovacante.model';
 }
 )
 export class TipoVacanteService {
-  private url = 'http://localhost:8085/api/v1/tipvacante';
+  private url = 'http://localhost:8085/api/v1/tvatipovacante';
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getTipovacantes() {
+  getTipovancates() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
@@ -53,32 +53,7 @@ export class TipoVacanteService {
               .delete(`${this.url}/delete/${id}`);
   }
 
-  constructor( private clienteHttp: HttpClient) {}
 
-<<<<<<< HEAD
 
 }
-=======
-  getVacantes() {
-    return this.clienteHttp.get(this.url + '/fetch');
-  }
-
-  // addVacante(arnTipo) {
-  //   const obj = {
-  //     arnTipo: arnTipo
-  //   };
-  //   this.clienteHttp.post(this.url + '/add', obj)
-  //       .subscribe(res => console.log('Done'));
-  // }
-
-  refresh(): void {
-    window.location.reload();
- }
-
-  getVacante(id): Observable<Cattipovacante> {
-    return this.clienteHttp.get<Cattipovacante>(`${this.url}/fetch/${id}`);
-  }
->>>>>>> 96d018f0c64598b4b3d215128786226778be4d49
-
-
 
