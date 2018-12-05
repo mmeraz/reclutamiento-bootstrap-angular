@@ -6,13 +6,12 @@ import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-create-pefil',
+  selector: 'app-create-perfil',
   templateUrl: './create-perfil.component.html',
   styles: [],
   providers: [PerfilService]
 })
 export class CreatePerfilComponent implements OnInit {
-
   addForm: FormGroup;
   arrayPerfil: Catperfil[];
   selectPerfil: Catperfil;
@@ -30,7 +29,7 @@ export class CreatePerfilComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        perPerfil: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        perPerfil: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
       });
     }
 
