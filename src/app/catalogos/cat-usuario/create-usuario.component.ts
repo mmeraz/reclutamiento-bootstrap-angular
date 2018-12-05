@@ -45,7 +45,7 @@ export class CreateUsuarioComponent implements OnInit {
       swal({
         position: 'top',
         type: 'success',
-        title: `Área creada con éxito`,
+        title: `Usuario creado con éxito`,
         showConfirmButton: false,
         timer: 1500
       });
