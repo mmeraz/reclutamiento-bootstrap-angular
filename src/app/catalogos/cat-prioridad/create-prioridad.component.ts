@@ -17,14 +17,14 @@ export class CreatePrioridadComponent implements OnInit {
   arrayPrioridad: Catprioridad[];
   selecPrioridad: Catprioridad;
 
-  constructor(private areaService: PrioridadService,
+  constructor(private prioridadService: PrioridadService,
     private fb: FormBuilder, private bs: PrioridadService,
     private activatedRoute: ActivatedRoute) {
       this.createForm();
      }
 
      ngOnInit() {
-      this.areaService.getPrioridades().subscribe(
+      this.prioridadService.getPrioridades().subscribe(
         (data: Catprioridad[]) => this.arrayPrioridad = data
       );
     }
@@ -40,7 +40,7 @@ export class CreatePrioridadComponent implements OnInit {
       swal({
         position: 'top',
         type: 'success',
-        title: `Área creada con éxito`,
+        title: `Prioridad creada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });
