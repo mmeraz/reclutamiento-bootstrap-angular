@@ -58,6 +58,12 @@ import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/crea
 import { EditEstasolicitudComponent } from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
 import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/create-estacandidato.component';
 import { CreateEstasolicitudComponent } from './catalogos/cat-estasolicitud/create-estasolicitud.component';
+import { CreatePerfilComponent } from './catalogos/cat-perfil/create-perfil.component';
+import { EditPerfilComponent } from './catalogos/cat-perfil/edit-perfil.component';
+import { CreateEquipoComponent } from './catalogos/cat-equipo/create-equipo.component';
+import { EditEquipoComponent } from './catalogos/cat-equipo/edit-equipo.component';
+import { EditUsuarioComponent } from './catalogos/cat-usuario/edit-usuario.component';
+import { CreateUsuarioComponent } from './catalogos/cat-usuario/create-usuario.component';
 
 
 
@@ -115,6 +121,13 @@ import { CreateEstasolicitudComponent } from './catalogos/cat-estasolicitud/crea
     EditEstasolicitudComponent,
     CreateEstacandidatoComponent,
     CreateEstasolicitudComponent
+    EditContactoComponent,
+    CreatePerfilComponent,
+    EditPerfilComponent,
+    CreateEquipoComponent,
+    EditEquipoComponent,
+    EditUsuarioComponent,
+    CreateUsuarioComponent
   ],
   imports: [
     BrowserModule,

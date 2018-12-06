@@ -12,7 +12,7 @@
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo equipo</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-          
+          <app-create-equipo></app-create-equipo>
         </div>
       </div>
       </div>
@@ -29,15 +29,16 @@
             <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
               <thead>
                 <tr>
-                  <th scope="col">Id</th>
+                  <th>#</th>
                   <th scope="col">Equipo</th>
+                  <th scope="col">Descripción</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allAreas">
-                  <th scope="row">{{ a.equIdequipo }}</th>
+                <tr *ngFor="let a of allEquipo; let i = index">
+                  <td>{{i+1}}</td>
                   <td>{{ a.equNombre }}</td>
                   <td>{{ a.equDescripcion}}</td>
 
@@ -48,14 +49,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.equIdequipo]"></i>
+                      [routerLink]="['/EditEquipo', a.equIdequipo]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.equIdequipo,a.equNombre,equDescripcion)"></i>
+                      (click)="deleteBusiness(a.equIdequipo,a.equNombre)"></i>
                   </td>
                 </tr>
               </tbody>

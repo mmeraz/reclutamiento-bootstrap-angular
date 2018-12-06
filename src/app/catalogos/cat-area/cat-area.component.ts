@@ -45,16 +45,7 @@ export class CatAreaComponent implements OnInit {
   }
 
   rerender(): void {
-    setTimeout(() => {
-      this.areaService.getAreas().subscribe(result => {
-        this.allAreas = result;
-      });
-    }, 30);
-    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      // Destroy the table first
-      dtInstance.destroy();
-    });
-    this.ngOnInit();
+    window.location.reload();
   }
 
   deleteBusiness(id, arntipo) {

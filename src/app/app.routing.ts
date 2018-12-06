@@ -52,6 +52,9 @@ import { AuthGuard } from './Guard/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { EditTipvacanteComponent } from './catalogos/cat-tipvacante/edit-tipvacante.component';
 import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tipvacante.component';
+import { EditPerfilComponent } from './catalogos/cat-perfil/edit-perfil.component';
+import { EditEquipoComponent } from './catalogos/cat-equipo/edit-equipo.component';
+import { EditUsuarioComponent } from './catalogos/cat-usuario/edit-usuario.component';
 
 
 import { EditPrepercepcionComponent } from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
@@ -71,7 +74,9 @@ import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/crea
   {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},
-
+  {path: 'EditPerfil/:id', component: EditPerfilComponent},
+  {path: 'EditEquipo/:id', component: EditEquipoComponent},
+  {path: 'EditUser/:id', component: EditUsuarioComponent},
   {path: 'Candidato', component: CatCandidatoComponent },
   {path: 'Cliente', component: CatClienteComponent },
   {path: 'Competencia-candidato', component: CatCompcandidatoComponent },

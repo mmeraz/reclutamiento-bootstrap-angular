@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EquipoService } from 'src/app/service/cat.equipo.service';
-import {Router, ActivatedRoute} from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatEquipoComponent } from './cat-equipo.component';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-equipo',
+  templateUrl: './edit-equipo.component.html',
+  styles: []
 })
-export class EditComponent implements OnInit {
+export class EditEquipoComponent implements OnInit {
   editForm: FormGroup;
-  area: any = {};
-
+  equipo: any = {};
   constructor(private route: ActivatedRoute,
     private router: Router,
     private bs: EquipoService,
@@ -28,16 +27,16 @@ export class EditComponent implements OnInit {
       }
 
   ngOnInit() {
-
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
-        this.area = res;
+        this.equipo = res;
       });
     });
   }
-   updateBusiness( equDescripcion, equNombre) {
+
+  updateBusiness(equNombre, equDescripcion) {
     this.route.params.subscribe(params => {
-       this.bs.updateBusiness(equDescripcion, equNombre, params['id']);
+       this.bs.updateBusiness( equNombre, equDescripcion, params['id']);
        this.router.navigate(['Equipo']);
        swal({
         position: 'top',
@@ -54,9 +53,8 @@ export class EditComponent implements OnInit {
   window.location.reload();
 }
 
- saveData() {
+saveData() {
   alert(JSON.stringify(this.editForm.value));
 }
-
 
 }

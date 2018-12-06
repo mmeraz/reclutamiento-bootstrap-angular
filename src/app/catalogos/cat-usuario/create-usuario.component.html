@@ -18,66 +18,68 @@
                 <form [formGroup]="addForm" (submit)="saveData()">
                     <div class="form-group">
                         <label for="usrUsername">Username</label>
-                        <label for="usrNombreUsuario">Nombre de Usuario</label>
-                        <label for="usrPassword">Password</label>
-                        <label for="usrEmail">Email</label>
-                        <label for="usrPerfil">Perfil</label>
-                        <label for="usrTelefono">Telefono</label>
                         <input maxlength="25" type="text" required class="form-control" placeholder="Escribe el nuevo username" name="usrUsername" formControlName="usrUsername" #usrUsername>
-                        <input maxlength="15" type="text" required class="form-control" placeholder="Escribe el nuevo Nombre usuario" name="usrNombreUsuario" formControlName="usrNombreUsuario" #usrNombreUsuario>
-                        <input maxlength="15" type="text" required class="form-control" placeholder="Escribe el nuevo Password" name="usrPassword" formControlName="usrPassword" #usrPassword>
-                        <input maxlength="250" type="text" required class="form-control" placeholder="Escribe el nuevo Email" name="usrEmail" formControlName="usrEmail" #usrEmail>
-                        <input maxlength="1" type="text" required class="form-control" placeholder="Escribe el nuevo Perfil" name="usrPerfil" formControlName="usrPerfil" #usrPerfil>
-                        <input maxlength="15" type="text" required class="form-control" placeholder="Escribe el nuevo Telefono" name="usrTelefono" formControlName="usrTelefono" #usrTelefono>
-
-
                         <div *ngIf="addForm.get('usrUsername').errors && addForm.get('usrUsername').dirty">
-                            <p style="color:darkred;" *ngIf="addForm.get('usrUsername').hasError('required')">El username es requerida</p>
-                            <p style="color:darkred;" *ngIf="addForm.get('usrUsername').hasError('maxlength')">Máximo 25 carácteres</p>
-                            <p style="color:darkred;" *ngIf="addForm.get('usrUsername').hasError('pattern')">Solo se aceptan letras</p>
-                        </div>
-
+                          <p style="color:darkred;" *ngIf="addForm.get('usrUsername').hasError('required')">El username es requerida</p>
+                          <p style="color:darkred;" *ngIf="addForm.get('usrUsername').hasError('maxlength')">Máximo 25 carácteres</p>
+                          <p style="color:darkred;" *ngIf="addForm.get('usrUsername').hasError('pattern')">Solo se aceptan letras</p>
+                      </div>
+                        <label for="usrNombreUsuario">Nombre de Usuario</label>
+                        <input maxlength="15" type="text" required class="form-control" placeholder="Escribe el nuevo Nombre usuario" name="usrNombreUsuario" formControlName="usrNombreUsuario" #usrNombreUsuario>
                         <div *ngIf="addForm.get('usrNombreUsuario').errors && addForm.get('usrNombreUsuario').dirty">
                           <p style="color:darkred;" *ngIf="addForm.get('usrNombreUsuario').hasError('required')">El Nombre de Usuario es requerida</p>
                           <p style="color:darkred;" *ngIf="addForm.get('usrNombreUsuario').hasError('maxlength')">Máximo 15 carácteres</p>
                           <p style="color:darkred;" *ngIf="addForm.get('usrNombreUsuario').hasError('pattern')">Solo se aceptan letras</p>
                       </div>
-
-                      <div *ngIf="addForm.get('usrPassword').errors && addForm.get('usrPassword').dirty">
-                        <p style="color:darkred;" *ngIf="addForm.get('usrPassword').hasError('required')">El Nombre de Password es requerida</p>
-                        <p style="color:darkred;" *ngIf="addForm.get('usrPassword').hasError('maxlength')">Máximo 15 carácteres</p>
-                        <p style="color:darkred;" *ngIf="addForm.get('usrPassword').hasError('pattern')">Solo se aceptan letras</p>
-                    </div>
-
-
-                    <div *ngIf="addForm.get('usrEmail').errors && addForm.get('usrEmail').dirty">
-                      <p style="color:darkred;" *ngIf="addForm.get('usrEmail').hasError('required')">El Nombre de Email es requerida</p>
-                      <p style="color:darkred;" *ngIf="addForm.get('usrEmail').hasError('maxlength')">Máximo 250 carácteres</p>
-                      <p style="color:darkred;" *ngIf="addForm.get('usrEmail').hasError('pattern')">Solo se aceptan letras</p>
-                  </div>
-
-                  <div *ngIf="addForm.get('usrPerfil').errors && addForm.get('usrEmail').dirty">
-                    <p style="color:darkred;" *ngIf="addForm.get('usrPerfil').hasError('required')">El Nombre de Perfil es requerida</p>
-                    <p style="color:darkred;" *ngIf="addForm.get('usrPerfil').hasError('maxlength')">Máximo 1 carácteres</p>
-                    <p style="color:darkred;" *ngIf="addForm.get('usrPerfil').hasError('pattern')">Solo se aceptan letras</p>
-                </div>
+                        <label for="usrPassword">Password</label>
+                        <input maxlength="15" type="text" required class="form-control" placeholder="Escribe el nuevo Password" name="usrPassword" formControlName="usrPassword" #usrPassword>
+                        <div *ngIf="addForm.get('usrPassword').errors && addForm.get('usrPassword').dirty">
+                          <p style="color:darkred;" *ngIf="addForm.get('usrPassword').hasError('required')">El Nombre de Password es requerida</p>
+                          <p style="color:darkred;" *ngIf="addForm.get('usrPassword').hasError('maxlength')">Máximo 15 carácteres</p>
+                          <p style="color:darkred;" *ngIf="addForm.get('usrPassword').hasError('pattern')">Solo se aceptan letras</p>
+                      </div>
+                        <label for="usrEmail">Email</label>
+                        <input maxlength="250" type="text" required email class="form-control" placeholder="Escribe el nuevo Email" name="usrEmail" formControlName="usrEmail" #usrEmail>
+                        <div *ngIf="addForm.get('usrEmail').errors && addForm.get('usrEmail').dirty">
+                          <p style="color:darkred;" *ngIf="addForm.get('usrEmail').hasError('required')">El Email es requerido</p>
+                          <p style="color:darkred;" *ngIf="addForm.get('usrEmail').hasError('maxlength')">Máximo 250 carácteres</p>
+                          <p style="color:darkred;" *ngIf="addForm.get('usrEmail').hasError('pattern')">no valida</p>
+                      </div>
+                        <label for="usrPerfil">Perfil</label>
+                          <select
+                          name="usrPerfil" #usrPerfil
+                          formControlName="usrPerfil"
+                            class="form-control" required
+                          >
+                            <option value="">Selecciona uno</option>
+                            <option value="A">Administrador</option>
+                            <option value="R">Reclutador</option>
+                            <option value="C">Comercial</option>
+                            <option value="L">Lider de reclutamiento</option>
+                            <option value="V">Validación TI</option>
+                            <option value="B">BackOffice</option>
+                          </select>
+                          <div *ngIf="addForm.get('usrPerfil').errors && addForm.get('usrEmail').dirty">
+                            <p style="color:darkred;" *ngIf="addForm.get('usrPerfil').hasError('required')">El Nombre de Perfil es requerida</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('usrPerfil').hasError('maxlength')">Máximo 1 carácteres</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('usrPerfil').hasError('pattern')">Solo se aceptan letras</p>
+                        </div>
+                        <label for="usrTelefono">Telefono</label>
+                        <input maxlength="15" type="text" required class="form-control" placeholder="Escribe el nuevo Telefono" name="usrTelefono" formControlName="usrTelefono" #usrTelefono>
 
                 <div *ngIf="addForm.get('usrTelefono').errors && addForm.get('usrTelefono').dirty">
                   <p style="color:darkred;" *ngIf="addForm.get('usrTelefono').hasError('required')">El Nombre de Telefono es requerida</p>
                   <p style="color:darkred;" *ngIf="addForm.get('usrTelefono').hasError('maxlength')">Máximo 15 carácteres</p>
                   <p style="color:darkred;" *ngIf="addForm.get('usrTelefono').hasError('pattern')">Solo se aceptan letras</p>
               </div>
-
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addusuario(usrUsername.value, usrNombreUsuario.value, usrPassword.value,
-                usrEmail.value, usrPerfil.value, usrTelefono  )' [disabled]="addForm.invalid">Guardar</button>
+                usrEmail.value, usrPerfil.value, usrTelefono.value )' [disabled]="addForm.invalid">Guardar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
-
-

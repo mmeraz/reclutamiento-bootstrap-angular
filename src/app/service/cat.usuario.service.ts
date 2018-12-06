@@ -8,7 +8,7 @@ import { Catusuario } from '../model/catusuario.model';
 }
 )
 export class UsuarioService {
-  private url = 'http://localhost:8085/api/v1/usrUsuario';
+  private url = 'http://localhost:8085/api/v1/Usuario';
 
   constructor( private clienteHttp: HttpClient) {}
 
@@ -19,19 +19,20 @@ export class UsuarioService {
   addusuario(usrUsername, usrNombreUsuario, usrPassword, usrEmail, usrPerfil, usrTelefono) {
     const obj = {
       usrUsername: usrUsername,
-      usrNombreUsuario: usrNombreUsuario,
+      usrNombreusuario: usrNombreUsuario,
       usrPassword: usrPassword,
       usrEmail: usrEmail,
       usrPerfil: usrPerfil,
       usrTelefono: usrTelefono
     };
     this.clienteHttp.post(this.url + '/add', obj)
-        .subscribe(res => console.log('Done'));
+     .subscribe(res => console.log('Done'));
+     console.log(obj);
   }
 
-  refresh(): void {
-    window.location.reload();
- }
+//   refresh(): void {
+//     // window.location.reload();
+//  }
 
   getArea(id): Observable<Catusuario> {
     return this.clienteHttp.get<Catusuario>(`${this.url}/fetch/${id}`);
@@ -46,7 +47,7 @@ export class UsuarioService {
     usrIdusuario = usrIdusuario;
     const obj = {
       usrUsername: usrUsername,
-      usrNombreUsuario: usrNombreUsuario,
+      usrNombreusuario: usrNombreUsuario,
       usrPassword: usrPassword,
       usrEmail: usrEmail,
       usrPerfil: usrPerfil,

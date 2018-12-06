@@ -8,7 +8,7 @@ import { Catequipo } from '../model/catequipo.model';
 }
 )
 export class EquipoService {
-  private url = 'http://localhost:8085/api/v1/equEquipo';
+  private url = 'http://localhost:8085/api/v1/Equipo';
 
   constructor( private clienteHttp: HttpClient) {}
 
@@ -39,7 +39,6 @@ export class EquipoService {
     }
 
   updateBusiness(equNombre, equDescripcion, equIdequipo) {
-    equIdequipo = equIdequipo;
     const obj = {
       equNombre: equNombre,
       equDescripcion: equDescripcion
@@ -54,8 +53,5 @@ export class EquipoService {
               .clienteHttp
               .delete(`${this.url}/delete/${id}`);
   }
-
-
-
 }
 
