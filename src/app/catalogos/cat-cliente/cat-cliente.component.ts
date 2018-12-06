@@ -58,26 +58,6 @@ export class CatClienteComponent implements OnInit {
     this.ngOnInit();
   }
 
-  deleteBusiness(id, cliNombre, cliRazonsocial) {
-      swal({
-        title: 'Está seguro?',
-      text: `¿Seguro desea eliminar al cliente ${cliNombre}, ${cliRazonsocial}?`,
-        type: 'warning',
-        showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
-        cancelButtonText: 'Cancelar'
-      }).then(result => {
-        if (result.value) {
-        this.clienteService.deleteBusiness(id).subscribe(data => {
-            this.allCliente = this.allCliente.filter(c => c.arnIdarea !== id);
-          });
-          swal('Eliminado!', 'Se ha eliminado el área.', 'success');
-          this.rerender();
-        }
-      });
-  }
 
 }
 

@@ -17,42 +17,14 @@ export class CreateClienteComponent implements OnInit {
   arrayCliente: Catcliente[];
   selectCliente: Catcliente;
 
-  constructor(private clienteService: ClienteService,
-    private fb: FormBuilder, private bs: ClienteService,
-    private activatedRoute: ActivatedRoute) {
-      this.createForm();
+  constructor() {
+      
      }
 
      ngOnInit() {
-      this.clienteService.getClientes().subscribe(
-        (data: Catcliente[]) => this.arrayCliente = data
-      );
+    
     }
-    createForm() {
-      this.addForm = this.fb.group({
-        cliNombre: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ],
-        cliRazonsocial: ['', [Validators.required, Validators.maxLength(150), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
-      });
-    }
+  
 
-
-    addcliente(cliNombre, cliRazonsocial ) {
-      this.bs.addcliente(cliNombre , cliRazonsocial);
-      swal({
-        position: 'top',
-        type: 'success',
-        title: `Cliente creado con éxito`,
-        showConfirmButton: false,
-        timer: 1500
-      });
-      this.update();
-    }
-
-    update(): void {
-      window.location.reload();
-    }
-    saveData() {
-      alert(JSON.stringify(this.addForm.value));
-    }
 
 }

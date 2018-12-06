@@ -22,7 +22,7 @@ export class CatContecnicosComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.contecnicosService.getAreas().subscribe(
+    this.contecnicosService.getCotecnicoss().subscribe(
       (data: Catcontecnicos[]) => this.arrayAreas = data
     );
   }
@@ -34,7 +34,7 @@ export class CatContecnicosComponent implements OnInit {
   }
 
   addconocimientostec(cotConocimientos, cotTipo ) {
-    this.bs.addconocimientostec(cotConocimientos, cotTipo );
+    this.bs.addcotecnicos(cotConocimientos, cotTipo );
   }
 
 }
