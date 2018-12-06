@@ -33,7 +33,6 @@ import { CatPercepcioncndaComponent } from './catalogos/cat-percepcioncnda/cat-p
 import { CatPercepcioncndofrComponent } from './catalogos/cat-percepcioncndofr/cat-percepcioncndofr.component';
 import { CatPerfilComponent } from './catalogos/cat-perfil/cat-perfil.component';
 import { CatPrepercepcionComponent } from './catalogos/cat-prepercepcion/cat-prepercepcion.component';
-import { CatPrioridadComponent } from './catalogos/cat-prioridad/cat-prioridad.component';
 import { CatProyectoComponent } from './catalogos/cat-proyecto/cat-proyecto.component';
 import { CatSeguicandidatoComponent } from './catalogos/cat-seguicandidato/cat-seguicandidato.component';
 import { CatSeguisolicitudComponent } from './catalogos/cat-seguisolicitud/cat-seguisolicitud.component';
@@ -51,6 +50,13 @@ import { CandidatoComponent} from './pages/candidato/candidato.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
 import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
+import { CreateClienteComponent } from './catalogos/cat-cliente/create-cliente.component';
+import { EditClienteComponent } from './catalogos/cat-cliente/edit-cliente.component';
+import { CatPrioridadComponent } from './catalogos/cat-prioridad/cat-prioridad.component';
+import { CreatePrioridadComponent } from './catalogos/cat-prioridad/create-prioridad.component';
+import { EditPrioridadComponent } from './catalogos/cat-prioridad/edit-prioridad.component';
+import { EditJornadaComponent } from './catalogos/cat-jornadalab/edit.component';
+import { CreateJornadalabComponent} from './catalogos/cat-jornadalab/create-jornadalab.component';
 
 
 
@@ -84,7 +90,6 @@ import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-conta
     CatPercepcioncndofrComponent,
     CatPerfilComponent,
     CatPrepercepcionComponent,
-    CatPrioridadComponent,
     CatProyectoComponent,
     CatSeguicandidatoComponent,
     CatSeguisolicitudComponent,
@@ -100,7 +105,14 @@ import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-conta
     CandidatoComponent,
     NotfoundComponent,
     CrearContactoComponent,
-    EditContactoComponent
+    EditContactoComponent,
+    CreateClienteComponent,
+    EditClienteComponent,
+    CatPrioridadComponent,
+    CreatePrioridadComponent,
+    EditPrioridadComponent,
+    EditJornadaComponent,
+    CreateJornadalabComponent
   ],
   imports: [
     BrowserModule,

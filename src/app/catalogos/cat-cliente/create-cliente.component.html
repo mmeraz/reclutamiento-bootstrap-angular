@@ -1,77 +1,43 @@
 <!-- Button trigger modal -->
 <button  class="btn btn-link align-text-top" style="font-size: 15px;" data-toggle="modal" data-target="#exampleModal">
-  <i class="fas fa-plus"> Nuevo</i>
-</button>
+    <i class="fas fa-plus"> Nuevo</i>
+  </button>
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nuevo cliente</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="addForm" (submit)="saveData()">
-                    <div class="form-group">
-                        <label for="cliNombre">Nombre</label>
-                        <input maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="arnTipo" formControlName="arnTipo" #arnTipo>
-                        <div *ngIf="addForm.get('arnTipo').errors && addForm.get('arnTipo').dirty">
-                            <p style="color:darkred;" *ngIf="addForm.get('arnTipo').hasError('required')">El área es requerida</p>
-                            <p style="color:darkred;" *ngIf="addForm.get('arnTipo').hasError('maxlength')">Máximo 40 carácteres</p>
-                            <p style="color:darkred;" *ngIf="addForm.get('arnTipo').hasError('pattern')">Solo se aceptan letras</p>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addarea(arnTipo.value)' [disabled]="addForm.invalid">Guardar</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-<!--Boton para abrir el modal de agregar nueva area-->
-<!-- <button mz-button (click)="basicModal.openModal()" style="margin-top:10px;" [flat]="true">
-  <i mz-icon
-  [align]="'right'"
-  [icon]="'add'"
-  [size]="'small'">
-</i>
-</button> -->
-
-<!--Modal para agregar nueva área-->
-<!-- <mz-modal #basicModal>
-    <mz-modal-header>
-        <h4>Agregar Área</h4>
-    </mz-modal-header>
-    <mz-modal-content>
-        <form [formGroup]="addForm" (submit)="saveData()">
-
-            <label>Área</label>
-            <input type="text" class="form-control" name="arnTipo" formControlName="arnTipo" #arnTipo/>
-            <div *ngIf="addForm.get('arnTipo').errors && addForm.get('arnTipo').dirty">
-                <p class="red-text" *ngIf="addForm.get('arnTipo').hasError('required')">El área es requerida</p>
-                <p class="red-text" *ngIf="addForm.get('arnTipo').hasError('maxlength')">Máximo 40 carácteres</p>
-                <p class="red-text" *ngIf="addForm.get('arnTipo').hasError('pattern')">Solo se aceptan letras</p>
-            </div>
-
-        </form>
-    </mz-modal-content>
-    <mz-modal-footer>
-        <button mz-button [flat]="true" role="button" (click)='addarea(arnTipo.value)' [disabled]="addForm.invalid" mz-modal-close>Guardar</button>
-        <button mz-button [flat]="true" mz-modal-close>Cancelar</button>
-    </mz-modal-footer>
-</mz-modal> -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Nueva área</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+              </div>
+              <div class="modal-body">
+                  <form [formGroup]="addForm" (submit)="saveData()">
+                      <div class="form-group">
+                          <label for="cliNombre">Nombre</label>
+                          <input maxlength="40" type="text" required class="form-control" placeholder="Escribe Nombre Cliente" name="cliNombre" formControlName="cliNombre" #cliNombre>
+                          <div *ngIf="addForm.get('cliNombre').errors && addForm.get('cliNombre').dirty">
+                              <p style="color:darkred;" *ngIf="addForm.get('cliNombre').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('cliNombre').hasError('maxlength')">Máximo 40 carácteres</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('cliNombre').hasError('pattern')">Solo se aceptan letras</p>
+                          </div>
+                          <label for="cliRazonsocial">Razon Social</label>
+                          <input maxlength="40" type="text" required class="form-control" placeholder="Escribe Razon Social" name="cliRazonsocial" formControlName="cliRazonsocial" #cliRazonsocial>
+                          <div *ngIf="addForm.get('cliRazonsocial').errors && addForm.get('cliRazonsocial').dirty">
+                              <p style="color:darkred;" *ngIf="addForm.get('cliRazonsocial').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('cliRazonsocial').hasError('maxlength')">Máximo 40 carácteres</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('cliRazonsocial').hasError('pattern')">Solo se aceptan letras</p>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addcliente(cliNombre.value, cliRazonsocial.value)' [disabled]="addForm.invalid">Guardar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>

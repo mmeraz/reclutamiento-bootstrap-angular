@@ -9,7 +9,7 @@ import { Catjornadalab } from '../model/catjornadalab.model';
 )
 
 export class JornadaLAbService {
-  private url = 'http://localhost:8085/api/v1/jornada';
+  private url = 'http://localhost:8085/api/v1/Jornada';
 
   constructor( private clienteHttp: HttpClient) {}
 

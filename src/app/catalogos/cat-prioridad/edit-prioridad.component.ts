@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { PrioridadService } from 'src/app/service/cat.prioridad.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatPrioridadComponent } from './cat-prioridad.component';
+import { PrioridadService } from 'src/app/service/cat.prioridad.service';
+
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-prioridad',
+  templateUrl: './edit-prioridad.component.html',
+  styles: []
 })
-export class EditComponent implements OnInit {
-
+export class EditPrioridadComponent implements OnInit {
   editForm: FormGroup;
   prioridad: any = {};
 
@@ -23,7 +23,7 @@ export class EditComponent implements OnInit {
 
      createForm() {
       this.editForm = this.fb.group({
-        priNombre: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+        priNombre: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
         });
       }
 
@@ -38,7 +38,7 @@ export class EditComponent implements OnInit {
    updateBusiness(priNombre) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(priNombre, params['id']);
-       this.router.navigate(['Prioridad']);
+      //  this.router.navigate(['Prioridad']);
        swal({
         position: 'top',
         type: 'success',

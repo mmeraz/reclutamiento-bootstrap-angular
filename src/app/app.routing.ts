@@ -39,6 +39,7 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
 import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.component';
 import { LoginComponent} from './pages/login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
+import { EditPrioridadComponent } from './catalogos/cat-prioridad/edit-prioridad.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
 
 import { NotfoundComponent } from './pages/notfound/notfound.component';
@@ -47,6 +48,8 @@ import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 
 import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
 import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
+import { EditClienteComponent } from './catalogos/cat-cliente/edit-cliente.component';
+import { EditJornadaComponent } from './catalogos/cat-jornadalab/edit.component';
 
 import { AuthGuard } from './Guard/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
@@ -102,6 +105,9 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'New-candidato', component: CandidatoComponent},
   {path: 'AddContacto/:id', component: CrearContactoComponent},
   {path: 'EditContacto/:id', component: EditContactoComponent},
+  {path: 'EditCliente/:id', component: EditClienteComponent},
+  {path: 'EditPrioridad/:id', component: EditPrioridadComponent},
+  {path: 'EditJornada/:id', component: EditJornadaComponent},
   {path: '**', component: NotfoundComponent}
 
 

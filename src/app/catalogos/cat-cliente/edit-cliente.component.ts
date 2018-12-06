@@ -1,48 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { JornadaLAbService } from 'src/app/service/cat.jornadalab.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatJornadalabComponent } from './cat-jornadalab.component';
+import { ClienteService } from 'src/app/service/cat.cliente.service';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-cliente',
+  templateUrl: './edit-cliente.component.html',
+  styles: []
 })
-export class EditJornadaComponent implements OnInit {
+export class EditClienteComponent implements OnInit {
 
   editForm: FormGroup;
-  jornada: any = {};
+  cliente: any = {};
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private bs: JornadaLAbService,
+    private bs: ClienteService,
     private fb: FormBuilder) {
       this.createForm();
      }
 
      createForm() {
       this.editForm = this.fb.group({
-        jolTipo: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
-        });
+        cliNombre: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
+      cliRazonsocial: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+      });
       }
 
   ngOnInit() {
 
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
-        this.jornada = res;
+        this.cliente = res;
       });
     });
   }
-   updateBusiness(jolTipo) {
+   updateBusiness(cliNombre, cliRazonsocial) {
     this.route.params.subscribe(params => {
-       this.bs.updateBusiness(jolTipo, params['id']);
-       this.router.navigate(['Jornada-laboral']);
+       this.bs.updateBusiness(cliNombre, cliRazonsocial, params['id']);
+       this.router.navigate(['Area']);
        swal({
         position: 'top',
         type: 'success',
-        title: `jornada modificada con éxito`,
+        title: `Área modificada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });
@@ -57,6 +58,4 @@ export class EditJornadaComponent implements OnInit {
  saveData() {
   alert(JSON.stringify(this.editForm.value));
 }
-
-
 }

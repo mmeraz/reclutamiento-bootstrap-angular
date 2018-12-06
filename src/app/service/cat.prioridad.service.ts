@@ -8,11 +8,11 @@ import { Catprioridad } from '../model/catprioridad.model';
 }
 )
 export class PrioridadService {
-    private url = 'http://localhost:8085/api/v1/priPrioridad';
+    private url = 'http://localhost:8085/api/v1/Prioridad';
 
     constructor( private clienteHttp: HttpClient) {}
 
-    getPrioridads() {
+    getPrioridades() {
       return this.clienteHttp.get(this.url + '/fetch');
     }
 
@@ -54,5 +54,7 @@ export class PrioridadService {
     }
 
 
+
   }
+
 

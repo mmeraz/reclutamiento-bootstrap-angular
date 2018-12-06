@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Catprioridad } from '../../model/catprioridad.model';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { PrioridadService } from '../../service/cat.prioridad.service';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
+
+import { PrioridadService } from 'src/app/service/cat.prioridad.service';
+
+import { Catprioridad } from 'src/app/model/catprioridad.model';
 
 @Component({
   selector: 'app-create-prioridad',
   templateUrl: './create-prioridad.component.html',
-  styles: [],
   providers: [PrioridadService]
 })
 export class CreatePrioridadComponent implements OnInit {
-
   addForm: FormGroup;
   arrayPrioridad: Catprioridad[];
-  selectPrioridad: Catprioridad;
+  selecPrioridad: Catprioridad;
 
-  constructor(private prioridadService: PrioridadService,
+  constructor(private areaService: PrioridadService,
     private fb: FormBuilder, private bs: PrioridadService,
     private activatedRoute: ActivatedRoute) {
       this.createForm();
      }
 
      ngOnInit() {
-      this.prioridadService.getPrioridads().subscribe(
+      this.areaService.getPrioridades().subscribe(
         (data: Catprioridad[]) => this.arrayPrioridad = data
       );
     }
@@ -35,12 +35,12 @@ export class CreatePrioridadComponent implements OnInit {
     }
 
 
-    addprioridad(priNombre) {
+    addPrioridad(priNombre) {
       this.bs.addprioridad(priNombre);
       swal({
         position: 'top',
         type: 'success',
-        title: `Prioridad creada con éxito`,
+        title: `Área creada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });
@@ -55,3 +55,4 @@ export class CreatePrioridadComponent implements OnInit {
     }
 
 }
+

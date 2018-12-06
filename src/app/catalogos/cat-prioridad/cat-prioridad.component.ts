@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Catprioridad } from 'src/app/model/catprioridad.model';
 import { PrioridadService } from 'src/app/service/cat.prioridad.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute} from '@angular/router';
@@ -14,11 +13,9 @@ import { DataTableDirective } from 'angular-datatables';
   providers: [PrioridadService]
 })
 export class CatPrioridadComponent implements OnInit {
-
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
-  arrayPrioridad: Catprioridad[];
   allPrioridad: any = [];
   dtTrigger: Subject<any> = new Subject();
 
@@ -33,11 +30,10 @@ export class CatPrioridadComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.prioridadService.getPrioridads().subscribe(result => {
+    this.prioridadService.getPrioridades().subscribe(result => {
       this.allPrioridad = result;
       this.dtTrigger.next();
     });
-    console.log(this.allPrioridad);
   }
 
   OnDestroy(): void {
@@ -47,7 +43,7 @@ export class CatPrioridadComponent implements OnInit {
 
   rerender(): void {
     setTimeout(() => {
-      this.prioridadService.getPrioridads().subscribe(result => {
+      this.prioridadService.getPrioridades().subscribe(result => {
         this.allPrioridad = result;
       });
     }, 30);
@@ -61,7 +57,7 @@ export class CatPrioridadComponent implements OnInit {
   deleteBusiness(id, priNombre) {
       swal({
         title: 'Está seguro?',
-      text: `¿Seguro desea eliminar al área ${priNombre}?`,
+      text: `¿Seguro desea eliminar la prioridad ${priNombre}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -71,9 +67,9 @@ export class CatPrioridadComponent implements OnInit {
       }).then(result => {
         if (result.value) {
         this.prioridadService.deleteBusiness(id).subscribe(data => {
-            this.allPrioridad = this.allPrioridad.filter(c => c.priIdprioridad !== id);
+            this.allPrioridad = this.allPrioridad.filter(c => c.priNombre !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+          swal('Eliminado!', 'Se ha eliminado prioridad.', 'success');
           this.rerender();
         }
       });
