@@ -12,7 +12,7 @@
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo perfil</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-          
+          <app-create-perfil></app-create-perfil>
         </div>
       </div>
       </div>
@@ -47,14 +47,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.perIdperfil]"></i>
+                      [routerLink]="['/EditPerfil', a.perIdperfil]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.perIdperfil,a.Perperfil)"></i>
+                      (click)="deleteBusiness(a.perIdperfil,a.perPerfil)"></i>
                   </td>
                 </tr>
               </tbody>

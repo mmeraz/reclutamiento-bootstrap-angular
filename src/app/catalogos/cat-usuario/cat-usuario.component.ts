@@ -58,10 +58,10 @@ export class CatUsuarioComponent implements OnInit {
       this.ngOnInit();
     }
 
-    deleteBusiness(id, usrUsername, usrNombreUsuario, usrPassword, usrEmail, usrPerfil, usrTelefono) {
+    deleteBusiness(id, usrUsername) {
         swal({
           title: 'Está seguro?',
-        text: `¿Seguro desea eliminar al usuario ${ usrUsername}?` ,
+        text: `¿Seguro desea eliminar al usuario ${usrUsername}?` ,
         type: 'warning',
           showCancelButton: true,
         confirmButtonColor: '#3085d6',

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PerfilService } from 'src/app/service/cat.perfil.service';
-import {Router, ActivatedRoute} from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatPerfilComponent } from './cat-perfil.component';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-perfil',
+  templateUrl: './edit-perfil.component.html',
+  styles: []
 })
-export class EditComponent implements OnInit {
+export class EditPerfilComponent implements OnInit {
   editForm: FormGroup;
   perfil: any = {};
 
@@ -18,23 +18,23 @@ export class EditComponent implements OnInit {
     private bs: PerfilService,
     private fb: FormBuilder) {
       this.createForm();
-     }
+    }
 
-     createForm() {
+    createForm() {
       this.editForm = this.fb.group({
         perPerfil: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
         });
       }
 
   ngOnInit() {
-
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
         this.perfil = res;
       });
     });
   }
-   updateBusiness(perPerfil) {
+
+  updateBusiness(perPerfil) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(perPerfil, params['id']);
        this.router.navigate(['Perfil']);
@@ -56,6 +56,5 @@ export class EditComponent implements OnInit {
  saveData() {
   alert(JSON.stringify(this.editForm.value));
 }
-
 
 }

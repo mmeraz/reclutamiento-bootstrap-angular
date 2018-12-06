@@ -53,8 +53,18 @@ import { EditJornadaComponent } from './catalogos/cat-jornadalab/edit.component'
 
 import { AuthGuard } from './Guard/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
+import { EditTipvacanteComponent } from './catalogos/cat-tipvacante/edit-tipvacante.component';
+import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tipvacante.component';
+import { EditPerfilComponent } from './catalogos/cat-perfil/edit-perfil.component';
+import { EditEquipoComponent } from './catalogos/cat-equipo/edit-equipo.component';
+import { EditUsuarioComponent } from './catalogos/cat-usuario/edit-usuario.component';
 
 
+import { EditPrepercepcionComponent } from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
+import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/create-prepercepcion.component';
+
+import { EditEstasolicitudComponent } from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
+import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/create-estacandidato.component';
 
 
 
@@ -67,7 +77,9 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},
-
+  {path: 'EditPerfil/:id', component: EditPerfilComponent},
+  {path: 'EditEquipo/:id', component: EditEquipoComponent},
+  {path: 'EditUser/:id', component: EditUsuarioComponent},
   {path: 'Candidato', component: CatCandidatoComponent },
   {path: 'Cliente', component: CatClienteComponent },
   {path: 'Competencia-candidato', component: CatCompcandidatoComponent },
@@ -84,6 +96,11 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Equipo-solicitud', component: CatEquipsolComponent },
   {path: 'Estatus-candidato', component: CatEstacandidatoComponent },
   {path: 'Estatus-solicitud', component: CatEstasolicitudComponent },
+
+  {path: 'Edit-estasolicitud/:id', component: EditEstasolicitudComponent },
+  {path: 'Create-estasolicitud', component: CreateEstacandidatoComponent },
+
+
   {path: 'Funciones', component: CatFuncionesComponent },
   {path: 'Habilidad-solicitada', component: CatHabsolicitudComponent },
   {path: 'Idioma', component: CatIdiomaComponent },
@@ -93,6 +110,10 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Percepcion-candidato-fr', component: CatPercepcioncndofrComponent },
   {path: 'Perfil', component: CatPerfilComponent },
   {path: 'Pre-percepcion', component: CatPrepercepcionComponent },
+
+  {path: 'Edit-prepercepcion/:id', component: EditPrepercepcionComponent },
+  {path: 'Create-prepercepcion', component: CreatePrepercepcionComponent },
+
   {path: 'Prioridad', component: CatPrioridadComponent },
   {path: 'Proyecto', component: CatProyectoComponent },
   {path: 'Seguimiento-candidato', component: CatSeguicandidatoComponent },
@@ -101,6 +122,8 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Idioma-solicitud', component: CatSolidiomaComponent },
   {path: 'Solicitud-percepciones', component: CatSolpercepcionesComponent },
   {path: 'Tipo-vacante', component: CatTipvacanteComponent },
+  {path: 'Edit-tipvacante/:id', component: EditTipvacanteComponent },
+  {path: 'Create-tipvac', component: CreateTipvacanteComponent },
   {path: 'Usuarios', component: CatUsuarioComponent },
   {path: 'New-candidato', component: CandidatoComponent},
   {path: 'AddContacto/:id', component: CrearContactoComponent},

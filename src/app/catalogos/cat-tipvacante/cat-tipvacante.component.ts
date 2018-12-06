@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cattipovacante } from 'src/app/model/cattipovacante.model';
+import { CatTipoVacante } from 'src/app/model/cattipovacante.model';
 import { TipoVacanteService } from 'src/app/service/cat.tipvacante.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute} from '@angular/router';
@@ -18,7 +18,7 @@ export class CatTipvacanteComponent implements OnInit {
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
-  arrayTipvacante: Cattipovacante[];
+  arrayTipvacante: CatTipoVacante[];
   allTipvacante: any = [];
   dtTrigger: Subject<any> = new Subject();
 
