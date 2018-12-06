@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TipoVacanteService } from 'src/app/service/cat.tipvacante.service';
-import {Router, ActivatedRoute} from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatTipvacanteComponent } from './cat-tipvacante.component';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-tipvacante',
+  templateUrl: './edit-tipvacante.component.html',
+  styles: []
 })
-export class EditComponent implements OnInit {
+export class EditTipvacanteComponent implements OnInit {
+
   editForm: FormGroup;
   tipvacante: any = {};
 
@@ -20,7 +21,7 @@ export class EditComponent implements OnInit {
       this.createForm();
      }
 
-     createForm() {
+    createForm() {
       this.editForm = this.fb.group({
         tvaTipo: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
         });
@@ -37,7 +38,7 @@ export class EditComponent implements OnInit {
    updateBusiness(tvaTipo) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(tvaTipo, params['id']);
-       this.router.navigate(['Tipo vacante']);
+       this.router.navigate(['Tipo-vacante']);
        swal({
         position: 'top',
         type: 'success',
@@ -46,7 +47,7 @@ export class EditComponent implements OnInit {
         timer: 1500
       });
     });
-    this.update();
+    // this.update();
  }
 
  update(): void {

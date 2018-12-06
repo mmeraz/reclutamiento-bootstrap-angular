@@ -51,6 +51,13 @@ import { CandidatoComponent} from './pages/candidato/candidato.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
 import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
+import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tipvacante.component';
+import { EditTipvacanteComponent } from './catalogos/cat-tipvacante/edit-tipvacante.component';
+import { EditPrepercepcionComponent } from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
+import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/create-prepercepcion.component';
+import { EditEstasolicitudComponent } from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
+import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/create-estacandidato.component';
+import { CreateEstasolicitudComponent } from './catalogos/cat-estasolicitud/create-estasolicitud.component';
 
 
 
@@ -100,7 +107,14 @@ import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-conta
     CandidatoComponent,
     NotfoundComponent,
     CrearContactoComponent,
-    EditContactoComponent
+    EditContactoComponent,
+    CreateTipvacanteComponent,
+    EditTipvacanteComponent,
+    CreatePrepercepcionComponent,
+    EditPrepercepcionComponent,
+    EditEstasolicitudComponent,
+    CreateEstacandidatoComponent,
+    CreateEstasolicitudComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EstasolicitudService } from 'src/app/service/cat.estasolicitud.service';
-import {Router, ActivatedRoute} from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatEstasolicitudComponent } from './cat-estasolicitud.component';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-estasolicitud',
+  templateUrl: './edit-estasolicitud.component.html',
+  styles: []
 })
-export class EditComponent implements OnInit {
+export class EditEstasolicitudComponent implements OnInit {
 
   editForm: FormGroup;
   estasolicitud: any = {};
@@ -21,7 +21,7 @@ export class EditComponent implements OnInit {
       this.createForm();
      }
 
-     createForm() {
+    createForm() {
       this.editForm = this.fb.group({
         estDescripcion: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
         });
@@ -38,11 +38,11 @@ export class EditComponent implements OnInit {
    updateBusiness(estDescripcion) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(estDescripcion, params['id']);
-       this.router.navigate(['Estasolicitud']);
+       this.router.navigate(['Estatus-solicitud']);
        swal({
         position: 'top',
         type: 'success',
-        title: `Estatus solicitud modificada con éxito`,
+        title: `Estatus solicitud vacante modificada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

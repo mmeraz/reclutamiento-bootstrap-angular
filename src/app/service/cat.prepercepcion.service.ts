@@ -8,7 +8,7 @@ import { Catprepercepcion } from '../model/catprepercepcion.model';
 }
 )
 export class PrePercepcionService {
-  private url = 'http://localhost:8085/api/v1/prePercepcion';
+  private url = 'http://localhost:8085/api/v1/Percepciones';
 
   constructor( private clienteHttp: HttpClient) {}
 
@@ -38,9 +38,8 @@ export class PrePercepcionService {
     }
 
   updateBusiness(perTipo, preIdprestaciones) {
-    preIdprestaciones = preIdprestaciones;
     const obj = {
-      perTipo: perTipo,
+      preTipo: perTipo,
       };
     this
       .clienteHttp

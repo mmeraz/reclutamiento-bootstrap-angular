@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cattipovacante } from '../../model/cattipovacante.model';
+import { CatTipoVacante } from '../../model/cattipovacante.model';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { TipoVacanteService } from '../../service/cat.tipvacante.service';
 import { ActivatedRoute } from '@angular/router';
@@ -14,8 +14,8 @@ import swal from 'sweetalert2';
 export class CreateTipvacanteComponent implements OnInit {
 
   addForm: FormGroup;
-  arrayTipvacante: Cattipovacante[];
-  selectTipvacante: Cattipovacante;
+  arrayTipvacante: CatTipoVacante[];
+  selectTipvacante: CatTipoVacante;
 
   constructor(private tipvacanteService: TipoVacanteService,
     private fb: FormBuilder, private bs: TipoVacanteService,
@@ -25,22 +25,22 @@ export class CreateTipvacanteComponent implements OnInit {
 
      ngOnInit() {
       this.tipvacanteService.getTipoVacantes().subscribe(
-        (data: Cattipovacante[]) => this.arrayTipvacante = data
+        (data: CatTipoVacante[]) => this.arrayTipvacante = data
       );
     }
     createForm() {
       this.addForm = this.fb.group({
-        tvaTipo: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        tvaTipo: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
       });
     }
 
 
     addtipovacante(tvaTipo) {
-      this.bs.addtvatipo(tvaTipo);
+      this.bs.addTipVacante(tvaTipo);
       swal({
         position: 'top',
         type: 'success',
-        title: `Área creada con éxito`,
+        title: `Tipo vacante creada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

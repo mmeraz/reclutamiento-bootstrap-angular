@@ -12,7 +12,7 @@
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo tipo vacante</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-       
+        <app-create-tipvacante></app-create-tipvacante>
         </div>
       </div>
       </div>
@@ -36,9 +36,9 @@
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allAreas">
-                  <th scope="row">{{ a.tvaIdtipovacante }}</th>
-                  <td>{{ a.tvaTipo }}</td>
+                <tr *ngFor="let t of allTipvacante">
+                  <th scope="row">{{ t.tvaIdtipovacante }}</th>
+                  <td>{{ t.tvaTipo }}</td>
 
                   <td class="text-center" >
 
@@ -47,14 +47,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.tvaIdtipovacante]"></i>
+                      [routerLink]="['/Edit-tipvacante', t.tvaIdtipovacante]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.tvaIdtipovacante,a.tvaTipo)"></i>
+                      (click)="deleteBusiness(t.tvaIdtipovacante,t.tvaTipo)"></i>
                   </td>
                 </tr>
               </tbody>

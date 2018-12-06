@@ -5,7 +5,7 @@ import { PrioridadService } from 'src/app/service/cat.prioridad.service';
 import { Catprioridad } from 'src/app/model/catprioridad.model';
 import { TipoVacanteService } from 'src/app/service/cat.tipvacante.service';
 import { CatTipvacanteComponent } from '../cat-tipvacante/cat-tipvacante.component';
-import { Cattipovacante } from 'src/app/model/cattipovacante.model';
+import { CatTipoVacante } from 'src/app/model/cattipovacante.model';
 import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
 import { Catsolidioma } from 'src/app/model/catsolidioma.model';
@@ -36,7 +36,7 @@ export class CatSolicitudComponent implements OnInit {
   addForm: FormGroup;
   allAreas: Catarea[];
   allPrioridad: Catprioridad[];
-  allVacantes: Cattipovacante[];
+  allVacantes: CatTipoVacante[];
   allConocimiento: Catcontecnicos[];
   allIdiomas: Catidioma[];
   allClientes: Catcliente[];
@@ -48,7 +48,7 @@ export class CatSolicitudComponent implements OnInit {
 
   prioridad: Catprioridad = null;
   requerimiento: Catarea = null;
-  vacante: Cattipovacante = null;
+  vacante: CatTipoVacante = null;
   cliente: Catcliente = null;
   conocimiento: Catcontecnicos = null;
   idioma: Catidioma = null;
