@@ -120,7 +120,7 @@ import { CreateUsuarioComponent } from './catalogos/cat-usuario/create-usuario.c
     EditPrepercepcionComponent,
     EditEstasolicitudComponent,
     CreateEstacandidatoComponent,
-    CreateEstasolicitudComponent
+    CreateEstasolicitudComponent,
     EditContactoComponent,
     CreatePerfilComponent,
     EditPerfilComponent,
