@@ -38,7 +38,7 @@
               <tbody>
 
                 <tr *ngFor="let c of allContecnicos">
-                  <td scope="row">{{ c.cotIdconcimiento }}</td>
+                  <td scope="row">{{ c.cotIdconocimiento }}</td>
                   <td>{{ c.cotConocimiento }}</td>
                   <td>{{ c.cotTipo }}</td>
                   <td class="text-center" >
@@ -47,7 +47,7 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit-contecnicos', c.cotIdconcimiento]"></i>
+                      [routerLink]="['/Edit-contecnicos', c.cotIdconocimiento]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"

@@ -30,7 +30,6 @@ export class EditContecnicosComponent implements OnInit {
       }
 
   ngOnInit() {
-
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
         this.contecnicos = res;
@@ -49,7 +48,7 @@ export class EditContecnicosComponent implements OnInit {
         timer: 1500
       });
     });
-    // this.update();
+    this.update();
  }
 
  update(): void {
