@@ -59,6 +59,7 @@ import { EditPrepercepcionComponent } from './catalogos/cat-prepercepcion/edit-p
 import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/create-prepercepcion.component';
 import { EditEstasolicitudComponent } from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
 import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/create-estacandidato.component';
+import { EditContecnicosComponent } from './catalogos/cat-contecnicos/edit-contecnicos.component';
 
 
 
@@ -88,6 +89,7 @@ import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/crea
   {path: 'Contacto', component: CatContactoComponent },
   {path: 'Conocimiento-tecnico-candidato', component: CatConteccandidatoComponent },
   {path: 'Conocimientos-tecnicos', component: CatContecnicosComponent },
+  {path: 'Edit-estasolicitud/:id', component: EditEstasolicitudComponent },
   {path: 'Documento-candidatos', component: CatDoccandidatoComponent },
   {path: 'Documentos', component: CatDocumentosComponent },
   {path: 'Entrevista', component: CatEntrevistaComponent },
@@ -125,6 +127,7 @@ import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/crea
   {path: 'EditCliente/:id', component: EditClienteComponent},
   {path: 'EditPrioridad/:id', component: EditPrioridadComponent},
   {path: 'EditJornada/:id', component: EditJornadaComponent},
+  {path: 'Edit-contecnicos/:id', component: EditContecnicosComponent },
   {path: '**', component: NotfoundComponent}
   ];
 

@@ -57,7 +57,7 @@ export class CatEquipoComponent implements OnInit {
     this.ngOnInit();
   }
 
-  deleteBusiness(id, equNombre) {
+  deleteBusiness(id, equNombre, equDescripcion) {
       swal({
         title: 'Está seguro?',
       text: `¿Seguro desea eliminar al equipo ${equNombre}?`,
