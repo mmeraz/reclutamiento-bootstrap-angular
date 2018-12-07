@@ -57,7 +57,16 @@ import { CreatePrioridadComponent } from './catalogos/cat-prioridad/create-prior
 import { EditPrioridadComponent } from './catalogos/cat-prioridad/edit-prioridad.component';
 import { EditJornadaComponent } from './catalogos/cat-jornadalab/edit.component';
 import { CreateJornadalabComponent} from './catalogos/cat-jornadalab/create-jornadalab.component';
-
+import { EditPerfilComponent } from './catalogos/cat-perfil/edit-perfil.component';
+import { EditEquipoComponent} from './catalogos/cat-equipo/edit-equipo.component';
+import { EditUsuarioComponent} from './catalogos/cat-usuario/edit-usuario.component';
+import { EditEstasolicitudComponent} from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
+import { CreateEstasolicitudComponent} from './catalogos/cat-estasolicitud/create-estasolicitud.component';
+import { CreateEstacandidatoComponent} from './catalogos/cat-estacandidato/create-estacandidato.component';
+import {EditPrepercepcionComponent} from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
+import { CreatePrepercepcionComponent} from './catalogos/cat-prepercepcion/create-prepercepcion.component';
+import { EditTipvacanteComponent} from './catalogos/cat-tipvacante/edit-tipvacante.component';
+import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tipvacante.component';
 
 
 @NgModule({
@@ -112,7 +121,17 @@ import { CreateJornadalabComponent} from './catalogos/cat-jornadalab/create-jorn
     CreatePrioridadComponent,
     EditPrioridadComponent,
     EditJornadaComponent,
-    CreateJornadalabComponent
+    CreateJornadalabComponent,
+    EditPerfilComponent,
+    EditEquipoComponent,
+    EditUsuarioComponent,
+    EditEstasolicitudComponent,
+    CreateEstasolicitudComponent,
+    CreateEstacandidatoComponent,
+    EditPrepercepcionComponent,
+    CreatePrepercepcionComponent,
+    EditTipvacanteComponent,
+    CreateTipvacanteComponent
   ],
   imports: [
     BrowserModule,
