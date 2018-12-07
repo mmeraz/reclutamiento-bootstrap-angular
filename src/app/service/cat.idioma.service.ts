@@ -9,7 +9,7 @@ import { Catidioma } from '../model/catidioma.model';
 )
 
 export class IdiomaService {
-  private url = 'http://localhost:8085/api/v1/idiIdioma';
+  private url = 'http://localhost:8085/api/v1/Idioma';
 
   constructor( private clienteHttp: HttpClient) {}
 

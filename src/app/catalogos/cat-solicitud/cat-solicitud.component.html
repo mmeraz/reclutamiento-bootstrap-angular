@@ -87,6 +87,8 @@
                   id="presupuesto"
                   name="presupuesto"
                   class="form-control"
+                  [(ngModel)]="presupuesto"
+                  [ngModelOptions]="{ stanalone: true }"
                 >
                   <option value="">Selecciona uno</option>
                   <option value="s">Si</option>
@@ -112,6 +114,80 @@
                     item.tvaTipo
                   }}</option>
                 </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="perfil"
+                >Tipo perfil</label
+              >
+              <div class="col-md-12">
+                <select
+                  [(ngModel)]="perfil"
+                  class="form-control"
+                  id="perfil"
+                  name="perfil"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  <option [ngValue]="null" selected>Selecciona uno</option>
+                  <option *ngFor="let p of allPerfiles" [ngValue]="p">{{
+                    p.perPerfil
+                  }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="genero"
+                >Sexo</label
+              >
+              <div class="col-md-12">
+                <select
+                  [(ngModel)]="genero"
+                  class="form-control"
+                  id="genero"
+                  name="genero"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  <option [ngValue]="" selected>Selecciona uno</option>
+                  <option value="I">Indefinido</option>
+                  <option value="H">Hombre</option>
+                  <option value="M">Mujer</option>
+                </select>
+              </div>
+            </div>
+            <!-- Text input -->
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="escolaridad"
+                >Escolaridad</label
+              >
+              <div class="col-md-12">
+                <input
+                  id="escolaridad"
+                  name="escolaridad"
+                  type="text"
+                  placeholder="Grado escolar"
+                  class="form-control input-md"
+                  required=""
+                  [(ngModel)]="escolaridad"
+                  [ngModelOptions]="{ stanalone: true }"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="edad"
+                >Edad</label
+              >
+              <div class="col-md-12">
+                <input
+                  id="edad"
+                  name="edad"
+                  type="number"
+                  min="20" max="99"
+                  placeholder="Escribe la edad"
+                  class="form-control input-md"
+                  required=""
+                  [(ngModel)]="edad"
+                  [ngModelOptions]="{ stanalone: true }"
+                />
               </div>
             </div>
           </div>
@@ -189,7 +265,7 @@
                   data-placement="center"
                   title="Agregar"
                   class="fas fa-plus"
-                  (click)="add()"
+                  (click)="addContacto()"
                 ></i>
               </div>
           </div>
@@ -241,6 +317,9 @@
                   placeholder="nombre del proyecto"
                   class="form-control input-md"
                   required=""
+                  [(ngModel)]="nombrePro"
+                  [ngModelOptions]="{ stanalone: true }"
+
                 />
               </div>
             </div>
@@ -255,6 +334,8 @@
                   type="text"
                   placeholder="Puesto del proyecto"
                   class="form-control input-md"
+                  [(ngModel)]="puestoPro"
+                  [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
             </div>
@@ -269,8 +350,10 @@
                   id="duracion"
                   name="duracion"
                   type="text"
-                  placeholder=""
+                  placeholder="Duracion Proyecto"
                   class="form-control input-md"
+                  [(ngModel)]="duracionPro"
+                  [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
             </div>
@@ -281,7 +364,8 @@
                 >Jornada Laboral</label
               >
               <div class="col-md-12">
-                <select id="jornada" name="jornada" class="form-control">
+                <select id="jornada" name="jornada" class="form-control" [(ngModel)]="jornadaLab"
+                [ngModelOptions]="{ stanalone: true }">
                   <option value="1">Selecciona una</option>
                   <option *ngFor="let item of allJornada" [ngValue]=item>{{item.jolTipo}}</option>
                 </select>
@@ -298,7 +382,45 @@
                   class="form-control"
                   id="descripcion"
                   name="descripcion"
+                  [(ngModel)]="descripcion"
+                  [ngModelOptions]="{ stanalone: true }"
                 >Descripción del proyecto</textarea>
+              </div>
+            </div>
+            <!-- Text input -->
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="nVacante"
+                >Numero de vacantes</label
+              >
+              <div class="col-md-12">
+                <input
+                  id="nVacante"
+                  name="nVacante"
+                  type="number"
+                  placeholder="Numero vacantes"
+                  min="1" max="100"
+                  class="form-control input-md"
+                  [(ngModel)]="nVacante"
+                  [ngModelOptions]="{ stanalone: true }"
+                />
+              </div>
+            </div>
+            <!-- Text input -->
+            <div class="form-group">
+              <label class="col-md-12 control-label" for="duracion"
+                >Tarifa comercial</label
+              >
+              <div class="col-md-12">
+                <input
+                  id="tarifaC"
+                  name="tarifaC"
+                  type="number"
+                  placeholder="Tarifa comercial"
+                  min="1" max="100"
+                  class="form-control input-md"
+                  [(ngModel)]="tarifaC"
+                  [ngModelOptions]="{ stanalone: true }"
+                />
               </div>
             </div>
           </div>
@@ -341,7 +463,8 @@
             <div class="form-group">
               <label class="col-md-12 control-label" for="idioma">Idioma</label>
               <div class="col-md-12">
-                <select id="idioma" name="idioma" class="form-control">
+                <select id="idioma" name="idioma" class="form-control" [(ngModel)]="idioma"
+                [ngModelOptions]="{ stanalone: true }">
                   <option value="1">Selecciona uno</option>
                   <option *ngFor="let item of allIdiomas" [ngValue]="item">{{item.idiNombre}}</option>
                 </select>
@@ -358,6 +481,8 @@
                   type="text"
                   placeholder=""
                   class="form-control input-md"
+                  [(ngModel)]="nvIdioma"
+                  [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
             </div>
@@ -368,7 +493,7 @@
                 data-placement="center"
                 title="Agregar"
                 class="fas fa-plus"
-                (click)="add()"
+                (click)="addIdioma()"
               ></i>
             </div>
           </div>
@@ -383,8 +508,10 @@
                   id="conocimiento"
                   name="conocimiento"
                   class="form-control"
+                  [(ngModel)]="conocimiento"
+                  [ngModelOptions]="{ stanalone: true }"
                 >
-                  <option [ngValue]="null">Option one</option>
+                  <option [ngValue]="null">Selecciona uno</option>
                   <option *ngFor="let cono of allConocimiento" [ngValue]="cono">{{cono.cotConocimientos}}</option>
                 </select>
               </div>
@@ -400,8 +527,20 @@
                   type="text"
                   placeholder=""
                   class="form-control input-md"
+                  [(ngModel)]="nvCono"
+                  [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
+            </div>
+            <div>
+              <i
+                style="color:#dc3545;"
+                data-toggle="tooltip"
+                data-placement="center"
+                title="Agregar"
+                class="fas fa-plus"
+                (click)="addConocimiento()"
+              ></i>
             </div>
           </div>
           <!-- Select Basic -->
@@ -415,6 +554,8 @@
                   id="habilidades"
                   name="habilidades"
                   class="form-control"
+                  [(ngModel)]="habilidad"
+                  [ngModelOptions]="{ stanalone: true }"
                 >
                   <option [ngValue]="null">Selecciona uno</option>
                   <option *ngFor="let hab of allHabilidades">{{hab.cohDescripcion}}</option>
@@ -432,13 +573,79 @@
                   type="text"
                   placeholder=""
                   class="form-control input-md"
+                  [(ngModel)]="nvhab"
+                  [ngModelOptions]="{ stanalone: true }"
                 />
+              </div>
+            </div>
+            <div>
+              <i
+                style="color:#dc3545;"
+                data-toggle="tooltip"
+                data-placement="center"
+                title="Agregar"
+                class="fas fa-plus"
+                (click)="addHabilidad()"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header z-depth-1 teal" role="tab" id="heading1">
+          <a
+            class="collapsed"
+            data-toggle="collapse"
+            data-parent="#accordionEx2"
+            href="#collapse1"
+            aria-expanded="false"
+            aria-controls="collapse1"
+          >
+            <h6 class="mb-0 black-text font-weight-bold">
+              Equipo
+            </h6>
+          </a>
+        </div>
+
+        <!-- Card body -->
+        <div
+          id="collapse1"
+          class="collapse"
+          role="tabpanel"
+          aria-labelledby="heading1"
+          data-parent="#accordionEx2"
+        >
+          <div class="card-body rgba-teal-strong white-text">
+            <div class="row">
+              <!-- Select Basic -->
+              <div class="form-group">
+                <label class="col-md-12 control-label" for="equipo">Equipos</label>
+                <select
+                  id="equipo"
+                  name="equipo"
+                  class="form-control"
+                  [(ngModel)]="equipo"
+                  [ngModelOptions]="{ stanalone: true }"
+                >
+                  <option [ngValue]="null">Selecciona uno</option>
+                  <option *ngFor="let hab of allEquipo">{{hab.equNombre}}</option>
+                </select>
+              </div>
+              <div>
+                <i
+                  style="color:#dc3545;"
+                  data-toggle="tooltip"
+                  data-placement="center"
+                  title="Agregar"
+                  class="fas fa-plus"
+                  (click)="addEquipo()"
+                ></i>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <!-- Accordion card -->
       <div class="card">
         <!-- Card header -->
@@ -452,7 +659,7 @@
             aria-controls="collapse14"
           >
             <h6 class="mb-0 black-text font-weight-bold">
-              Conocimientos adicionales
+              Funciones
             </h6>
           </a>
         </div>
@@ -469,39 +676,33 @@
             <div class="row">
               <!-- Select Basic -->
               <div class="form-group">
-                <label class="col-md-12 control-label" for="habilidades"
-                  >Conocimiento</label
-                >
-                <div class="col-md-12">
-                  <select
-                    id="habilidades"
-                    name="habilidades"
-                    class="form-control"
-                  >
-                    <option value="1">Option one</option>
-                    <option value="2">Option two</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Text input -->
-              <div class="form-group">
-                <label class="col-md-12 control-label" for="nivel">Nivel</label>
+                <label class="col-md-12 control-label" for="funcion">Funcion</label>
                 <div class="col-md-12">
                   <input
-                    id="nivel"
-                    name="nivel"
+                    id="funcion"
+                    name="funcion"
                     type="text"
-                    placeholder=""
+                    placeholder="Descripcion de la funcion"
                     class="form-control input-md"
+                    [(ngModel)]="descripcionF"
+                  [ngModelOptions]="{ stanalone: true }"
                   />
                 </div>
+              </div>
+              <div>
+                <i
+                  style="color:#dc3545;"
+                  data-toggle="tooltip"
+                  data-placement="center"
+                  title="Agregar"
+                  class="fas fa-plus"
+                  (click)="addFunciones()"
+                ></i>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Accordion card -->
       <!-- Accordion card -->
       <div class="card">
         <!-- Card header -->
@@ -538,6 +739,8 @@
                     id="percepcion"
                     name="percepcion"
                     class="form-control"
+                    [(ngModel)]="percepcion"
+                  [ngModelOptions]="{ stanalone: true }"
                   >
                     <option [ngValue]="null">Selecciona una</option>
                     <option *ngFor="let per of allPercepciones" [ngValue]="per">{{per.preTipo}}</option>
@@ -557,6 +760,8 @@
                     type="text"
                     placeholder=""
                     class="form-control input-md"
+                    [(ngModel)]="descripcionPer"
+                  [ngModelOptions]="{ stanalone: true }"
                   />
                 </div>
               </div>
@@ -571,8 +776,20 @@
                     type="text"
                     placeholder=""
                     class="form-control input-md"
+                    [(ngModel)]="valorPer"
+                  [ngModelOptions]="{ stanalone: true }"
                   />
                 </div>
+              </div>
+              <div>
+                <i
+                  style="color:#dc3545;"
+                  data-toggle="tooltip"
+                  data-placement="center"
+                  title="Agregar"
+                  class="fas fa-plus"
+                  (click)="addPercepcion()"
+                ></i>
               </div>
             </div>
           </div>

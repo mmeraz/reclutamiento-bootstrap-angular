@@ -8,7 +8,7 @@ import { Catcomphabilidades } from '../model/catcomphabilidades.model';
 }
 )
 export class CompHabilidadesService {
-  private url = 'http://localhost:8085/api/v1/comphabilidades';
+  private url = 'http://localhost:8085/api/v1/Competencias';
 
   constructor( private clienteHttp: HttpClient) {}
 
