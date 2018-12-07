@@ -72,7 +72,7 @@ export class CatPerfilComponent implements OnInit {
         this.perfilService.deleteBusiness(id).subscribe(data => {
             this.allPerfil = this.allPerfil.filter(c => c.perIdperfil !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+          swal('Eliminado!', 'Se ha eliminado el perfil.', 'success');
           this.rerender();
         }
       });

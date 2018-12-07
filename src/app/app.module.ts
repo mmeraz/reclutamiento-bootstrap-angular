@@ -70,6 +70,8 @@ import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tip
 import { CreateEquipoComponent } from './catalogos/cat-equipo/create-equipo.component';
 import { CreatePerfilComponent } from './catalogos/cat-perfil/create-perfil.component';
 import { CreateUsuarioComponent } from './catalogos/cat-usuario/create-usuario.component';
+import { EditContecnicosComponent } from './catalogos/cat-contecnicos/edit-contecnicos.component';
+import { CreateContecnicosComponent} from './catalogos/cat-contecnicos/create-contecnicos.component';
 
 @NgModule({
   declarations: [
@@ -136,7 +138,9 @@ import { CreateUsuarioComponent } from './catalogos/cat-usuario/create-usuario.c
     EditPrepercepcionComponent,
     CreatePrepercepcionComponent,
     EditTipvacanteComponent,
-    CreateTipvacanteComponent
+    CreateTipvacanteComponent,
+    EditContecnicosComponent,
+    CreateContecnicosComponent
   ],
   imports: [
     BrowserModule,

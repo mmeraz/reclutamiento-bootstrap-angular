@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+          <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
+              <h1 class="h3 mb-3 font-weight-normal">Conocimientos Técnicos</h1>
+              <div class="form-group">
+                  <label for="cotConocimiento">Conocimientos</label>
+                  <input [(ngModel)]="contecnicos.cotConocimiento" maxlength="50" type="text" required class="form-control" name="cotConocimiento" formControlName="cotConocimiento" #cotConocimiento>
+
+                  <label for="cotTipo">Tipo Conocimientos</label>
+                  <input [(ngModel)]="contecnicos.cotTipo" maxlength="1" type="text" required class="form-control" name="cotTipo" formControlName="cotTipo" #cotTipo>
+
+
+                  <div *ngIf="editForm.get('cotConocimiento').errors && editForm.get('cotConocimiento').dirty">
+                      <p class="text-danger" *ngIf="editForm.get('cotConocimiento').hasError('required')">El conocimiento tecnico requerido es</p>
+                      <p class="text-danger" *ngIf="editForm.get('cotConocimiento').hasError('maxlength')">Máximo 100 carácteres</p>
+                      <p class="text-danger" *ngIf="editForm.get('cotConocimiento').hasError('pattern')">Solo se aceptan letras</p>
+
+
+
+                  <div *ngIf="editForm.get('cotTipo').errors && editForm.get('cotTipo').dirty">
+                    <p class="text-danger" *ngIf="editForm.get('cotTipo').hasError('required')">El tipo de conocimiento requerido es</p>
+                    <p class="text-danger" *ngIf="editForm.get('cotTipo').hasError('maxlength')">Máximo 1 carácteres</p>
+                    <p class="text-danger" *ngIf="editForm.get('cotTipo').hasError('pattern')">Solo se aceptan letras</p>
+                </div>
+              </div>
+
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(cotConocimiento.value, cotTipo.value)' [disabled]="editForm.invalid">Editar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Contecnicos">Cancelar</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
