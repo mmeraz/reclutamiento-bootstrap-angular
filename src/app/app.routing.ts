@@ -41,16 +41,13 @@ import { LoginComponent} from './pages/login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
 import { EditPrioridadComponent } from './catalogos/cat-prioridad/edit-prioridad.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
-
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CandidatoComponent } from './pages/candidato/candidato.component';
 import { SolicitudComponent } from './pages/solicitud/solicitud.component';
-
 import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
 import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
 import { EditClienteComponent } from './catalogos/cat-cliente/edit-cliente.component';
 import { EditJornadaComponent } from './catalogos/cat-jornadalab/edit.component';
-
 import { AuthGuard } from './Guard/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { EditTipvacanteComponent } from './catalogos/cat-tipvacante/edit-tipvacante.component';
@@ -58,11 +55,8 @@ import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tip
 import { EditPerfilComponent } from './catalogos/cat-perfil/edit-perfil.component';
 import { EditEquipoComponent } from './catalogos/cat-equipo/edit-equipo.component';
 import { EditUsuarioComponent } from './catalogos/cat-usuario/edit-usuario.component';
-
-
 import { EditPrepercepcionComponent } from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
 import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/create-prepercepcion.component';
-
 import { EditEstasolicitudComponent } from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
 import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/create-estacandidato.component';
 
@@ -80,6 +74,11 @@ import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/crea
   {path: 'EditPerfil/:id', component: EditPerfilComponent},
   {path: 'EditEquipo/:id', component: EditEquipoComponent},
   {path: 'EditUser/:id', component: EditUsuarioComponent},
+  {path: 'EditPerfil/:id', component: EditPerfilComponent},
+  {path: 'EditEquipo/:id', component: EditEquipoComponent},
+  {path: 'EditUser/:id', component: EditUsuarioComponent},
+  {path: 'Edit-tipvacante/:id', component: EditTipvacanteComponent},
+  {path: 'Edit-prepercepcion/:id', component: EditPrepercepcionComponent},
   {path: 'Candidato', component: CatCandidatoComponent },
   {path: 'Cliente', component: CatClienteComponent },
   {path: 'Competencia-candidato', component: CatCompcandidatoComponent },
@@ -96,11 +95,8 @@ import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/crea
   {path: 'Equipo-solicitud', component: CatEquipsolComponent },
   {path: 'Estatus-candidato', component: CatEstacandidatoComponent },
   {path: 'Estatus-solicitud', component: CatEstasolicitudComponent },
-
   {path: 'Edit-estasolicitud/:id', component: EditEstasolicitudComponent },
   {path: 'Create-estasolicitud', component: CreateEstacandidatoComponent },
-
-
   {path: 'Funciones', component: CatFuncionesComponent },
   {path: 'Habilidad-solicitada', component: CatHabsolicitudComponent },
   {path: 'Idioma', component: CatIdiomaComponent },
@@ -110,10 +106,8 @@ import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/crea
   {path: 'Percepcion-candidato-fr', component: CatPercepcioncndofrComponent },
   {path: 'Perfil', component: CatPerfilComponent },
   {path: 'Pre-percepcion', component: CatPrepercepcionComponent },
-
   {path: 'Edit-prepercepcion/:id', component: EditPrepercepcionComponent },
   {path: 'Create-prepercepcion', component: CreatePrepercepcionComponent },
-
   {path: 'Prioridad', component: CatPrioridadComponent },
   {path: 'Proyecto', component: CatProyectoComponent },
   {path: 'Seguimiento-candidato', component: CatSeguicandidatoComponent },
@@ -132,11 +126,6 @@ import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/crea
   {path: 'EditPrioridad/:id', component: EditPrioridadComponent},
   {path: 'EditJornada/:id', component: EditJornadaComponent},
   {path: '**', component: NotfoundComponent}
-
-
-
-
-
   ];
 
  export const appRoutingProviders: any[] = [];
