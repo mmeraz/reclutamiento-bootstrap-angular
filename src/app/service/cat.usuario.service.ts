@@ -27,7 +27,6 @@ export class UsuarioService {
     };
     this.clienteHttp.post(this.url + '/add', obj)
      .subscribe(res => console.log('Done'));
-     console.log(obj);
   }
 
 //   refresh(): void {

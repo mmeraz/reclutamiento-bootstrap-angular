@@ -31,7 +31,7 @@ export class CreateUsuarioComponent implements OnInit {
     createForm() {
       this.addForm = this.fb.group({
         usrUsername: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
-        usrNombreusuario: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
+        usrNombreUsuario: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
         usrPassword: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
         usrEmail: ['', [Validators.required, Validators.maxLength(250), Validators.pattern('^[a-zA-Z@.]*$')] ] ,
         usrPerfil: ['', [Validators.required, Validators.maxLength(1), Validators.pattern('^[ARCLVB]*$')] ] ,
@@ -40,8 +40,8 @@ export class CreateUsuarioComponent implements OnInit {
     }
 
 
-    addusuario(usrUsername, usrNombreusuario , usrPassword , usrEmail, usrPerfil , usrTelefono ) {
-      this.bs.addusuario(usrUsername, usrNombreusuario , usrPassword , usrEmail, usrPerfil , usrTelefono);
+    addusuario(usrUsername, usrNombreUsuario , usrPassword , usrEmail, usrPerfil , usrTelefono ) {
+      this.bs.addusuario(usrUsername, usrNombreUsuario , usrPassword , usrEmail, usrPerfil , usrTelefono);
       swal({
         position: 'top',
         type: 'success',

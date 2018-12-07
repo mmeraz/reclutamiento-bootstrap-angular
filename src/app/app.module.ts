@@ -63,11 +63,13 @@ import { EditUsuarioComponent} from './catalogos/cat-usuario/edit-usuario.compon
 import { EditEstasolicitudComponent} from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
 import { CreateEstasolicitudComponent} from './catalogos/cat-estasolicitud/create-estasolicitud.component';
 import { CreateEstacandidatoComponent} from './catalogos/cat-estacandidato/create-estacandidato.component';
-import {EditPrepercepcionComponent} from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
+import { EditPrepercepcionComponent } from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
 import { CreatePrepercepcionComponent} from './catalogos/cat-prepercepcion/create-prepercepcion.component';
 import { EditTipvacanteComponent} from './catalogos/cat-tipvacante/edit-tipvacante.component';
 import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tipvacante.component';
-
+import { CreateEquipoComponent } from './catalogos/cat-equipo/create-equipo.component';
+import { CreatePerfilComponent } from './catalogos/cat-perfil/create-perfil.component';
+import { CreateUsuarioComponent } from './catalogos/cat-usuario/create-usuario.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +115,9 @@ import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tip
     HomeComponent,
     CandidatoComponent,
     NotfoundComponent,
+    CreateEquipoComponent,
+    CreatePerfilComponent,
+    CreateUsuarioComponent,
     CrearContactoComponent,
     EditContactoComponent,
     CreateClienteComponent,
