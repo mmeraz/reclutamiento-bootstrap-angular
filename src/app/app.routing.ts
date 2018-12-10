@@ -39,15 +39,27 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
 import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.component';
 import { LoginComponent} from './pages/login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
+import { EditPrioridadComponent } from './catalogos/cat-prioridad/edit-prioridad.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
-
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CandidatoComponent } from './pages/candidato/candidato.component';
 import { SolicitudComponent } from './pages/solicitud/solicitud.component';
+import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
+import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
+import { EditClienteComponent } from './catalogos/cat-cliente/edit-cliente.component';
+import { EditJornadaComponent } from './catalogos/cat-jornadalab/edit.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
-
-
+import { EditTipvacanteComponent } from './catalogos/cat-tipvacante/edit-tipvacante.component';
+import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tipvacante.component';
+import { EditPerfilComponent } from './catalogos/cat-perfil/edit-perfil.component';
+import { EditEquipoComponent } from './catalogos/cat-equipo/edit-equipo.component';
+import { EditUsuarioComponent } from './catalogos/cat-usuario/edit-usuario.component';
+import { EditPrepercepcionComponent } from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
+import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/create-prepercepcion.component';
+import { EditEstasolicitudComponent } from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
+import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/create-estacandidato.component';
+import { EditContecnicosComponent } from './catalogos/cat-contecnicos/edit-contecnicos.component';
 
 
 
@@ -56,12 +68,20 @@ import { HomeComponent } from './pages/home/home.component';
  const appRoutes: Routes = [
 
   // {path: '/', component: HomeComponent },
+  {path: 'Home', component: HomeComponent },
   {path: 'Login', component: LoginComponent},
 
   {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},
-
+  {path: 'EditPerfil/:id', component: EditPerfilComponent},
+  {path: 'EditEquipo/:id', component: EditEquipoComponent},
+  {path: 'EditUser/:id', component: EditUsuarioComponent},
+  {path: 'EditPerfil/:id', component: EditPerfilComponent},
+  {path: 'EditEquipo/:id', component: EditEquipoComponent},
+  {path: 'EditUser/:id', component: EditUsuarioComponent},
+  {path: 'Edit-tipvacante/:id', component: EditTipvacanteComponent},
+  {path: 'Edit-prepercepcion/:id', component: EditPrepercepcionComponent},
   {path: 'Candidato', component: CatCandidatoComponent },
   {path: 'Cliente', component: CatClienteComponent },
   {path: 'Competencia-candidato', component: CatCompcandidatoComponent },
@@ -71,6 +91,7 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Contacto', component: CatContactoComponent },
   {path: 'Conocimiento-tecnico-candidato', component: CatConteccandidatoComponent },
   {path: 'Conocimientos-tecnicos', component: CatContecnicosComponent },
+  {path: 'Edit-estasolicitud/:id', component: EditEstasolicitudComponent },
   {path: 'Documento-candidatos', component: CatDoccandidatoComponent },
   {path: 'Documentos', component: CatDocumentosComponent },
   {path: 'Entrevista', component: CatEntrevistaComponent },
@@ -78,6 +99,8 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Equipo-solicitud', component: CatEquipsolComponent },
   {path: 'Estatus-candidato', component: CatEstacandidatoComponent },
   {path: 'Estatus-solicitud', component: CatEstasolicitudComponent },
+  {path: 'Edit-estasolicitud/:id', component: EditEstasolicitudComponent },
+  {path: 'Create-estasolicitud', component: CreateEstacandidatoComponent },
   {path: 'Funciones', component: CatFuncionesComponent },
   {path: 'Habilidad-solicitada', component: CatHabsolicitudComponent },
   {path: 'Idioma', component: CatIdiomaComponent },
@@ -87,6 +110,8 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Percepcion-candidato-fr', component: CatPercepcioncndofrComponent },
   {path: 'Perfil', component: CatPerfilComponent },
   {path: 'Pre-percepcion', component: CatPrepercepcionComponent },
+  {path: 'Edit-prepercepcion/:id', component: EditPrepercepcionComponent },
+  {path: 'Create-prepercepcion', component: CreatePrepercepcionComponent },
   {path: 'Prioridad', component: CatPrioridadComponent },
   {path: 'Proyecto', component: CatProyectoComponent },
   {path: 'Seguimiento-candidato', component: CatSeguicandidatoComponent },
@@ -95,11 +120,17 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Idioma-solicitud', component: CatSolidiomaComponent },
   {path: 'Solicitud-percepciones', component: CatSolpercepcionesComponent },
   {path: 'Tipo-vacante', component: CatTipvacanteComponent },
+  {path: 'Edit-tipvacante/:id', component: EditTipvacanteComponent },
+  {path: 'Create-tipvac', component: CreateTipvacanteComponent },
   {path: 'Usuarios', component: CatUsuarioComponent },
   {path: 'New-candidato', component: CandidatoComponent},
+  {path: 'AddContacto/:id', component: CrearContactoComponent},
+  {path: 'EditContacto/:id', component: EditContactoComponent},
+  {path: 'EditCliente/:id', component: EditClienteComponent},
+  {path: 'EditPrioridad/:id', component: EditPrioridadComponent},
+  {path: 'EditJornada/:id', component: EditJornadaComponent},
+  {path: 'Edit-contecnicos/:id', component: EditContecnicosComponent },
   {path: '**', component: NotfoundComponent}
-
-
   ];
 
  export const appRoutingProviders: any[] = [];

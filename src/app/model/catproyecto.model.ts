@@ -7,10 +7,10 @@ export interface Catproyecto {
   clcContactoClienteByProIdconclilid: Catcontactcliente;
   clcContactoClienteByProIdconcligerente: Catcontactcliente;
   cliCliente: Catcliente;
-  proNombre: '';
-  proDescripcion: '';
-  proPuestoarea: '';
+  proNombre: string;
+  proDescripcion: string;
+  proPuestoarea: string;
   proInicio: Date;
-  proObservaciones: '';
-  proDuracionmeses: '';
+  proObservaciones: string;
+  proDuracionmeses: string;
 }

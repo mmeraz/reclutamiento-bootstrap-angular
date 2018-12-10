@@ -1,3 +1,20 @@
-<p>
-  edit works!
-</p>
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+          <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
+              <h1 class="h3 mb-3 font-weight-normal">Editar jornada laboral</h1>
+              <div class="form-group">
+                  <label for="jolTipo">Jornada Laboral</label>
+                  <input [(ngModel)]="jornada.jolTipo" maxlength="25" type="text" required class="form-control" name="jolTipo" formControlName="jolTipo" #jolTipo>
+                  <div *ngIf="editForm.get('jolTipo').errors && editForm.get('jolTipo').dirty">
+                      <p class="text-danger" *ngIf="editForm.get('jolTipo').hasError('required')">La jornada es requerida</p>
+                      <p class="text-danger" *ngIf="editForm.get('jolTipo').hasError('maxlength')">Máximo 25 carácteres</p>
+                      <p class="text-danger" *ngIf="editForm.get('jolTipo').hasError('pattern')">Solo se aceptan letras</p>
+                  </div>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(jolTipo.value)' [disabled]="editForm.invalid">Editar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Jornada">Cancelar</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

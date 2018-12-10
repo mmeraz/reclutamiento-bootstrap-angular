@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+          <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
+              <h1 class="h3 mb-3 font-weight-normal">Editar Equipo</h1>
+              <div class="form-group">
+                  <label for="equNombre">Nombre equipo</label>
+                  <input [(ngModel)]="equipo.equNombre" maxlength="50" type="text" required class="form-control" name="equNombre" formControlName="equNombre" #equNombre>
+                  <label for="equDescripcion">Nombre de descripción</label>
+                  <input [(ngModel)]="equipo.equDescripcion" maxlength="120" type="text" required class="form-control" name="equDescripcion" formControlName="equDescripcion" #equDescripcion>
+
+                  <div *ngIf="editForm.get('equNombre').errors && editForm.get('equNombre').dirty">
+                      <p class="text-danger" *ngIf="editForm.get('equNombre').hasError('required')">El nombre del equipo es requerido</p>
+                      <p class="text-danger" *ngIf="editForm.get('equNombre').hasError('maxlength')">Máximo 50 carácteres</p>
+                      <p class="text-danger" *ngIf="editForm.get('equNombre').hasError('pattern')">Solo se aceptan letras</p>
+                  </div>
+
+                  <div *ngIf="editForm.get('equDescripcion').errors && editForm.get('equDescripcion').dirty">
+                    <p class="text-danger" *ngIf="editForm.get('equDescripcion').hasError('required')">La descripción es requerida</p>
+                    <p class="text-danger" *ngIf="editForm.get('equDescripcion').hasError('maxlength')">Máximo 120 carácteres</p>
+                    <p class="text-danger" *ngIf="editForm.get('equDescripcion').hasError('pattern')">Solo se aceptan letras</p>
+                </div>
+
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(equNombre.value, equDescripcion.value)' [disabled]="editForm.invalid">Editar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Equipo">Cancelar</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+

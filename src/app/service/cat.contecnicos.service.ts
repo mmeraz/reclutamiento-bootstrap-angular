@@ -12,14 +12,14 @@ export class ConTecnicosService {
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getCotecnicos() {
+  getContecnicos() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addcotecnicos(cotTipo, cotConocimiento) {
+  addcontecnicos(cotConocimiento, cotTipo) {
     const obj = {
-      cotTipo: cotTipo,
-      cotConocimiento: cotConocimiento
+      cotConocimiento: cotConocimiento,
+      cotTipo: cotTipo
     };
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));
@@ -38,15 +38,15 @@ export class ConTecnicosService {
             .get(`${this.url}/fetch/${id}`);
     }
 
-  updateBusiness(cotTipo, cotConocimiento, cotIdconocimiento) {
-    cotIdconocimiento = cotIdconocimiento;
+  updateBusiness(cotConocimiento, cotTipo, cotIdconcimiento) {
+    cotIdconcimiento = cotIdconcimiento;
     const obj = {
-      cotTipo: cotTipo,
-      cotConocimiento: cotConocimiento
+      cotConocimiento: cotConocimiento,
+      cotTipo: cotTipo
       };
     this
       .clienteHttp
-      .put(`${this.url}/update/${cotIdconocimiento}`, obj)
+      .put(`${this.url}/update/${cotIdconcimiento}`, obj)
       .subscribe(res => console.log('Done editado'));
   }
   deleteBusiness(id) {

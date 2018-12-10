@@ -12,6 +12,7 @@ import { Catsolidioma } from './catsolidioma.model';
 import { Cathabsol } from './cathabsol.model';
 
 export interface Catsolicitud {
+  solIdsolicitud: number;
   arnAreanegocio: Catarea;
   cliCliente: Catcliente;
   jolJornadalaboral: Catjornadalab;
@@ -21,25 +22,24 @@ export interface Catsolicitud {
   usrUsuarioBySolIdreclutador: Catusuario;
   usrUsuarioBySolIdcomercial: Catusuario;
   solFolio: number;
-  solExistepresupuesto: '';
+  solExistepresupuesto: string;
   solNovacantes: number;
   solTarifacomercial: number;
-  solGenero: '';
-  solEscolaridad: '';
+  solGenero: string;
+  solEscolaridad: string;
   solEdadincial: number;
   solEdadfinal: number;
-  cndCalle: '';
+  cndCalle: string;
   solNumextent: number;
-  solNumintent: '';
-  solCodpostalent: '';
-  solMunicipioent: '';
-  solEstadoent: '';
-  solLugarasignacion: '';
-  solExperienciainicial: '';
+  solNumintent: string;
+  solCodpostalent: string;
+  solMunicipioent: string;
+  solEstadoent: string;
+  solLugarasignacion: string;
+  solExperienciainicial: string;
   funciones: Catfunciones[];
   equipos: Catequiposol[];
   conocimientos: Catconsolicitado[];
-  usrUsuario: Catusuario; // ver como recuperarlo desde el head
   idiomas: Catsolidioma[];
   habilidades: Cathabsol[];
 }

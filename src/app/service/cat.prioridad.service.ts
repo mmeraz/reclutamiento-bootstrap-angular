@@ -52,5 +52,9 @@ export class PrioridadService {
                 .clienteHttp
                 .delete(`${this.url}/delete/${id}`);
     }
+
+
+
   }
+
 

@@ -13,7 +13,7 @@ export class IdiomaService {
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getidiomas() {
+  getIdiomas() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 

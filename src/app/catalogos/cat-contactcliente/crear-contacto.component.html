@@ -1,0 +1,52 @@
+
+
+                  <h5 class="modal-title" id="exampleModalLabel">Nuevo Contacto</h5>
+
+
+                  <form [formGroup]="addForm" (submit)="saveData()">
+                      <div class="form-group">
+
+                          <input [(ngModel)]="cliente.cliIdcliente" style="display: none;" maxlength="40" type="text" required class="form-control" name="cliIdcliente" formControlName="cliIdcliente" #cliIdcliente>
+                          <label for="clcNombre">Nombre</label>
+                          <input maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcNombre" formControlName="clcNombre" #clcNombre>
+                          <div *ngIf="addForm.get('clcNombre').errors && addForm.get('clcNombre').dirty">
+                              <p style="color:darkred;" *ngIf="addForm.get('clcNombre').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcNombre').hasError('maxlength')">Máximo 40 carácteres</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcNombre').hasError('pattern')">Solo se aceptan letras</p>
+                          </div>
+
+                          <label for="clcTelefono">Telefono</label>
+                          <input maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcTelefono" formControlName="clcTelefono" #clcTelefono>
+                          <div *ngIf="addForm.get('clcTelefono').errors && addForm.get('clcTelefono').dirty">
+                              <p style="color:darkred;" *ngIf="addForm.get('clcTelefono').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcTelefono').hasError('maxlength')">Máximo 40 carácteres</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcTelefono').hasError('pattern')">Solo se aceptan letras</p>
+                          </div>
+
+                          <label for="clcEmail">Email</label>
+                          <input maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcEmail" formControlName="clcEmail" #clcEmail>
+                          <div *ngIf="addForm.get('clcEmail').errors && addForm.get('clcEmail').dirty">
+                              <p style="color:darkred;" *ngIf="addForm.get('clcEmail').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcEmail').hasError('maxlength')">Máximo 40 carácteres</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcEmail').hasError('pattern')">Solo se aceptan letras</p>
+                          </div>
+
+                          <label for="clcTipo">Tipo</label>
+                          <input maxlength="1" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcTipo" formControlName="clcTipo" #clcTipo>
+                          <div *ngIf="addForm.get('clcTipo').errors && addForm.get('clcTipo').dirty">
+                              <p style="color:darkred;" *ngIf="addForm.get('clcTipo').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcTipo').hasError('maxlength')">Máximo 40 carácteres</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcTipo').hasError('pattern')">Solo se aceptan letras</p>
+                          </div>
+
+                          <label for="clcExtension">Extension</label>
+                          <input maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcExtension" formControlName="clcExtension" #clcExtension>
+                          <div *ngIf="addForm.get('clcExtension').errors && addForm.get('clcExtension').dirty">
+                              <p style="color:darkred;" *ngIf="addForm.get('clcExtension').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcExtension').hasError('maxlength')">Máximo 40 carácteres</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('clcExtension').hasError('pattern')">Solo se aceptan letras</p>
+                          </div>
+                      </div>
+                  </form>
+                  <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addcontacto(cliIdcliente.value, clcNombre.value, clcTelefono.value, clcEmail.value, clcTipo.value, clcExtension.value)' >Guardar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

@@ -22,8 +22,7 @@ export class ClienteService {
             .get(`${this.url}/fetch/${id}`);
     }
 
-  addcliente(cliNombre, cliRazonsocial, cliIdcliente ) {
-    cliIdcliente = cliIdcliente;
+  addcliente(cliNombre, cliRazonsocial) {
     const obj = {
       cliNombre : cliNombre,
       cliRazonsocial : cliRazonsocial
@@ -34,6 +33,29 @@ export class ClienteService {
   refresh(): void {
     window.location.reload();
  }
+
+ editBusiness(id) {
+  return this
+          .clienteHttp
+          .get(`${this.url}/fetch/${id}`);
+  }
+
+updateBusiness(cliNombre, cliRazonsocial, cliIdcliente) {
+  cliIdcliente = cliIdcliente;
+  const obj = {
+    cliNombre : cliNombre,
+    cliRazonsocial : cliRazonsocial
+  };
+  this
+    .clienteHttp
+    .put(`${this.url}/update/${cliIdcliente}`, obj)
+    .subscribe(res => console.log('Done editado'));
+}
+deleteBusiness(id) {
+  return this
+            .clienteHttp
+            .delete(`${this.url}/delete/${id}`);
+}
 
 
 }

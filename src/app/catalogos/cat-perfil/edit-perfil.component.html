@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+          <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
+              <h1 class="h3 mb-3 font-weight-normal">Editar perfil</h1>
+              <div class="form-group">
+                  <label for="perPerfil">perfil</label>
+                  <input [(ngModel)]="perfil.perPerfil" maxlength="100" type="text" required class="form-control" name="perPerfil" formControlName="perPerfil" #perPerfil>
+                  <div *ngIf="editForm.get('perPerfil').errors && editForm.get('perPerfil').dirty">
+                      <p class="text-danger" *ngIf="editForm.get('perPerfil').hasError('required')">El perfil es requerida</p>
+                      <p class="text-danger" *ngIf="editForm.get('perPerfil').hasError('maxlength')">Máximo 100 carácteres</p>
+                      <p class="text-danger" *ngIf="editForm.get('perPerfil').hasError('pattern')">Solo se aceptan letras</p>
+                  </div>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(perPerfil.value)' [disabled]="editForm.invalid">Editar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Perfil">Cancelar</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

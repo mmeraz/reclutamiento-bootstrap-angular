@@ -24,13 +24,13 @@ export class CreateComphabilidadesComponent implements OnInit {
      }
 
      ngOnInit() {
-      this.comphabilidadesService.getComphabilidadess().subscribe(
+      this.comphabilidadesService.getcomphabilidadess().subscribe(
         (data: Catcomphabilidades[]) => this.arrayComphabilidades = data
       );
     }
     createForm() {
       this.addForm = this.fb.group({
-        cohDescripcion: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        cohDescripcion: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
       });
     }
 
@@ -40,8 +40,7 @@ export class CreateComphabilidadesComponent implements OnInit {
       swal({
         position: 'top',
         type: 'success',
-        title: `Competencias y habilidades
-         creada con éxito`,
+        title: `Competencias Habilidades creada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

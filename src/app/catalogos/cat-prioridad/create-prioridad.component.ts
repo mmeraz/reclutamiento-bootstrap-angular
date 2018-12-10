@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Catprioridad } from '../../model/catprioridad.model';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { PrioridadService } from '../../service/cat.prioridad.service';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
+
+import { PrioridadService } from 'src/app/service/cat.prioridad.service';
+
+import { Catprioridad } from 'src/app/model/catprioridad.model';
 
 @Component({
   selector: 'app-create-prioridad',
   templateUrl: './create-prioridad.component.html',
-  styles: [],
   providers: [PrioridadService]
 })
 export class CreatePrioridadComponent implements OnInit {
-
   addForm: FormGroup;
   arrayPrioridad: Catprioridad[];
-  selectPrioridad: Catprioridad;
+  selecPrioridad: Catprioridad;
 
   constructor(private prioridadService: PrioridadService,
     private fb: FormBuilder, private bs: PrioridadService,
@@ -24,18 +24,18 @@ export class CreatePrioridadComponent implements OnInit {
      }
 
      ngOnInit() {
-      this.prioridadService.getPrioridads().subscribe(
+      this.prioridadService.getPrioridades().subscribe(
         (data: Catprioridad[]) => this.arrayPrioridad = data
       );
     }
     createForm() {
       this.addForm = this.fb.group({
-        priNombre: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        priNombre: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
       });
     }
 
 
-    addprioridad(priNombre) {
+    addPrioridad(priNombre) {
       this.bs.addprioridad(priNombre);
       swal({
         position: 'top',
@@ -55,3 +55,4 @@ export class CreatePrioridadComponent implements OnInit {
     }
 
 }
+

@@ -7,13 +7,12 @@ import { Catcomphabilidades } from '../model/catcomphabilidades.model';
   providedIn: 'root'
 }
 )
-
 export class CompHabilidadesService {
-  private url = 'http://localhost:8085/api/v1/comphabilidades';
+  private url = 'http://localhost:8085/api/v1/Competencias';
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getComphabilidadess() {
+  getcomphabilidadess() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
@@ -29,7 +28,7 @@ export class CompHabilidadesService {
     window.location.reload();
  }
 
-  getComphabilidades(id): Observable<Catcomphabilidades> {
+  getcomphabilidad(id): Observable<Catcomphabilidades> {
     return this.clienteHttp.get<Catcomphabilidades>(`${this.url}/fetch/${id}`);
   }
   editBusiness(id) {
@@ -38,14 +37,14 @@ export class CompHabilidadesService {
             .get(`${this.url}/fetch/${id}`);
     }
 
-  updateBusiness(cohDescripcion, cohIdcompetencia) {
-    cohIdcompetencia = cohIdcompetencia;
+  updateBusiness(cohDescripcion, cohIdcompetenciashabilidades) {
+    cohIdcompetenciashabilidades = cohIdcompetenciashabilidades;
     const obj = {
       cohDescripcion: cohDescripcion,
       };
     this
       .clienteHttp
-      .put(`${this.url}/update/${cohIdcompetencia}`, obj)
+      .put(`${this.url}/update/${cohIdcompetenciashabilidades}`, obj)
       .subscribe(res => console.log('Done editado'));
   }
   deleteBusiness(id) {

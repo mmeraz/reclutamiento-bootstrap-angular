@@ -3,7 +3,6 @@ import { AreaService } from 'src/app/service/cat.area.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatAreaComponent } from './cat-area.component';
 
 @Component({
   selector: 'app-edit',

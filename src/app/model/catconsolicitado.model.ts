@@ -1,5 +1,9 @@
+import { Catsolicitud } from './catsolicitud.model';
+import { Catcontecnicos } from './catcontecnicos.model';
+
 export interface Catconsolicitado {
-cotIdconocimiento: number;
-cotConocimiento: string;
-cotTipo: string ;
+  id: number;
+  cotConocimientosTec: Catcontecnicos;
+  solSolicitud: Catsolicitud;
+  socNivel: string ;
 }

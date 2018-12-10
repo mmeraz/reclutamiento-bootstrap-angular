@@ -18,7 +18,16 @@
       <div class="card">
         <div class="card-header" id="headingOne">
           <div class="row">
-
+              <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
+                  <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
+                  <i class="fas fa-table" style="font-size: 15px;"> Catálogo áreas</i>
+                </div>
+                <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+                    <button  class="btn btn-link align-text-top" style="font-size: 15px;" [routerLink]="['/AddContacto', cliente.cliIdcliente]">
+                        <i class="fas fa-plus"> Nuevo</i>
+                    </button>
+                </div>
+              </div>
 
         </div>
       </div>
@@ -39,7 +48,7 @@
               </thead>
               <tbody class="tbody-ligth" >
                   <tr *ngFor="let a of cliente.contactos">
-                      <th scope="row" >{{cliente.cliNombre}}</th>
+                      <th scope="row" >{{cliente.cliIdcliente}}</th>
                       <th scope="row" >{{a.clcIdconcli}}</th>
                       <td >{{a.clcNombre}}</td>
                       <td >{{a.clcTelefono}}</td>
@@ -47,9 +56,20 @@
                       <td >{{a.clcTipo}}</td>
                       <td >{{a.clcExtension}}</td>
                       <td  align="center" style="width: 6em;">
-                        <a href="" >
-                          <i style="color:#007bff; margin: 20px;" data-toggle="tooltip" data-placement="top" title="Editar" class="fas fa-pencil-alt"></i>
-                        </a>
+                          <i style="color:#007bff; margin-right:20px;"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Editar"
+                          class="fas fa-pencil-alt"
+                          [routerLink]="['/EditContacto', a.clcIdconcli]"></i>
+
+                          <i style="color:#dc3545;"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Eliminar"
+                          class="fas fa-trash-alt"
+                          (click)="deleteBusiness(a.clcIdconcli, a.clcNombre)"
+                          ></i>
                       </td>
                   </tr>
 
@@ -60,17 +80,3 @@
       </div>
       </div>
     </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nueva área</h5>
-            
-            </div>
-            <div class="modal-body">
-                
-            </div>
-        </div>
-    </div>
-</div>

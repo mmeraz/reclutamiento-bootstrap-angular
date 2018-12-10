@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Catequipo } from '../../model/catequipo.model';
-import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { EquipoService } from '../../service/cat.equipo.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Catequipo } from 'src/app/model/catequipo.model';
+import { EquipoService } from 'src/app/service/cat.equipo.service';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-equipo',
   templateUrl: './create-equipo.component.html',
-  styles: [],
-  providers: [EquipoService]
+  styles: []
 })
 export class CreateEquipoComponent implements OnInit {
 
@@ -30,14 +29,14 @@ export class CreateEquipoComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        equNombre: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ],
-        equDescripcion: ['', [Validators.required, Validators.maxLength(120), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        equNombre: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
+        equDescripcion: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
       });
     }
 
 
-    addequipo(equNombre, equDescripcion) {
-      this.bs.addequipo(equNombre, equDescripcion);
+    addequipo(equNombre, equDescripcion ) {
+      this.bs.addequipo(equNombre, equDescripcion );
       swal({
         position: 'top',
         type: 'success',
@@ -54,5 +53,4 @@ export class CreateEquipoComponent implements OnInit {
     saveData() {
       alert(JSON.stringify(this.addForm.value));
     }
-
 }

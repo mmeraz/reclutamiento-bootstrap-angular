@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+          <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
+              <h1 class="h3 mb-3 font-weight-normal">Editar usuario</h1>
+              <div class="form-group">
+                  <label for="usrUsername">Username</label>
+                  <input [(ngModel)]="usuario.usrUsername" maxlength="25" type="text" required class="form-control" name="usrUsername" formControlName="usrUsername" #usrUsername>
+                  <label for="usrNombreusuario">Nombre Usuario</label>
+                  <input [(ngModel)]="usuario.usrNombreusuario" maxlength="15" type="text" required class="form-control" name="usrNombreUsuario" formControlName="usrNombreUsuario" #usrNombreUsuario>
+                  <label for="usrPassword">Password</label>
+                  <input [(ngModel)]="usuario.usrPassword" maxlength="15" type="text" required class="form-control" name="usrPassword" formControlName="usrPassword" #usrPassword>
+                  <label for="usrEmail">Email</label>
+                  <input [(ngModel)]="usuario.usrEmail" maxlength="250" type="text" required class="form-control" name="usrEmail" formControlName="usrEmail" #usrEmail>
+                  <label for="usrPerfil">Perfil</label>
+                          <select
+                          [(ngModel)]="usuario.usrPerfil"
+                          name="usrPerfil" #usrPerfil
+                          formControlName="usrPerfil"
+                            class="form-control" required
+                          >
+                            <option value="">Selecciona uno</option>
+                            <option value="A">Administrador</option>
+                            <option value="R">Reclutador</option>
+                            <option value="C">Comercial</option>
+                            <option value="L">Lider de reclutamiento</option>
+                            <option value="V">Validación TI</option>
+                            <option value="B">BackOffice</option>
+                          </select>
+                  <label for="usrTelefono">Telefono</label>
+                  <input [(ngModel)]="usuario.usrTelefono" maxlength="15" type="text" required class="form-control" name="usrTelefono" formControlName="usrTelefono" #usrTelefono>
+
+
+                  <div *ngIf="editForm.get('Username').errors && editForm.get('Username').dirty">
+                      <p class="text-danger" *ngIf="editForm.get('Username').hasError('required')">El username es requerida</p>
+                      <p class="text-danger" *ngIf="editForm.get('Username').hasError('maxlength')">Máximo 25 carácteres</p>
+                      <p class="text-danger" *ngIf="editForm.get('Username').hasError('pattern')">Solo se aceptan letras</p>
+                  </div>
+
+                  <div *ngIf="editForm.get('Nombreusuario').errors && editForm.get('NombreUsuario').dirty">
+                    <p class="text-danger" *ngIf="editForm.get('NombreUsuario').hasError('required')">El username es requerida</p>
+                    <p class="text-danger" *ngIf="editForm.get('NombreUsuario').hasError('maxlength')">Máximo 15 carácteres</p>
+                    <p class="text-danger" *ngIf="editForm.get('NombreUsuario').hasError('pattern')">Solo se aceptan letras</p>
+                </div>
+
+
+                <div *ngIf="editForm.get('usrPassword').errors && editForm.get('usrPassword').dirty">
+                  <p class="text-danger" *ngIf="editForm.get('usrPassword').hasError('required')">El username es requerida</p>
+                  <p class="text-danger" *ngIf="editForm.get('usrPassword').hasError('maxlength')">Máximo 15 carácteres</p>
+                  <p class="text-danger" *ngIf="editForm.get('usrPassword').hasError('pattern')">Solo se aceptan letras</p>
+              </div>
+
+
+
+              <div *ngIf="editForm.get('usrEmail').errors && editForm.get('usrEmail').dirty">
+                <p class="text-danger" *ngIf="editForm.get('usrEmail').hasError('required')">El username es requerida</p>
+                <p class="text-danger" *ngIf="editForm.get('usrEmail').hasError('maxlength')">Máximo 1 carácteres</p>
+                <p class="text-danger" *ngIf="editForm.get('usrEmail').hasError('pattern')">Solo se aceptan letras</p>
+            </div>
+
+            <div *ngIf="editForm.get('usrEmail').errors && editForm.get('usrEmail').dirty">
+              <p class="text-danger" *ngIf="editForm.get('usrEmail').hasError('required')">El username es requerida</p>
+              <p class="text-danger" *ngIf="editForm.get('usrEmail').hasError('maxlength')">Máximo 1 carácteres</p>
+              <p class="text-danger" *ngIf="editForm.get('usrEmail').hasError('pattern')">Solo se aceptan letras</p>
+          </div>
+
+            <div *ngIf="editForm.get('usrTelefono').errors && editForm.get('usrTelefono').dirty">
+              <p class="text-danger" *ngIf="editForm.get('usrTelefono').hasError('required')">El username es requerida</p>
+              <p class="text-danger" *ngIf="editForm.get('usrTelefono').hasError('maxlength')">Máximo 15 carácteres</p>
+              <p class="text-danger" *ngIf="editForm.get('usrTelefono').hasError('pattern')">Solo se aceptan letras</p>
+          </div>
+
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(usrUsername.value, usrNombreUsuario.value,
+                  usrPassword.value, usrEmail.value, usrPerfil.value, usrTelefono.value)' [disabled]="editForm.invalid">Editar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Usuarios">Cancelar</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

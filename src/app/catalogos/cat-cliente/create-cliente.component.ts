@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Catcliente } from '../../model/catcliente.model';
+import { Catarea } from '../../model/catarea.model';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { ClienteService } from '../../service/cat.cliente.service';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
+
+import { ClienteService } from 'src/app/service/cat.cliente.service';
 
 @Component({
   selector: 'app-create-cliente',
   templateUrl: './create-cliente.component.html',
-  styles: [],
-  providers: [ClienteService]
+  styles: []
 })
 export class CreateClienteComponent implements OnInit {
-
   addForm: FormGroup;
-  arrayCliente: Catcliente[];
-  selectCliente: Catcliente;
+  clienteAreas: Catarea[];
+  selectArea: Catarea;
 
   constructor(private clienteService: ClienteService,
     private fb: FormBuilder, private bs: ClienteService,
@@ -25,13 +24,13 @@ export class CreateClienteComponent implements OnInit {
 
      ngOnInit() {
       this.clienteService.getClientes().subscribe(
-        (data: Catcliente[]) => this.arrayCliente = data
+        (data: Catarea[]) => this.clienteAreas = data
       );
     }
     createForm() {
       this.addForm = this.fb.group({
-        cliNombre: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ],
-        cliRazonsocial: ['', [Validators.required, Validators.maxLength(150), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        cliNombre: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
+      cliRazonsocial: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
       });
     }
 
@@ -41,7 +40,7 @@ export class CreateClienteComponent implements OnInit {
       swal({
         position: 'top',
         type: 'success',
-        title: `Cliente creado  con éxito`,
+        title: `Cliente creada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

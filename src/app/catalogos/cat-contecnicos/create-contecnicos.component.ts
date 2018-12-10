@@ -1,47 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { Catcontecnicos } from '../../model/catcontecnicos.model';
-import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { ConTecnicosService } from '../../service/cat.contecnicos.service';
-import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Catcontecnicos } from 'src/app/model/catcontecnicos.model';
+import { ConTecnicosService } from 'src/app/service/cat.contecnicos.service';
+import { ActivatedRoute} from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-contecnicos',
   templateUrl: './create-contecnicos.component.html',
-  styles: [],
-  providers: [ConTecnicosService]
+  styles: []
 })
 export class CreateContecnicosComponent implements OnInit {
 
   addForm: FormGroup;
-  arrayContecnicos: Catcontecnicos[];
-  selectContecnicos: Catcontecnicos;
+  arrayConTecnicos: Catcontecnicos[];
+  selectArea: Catcontecnicos;
 
-  constructor(private contecnicosService: ConTecnicosService,
+  constructor(private areaService: ConTecnicosService,
     private fb: FormBuilder, private bs: ConTecnicosService,
     private activatedRoute: ActivatedRoute) {
       this.createForm();
      }
 
      ngOnInit() {
-      this.contecnicosService.getCotecnicoss().subscribe(
-        (data: Catcontecnicos[]) => this.arrayContecnicos = data
+      this.areaService.getContecnicos().subscribe(
+        (data: Catcontecnicos[]) => this.arrayConTecnicos = data
       );
     }
     createForm() {
       this.addForm = this.fb.group({
-        cotTipo: ['', [Validators.required, Validators.maxLength(1), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ],
-        cotConocimiento: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        cotConocimiento: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
+        cotTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
       });
     }
 
 
-    addcotecnicos(cotTipo, cotConocimiento) {
-      this.bs.addcotecnicos(cotTipo, cotConocimiento);
+    addcontecnicos(cotConocimiento, cotTipo) {
+      this.bs.addcontecnicos(cotConocimiento, cotTipo);
       swal({
         position: 'top',
         type: 'success',
-        title: `Conocimiento técnico creado con éxito`,
+        title: `Área creada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

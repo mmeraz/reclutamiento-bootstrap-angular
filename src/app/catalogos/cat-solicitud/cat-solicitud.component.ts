@@ -5,7 +5,7 @@ import { PrioridadService } from 'src/app/service/cat.prioridad.service';
 import { Catprioridad } from 'src/app/model/catprioridad.model';
 import { TipoVacanteService } from 'src/app/service/cat.tipvacante.service';
 import { CatTipvacanteComponent } from '../cat-tipvacante/cat-tipvacante.component';
-import { Cattipovacante } from 'src/app/model/cattipovacante.model';
+import { CatTipoVacante } from 'src/app/model/cattipovacante.model';
 import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
 import { Catsolidioma } from 'src/app/model/catsolidioma.model';
@@ -23,6 +23,19 @@ import { CompHabilidadesService } from 'src/app/service/cat.comphabilidades.serv
 import { PrePercepcionService } from 'src/app/service/cat.prepercepcion.service';
 import { CatPrepercepcionComponent } from '../cat-prepercepcion/cat-prepercepcion.component';
 import { Catprepercepcion } from 'src/app/model/catprepercepcion.model';
+import { Catconsolicitado } from 'src/app/model/catconsolicitado.model';
+import { Cathabsol } from 'src/app/model/cathabsol.model';
+import { EquipoService } from 'src/app/service/cat.equipo.service';
+import { Catequipo } from 'src/app/model/catequipo.model';
+import { Catfunciones } from 'src/app/model/catfunciones.model';
+import { Catproyecto } from 'src/app/model/catproyecto.model';
+import { SlpSolPercepciones } from 'src/app/model/catsolpercepcion.model';
+import { Catperfil } from 'src/app/model/catperfil.model';
+import { PerfilService } from 'src/app/service/cat.perfil.service';
+import { Catequiposol } from 'src/app/model/catequiposol.model';
+import { SolicitudService } from 'src/app/service/cat.solicitud.service';
+
+
 
 @Component({
   selector: 'app-cat-solicitud',
@@ -33,33 +46,73 @@ import { Catprepercepcion } from 'src/app/model/catprepercepcion.model';
     ConTecnicosService, ]
 })
 export class CatSolicitudComponent implements OnInit {
-  addForm: FormGroup;
+  // a mandar el back
+  solicitud: Catsolicitud;
+
+  // info para los select :P
   allAreas: Catarea[];
   allPrioridad: Catprioridad[];
-  allVacantes: Cattipovacante[];
+  allVacantes: CatTipoVacante[];
   allConocimiento: Catcontecnicos[];
   allIdiomas: Catidioma[];
   allClientes: Catcliente[];
   allJornada: Catjornadalab[];
   allHabilidades: Catcomphabilidades[];
   allPercepciones: Catprepercepcion[];
+  allEquipo: Catequipo[];
+  allPerfiles: Catperfil[];
 
-  solicitud: Catsolicitud = null;
-
+  // propiedades para capturar la info de la pagina
+  proyecto: Catproyecto;
+  nombrePro: string;
+  puestoPro: string;
+  duracionPro: string;
+  jornadaLab: Catjornadalab;
+  descripcion: string;
+  presupuesto: string;
   prioridad: Catprioridad = null;
   requerimiento: Catarea = null;
-  vacante: Cattipovacante = null;
+  vacante: CatTipoVacante = null;
   cliente: Catcliente = null;
-  conocimiento: Catcontecnicos = null;
-  idioma: Catidioma = null;
+  habilidad: Catcomphabilidades;
+  conocimiento: Catcontecnicos;
+  idioma: Catidioma;
   contactoCliente: Catcontactcliente = null;
   percepcion: Catprepercepcion = null;
-  idiomaSol: Catsolidioma = null;
+  idiomaSol: Catsolidioma;
   nvIdioma: string;
+  nvCono: string;
+  nvhab: string;
+  descripcionF: string;
+  descripcionPer: string;
+  conoSol: Catconsolicitado;
+  valorPer: number;
+  habSol: Cathabsol;
+  funcion: Catfunciones;
+  percepcionsol: SlpSolPercepciones;
+  perfil: Catperfil = null;
+  nVacante: number;
+  tarifaC: number;
+  genero: string;
+  escolaridad: string;
+  equipo: Catequipo;
+  equipoSol: Catequiposol;
+  edad: number;
+  direccion: string;
+  experiencia: string;
 
+  // lista de la solicitud (relaciones)
   contactosCliente: Catcontactcliente[] = [];
   listaIdioma: Catsolidioma[] = [];
+  listaConocimiento: Catconsolicitado[] = [];
+  listaHabilidades: Cathabsol[] = [];
+  listaFunciones: Catfunciones[] = [];
+  listaPercepciones: SlpSolPercepciones[] = [];
+  listaEquipo: Catequiposol[] = [];
 
+  /**
+   * Constructor de la clase
+   */
   constructor(private areaService: AreaService,
     private prioridadService: PrioridadService,
     private tipoVacanteService: TipoVacanteService,
@@ -69,41 +122,191 @@ export class CatSolicitudComponent implements OnInit {
     private conocimientoService: ConTecnicosService,
     private habilidadService: CompHabilidadesService,
     private percepcionService: PrePercepcionService,
-    private fb: FormBuilder) {
-
+    private equipoService: EquipoService,
+    private perfilService: PerfilService,
+    private fb: FormBuilder, private bs: SolicitudService) {
     }
 
+    /**
+     * Inicializacio de la clase
+     */
   ngOnInit() {
     this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
     this.prioridadService.getPrioridades().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
-    this.tipoVacanteService.getVacantes().subscribe((data: Cattipovacante[]) => this.allVacantes = data);
-    this.idiomaService.getidiomass().subscribe((data: Catidioma[]) => this.allIdiomas = data);
+    this.tipoVacanteService.getTipoVacantes().subscribe((data: CatTipoVacante[]) => this.allVacantes = data);
+    this.idiomaService.getIdiomas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
     this.clienteService.getClientes().subscribe((data: Catcliente[]) => this.allClientes = data);
-    this.jornadaService.getJornadalabs().subscribe((data: Catjornadalab[]) => this.allJornada = data);
-    this.conocimientoService.getCotecnicoss().subscribe((data: Catcontecnicos[]) => this.allConocimiento = data);
-    this.habilidadService.getComphabilidadess().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
-    this.percepcionService.getAreas().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
+    this.jornadaService.getJornadas().subscribe((data: Catjornadalab[]) => this.allJornada = data);
+    this.conocimientoService.getContecnicos().subscribe((data: Catcontecnicos[]) => this.allConocimiento = data);
+    this.habilidadService.getcomphabilidadess().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
+    this.percepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
+    this.equipoService.getEquipos().subscribe((data: Catequipo[]) => this.allEquipo = data);
+    this.perfilService.getPerfiles().subscribe((data: Catperfil[]) => this.allPerfiles = data);
   }
 
-  createForm() {
-    this.addForm = this.fb.group({
-    });
-  }
-
+  /**
+   * Metodo para agregar la solicitud
+   */
   addSolicitud() {
-    console.log(this.requerimiento.arnIdarean);
+    console.log('TODO terminar metodos');
+    this.solicitud = {
+      solIdsolicitud: null,
+      arnAreanegocio: this.requerimiento,
+      cliCliente: this.cliente,
+      jolJornadalaboral: this.jornadaLab,
+      perPerfil: this.perfil,
+      priPrioridad: this.prioridad,
+      proProyecto: {
+        proIdproyecto: null,
+        clcContactoClienteByProIdconclitode: this.contactosCliente[0],
+        clcContactoClienteByProIdconclilid: this.contactosCliente[1],
+        clcContactoClienteByProIdconcligerente: this.contactosCliente[2],
+        cliCliente: this.cliente,
+        proNombre: this.nombrePro,
+        proDescripcion: this.descripcion,
+        proPuestoarea: this.puestoPro,
+        proInicio: null,
+        proObservaciones: null,
+        proDuracionmeses: this.duracionPro
+      },
+      usrUsuarioBySolIdreclutador: {
+        usrIdusuario : 1,
+        usrUsername: null,
+        usrNombreUsuario: null,
+        usrPassword: null,
+        usrEmail: null,
+        usrPerfil: null,
+        usrTelefono: null,
+      },
+      usrUsuarioBySolIdcomercial: {
+        usrIdusuario : 6,
+        usrUsername: null,
+        usrNombreUsuario: null,
+        usrPassword: null,
+        usrEmail: null,
+        usrPerfil: null,
+        usrTelefono: null,
+      },
+      solFolio: null,
+      solExistepresupuesto: this.presupuesto,
+      solNovacantes: this.nVacante,
+      solTarifacomercial: this.tarifaC,
+      solGenero: this.genero,
+      solEscolaridad: this.escolaridad,
+      solEdadincial: null,
+      solEdadfinal: this.edad,
+      cndCalle: this.direccion,
+      solNumextent: null,
+      solNumintent: null,
+      solCodpostalent: null,
+      solMunicipioent: null,
+      solEstadoent: null,
+      solLugarasignacion: null,
+      solExperienciainicial: this.experiencia,
+      funciones: this.listaFunciones,
+      equipos: this.listaEquipo,
+      conocimientos: this.listaConocimiento,
+      idiomas: this.listaIdioma,
+      habilidades: this.listaHabilidades
+    };
+    this.bs.addSolicitud(this.solicitud);
   }
 
-  add() {
+  /**
+   * Metodo para agregar el idioma a la solicitud;
+   */
+  addIdioma() {
     console.log('add');
-    this.idiomaSol.idiIdioma = this.idioma;
-    // this.idiomaSol.sliNivel = this.nvIdioma;
-    this.listaIdioma.push();
+    this.idiomaSol = {
+      id: null,
+      solSolicitud: null,
+      idiIdioma: this.idioma,
+      sliNivel: this.nvIdioma
+    };
+    this.listaIdioma.push(this.idiomaSol);
+    this.idioma = null;
+    this.nvIdioma = null;
   }
 
+  /**
+   * Metodo para agregar el contactoa la solicitud;
+   */
   addContacto() {
-    console.log('addContac');
     this.contactosCliente.push(this.contactoCliente);
     this.contactoCliente = null;
   }
+
+  /**
+   * Metodo para agregar conocimiento a la solicitud;
+   */
+  addConocimiento() {
+    this.conoSol = {
+      id: null,
+      cotConocimientosTec: this.conocimiento,
+      solSolicitud: null,
+      socNivel: this.nvCono
+    };
+    this.listaConocimiento.push(this.conoSol);
+    this.conocimiento = null;
+    this.nvCono = null;
+  }
+
+  /**
+   * Metodo para agregar habilidad a la solicitud;
+   */
+  addHabilidad() {
+    this.habSol = {
+      cohCompetenciashabilidades: this.habilidad,
+      solSolicitud: null,
+      hbsNivel: this.nvhab
+    };
+    this.listaHabilidades.push(this.habSol);
+    this.habilidad = null;
+    this.nvhab = null;
+  }
+
+  /**
+   * Metodo para agregar funciones a la solicitud;
+   */
+  addFunciones() {
+    this.funcion = {
+      funIdfunciones: null,
+      solSolicitud: null,
+      funDescripcion: this.descripcionF
+    };
+    this.listaFunciones.push(this.funcion);
+    this.descripcionF = null;
+  }
+
+
+  /**
+   * Metodo para agregar percepcion a la solicitud;
+   */
+  addPercepcion() {
+    this.percepcionsol = {
+      slpIdpercepciones: null,
+      prePercepciones: this.percepcion,
+      solSolicitud: null,
+      slpValorm: this.valorPer,
+      slpDescripcion: this.descripcionPer
+    };
+    this.listaPercepciones.push(this.percepcionsol);
+    this.percepcion = null;
+    this.valorPer = null;
+    this.descripcionPer = null;
+  }
+
+  /**
+   * Metodo para agregar el equipo
+   */
+  addEquipo() {
+    this.equipoSol = {
+      eslIdequiposol: null,
+      equEquipo: this.equipo,
+      solSolicitud: null
+    };
+    this.listaEquipo.push(this.equipoSol);
+    this.equipo = null;
+  }
+
 }
