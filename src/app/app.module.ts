@@ -48,6 +48,8 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
 import { HomeComponent } from './pages/home/home.component';
 import { CandidatoComponent} from './pages/candidato/candidato.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { CreateCandidatoComponent } from './catalogos/cat-candidato/create-candidato.component';
+import { EditComponent } from './catalogos/cat-candidato/edit.component';
 import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
 import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
 import { CreateClienteComponent } from './catalogos/cat-cliente/create-cliente.component';
@@ -61,15 +63,17 @@ import { EditPerfilComponent } from './catalogos/cat-perfil/edit-perfil.componen
 import { EditEquipoComponent} from './catalogos/cat-equipo/edit-equipo.component';
 import { EditUsuarioComponent} from './catalogos/cat-usuario/edit-usuario.component';
 import { EditEstasolicitudComponent} from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
-import { CreateEstasolicitudComponent} from './catalogos/cat-estasolicitud/create-estasolicitud.component';
-import { CreateEstacandidatoComponent} from './catalogos/cat-estacandidato/create-estacandidato.component';
 import { EditPrepercepcionComponent } from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
-import { CreatePrepercepcionComponent} from './catalogos/cat-prepercepcion/create-prepercepcion.component';
 import { EditTipvacanteComponent} from './catalogos/cat-tipvacante/edit-tipvacante.component';
-import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tipvacante.component';
 import { CreateEquipoComponent } from './catalogos/cat-equipo/create-equipo.component';
 import { CreatePerfilComponent } from './catalogos/cat-perfil/create-perfil.component';
 import { CreateUsuarioComponent } from './catalogos/cat-usuario/create-usuario.component';
+import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tipvacante.component';
+import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/create-prepercepcion.component';
+import { CreateEstasolicitudComponent } from './catalogos/cat-estasolicitud/create-estasolicitud.component';
+import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/create-estacandidato.component';
+import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/create-comphabilidades.component';
+import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.component';
 import { EditContecnicosComponent } from './catalogos/cat-contecnicos/edit-contecnicos.component';
 import { CreateContecnicosComponent} from './catalogos/cat-contecnicos/create-contecnicos.component';
 import { ListSolicitudComponent } from './catalogos/cat-solicitud/list-solicitud.component';
@@ -119,6 +123,8 @@ import { EditSolicitudComponent } from './catalogos/cat-solicitud/edit-solicitud
     HomeComponent,
     CandidatoComponent,
     NotfoundComponent,
+    CreateCandidatoComponent,
+    EditComponent,
     CreateEquipoComponent,
     CreatePerfilComponent,
     CreateUsuarioComponent,
@@ -137,6 +143,8 @@ import { EditSolicitudComponent } from './catalogos/cat-solicitud/edit-solicitud
     EditEstasolicitudComponent,
     CreateEstasolicitudComponent,
     CreateEstacandidatoComponent,
+    CreateComphabilidadesComponent,
+    CreateIdiomaComponent,
     EditPrepercepcionComponent,
     CreatePrepercepcionComponent,
     EditTipvacanteComponent,

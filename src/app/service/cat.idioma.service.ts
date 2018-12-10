@@ -13,7 +13,7 @@ export class IdiomaService {
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getIdiomass() {
+  getIdiomas() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
@@ -29,7 +29,7 @@ export class IdiomaService {
     window.location.reload();
  }
 
-  getIdiomas(id): Observable<Catidioma> {
+  getIdioma(id): Observable<Catidioma> {
     return this.clienteHttp.get<Catidioma>(`${this.url}/fetch/${id}`);
   }
   editBusiness(id) {

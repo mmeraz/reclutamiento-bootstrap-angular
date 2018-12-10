@@ -68,6 +68,8 @@ import { EditSolicitudComponent } from './catalogos/cat-solicitud/edit-solicitud
 
 
  const appRoutes: Routes = [
+
+  // {path: '/', component: HomeComponent },
   {path: 'Home', component: HomeComponent },
   {path: 'Login', component: LoginComponent},
 

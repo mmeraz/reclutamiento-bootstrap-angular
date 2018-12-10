@@ -33,7 +33,7 @@ export class UsuarioService {
 //     // window.location.reload();
 //  }
 
-  getArea(id): Observable<Catusuario> {
+  getUsuario(id): Observable<Catusuario> {
     return this.clienteHttp.get<Catusuario>(`${this.url}/fetch/${id}`);
   }
   editBusiness(id) {

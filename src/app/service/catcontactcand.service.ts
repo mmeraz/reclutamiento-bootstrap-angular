@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
-import { CatTipoVacante } from '../model/cattipovacante.model';
+import { Catarea } from '../model/catarea.model';
+import { CatContactoCandidato } from '../model/catcontactocandidato';
 
 @Injectable({
   providedIn: 'root'
 }
 )
-export class TipoVacanteService {
-  private url = 'http://localhost:8085/api/v1/TipoVacante';
+export class ContactoCandService {
+  private url = 'http://localhost:8085/api/v1/conContactocan';
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getTipoVacantes() {
+  getContactos() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addTipVacante(tvaTipo) {
+  addContactp(conTelmovil) {
     const obj = {
-      tvaTipo: tvaTipo
+      conTelmovil: conTelmovil
     };
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));
@@ -28,8 +29,8 @@ export class TipoVacanteService {
     window.location.reload();
  }
 
-  getTipovacante(id): Observable<CatTipoVacante> {
-    return this.clienteHttp.get<CatTipoVacante>(`${this.url}/fetch/${id}`);
+  getContacto(id): Observable<CatContactoCandidato> {
+    return this.clienteHttp.get<CatContactoCandidato>(`${this.url}/fetch/${id}`);
   }
   editBusiness(id) {
     return this
@@ -37,14 +38,14 @@ export class TipoVacanteService {
             .get(`${this.url}/fetch/${id}`);
     }
 
-  updateBusiness(tvaTipo, tvaIdtipovacante) {
-    tvaIdtipovacante = tvaIdtipovacante;
+  updateBusiness(conTelmovil, conIdcontacto) {
+    conIdcontacto = conIdcontacto;
     const obj = {
-      tvaTipo: tvaTipo,
+      conTelmovil: conTelmovil,
       };
     this
       .clienteHttp
-      .put(`${this.url}/update/${tvaIdtipovacante}`, obj)
+      .put(`${this.url}/update/${conIdcontacto}`, obj)
       .subscribe(res => console.log('Done editado'));
   }
   deleteBusiness(id) {
@@ -54,7 +55,5 @@ export class TipoVacanteService {
   }
 
 
-
-}
 
 }

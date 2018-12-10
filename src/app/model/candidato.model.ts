@@ -1,7 +1,7 @@
 import { Catpercepcioncnda } from './catpercepcioncnda.model';
 import { Catidiomacandidato } from './catidiomacandidato.model';
 import { Catpercepcioncndofr } from './catpercepcioncndofr.model';
-import { Catcontacto } from './catcontacto.model';
+import { CatContactoCandidato } from './catcontactocandidato';
 import { Catentrevista } from './catentrevista.model';
 import { Catcontecnicos } from './catcontecnicos.model';
 import { Catcomphabilidades } from './catcomphabilidades.model';
@@ -29,8 +29,8 @@ export interface Candidato {
   Percecpciones: Catpercepcioncnda[];
   Idiomas: Catidiomacandidato[];
   Percepcionsfr: Catpercepcioncndofr[];
-  Contacto: Catcontacto[];
-  Entrevista: Catentrevista[];
+  Contacto: CatContactoCandidato[];
+  // Entrevista: Catentrevista[];
   Conocimientos: Catcontecnicos[];
   Habilidades: Catcomphabilidades[];
 }

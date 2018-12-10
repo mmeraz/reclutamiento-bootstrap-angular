@@ -1,20 +1,68 @@
+
+<!-- Titulo principal-->
 <div class="container">
-  <table class="highlight">
-    <thead>
-      <tr>
-          <th>ID</th>
-          <th>Area</th>
-          <th>Modificar</th>
-          <th>Eliminar</th>
-      </tr>
-    </thead>
+  <h4>Candidatos</h4>
+  <hr />
+<!--Empieza el card donde se encunentra la tabla-->
+  <div class="card" style="width: 100%;">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
+          <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
+          <i class="fas fa-table" style="font-size: 15px;"> Catálogo candidatos</i>
+        </div>
+        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+          <app-create-area></app-create-area>
+        </div>
+      </div>
+      </div>
+    </div>
+<!--Términa el titulo del card-->
 
-    <tbody>
-      <tr *ngFor="let a of arrayAreas">
-        <td> {{a.arnIdarean}}</td>
-        <td>{{a.arnTipo}}</td>
-      </tr>
+<!-- Empieza el contenido del card-->
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
 
-    </tbody>
-  </table>
+        <!--La tabla-->
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Candidato</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let c of allCandidatos">
+                  <th scope="row">{{ c.cndIdcandidato }}</th>
+                  <td>{{ c.cndNombre }}</td>
+
+                  <td class="text-center" >
+<!--
+                    <i style="color:#007bff; margin-right:20px;"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Editar"
+                      class="fas fa-pencil-alt"
+                      [routerLink]="['/Edit', c.cnd]"></i> -->
+
+                      <i style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Eliminar"
+                      class="fas fa-trash-alt"
+                      (click)="deleteBusiness(c.cndIdcandidato,c.cndNombre)"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
+
+</div>
