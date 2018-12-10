@@ -8,7 +8,6 @@ import { Catcontecnicos } from '../model/catcontecnicos.model';
 }
 )
 export class ConTecnicosService {
-
   private url = 'http://localhost:8085/api/v1/ConocimientosTec';
 
   constructor( private clienteHttp: HttpClient) {}

@@ -51,8 +51,8 @@
                   [ngModelOptions]="{ standalone: true }"
                 >
                   <option [ngValue]="null" selected>Selecciona uno</option>
-                  <option *ngFor="let c of allAreas" [ngValue]="c">{{
-                    c.arnTipo
+                  <option *ngFor="let r of allAreas" [ngValue]="r">{{
+                    r.arnTipo
                   }}</option>
                 </select>
               </div>

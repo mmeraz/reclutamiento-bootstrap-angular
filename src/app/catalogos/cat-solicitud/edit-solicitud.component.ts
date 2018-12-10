@@ -72,7 +72,7 @@ export class EditSolicitudComponent implements OnInit {
     this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
     this.prioridadService.getPrioridades().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
     this.tipoVacanteService.getTipoVacantes().subscribe((data: CatTipoVacante[]) => this.allVacantes = data);
-    this.idiomaService.getIdiomass().subscribe((data: Catidioma[]) => this.allIdiomas = data);
+    this.idiomaService.getIdiomas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
     this.clienteService.getClientes().subscribe((data: Catcliente[]) => this.allClientes = data);
     this.jornadaService.getJornadas().subscribe((data: Catjornadalab[]) => this.allJornada = data);
     this.conocimientoService.getContecnicos().subscribe((data: Catcontecnicos[]) => this.allConocimiento = data);
@@ -94,7 +94,7 @@ export class EditSolicitudComponent implements OnInit {
        swal({
         position: 'top',
         type: 'success',
-        title: `Solicitud modificada con éxito`,
+        title: `Solicitud modificada con éxito!!`,
         showConfirmButton: false,
         timer: 1500
       });

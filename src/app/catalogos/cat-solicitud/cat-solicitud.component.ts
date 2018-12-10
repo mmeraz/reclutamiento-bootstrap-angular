@@ -62,7 +62,7 @@ export class CatSolicitudComponent implements OnInit {
   allEquipo: Catequipo[];
   allPerfiles: Catperfil[];
 
-  // propiedades para capturar la info de la pagina
+  // propiedades para capturar la info de la pagina de solicitud
   proyecto: Catproyecto;
   nombrePro: string;
   puestoPro: string;
@@ -134,7 +134,7 @@ export class CatSolicitudComponent implements OnInit {
     this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
     this.prioridadService.getPrioridades().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
     this.tipoVacanteService.getTipoVacantes().subscribe((data: CatTipoVacante[]) => this.allVacantes = data);
-    this.idiomaService.getIdiomass().subscribe((data: Catidioma[]) => this.allIdiomas = data);
+    this.idiomaService.getIdiomas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
     this.clienteService.getClientes().subscribe((data: Catcliente[]) => this.allClientes = data);
     this.jornadaService.getJornadas().subscribe((data: Catjornadalab[]) => this.allJornada = data);
     this.conocimientoService.getContecnicos().subscribe((data: Catcontecnicos[]) => this.allConocimiento = data);

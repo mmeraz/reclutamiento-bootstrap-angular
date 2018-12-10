@@ -3,7 +3,6 @@ import { DataTableDirective } from 'angular-datatables';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
 import { Subject } from 'rxjs';
 import { SolicitudService } from 'src/app/service/cat.solicitud.service';
-import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import swal from 'sweetalert2';
@@ -23,7 +22,6 @@ export class ListSolicitudComponent implements OnInit {
 
   constructor(private solicitudService: SolicitudService,
     private fb: FormBuilder, private bs: SolicitudService,
-    private activatedRoute: ActivatedRoute,
     private http: HttpClient) { }
 
   ngOnInit() {
@@ -31,7 +29,7 @@ export class ListSolicitudComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.solicitudService.getSolicitudes().subscribe(result =>{
+    this.solicitudService.getSolicitudes().subscribe(result => {
       this.allSolicitud = result;
       this.dtTrigger.next();
     });
