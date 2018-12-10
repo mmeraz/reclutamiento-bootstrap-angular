@@ -10,6 +10,8 @@ import { Catequiposol } from './catequiposol.model';
 import { Catconsolicitado } from './catconsolicitado.model';
 import { Catsolidioma } from './catsolidioma.model';
 import { Cathabsol } from './cathabsol.model';
+import { CatTipoVacante } from './cattipovacante.model';
+import { SlpSolPercepciones } from './catsolpercepcion.model';
 
 export interface Catsolicitud {
   solIdsolicitud: number;
@@ -19,6 +21,7 @@ export interface Catsolicitud {
   perPerfil: Catperfil;
   priPrioridad: Catprioridad;
   proProyecto: Catproyecto;
+  tvaTipoVacante: CatTipoVacante;
   usrUsuarioBySolIdreclutador: Catusuario;
   usrUsuarioBySolIdcomercial: Catusuario;
   solFolio: number;
@@ -42,4 +45,5 @@ export interface Catsolicitud {
   conocimientos: Catconsolicitado[];
   idiomas: Catsolidioma[];
   habilidades: Cathabsol[];
+  percepsiones: SlpSolPercepciones[];
 }

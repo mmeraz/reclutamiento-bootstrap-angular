@@ -1,0 +1,77 @@
+
+<!-- Titulo principal-->
+<div class="container">
+  <h4>Solicitudes</h4>
+  <hr />
+<!--Empieza el card donde se encunentra la tabla-->
+  <div class="card" style="width: 100%;">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
+          <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
+          <i class="fas fa-table" style="font-size: 15px;"> Catálogo áreas</i>
+        </div>
+        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+          <!--TODO modal solicitud-->
+        </div>
+      </div>
+      </div>
+    </div>
+<!--Términa el titulo del card-->
+
+<!-- Empieza el contenido del card-->
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+
+        <!--La tabla-->
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Área</th>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Jornada</th>
+                  <th scope="col">Perfil</th>
+                  <th scope="col">Prioridad</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let s of allSolicitud">
+                  <th scope="row">{{ s.solIdsolicitud }}</th>
+                  <td>{{ s.arnAreanegocio.arnTipo }}</td>
+                  <td>{{ s.cliCliente.cliNombre }}</td>
+                  <td>{{ s.jolJornadalaboral.jolTipo }}</td>
+                  <td>{{ s.perPerfil.perPerfil }}</td>
+                  <td>{{ s.priPrioridad.priNombre }}</td>
+
+                  <td class="text-center" >
+
+                    <i style="color:#007bff; margin-right:20px;"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Editar"
+                      class="fas fa-pencil-alt"
+                      [routerLink]="['/EditSolicitud', s.solIdsolicitud]"></i>
+
+                      <i style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Eliminar"
+                      class="fas fa-trash-alt"
+                      (click)="deleteBusiness(s.solIdsolicitud, s.solFolio)"
+                      ></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>

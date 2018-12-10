@@ -44,7 +44,7 @@
               >
               <div class="col-md-12">
                 <select
-                  [(ngModel)]="requerimiento"
+                  [(ngModel)]="area"
                   class="form-control"
                   id="requerimiento"
                   name="requerimiento"
@@ -64,7 +64,7 @@
               >
               <div class="col-md-12">
                 <select
-                  [(ngModel)]="prioridad"
+                  [(ngModel)]="solicitud.priPrioridad"
                   id="prioridad"
                   name="prioridad"
                   [ngModelOptions]="{ stanalone: true }"
@@ -87,7 +87,7 @@
                   id="presupuesto"
                   name="presupuesto"
                   class="form-control"
-                  [(ngModel)]="presupuesto"
+                  [(ngModel)]="solicitud.solExistepresupuesto"
                   [ngModelOptions]="{ stanalone: true }"
                 >
                   <option [ngValue]="" selected>Selecciona uno</option>
@@ -106,7 +106,7 @@
                   id="vacante"
                   name="vacante"
                   class="form-control"
-                  [(ngModel)]="vacante"
+                  [(ngModel)]="solicitud.tvaTipoVacante"
                   [ngModelOptions]="{ stanalone: true }"
                 >
                   <option [ngValue]="null" selected>Selecciona una</option>
@@ -122,7 +122,7 @@
               >
               <div class="col-md-12">
                 <select
-                  [(ngModel)]="perfil"
+                  [(ngModel)]="solicitud.perPerfil"
                   class="form-control"
                   id="perfil"
                   name="perfil"
@@ -141,7 +141,7 @@
               >
               <div class="col-md-12">
                 <select
-                  [(ngModel)]="genero"
+                  [(ngModel)]="solicitud.solGenero"
                   class="form-control"
                   id="genero"
                   name="genero"
@@ -167,7 +167,7 @@
                   placeholder="Grado escolar"
                   class="form-control input-md"
                   required=""
-                  [(ngModel)]="escolaridad"
+                  [(ngModel)]="solicitud.solEscolaridad"
                   [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
@@ -185,7 +185,7 @@
                   placeholder="Escribe la edad"
                   class="form-control input-md"
                   required=""
-                  [(ngModel)]="edad"
+                  [(ngModel)]="solicitud.solEdadfinal"
                   [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
@@ -232,7 +232,7 @@
               >
               <div class="col-md-12">
                 <select
-                  [(ngModel)]="cliente"
+                  [(ngModel)]="solicitud.cliCliente"
                   [ngModelOptions]="{ stanalone: true }"
                   id="cliente"
                   name="cliente"
@@ -246,28 +246,12 @@
               </div>
             </div>
             <!-- Select Basic -->
-            <div class="form-group" *ngIf="cliente">
+            <div class="form-group">
               <label class="col-md-12 control-label" for="clcCliente"
                 >Contacto</label
               >
-              <div class="col-md-12">
-                <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="contactoCliente"
-                [ngModelOptions]="{ stanalone: true }">
-                  <option [ngValue]="null" selected>Selecciona Contacto</option>
-                  <option *ngFor="let clc of cliente.contactos" [ngValue]="clc">{{clc.clcNombre}}</option>
-                </select>
-              </div>
+              <!-- TODO lista de contacto-->
             </div>
-            <div *ngIf="contactoCliente">
-                <i
-                  style="color:#dc3545;"
-                  data-toggle="tooltip"
-                  data-placement="center"
-                  title="Agregar"
-                  class="fas fa-plus"
-                  (click)="addContacto()"
-                ></i>
-              </div>
           </div>
         </div>
       </div>
@@ -317,7 +301,7 @@
                   placeholder="nombre del proyecto"
                   class="form-control input-md"
                   required=""
-                  [(ngModel)]="nombrePro"
+                  [(ngModel)]="solicitud.proProyecto.proNombre"
                   [ngModelOptions]="{ stanalone: true }"
 
                 />
@@ -334,7 +318,7 @@
                   type="text"
                   placeholder="Puesto del proyecto"
                   class="form-control input-md"
-                  [(ngModel)]="puestoPro"
+                  [(ngModel)]="solicitud.proProyecto.proPuestoarea"
                   [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
@@ -352,7 +336,7 @@
                   type="text"
                   placeholder="Duracion Proyecto"
                   class="form-control input-md"
-                  [(ngModel)]="duracionPro"
+                  [(ngModel)]="solicitud.proProyecto.proDuracionmeses"
                   [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
@@ -364,7 +348,7 @@
                 >Jornada Laboral</label
               >
               <div class="col-md-12">
-                <select id="jornada" name="jornada" class="form-control" [(ngModel)]="jornadaLab"
+                <select id="jornada" name="jornada" class="form-control" [(ngModel)]="solicitud.jolJornadalaboral"
                 [ngModelOptions]="{ stanalone: true }">
                   <option value="" selected>Selecciona una</option>
                   <option *ngFor="let item of allJornada" [ngValue]=item>{{item.jolTipo}}</option>
@@ -382,7 +366,7 @@
                   class="form-control"
                   id="descripcion"
                   name="descripcion"
-                  [(ngModel)]="descripcion"
+                  [(ngModel)]="solicitud.proProyecto.proDescripcion"
                   [ngModelOptions]="{ stanalone: true }"
                 >Descripción del proyecto</textarea>
               </div>
@@ -400,7 +384,7 @@
                   placeholder="Numero vacantes"
                   min="1" max="100"
                   class="form-control input-md"
-                  [(ngModel)]="nVacante"
+                  [(ngModel)]="solicitud.solNovacantes"
                   [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
@@ -418,7 +402,7 @@
                   placeholder="Tarifa comercial"
                   min="1" max="100"
                   class="form-control input-md"
-                  [(ngModel)]="tarifaC"
+                  [(ngModel)]="solicitud.solTarifacomercial"
                   [ngModelOptions]="{ stanalone: true }"
                 />
               </div>
@@ -461,40 +445,16 @@
           <div class="row">
             <!-- Select Basic -->
             <div class="form-group">
-              <label class="col-md-12 control-label" for="idioma">Idioma</label>
-              <div class="col-md-12">
-                <select id="idioma" name="idioma" class="form-control" [(ngModel)]="idioma"
-                [ngModelOptions]="{ stanalone: true }">
-                  <option value="" selected>Selecciona uno</option>
-                  <option *ngFor="let item of allIdiomas" [ngValue]="item">{{item.idiNombre}}</option>
-                </select>
-              </div>
+              <!-- TODO lista de idiomas-->
             </div>
 
             <!-- Text input -->
             <div class="form-group">
               <label class="col-md-12 control-label" for="nivel">Nivel</label>
-              <div class="col-md-12">
-                <input
-                  id="nivel"
-                  name="nivel"
-                  type="text"
-                  placeholder=""
-                  class="form-control input-md"
-                  [(ngModel)]="nvIdioma"
-                  [ngModelOptions]="{ stanalone: true }"
-                />
-              </div>
+              <!-- TODO lista de idiomas-->
             </div>
             <div>
-              <i
-                style="color:#dc3545;"
-                data-toggle="tooltip"
-                data-placement="center"
-                title="Agregar"
-                class="fas fa-plus"
-                (click)="addIdioma()"
-              ></i>
+
             </div>
           </div>
           <!-- Select Basic -->
@@ -504,43 +464,14 @@
                 >Conocimiento</label
               >
               <div class="col-md-12">
-                <select
-                  id="conocimiento"
-                  name="conocimiento"
-                  class="form-control"
-                  [(ngModel)]="conocimiento"
-                  [ngModelOptions]="{ stanalone: true }"
-                >
-                  <option [ngValue]="null">Selecciona uno</option>
-                  <option *ngFor="let cono of allConocimiento" [ngValue]="cono">{{cono.cotConocimiento}}</option>
-                </select>
+                <!--TODO lista de conocimiento-->
               </div>
             </div>
 
             <!-- Text input -->
             <div class="form-group">
               <label class="col-md-12 control-label" for="nivel">Nivel</label>
-              <div class="col-md-12">
-                <input
-                  id="nivel"
-                  name="nivel"
-                  type="text"
-                  placeholder=""
-                  class="form-control input-md"
-                  [(ngModel)]="nvCono"
-                  [ngModelOptions]="{ stanalone: true }"
-                />
-              </div>
-            </div>
-            <div>
-              <i
-                style="color:#dc3545;"
-                data-toggle="tooltip"
-                data-placement="center"
-                title="Agregar"
-                class="fas fa-plus"
-                (click)="addConocimiento()"
-              ></i>
+              <!-- TODO lista de conocimientos-->
             </div>
           </div>
           <!-- Select Basic -->
@@ -550,43 +481,17 @@
                 >Habilidades</label
               >
               <div class="col-md-12">
-                <select
-                  id="habilidades"
-                  name="habilidades"
-                  class="form-control"
-                  [(ngModel)]="habilidad"
-                  [ngModelOptions]="{ stanalone: true }"
-                >
-                  <option [ngValue]="null">Selecciona uno</option>
-                  <option *ngFor="let hab of allHabilidades" [ngValue]="hab">{{hab.cohDescripcion}}</option>
-                </select>
+                <!--TODO lista de habilidades-->
               </div>
             </div>
 
             <!-- Text input -->
             <div class="form-group">
               <label class="col-md-12 control-label" for="nivel">Nivel</label>
-              <div class="col-md-12">
-                <input
-                  id="nivel"
-                  name="nivel"
-                  type="text"
-                  placeholder=""
-                  class="form-control input-md"
-                  [(ngModel)]="nvhab"
-                  [ngModelOptions]="{ stanalone: true }"
-                />
-              </div>
+               <!--TODO lista de habilidades-->
             </div>
             <div>
-              <i
-                style="color:#dc3545;"
-                data-toggle="tooltip"
-                data-placement="center"
-                title="Agregar"
-                class="fas fa-plus"
-                (click)="addHabilidad()"
-              ></i>
+
             </div>
           </div>
         </div>
@@ -621,26 +526,10 @@
               <!-- Select Basic -->
               <div class="form-group">
                 <label class="col-md-12 control-label" for="equipo">Equipos</label>
-                <select
-                  id="equipo"
-                  name="equipo"
-                  class="form-control"
-                  [(ngModel)]="equipo"
-                  [ngModelOptions]="{ stanalone: true }"
-                >
-                  <option [ngValue]="null" selected>Selecciona uno</option>
-                  <option *ngFor="let e of allEquipo" [ngValue]="e">{{e.equNombre}}</option>
-                </select>
+                 <!--TODO lista de equipo-->
               </div>
               <div>
-                <i
-                  style="color:#dc3545;"
-                  data-toggle="tooltip"
-                  data-placement="center"
-                  title="Agregar"
-                  class="fas fa-plus"
-                  (click)="addEquipo()"
-                ></i>
+
               </div>
             </div>
           </div>
@@ -677,27 +566,10 @@
               <!-- Select Basic -->
               <div class="form-group">
                 <label class="col-md-12 control-label" for="funcion">Funcion</label>
-                <div class="col-md-12">
-                  <input
-                    id="funcion"
-                    name="funcion"
-                    type="text"
-                    placeholder="Descripcion de la funcion"
-                    class="form-control input-md"
-                    [(ngModel)]="descripcionF"
-                  [ngModelOptions]="{ stanalone: true }"
-                  />
-                </div>
+                 <!--TODO lista de Funciones-->
               </div>
               <div>
-                <i
-                  style="color:#dc3545;"
-                  data-toggle="tooltip"
-                  data-placement="center"
-                  title="Agregar"
-                  class="fas fa-plus"
-                  (click)="addFunciones()"
-                ></i>
+
               </div>
             </div>
           </div>
@@ -734,18 +606,7 @@
                 <label class="col-md-12 control-label" for="percepcion"
                   >Tipo de percepción</label
                 >
-                <div class="col-md-12">
-                  <select
-                    id="percepcion"
-                    name="percepcion"
-                    class="form-control"
-                    [(ngModel)]="percepcion"
-                  [ngModelOptions]="{ stanalone: true }"
-                  >
-                    <option [ngValue]="null" selected>Selecciona una</option>
-                    <option *ngFor="let per of allPercepciones" [ngValue]="per">{{per.preTipo}}</option>
-                  </select>
-                </div>
+                 <!--TODO lista de Percepciones-->
               </div>
 
               <!-- Text input -->
@@ -754,15 +615,7 @@
                   >Descripción</label
                 >
                 <div class="col-md-12">
-                  <input
-                    id="descripcion"
-                    name="descripcion"
-                    type="text"
-                    placeholder=""
-                    class="form-control input-md"
-                    [(ngModel)]="descripcionPer"
-                  [ngModelOptions]="{ stanalone: true }"
-                  />
+                   <!--TODO lista de percepciones-->
                 </div>
               </div>
 
@@ -770,26 +623,10 @@
               <div class="form-group">
                 <label class="col-md-12 control-label" for="valor">Valor</label>
                 <div class="col-md-12">
-                  <input
-                    id="valor"
-                    name="valor"
-                    type="text"
-                    placeholder=""
-                    class="form-control input-md"
-                    [(ngModel)]="valorPer"
-                  [ngModelOptions]="{ stanalone: true }"
-                  />
-                </div>
+                <!--TODO lista de percepciones-->
               </div>
               <div>
-                <i
-                  style="color:#dc3545;"
-                  data-toggle="tooltip"
-                  data-placement="center"
-                  title="Agregar"
-                  class="fas fa-plus"
-                  (click)="addPercepcion()"
-                ></i>
+
               </div>
             </div>
           </div>
@@ -804,7 +641,7 @@
       class="btn btn-success"
       data-dismiss="modal"
       role="button"
-      (click)="addSolicitud()"
+      (click)="updateBusiness()"
     >
       Guardar
     </button>

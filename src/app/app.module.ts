@@ -76,6 +76,8 @@ import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/
 import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.component';
 import { EditContecnicosComponent } from './catalogos/cat-contecnicos/edit-contecnicos.component';
 import { CreateContecnicosComponent} from './catalogos/cat-contecnicos/create-contecnicos.component';
+import { ListSolicitudComponent } from './catalogos/cat-solicitud/list-solicitud.component';
+import { EditSolicitudComponent } from './catalogos/cat-solicitud/edit-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -148,7 +150,9 @@ import { CreateContecnicosComponent} from './catalogos/cat-contecnicos/create-co
     EditTipvacanteComponent,
     CreateTipvacanteComponent,
     EditContecnicosComponent,
-    CreateContecnicosComponent
+    CreateContecnicosComponent,
+    ListSolicitudComponent,
+    EditSolicitudComponent
   ],
   imports: [
     BrowserModule,
