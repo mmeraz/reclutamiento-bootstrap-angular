@@ -18,25 +18,30 @@
                 <form [formGroup]="addForm" (submit)="saveData()">
                     <div class="form-group">
                         <label for="equNombre">Nombre</label>
-                        <label for="equDescripcion">Descripcion</label>
                         <input maxlength="50" type="text" required class="form-control" placeholder="Escribe el nuevo equipo" name="equNombre" formControlName="equNombre" #equNombre>
+                        <label for="equDescripcion">Descripcion</label>
                         <input maxlength="120" type="text" required class="form-control" placeholder="Escribe la nueva descripcion" name="equDescripcion" formControlName="equDescripcion" #equDescripcion>
-                        <div *ngIf="addForm.get('arnTipo').errors && addForm.get('equNombre').dirty">
-                            <p style="color:darkred;" *ngIf="addForm.get('equNombre').hasError('required')">El área es requerida</p>
-                            <p style="color:darkred;" *ngIf="addForm.get('equNombre').hasError('maxlength')">Máximo 50 carácteres</p>
-                            <p style="color:darkred;" *ngIf="addForm.get('equNombre').hasError('pattern')">Solo se aceptan letras</p>
 
-                            <div *ngIf="addForm.get('arnTipo').errors && addForm.get('equDescripcion').dirty">
-                              <p style="color:darkred;" *ngIf="addForm.get('equDescripcion').hasError('required')">El área es requerida</p>
+                            <div *ngIf="addForm.get('equNombre').errors && addForm.get('equDescripcion').dirty">
+                              <p style="color:darkred;" *ngIf="addForm.get('equDescripcion').hasError('required')">La descripcion requerida es</p>
                               <p style="color:darkred;" *ngIf="addForm.get('equDescripcion').hasError('maxlength')">Máximo 120 carácteres</p>
                               <p style="color:darkred;" *ngIf="addForm.get('equDescripcion').hasError('pattern')">Solo se aceptan letras</p>
+
+
+                              <div *ngIf="addForm.get('equDescripcion').errors && addForm.get('equNombre').dirty">
+                                <p style="color:darkred;" *ngIf="addForm.get('equNombre').hasError('required')">El nombre requerida es</p>
+                                <p style="color:darkred;" *ngIf="addForm.get('equNombre').hasError('maxlength')">Máximo 50 carácteres</p>
+                                <p style="color:darkred;" *ngIf="addForm.get('equNombre').hasError('pattern')">Solo se aceptan letras</p>
+
+
+
                             </div>
                             </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addarea(equDescripcion.value, equNombre.value ) ' [disabled]="addForm.invalid">Guardar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addequipo(equDescripcion.value, equNombre.value ) ' [disabled]="addForm.invalid">Guardar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>

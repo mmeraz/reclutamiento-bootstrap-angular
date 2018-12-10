@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Catcliente } from 'src/app/model/catcliente.model';
 import { ClienteService } from 'src/app/service/cat.cliente.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute} from '@angular/router';
@@ -18,7 +17,6 @@ export class CatClienteComponent implements OnInit {
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
-  arrayAreas: Catcliente[];
   allCliente: any = [];
   dtTrigger: Subject<any> = new Subject();
 
@@ -31,7 +29,7 @@ export class CatClienteComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 10,
+      pageLength: 10
     };
     this.clienteService.getClientes().subscribe(result => {
       this.allCliente = result;
@@ -57,7 +55,25 @@ export class CatClienteComponent implements OnInit {
     });
     this.ngOnInit();
   }
-
-
+  deleteBusiness(id, cliNombre) {
+    swal({
+      title: 'Está seguro?',
+    text: `¿Seguro desea eliminar al área ${cliNombre}?`,
+      type: 'warning',
+      showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar!',
+      cancelButtonText: 'Cancelar'
+    }).then(result => {
+      if (result.value) {
+      this.clienteService.deleteBusiness(id).subscribe(data => {
+          this.allCliente = this.allCliente.filter(c => c.cliNombre !== id);
+        });
+        swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+        this.rerender();
+      }
+    });
+  }
 }
 

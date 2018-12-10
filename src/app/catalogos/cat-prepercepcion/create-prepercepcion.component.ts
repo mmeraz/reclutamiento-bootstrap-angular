@@ -30,7 +30,7 @@ export class CreatePrepercepcionComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        preTipo: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        preTipo: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
       });
     }
 

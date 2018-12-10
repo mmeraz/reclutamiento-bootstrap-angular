@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
-import { Catjornadalab } from '../model/catjornadalab.model';
+import { Catarea } from '../model/catarea.model';
+import { CatContactoCandidato } from '../model/catcontactocandidato';
 
 @Injectable({
   providedIn: 'root'
 }
 )
-
-export class JornadaLAbService {
-  private url = 'http://localhost:8085/api/v1/Jornada';
+export class ContactoCandService {
+  private url = 'http://localhost:8085/api/v1/conContactocan';
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getJornadas() {
+  getContactos() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addjornada(jolTipo) {
+  addContactp(conTelmovil) {
     const obj = {
-      jolTipo: jolTipo
+      conTelmovil: conTelmovil
     };
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));
@@ -29,8 +29,8 @@ export class JornadaLAbService {
     window.location.reload();
  }
 
-  getJornada(id): Observable<Catjornadalab> {
-    return this.clienteHttp.get<Catjornadalab>(`${this.url}/fetch/${id}`);
+  getContacto(id): Observable<CatContactoCandidato> {
+    return this.clienteHttp.get<CatContactoCandidato>(`${this.url}/fetch/${id}`);
   }
   editBusiness(id) {
     return this
@@ -38,14 +38,14 @@ export class JornadaLAbService {
             .get(`${this.url}/fetch/${id}`);
     }
 
-  updateBusiness(jolTipo, jolIdjornada) {
-    jolIdjornada = jolIdjornada;
+  updateBusiness(conTelmovil, conIdcontacto) {
+    conIdcontacto = conIdcontacto;
     const obj = {
-      jolTipo: jolTipo,
+      conTelmovil: conTelmovil,
       };
     this
       .clienteHttp
-      .put(`${this.url}/update/${jolIdjornada}`, obj)
+      .put(`${this.url}/update/${conIdcontacto}`, obj)
       .subscribe(res => console.log('Done editado'));
   }
   deleteBusiness(id) {

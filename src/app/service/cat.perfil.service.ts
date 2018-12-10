@@ -8,7 +8,7 @@ import { Catperfil } from '../model/catperfil.model';
 }
 )
 export class PerfilService {
-  private url = 'http://localhost:8085/api/v1/perPerfil';
+  private url = 'http://localhost:8085/api/v1/Perfil';
 
   constructor( private clienteHttp: HttpClient) {}
 
@@ -31,6 +31,7 @@ export class PerfilService {
   getPerfil(id): Observable<Catperfil> {
     return this.clienteHttp.get<Catperfil>(`${this.url}/fetch/${id}`);
   }
+
   editBusiness(id) {
     return this
             .clienteHttp

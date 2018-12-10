@@ -22,7 +22,7 @@ export class LoginService {
     }
 
     login(usrEmail, usrPassword) {
-        return this.http.post<any>(this.url + '/login', { usrEmail, usrPassword })
+        return this.http.post<any>(this.url + '/login', { usrEmail: usrEmail, usrPassword: usrPassword })
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.token) {

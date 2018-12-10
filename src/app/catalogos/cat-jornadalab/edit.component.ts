@@ -9,7 +9,7 @@ import { CatJornadalabComponent } from './cat-jornadalab.component';
   selector: 'app-edit',
   templateUrl: './edit.component.html'
 })
-export class EditComponent implements OnInit {
+export class EditJornadaComponent implements OnInit {
 
   editForm: FormGroup;
   jornada: any = {};
@@ -38,7 +38,7 @@ export class EditComponent implements OnInit {
    updateBusiness(jolTipo) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(jolTipo, params['id']);
-       this.router.navigate(['jornada']);
+       this.router.navigate(['Jornada-laboral']);
        swal({
         position: 'top',
         type: 'success',

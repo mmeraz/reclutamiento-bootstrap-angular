@@ -30,12 +30,12 @@ export class CreateUsuarioComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        usrUsername: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ],
-        usrNombreUsuario: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ],
-        usrPassword: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ],
-        usrEmail: ['', [Validators.required, Validators.maxLength(250), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ] ,
-        usrPerfil: ['', [Validators.required, Validators.maxLength(1), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ] ,
-        usrTelefono: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ] ,
+        usrUsername: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
+        usrNombreUsuario: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
+        usrPassword: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
+        usrEmail: ['', [Validators.required, Validators.maxLength(250), Validators.pattern('^[a-zA-Z@.]*$')] ] ,
+        usrPerfil: ['', [Validators.required, Validators.maxLength(1), Validators.pattern('^[ARCLVB]*$')] ] ,
+        usrTelefono: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[0-9]*$')] ] ,
       });
     }
 
@@ -55,6 +55,7 @@ export class CreateUsuarioComponent implements OnInit {
     update(): void {
       window.location.reload();
     }
+
     saveData() {
       alert(JSON.stringify(this.addForm.value));
     }

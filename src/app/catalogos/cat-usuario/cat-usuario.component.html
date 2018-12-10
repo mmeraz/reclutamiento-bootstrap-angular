@@ -12,7 +12,7 @@
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo usuario</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-        
+          <app-create-usuario></app-create-usuario>
         </div>
       </div>
       </div>
@@ -31,20 +31,32 @@
                 <tr>
                   <th scope="col">Id</th>
                   <th scope="col">Usuario</th>
+                  <th scope="col">Nombre Completo</th>
+                  <th scope="col">Password</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Perfil</th>
+                  <th scope="col">Telefono</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allAreas">
+                <tr *ngFor="let a of allUsuario">
                   <th scope="row">{{ a.usrUsuario }}</th>
                   <td>{{ a.usrUsername }}</td>
-                  <td>{{ a.usrNombreUsuario }}</td>
+                  <td>{{ a.usrNombreusuario }}</td>
                   <td>{{ a.usrPassword }}</td>
                   <td>{{ a.usrEmail }}</td>
-                  <td>{{ a.usrPerfil }}</td>
+                  <td [ngSwitch]="a.usrPerfil">
+                    <a *ngSwitchCase="'A'"> Administrador</a>
+                    <a *ngSwitchCase="'R'"> Reclutador</a>
+                    <a *ngSwitchCase="'C'"> Comercial</a>
+                    <a *ngSwitchCase="'L'"> Lider de reclutamiento</a>
+                    <a *ngSwitchCase="'V'"> Validación TI</a>
+                    <a *ngSwitchCase="'B'"> BackOffice</a>
+                    <a *ngSwitchDefault>No valido</a>
+                  </td>
                   <td>{{ a.usrTelefono}}</td>
-
                   <td class="text-center" >
 
                     <i style="color:#007bff; margin-right:20px;"
@@ -52,15 +64,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.usrUsuario]"></i>
+                      [routerLink]="['/EditUser', a.usrUsuario]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.usrIdUsuario,a.usrUsername, usrNombreUsuario,
-                      usrPassword, usrEmail, usrPerfil, usrTelefono)"></i>
+                      (click)="deleteBusiness(a.usrUsuario,a.usrNombreusuario)"></i>
                   </td>
                 </tr>
               </tbody>

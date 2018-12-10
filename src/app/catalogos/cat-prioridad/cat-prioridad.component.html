@@ -1,4 +1,3 @@
-
 <!-- Titulo principal-->
 <div class="container">
   <h4>Prioridad</h4>
@@ -9,10 +8,10 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
           <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
-          <i class="fas fa-table" style="font-size: 15px;"> Catálogo Prioridad</i>
+          <i class="fas fa-table" style="font-size: 15px;"> Catálogo prioridad</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-       
+          <app-create-prioridad></app-create-prioridad>
         </div>
       </div>
       </div>
@@ -30,7 +29,7 @@
               <thead>
                 <tr>
                   <th scope="col">Id</th>
-                  <th scope="col">Prioridad</th>
+                  <th scope="col">Nombre</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -40,7 +39,6 @@
                   <th scope="row">{{ a.priIdprioridad }}</th>
                   <td>{{ a.priNombre }}</td>
 
-
                   <td class="text-center" >
 
                     <i style="color:#007bff; margin-right:20px;"
@@ -48,14 +46,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.priIdprioridad]"></i>
+                      [routerLink]="['/EditPrioridad', a.priIdprioridad]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.priIdprioridad,priNombre)"></i>
+                      (click)="deleteBusiness(a.priIdprioridad,a.priNombre)"></i>
                   </td>
                 </tr>
               </tbody>

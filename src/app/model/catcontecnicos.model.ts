@@ -1,5 +1,5 @@
 export interface Catcontecnicos {
-  cotIdconcimientostec: number;
-  cotConocimientos: string;
+  cotIdconocimiento: number;
+  cotConocimiento: string;
   cotTipo: string;
 }

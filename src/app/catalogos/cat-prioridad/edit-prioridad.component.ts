@@ -1,28 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { PerfilService } from 'src/app/service/cat.perfil.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatPerfilComponent } from './cat-perfil.component';
+import { PrioridadService } from 'src/app/service/cat.prioridad.service';
+
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-prioridad',
+  templateUrl: './edit-prioridad.component.html',
+  styles: []
 })
-export class EditComponent implements OnInit {
+export class EditPrioridadComponent implements OnInit {
   editForm: FormGroup;
-  perfil: any = {};
+  prioridad: any = {};
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private bs: PerfilService,
+    private bs: PrioridadService,
     private fb: FormBuilder) {
       this.createForm();
      }
 
      createForm() {
       this.editForm = this.fb.group({
-        perPerfil: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+        priNombre: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
         });
       }
 
@@ -30,18 +31,18 @@ export class EditComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
-        this.perfil = res;
+        this.prioridad = res;
       });
     });
   }
-   updateBusiness(perPerfil) {
+   updateBusiness(priNombre) {
     this.route.params.subscribe(params => {
-       this.bs.updateBusiness(perPerfil, params['id']);
-       this.router.navigate(['Perfil']);
+       this.bs.updateBusiness(priNombre, params['id']);
+      //  this.router.navigate(['Prioridad']);
        swal({
         position: 'top',
         type: 'success',
-        title: `Perfil modificada con éxito`,
+        title: `Prioridad modificada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

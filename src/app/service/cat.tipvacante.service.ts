@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
-import { Cattipovacante } from '../model/cattipovacante.model';
+import { CatTipoVacante } from '../model/cattipovacante.model';
 
 @Injectable({
   providedIn: 'root'
 }
 )
 export class TipoVacanteService {
-  private url = 'http://localhost:8085/api/v1/tvatipovacante';
+  private url = 'http://localhost:8085/api/v1/TipoVacante';
 
   constructor( private clienteHttp: HttpClient) {}
 
@@ -16,7 +16,7 @@ export class TipoVacanteService {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addtvatipo(tvaTipo) {
+  addTipVacante(tvaTipo) {
     const obj = {
       tvaTipo: tvaTipo
     };
@@ -28,8 +28,8 @@ export class TipoVacanteService {
     window.location.reload();
  }
 
-  getTipovacante(id): Observable<Cattipovacante> {
-    return this.clienteHttp.get<Cattipovacante>(`${this.url}/fetch/${id}`);
+  getTipovacante(id): Observable<CatTipoVacante> {
+    return this.clienteHttp.get<CatTipoVacante>(`${this.url}/fetch/${id}`);
   }
   editBusiness(id) {
     return this
@@ -57,3 +57,4 @@ export class TipoVacanteService {
 
 }
 
+}

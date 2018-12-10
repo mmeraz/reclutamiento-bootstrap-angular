@@ -1,7 +1,7 @@
 
 <!-- Titulo principal-->
 <div class="container">
-  <h4>Tipo Vacante</h4>
+  <h4>Solicitudes</h4>
   <hr />
 <!--Empieza el card donde se encunentra la tabla-->
   <div class="card" style="width: 100%;">
@@ -9,10 +9,10 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
           <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
-          <i class="fas fa-table" style="font-size: 15px;"> Catálogo tipo vacante</i>
+          <i class="fas fa-table" style="font-size: 15px;"> Catálogo áreas</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-        <app-create-tipvacante></app-create-tipvacante>
+          <!--TODO modal solicitud-->
         </div>
       </div>
       </div>
@@ -30,15 +30,23 @@
               <thead>
                 <tr>
                   <th scope="col">Id</th>
-                  <th scope="col">Tipo Vacante</th>
-                  <th scope="col"></th>
+                  <th scope="col">Área</th>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Jornada</th>
+                  <th scope="col">Perfil</th>
+                  <th scope="col">Prioridad</th>
+                  <th scope="col">Opciones</th>
                 </tr>
               </thead>
               <tbody>
 
-                <tr *ngFor="let t of allTipvacante">
-                  <th scope="row">{{ t.tvaIdtipovacante }}</th>
-                  <td>{{ t.tvaTipo }}</td>
+                <tr *ngFor="let s of allSolicitud">
+                  <th scope="row">{{ s.solIdsolicitud }}</th>
+                  <td>{{ s.arnAreanegocio.arnTipo }}</td>
+                  <td>{{ s.cliCliente.cliNombre }}</td>
+                  <td>{{ s.jolJornadalaboral.jolTipo }}</td>
+                  <td>{{ s.perPerfil.perPerfil }}</td>
+                  <td>{{ s.priPrioridad.priNombre }}</td>
 
                   <td class="text-center" >
 
@@ -47,14 +55,15 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit-tipvacante', t.tvaIdtipovacante]"></i>
+                      [routerLink]="['/EditSolicitud', s.solIdsolicitud]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(t.tvaIdtipovacante,t.tvaTipo)"></i>
+                      (click)="deleteBusiness(s.solIdsolicitud, s.solFolio)"
+                      ></i>
                   </td>
                 </tr>
               </tbody>

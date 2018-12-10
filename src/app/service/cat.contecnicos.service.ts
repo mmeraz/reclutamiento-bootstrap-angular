@@ -8,18 +8,18 @@ import { Catcontecnicos } from '../model/catcontecnicos.model';
 }
 )
 export class ConTecnicosService {
-  private url = 'http://localhost:8085/api/v1/contecnicos';
+  private url = 'http://localhost:8085/api/v1/ConocimientosTec';
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getCotecnicoss() {
+  getContecnicos() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addcotecnicos(cotTipo, cotConocimiento) {
+  addcontecnicos(cotConocimiento, cotTipo) {
     const obj = {
-      cotTipo: cotTipo,
-      cotConocimiento: cotConocimiento
+      cotConocimiento: cotConocimiento,
+      cotTipo: cotTipo
     };
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));
@@ -29,7 +29,7 @@ export class ConTecnicosService {
     window.location.reload();
  }
 
-  getCottecnicos(id): Observable<Catcontecnicos> {
+  getContecnico(id): Observable<Catcontecnicos> {
     return this.clienteHttp.get<Catcontecnicos>(`${this.url}/fetch/${id}`);
   }
   editBusiness(id) {
@@ -38,15 +38,15 @@ export class ConTecnicosService {
             .get(`${this.url}/fetch/${id}`);
     }
 
-  updateBusiness(cotTipo, cotConocimiento, cotIdconocimiento) {
-    cotIdconocimiento = cotIdconocimiento;
+  updateBusiness(cotConocimiento, cotTipo, cotIdconcimiento) {
+    cotIdconcimiento = cotIdconcimiento;
     const obj = {
-      cotTipo: cotTipo,
-      cotConocimiento: cotConocimiento
+      cotConocimiento: cotConocimiento,
+      cotTipo: cotTipo
       };
     this
       .clienteHttp
-      .put(`${this.url}/update/${cotIdconocimiento}`, obj)
+      .put(`${this.url}/update/${cotIdconcimiento}`, obj)
       .subscribe(res => console.log('Done editado'));
   }
   deleteBusiness(id) {

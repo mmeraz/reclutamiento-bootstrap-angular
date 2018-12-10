@@ -4,5 +4,5 @@ import { Catsolicitud } from './catsolicitud.model';
 export interface Cathabsol {
   cohCompetenciashabilidades: Catcomphabilidades;
   solSolicitud: Catsolicitud;
-  hbsNivel: '';
+  hbsNivel: string;
 }

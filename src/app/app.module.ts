@@ -33,7 +33,6 @@ import { CatPercepcioncndaComponent } from './catalogos/cat-percepcioncnda/cat-p
 import { CatPercepcioncndofrComponent } from './catalogos/cat-percepcioncndofr/cat-percepcioncndofr.component';
 import { CatPerfilComponent } from './catalogos/cat-perfil/cat-perfil.component';
 import { CatPrepercepcionComponent } from './catalogos/cat-prepercepcion/cat-prepercepcion.component';
-import { CatPrioridadComponent } from './catalogos/cat-prioridad/cat-prioridad.component';
 import { CatProyectoComponent } from './catalogos/cat-proyecto/cat-proyecto.component';
 import { CatSeguicandidatoComponent } from './catalogos/cat-seguicandidato/cat-seguicandidato.component';
 import { CatSeguisolicitudComponent } from './catalogos/cat-seguisolicitud/cat-seguisolicitud.component';
@@ -49,16 +48,36 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
 import { HomeComponent } from './pages/home/home.component';
 import { CandidatoComponent} from './pages/candidato/candidato.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { CreateCandidatoComponent } from './catalogos/cat-candidato/create-candidato.component';
+import { EditComponent } from './catalogos/cat-candidato/edit.component';
 import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
 import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
-import { CreateEstatuscandidatoComponent } from './catalogos/cat-estacandidato/create-estatuscandidato.component';
-import { EditEstatuscandidatoComponent } from './catalogos/cat-estacandidato/edit-estatuscandidato.component';
-import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
+import { CreateClienteComponent } from './catalogos/cat-cliente/create-cliente.component';
+import { EditClienteComponent } from './catalogos/cat-cliente/edit-cliente.component';
+import { CatPrioridadComponent } from './catalogos/cat-prioridad/cat-prioridad.component';
+import { CreatePrioridadComponent } from './catalogos/cat-prioridad/create-prioridad.component';
+import { EditPrioridadComponent } from './catalogos/cat-prioridad/edit-prioridad.component';
+import { EditJornadaComponent } from './catalogos/cat-jornadalab/edit.component';
+import { CreateJornadalabComponent} from './catalogos/cat-jornadalab/create-jornadalab.component';
+import { EditPerfilComponent } from './catalogos/cat-perfil/edit-perfil.component';
+import { EditEquipoComponent} from './catalogos/cat-equipo/edit-equipo.component';
+import { EditUsuarioComponent} from './catalogos/cat-usuario/edit-usuario.component';
+import { EditEstasolicitudComponent} from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
+import { EditPrepercepcionComponent } from './catalogos/cat-prepercepcion/edit-prepercepcion.component';
+import { EditTipvacanteComponent} from './catalogos/cat-tipvacante/edit-tipvacante.component';
+import { CreateEquipoComponent } from './catalogos/cat-equipo/create-equipo.component';
+import { CreatePerfilComponent } from './catalogos/cat-perfil/create-perfil.component';
+import { CreateUsuarioComponent } from './catalogos/cat-usuario/create-usuario.component';
+import { CreateTipvacanteComponent } from './catalogos/cat-tipvacante/create-tipvacante.component';
+import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/create-prepercepcion.component';
+import { CreateEstasolicitudComponent } from './catalogos/cat-estasolicitud/create-estasolicitud.component';
 import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/create-comphabilidades.component';
 import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.component';
-import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.component';
-
-
+import { EditContecnicosComponent } from './catalogos/cat-contecnicos/edit-contecnicos.component';
+import { CreateContecnicosComponent} from './catalogos/cat-contecnicos/create-contecnicos.component';
+import { ListSolicitudComponent } from './catalogos/cat-solicitud/list-solicitud.component';
+import { EditSolicitudComponent } from './catalogos/cat-solicitud/edit-solicitud.component';
+import { CreateEstatuscandidatoComponent } from './catalogos/cat-estacandidato/create-estatuscandidato.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +109,6 @@ import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.componen
     CatPercepcioncndofrComponent,
     CatPerfilComponent,
     CatPrepercepcionComponent,
-    CatPrioridadComponent,
     CatProyectoComponent,
     CatSeguicandidatoComponent,
     CatSeguisolicitudComponent,
@@ -105,14 +123,36 @@ import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.componen
     HomeComponent,
     CandidatoComponent,
     NotfoundComponent,
+    CreateCandidatoComponent,
+    EditComponent,
+    CreateEquipoComponent,
+    CreatePerfilComponent,
+    CreateUsuarioComponent,
     CrearContactoComponent,
     EditContactoComponent,
+    CreateClienteComponent,
+    EditClienteComponent,
+    CatPrioridadComponent,
+    CreatePrioridadComponent,
+    EditPrioridadComponent,
+    EditJornadaComponent,
+    CreateJornadalabComponent,
+    EditPerfilComponent,
+    EditEquipoComponent,
+    EditUsuarioComponent,
+    EditEstasolicitudComponent,
+    CreateEstasolicitudComponent,
     CreateEstatuscandidatoComponent,
-    EditEstatuscandidatoComponent,
-    EditComphabilidadesComponent,
     CreateComphabilidadesComponent,
     CreateIdiomaComponent,
-    EditIdiomaComponent
+    EditPrepercepcionComponent,
+    CreatePrepercepcionComponent,
+    EditTipvacanteComponent,
+    CreateTipvacanteComponent,
+    EditContecnicosComponent,
+    CreateContecnicosComponent,
+    ListSolicitudComponent,
+    EditSolicitudComponent
   ],
   imports: [
     BrowserModule,

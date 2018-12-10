@@ -12,7 +12,7 @@
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo Percepcion</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-         
+          <app-create-prepercepcion></app-create-prepercepcion>
         </div>
       </div>
       </div>
@@ -36,9 +36,9 @@
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allPercepcion">
-                  <th scope="row">{{ a.preIdprestaciones }}</th>
-                  <td>{{ a.preTipo }}</td>
+                <tr *ngFor="let p of allPercepcion">
+                  <th scope="row">{{ p.preIdprestaciones }}</th>
+                  <td>{{ p.preTipo }}</td>
 
                   <td class="text-center" >
 
@@ -47,14 +47,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.preIdprestaciones]"></i>
+                      [routerLink]="['/Edit-prepercepcion', p.preIdprestaciones]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.preIdprestaciones, preTipo)"></i>
+                      (click)="deleteBusiness(p.preIdprestaciones, p.preTipo)"></i>
                   </td>
                 </tr>
               </tbody>

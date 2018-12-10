@@ -37,7 +37,6 @@ export class CatEquipoComponent implements OnInit {
       this.allEquipo = result;
       this.dtTrigger.next();
     });
-    console.log(this.allEquipo);
   }
 
   OnDestroy(): void {
@@ -61,7 +60,7 @@ export class CatEquipoComponent implements OnInit {
   deleteBusiness(id, equNombre, equDescripcion) {
       swal({
         title: 'Está seguro?',
-      text: `¿Seguro desea eliminar al equipo ${equNombre}?, ${equDescripcion}?  `,
+      text: `¿Seguro desea eliminar al equipo ${equNombre}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -74,8 +73,8 @@ export class CatEquipoComponent implements OnInit {
             this.allEquipo = this.allEquipo.filter(c => c.equIdequipo !== id);
           });
           swal('Eliminado!', 'Se ha eliminado el equipo.', 'success');
-          this.rerender();
         }
+        this.rerender();
       });
   }
 

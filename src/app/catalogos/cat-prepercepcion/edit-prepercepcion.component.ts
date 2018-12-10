@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PrePercepcionService } from 'src/app/service/cat.prepercepcion.service';
-import {Router, ActivatedRoute} from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatPrepercepcionComponent } from './cat-prepercepcion.component';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-prepercepcion',
+  templateUrl: './edit-prepercepcion.component.html',
+  styles: []
 })
-export class EditComponent implements OnInit {
+export class EditPrepercepcionComponent implements OnInit {
 
   editForm: FormGroup;
-  area: any = {};
+  precepcion: any = {};
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -21,7 +21,7 @@ export class EditComponent implements OnInit {
       this.createForm();
      }
 
-     createForm() {
+    createForm() {
       this.editForm = this.fb.group({
         preTipo: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
         });
@@ -31,30 +31,32 @@ export class EditComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
-        this.area = res;
+        this.precepcion = res;
       });
     });
   }
    updateBusiness(preTipo) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(preTipo, params['id']);
-       this.router.navigate(['Area']);
+      this.router.navigate(['Pre-percepcion']);
        swal({
         position: 'top',
         type: 'success',
-        title: `Precepcion modificada con éxito`,
+        title: `Precepcion vacante modificada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });
     });
-    this.update();
+      this.update();
  }
 
- update(): void {
-  window.location.reload();
-}
+  update(): void {
+   window.location.reload();
+ }
 
  saveData() {
   alert(JSON.stringify(this.editForm.value));
 }
+
+
 }

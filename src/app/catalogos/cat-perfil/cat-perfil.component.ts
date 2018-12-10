@@ -60,7 +60,7 @@ export class CatPerfilComponent implements OnInit {
   deleteBusiness(id, perPerfil) {
       swal({
         title: 'Está seguro?',
-      text: `¿Seguro desea eliminar al área ${perPerfil}?`,
+      text: `¿Seguro desea eliminar el perfil ${perPerfil}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -72,7 +72,7 @@ export class CatPerfilComponent implements OnInit {
         this.perfilService.deleteBusiness(id).subscribe(data => {
             this.allPerfil = this.allPerfil.filter(c => c.perIdperfil !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+          swal('Eliminado!', 'Se ha eliminado el perfil.', 'success');
           this.rerender();
         }
       });

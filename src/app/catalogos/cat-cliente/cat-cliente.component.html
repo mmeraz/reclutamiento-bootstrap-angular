@@ -12,7 +12,7 @@
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo cliente</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-         
+            <app-create-cliente></app-create-cliente>
         </div>
       </div>
       </div>
@@ -31,12 +31,13 @@
                 <tr>
                   <th scope="col">Id</th>
                   <th scope="col">Cliente</th>
+                  <th scope="col">Razon Social</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allAreas">
+                <tr *ngFor="let a of allCliente">
                   <th scope="row">{{ a.cliIdcliente }}</th>
                   <td>{{ a.cliNombre }}</td>
                   <td>{{ a.cliRazonsocial }}</td>
@@ -48,14 +49,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.cliIdcliente]"></i>
+                      [routerLink]="['/EditCliente', a.cliIdcliente]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.cliIdcliente,a.cliNombre,a.cliRazonsocial)"></i>
+                      (click)="deleteBusiness(a.cliIdcliente, a.cliNombre)"></i>
                   </td>
                 </tr>
               </tbody>

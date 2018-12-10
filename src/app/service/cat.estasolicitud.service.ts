@@ -9,7 +9,7 @@ import { Catestasolicitud } from '../model/catestasolicitud.model';
 )
 export class EstasolicitudService {
 
-  private url = 'http://localhost:8085/api/v1/estasolicitud';
+  private url = 'http://localhost:8085/api/v1/EstatusSolicitud';
 
   constructor( private clienteHttp: HttpClient) {}
 

@@ -12,7 +12,7 @@
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo Jornada Laboral</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-         
+          <app-create-jornadalab></app-create-jornadalab>
         </div>
       </div>
       </div>
@@ -36,7 +36,7 @@
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allPrioridad">
+                <tr *ngFor="let a of allJornadalab">
                   <th scope="row">{{ a.jolIdjornada }}</th>
                   <td>{{ a.jolTipo}}</td>
 
@@ -48,14 +48,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.jolIdjornada]"></i>
+                      [routerLink]="['/EditJornada', a.jolIdjornada]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.jolIdjornada,jolTipo)"></i>
+                      (click)="deleteBusiness(a.jolIdjornada, a.jolTipo)"></i>
                   </td>
                 </tr>
               </tbody>

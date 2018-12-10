@@ -29,7 +29,7 @@ export class CreateEstasolicitudComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        estDescripcion: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        estDescripcion: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
       });
     }
 

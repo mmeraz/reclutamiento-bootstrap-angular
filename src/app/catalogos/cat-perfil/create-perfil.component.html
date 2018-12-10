@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <form [formGroup]="addForm" (submit)="saveData()">
                     <div class="form-group">
-                        <label for="perPerfil">perfil</label>
+                        <label for="perPerfil">Perfil</label>
                         <input maxlength="100" type="text" required class="form-control" placeholder="Escribe el nuevo perfil" name="perPerfil" formControlName="perPerfil" #perPerfil>
                         <div *ngIf="addForm.get('perPerfil').errors && addForm.get('perPerfil').dirty">
                             <p style="color:darkred;" *ngIf="addForm.get('perPerfil').hasError('required')">El perfil es requerida</p>
@@ -34,3 +34,4 @@
         </div>
     </div>
 </div>
+

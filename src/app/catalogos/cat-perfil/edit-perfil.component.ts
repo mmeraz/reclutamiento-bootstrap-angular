@@ -1,46 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { AreaService } from 'src/app/service/cat.area.service';
-import {Router, ActivatedRoute} from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PerfilService } from 'src/app/service/cat.perfil.service';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-perfil',
+  templateUrl: './edit-perfil.component.html',
+  styles: []
 })
-export class EditAreaComponent implements OnInit {
+export class EditPerfilComponent implements OnInit {
   editForm: FormGroup;
-  area: any = {};
+  perfil: any = {};
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private bs: AreaService,
+    private bs: PerfilService,
     private fb: FormBuilder) {
       this.createForm();
-     }
+    }
 
-     createForm() {
+    createForm() {
       this.editForm = this.fb.group({
-        arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+        perPerfil: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
         });
       }
 
   ngOnInit() {
-
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
-        this.area = res;
+        this.perfil = res;
       });
     });
   }
-   updateBusiness(arnTipo) {
+
+  updateBusiness(perPerfil) {
     this.route.params.subscribe(params => {
-       this.bs.updateBusiness(arnTipo, params['id']);
-       this.router.navigate(['Area']);
+       this.bs.updateBusiness(perPerfil, params['id']);
+       this.router.navigate(['Perfil']);
        swal({
         position: 'top',
         type: 'success',
-        title: `Área modificada con éxito`,
+        title: `Perfil modificada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });
@@ -55,6 +56,5 @@ export class EditAreaComponent implements OnInit {
  saveData() {
   alert(JSON.stringify(this.editForm.value));
 }
-
 
 }
