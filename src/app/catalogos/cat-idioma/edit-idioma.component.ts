@@ -3,13 +3,12 @@ import { IdiomaService } from 'src/app/service/cat.idioma.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from 'sweetalert2';
-import { CatIdiomaComponent } from './cat-idioma.component';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-idioma',
+  templateUrl: './edit-idioma.component.html'
 })
-export class EditComponent implements OnInit {
+export class EditIdiomaComponent implements OnInit {
   editForm: FormGroup;
   idioma: any = {};
 

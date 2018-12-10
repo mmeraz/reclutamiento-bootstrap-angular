@@ -24,7 +24,7 @@ export class CreateIdiomaComponent implements OnInit {
      }
 
      ngOnInit() {
-      this.idiomaService.getIdiomass().subscribe(
+      this.idiomaService.getIdiomas().subscribe(
         (data: Catidioma[]) => this.arrayIdioma = data
       );
     }
@@ -35,12 +35,12 @@ export class CreateIdiomaComponent implements OnInit {
     }
 
 
-    addidioma(cohDescripcion) {
-      this.bs.addidioma(cohDescripcion);
+    addIdioma(cohDescripcion) {
+      this.bs.addIdioma(cohDescripcion);
       swal({
         position: 'top',
         type: 'success',
-        title: `Idioma creada con éxito`,
+        title: `Idioma creado con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

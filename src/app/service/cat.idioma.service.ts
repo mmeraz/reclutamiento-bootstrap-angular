@@ -9,15 +9,18 @@ import { Catidioma } from '../model/catidioma.model';
 )
 
 export class IdiomaService {
-  private url = 'http://localhost:8085/api/v1/idiIdioma';
+  private url = 'http://localhost:8085/api/v1/Idioma';
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getIdiomass() {
+  getIdiomas() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
+  getIdioma(id): Observable<Catidioma> {
+    return this.clienteHttp.get<Catidioma>(`${this.url}/fetch/${id}`);
+  }
 
-  addidioma(idiNombre) {
+  addIdioma(idiNombre) {
     const obj = {
       idiNombre: idiNombre
     };
@@ -29,9 +32,6 @@ export class IdiomaService {
     window.location.reload();
  }
 
-  getIdiomas(id): Observable<Catidioma> {
-    return this.clienteHttp.get<Catidioma>(`${this.url}/fetch/${id}`);
-  }
   editBusiness(id) {
     return this
             .clienteHttp

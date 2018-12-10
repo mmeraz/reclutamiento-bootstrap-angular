@@ -9,7 +9,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nueva competencia habilidades</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nueva habilidad</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -20,7 +20,7 @@
                         <label for="cohDescripcion">Competencia habilidades</label>
                         <input maxlength="50" type="text" required class="form-control" placeholder="Escribe la nueva competencia" name="cohDescripcion" formControlName="cohDescripcion" #cohDescripcion>
                         <div *ngIf="addForm.get('cohDescripcion').errors && addForm.get('cohDescripcion').dirty">
-                            <p style="color:darkred;" *ngIf="addForm.get('cohDescripcion').hasError('required')">La competencia es requerida</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('cohDescripcion').hasError('required')">La habilidad es requerida</p>
                             <p style="color:darkred;" *ngIf="addForm.get('cohDescripcion').hasError('maxlength')">Máximo 50 carácteres</p>
                             <p style="color:darkred;" *ngIf="addForm.get('cohDescripcion').hasError('pattern')">Solo se aceptan letras</p>
                         </div>
@@ -28,7 +28,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addarea(cohDescripcion.value)' [disabled]="addForm.invalid">Guardar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addCompHabilidades(cohDescripcion.value)' [disabled]="addForm.invalid">Guardar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>

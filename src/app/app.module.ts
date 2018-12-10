@@ -51,6 +51,12 @@ import { CandidatoComponent} from './pages/candidato/candidato.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
 import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
+import { CreateEstatuscandidatoComponent } from './catalogos/cat-estacandidato/create-estatuscandidato.component';
+import { EditEstatuscandidatoComponent } from './catalogos/cat-estacandidato/edit-estatuscandidato.component';
+import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
+import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/create-comphabilidades.component';
+import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.component';
+import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.component';
 
 
 
@@ -100,7 +106,13 @@ import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-conta
     CandidatoComponent,
     NotfoundComponent,
     CrearContactoComponent,
-    EditContactoComponent
+    EditContactoComponent,
+    CreateEstatuscandidatoComponent,
+    EditEstatuscandidatoComponent,
+    EditComphabilidadesComponent,
+    CreateComphabilidadesComponent,
+    CreateIdiomaComponent,
+    EditIdiomaComponent
   ],
   imports: [
     BrowserModule,

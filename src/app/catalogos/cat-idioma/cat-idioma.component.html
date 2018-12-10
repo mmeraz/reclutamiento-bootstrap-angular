@@ -1,7 +1,7 @@
 
 <!-- Titulo principal-->
 <div class="container">
-  <h4>Áreas</h4>
+  <h4>Idiomas</h4>
   <hr />
 <!--Empieza el card donde se encunentra la tabla-->
   <div class="card" style="width: 100%;">
@@ -9,10 +9,10 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 clearfix">
           <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
-          <i class="fas fa-table" style="font-size: 15px;"> Catálogo áreas</i>
+          <i class="fas fa-table" style="font-size: 15px;"> Catálogo de idiomas</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-          <app-create-area></app-create-area>
+          <app-create-idioma></app-create-idioma>
         </div>
       </div>
       </div>
@@ -30,15 +30,15 @@
               <thead>
                 <tr>
                   <th scope="col">Id</th>
-                  <th scope="col">Área</th>
+                  <th scope="col">Idioma</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allAreas">
-                  <th scope="row">{{ a.arnIdarean }}</th>
-                  <td>{{ a.arnTipo }}</td>
+                <tr *ngFor="let i of allIdiomas">
+                  <th scope="row">{{ i.idiIdioma }}</th>
+                  <td>{{ i.idiNombre }}</td>
 
                   <td class="text-center" >
 
@@ -47,14 +47,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.arnIdarean]"></i>
+                      [routerLink]="['/Edit-idioma', i.idiIdioma]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.arnIdarean,a.arnTipo)"></i>
+                      (click)="deleteBusiness(i.idiIdioma,i.idiNombre)"></i>
                   </td>
                 </tr>
               </tbody>

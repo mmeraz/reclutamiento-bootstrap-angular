@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
+          <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
+              <h1 class="h3 mb-3 font-weight-normal">Editar estatus</h1>
+              <div class="form-group">
+                  <label for="escDescripcion">Estatus</label>
+                  <input [(ngModel)]="estatus.escDescripcion" maxlength="15" type="text" required class="form-control" name="escDescripcion" formControlName="escDescripcion" #escDescripcion>
+                  <div *ngIf="editForm.get('escDescripcion').errors && editForm.get('escDescripcion').dirty">
+                      <p class="text-danger" *ngIf="editForm.get('escDescripcion').hasError('required')">El estatus es requerida</p>
+                      <p class="text-danger" *ngIf="editForm.get('escDescripcion').hasError('maxlength')">Máximo 15 carácteres</p>
+                      <p class="text-danger" *ngIf="editForm.get('escDescripcion').hasError('pattern')">Solo se aceptan letras</p>
+                  </div>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(escDescripcion.value)' [disabled]="editForm.invalid">Editar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Estatus-candidato">Cancelar</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

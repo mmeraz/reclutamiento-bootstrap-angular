@@ -31,9 +31,9 @@ export class CatComphabilidadesComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 10,
+      pageLength: 2,
     };
-    this.comphabilidadesService.getcomphabilidadess().subscribe(result => {
+    this.comphabilidadesService.getCompHabilidades().subscribe(result => {
       this.allComphabilidades = result;
       this.dtTrigger.next();
     });
@@ -47,7 +47,7 @@ export class CatComphabilidadesComponent implements OnInit {
 
   rerender(): void {
     setTimeout(() => {
-      this.comphabilidadesService.getcomphabilidadess().subscribe(result => {
+      this.comphabilidadesService.getCompHabilidades().subscribe(result => {
         this.allComphabilidades = result;
       });
     }, 30);
@@ -61,7 +61,7 @@ export class CatComphabilidadesComponent implements OnInit {
   deleteBusiness(id, cohDescripcion) {
       swal({
         title: 'Está seguro?',
-      text: `¿Seguro desea eliminar al descripcion ${cohDescripcion}?`,
+      text: `¿Seguro que desea eliminar la habilidad ${cohDescripcion}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -71,7 +71,7 @@ export class CatComphabilidadesComponent implements OnInit {
       }).then(result => {
         if (result.value) {
         this.comphabilidadesService.deleteBusiness(id).subscribe(data => {
-            this.allComphabilidades = this.allComphabilidades.filter(c => c.cohIdcompetenciashabilidades !== id);
+            this.allComphabilidades = this.allComphabilidades.filter(c => c.cohIdcompetencia !== id);
           });
           swal('Eliminado!', 'Se ha eliminado la competencia.', 'success');
           this.rerender();

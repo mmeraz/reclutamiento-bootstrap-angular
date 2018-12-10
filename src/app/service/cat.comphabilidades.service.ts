@@ -8,15 +8,15 @@ import { Catcomphabilidades } from '../model/catcomphabilidades.model';
 }
 )
 export class CompHabilidadesService {
-  private url = 'http://localhost:8085/api/v1/comphabilidades';
+  private url = 'http://localhost:8085/api/v1/Competencias';
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getcomphabilidadess() {
+  getCompHabilidades() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
 
-  addcomphabilidades(cohDescripcion) {
+  addCompHabilidades(cohDescripcion) {
     const obj = {
       cohDescripcion: cohDescripcion
     };
@@ -37,14 +37,13 @@ export class CompHabilidadesService {
             .get(`${this.url}/fetch/${id}`);
     }
 
-  updateBusiness(cohDescripcion, cohIdcompetenciashabilidades) {
-    cohIdcompetenciashabilidades = cohIdcompetenciashabilidades;
+  updateBusiness(cohDescripcion, cohIdcompetencia) {
     const obj = {
       cohDescripcion: cohDescripcion,
       };
     this
       .clienteHttp
-      .put(`${this.url}/update/${cohIdcompetenciashabilidades}`, obj)
+      .put(`${this.url}/update/${cohIdcompetencia}`, obj)
       .subscribe(res => console.log('Done editado'));
   }
   deleteBusiness(id) {
@@ -52,8 +51,6 @@ export class CompHabilidadesService {
               .clienteHttp
               .delete(`${this.url}/delete/${id}`);
   }
-
-
 
 }
 

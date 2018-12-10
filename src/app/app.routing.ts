@@ -50,6 +50,12 @@ import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-conta
 
 import { AuthGuard } from './Guard/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
+import { EditEstatuscandidatoComponent } from './catalogos/cat-estacandidato/edit-estatuscandidato.component';
+import { CreateEstatuscandidatoComponent } from './catalogos/cat-estacandidato/create-estatuscandidato.component';
+import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/create-comphabilidades.component';
+import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
+import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.component';
+import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.component';
 
 
 
@@ -68,7 +74,11 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Candidato', component: CatCandidatoComponent },
   {path: 'Cliente', component: CatClienteComponent },
   {path: 'Competencia-candidato', component: CatCompcandidatoComponent },
+
   {path: 'Habilidades', component: CatComphabilidadesComponent },
+  {path: 'Create-habilidades', component: CreateComphabilidadesComponent },
+  {path: 'Edit-habilidades/:id', component: EditComphabilidadesComponent },
+
   {path: 'Conocimiento-solicitado', component: CatConsolicitadoComponent },
   {path: 'Contacto-cliente', component: CatContactclienteComponent },
   {path: 'Contacto', component: CatContactoComponent },
@@ -79,11 +89,19 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'Entrevista', component: CatEntrevistaComponent },
   {path: 'Equipo', component: CatEquipoComponent },
   {path: 'Equipo-solicitud', component: CatEquipsolComponent },
+
   {path: 'Estatus-candidato', component: CatEstacandidatoComponent },
+  {path: 'Create-estacand', component: CreateEstatuscandidatoComponent },
+  {path: 'Edit-estacand/:id', component: EditEstatuscandidatoComponent },
+
   {path: 'Estatus-solicitud', component: CatEstasolicitudComponent },
   {path: 'Funciones', component: CatFuncionesComponent },
   {path: 'Habilidad-solicitada', component: CatHabsolicitudComponent },
+
   {path: 'Idioma', component: CatIdiomaComponent },
+  {path: 'Edit-idioma/:id', component: EditIdiomaComponent },
+  {path: 'Create-idioma', component: CreateIdiomaComponent },
+
   {path: 'Idioma-candidato', component: CatIdiomacandidatoComponent },
   {path: 'Jornada-laboral', component: CatJornadalabComponent },
   {path: 'Percepcion-candidato', component: CatPercepcioncndaComponent },
@@ -102,7 +120,7 @@ import { HomeComponent } from './pages/home/home.component';
   {path: 'New-candidato', component: CandidatoComponent},
   {path: 'AddContacto/:id', component: CrearContactoComponent},
   {path: 'EditContacto/:id', component: EditContactoComponent},
-  {path: '**', component: NotfoundComponent}
+  // {path: '**', component: NotfoundComponent}
 
 
 

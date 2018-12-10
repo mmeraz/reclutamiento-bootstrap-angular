@@ -18,8 +18,8 @@ export class CatIdiomaComponent implements OnInit {
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
-  arrayIdioma: Catidioma[];
-  allIdioma: any = [];
+  arrayIdiomas: Catidioma[];
+  allIdiomas: any = [];
   dtTrigger: Subject<any> = new Subject();
 
   constructor( private idiomaService: IdiomaService,
@@ -33,11 +33,11 @@ export class CatIdiomaComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.idiomaService.getIdiomass().subscribe(result => {
-      this.allIdioma = result;
+    this.idiomaService.getIdiomas().subscribe(result => {
+      this.allIdiomas = result;
       this.dtTrigger.next();
     });
-    console.log(this.allIdioma);
+    console.log(this.allIdiomas);
   }
 
   OnDestroy(): void {
@@ -47,8 +47,8 @@ export class CatIdiomaComponent implements OnInit {
 
   rerender(): void {
     setTimeout(() => {
-      this.idiomaService.getIdiomass().subscribe(result => {
-        this.allIdioma = result;
+      this.idiomaService.getIdiomas().subscribe(result => {
+        this.allIdiomas = result;
       });
     }, 30);
     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
@@ -71,7 +71,7 @@ export class CatIdiomaComponent implements OnInit {
       }).then(result => {
         if (result.value) {
         this.idiomaService.deleteBusiness(id).subscribe(data => {
-            this.allIdioma = this.allIdioma.filter(c => c.idiIdioma !== id);
+            this.allIdiomas = this.allIdiomas.filter(i => i.idiIdioma !== id);
           });
           swal('Eliminado!', 'Se ha eliminado el idioma.', 'success');
           this.rerender();

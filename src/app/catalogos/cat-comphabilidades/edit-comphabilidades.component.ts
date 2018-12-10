@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { AreaService } from 'src/app/service/cat.area.service';
-import {Router, ActivatedRoute} from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CompHabilidadesService } from '../../service/cat.comphabilidades.service';
 import swal from 'sweetalert2';
-import { CatComphabilidadesComponent } from './cat-comphabilidades.component';
-import { CompHabilidadesService } from 'src/app/service/cat.comphabilidades.service';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html'
+  selector: 'app-edit-comphabilidades',
+  templateUrl: './edit-comphabilidades.component.html',
+  styles: []
 })
-export class EditComponent implements OnInit {
+export class EditComphabilidadesComponent implements OnInit {
 
   editForm: FormGroup;
-  competencias: any = {};
+  competencia: any = {};
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -32,18 +31,18 @@ export class EditComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
-        this.competencias = res;
+        this.competencia = res;
       });
     });
   }
    updateBusiness(cohDescripcion) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(cohDescripcion, params['id']);
-       this.router.navigate(['comphabilidades']);
+       this.router.navigate(['Habilidades']);
        swal({
         position: 'top',
         type: 'success',
-        title: `Competencias modificada con éxito`,
+        title: `Habilidad modificada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

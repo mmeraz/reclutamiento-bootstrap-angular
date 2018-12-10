@@ -9,7 +9,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nuevo idioma</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Estatus</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -17,18 +17,18 @@
             <div class="modal-body">
                 <form [formGroup]="addForm" (submit)="saveData()">
                     <div class="form-group">
-                        <label for="idiNombre">idioma</label>
-                        <input maxlength="25" type="text" required class="form-control" placeholder="Escribe el nuevo idioma" name="idiNombre" formControlName="idiNombre" #idiNombre>
-                        <div *ngIf="addForm.get('idiNombre').errors && addForm.get('idiNombre').dirty">
-                            <p style="color:darkred;" *ngIf="addForm.get('idiNombre').hasError('required')">El área es requerida</p>
-                            <p style="color:darkred;" *ngIf="addForm.get('idiNombre').hasError('maxlength')">Máximo 25 carácteres</p>
-                            <p style="color:darkred;" *ngIf="addForm.get('idiNombre').hasError('pattern')">Solo se aceptan letras</p>
+                        <label for="arnTipo">Estatus</label>
+                        <input maxlength="15" type="text" required class="form-control" placeholder="Escribe el nuevo estatus" name="escDescripcion" formControlName="escDescripcion" #escDescripcion>
+                        <div *ngIf="addForm.get('escDescripcion').errors && addForm.get('escDescripcion').dirty">
+                            <p style="color:darkred;" *ngIf="addForm.get('escDescripcion').hasError('required')">El estatus es requerida</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('arnTipo').hasError('maxlength')">Máximo 15 carácteres</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('arnTipo').hasError('pattern')">Solo se aceptan letras</p>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addIdioma(idiNombre.value)' [disabled]="addForm.invalid">Guardar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" role="button" (click)='addEstatus(escDescripcion.value)' [disabled]="addForm.invalid">Guardar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>

@@ -12,7 +12,7 @@
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo competencias habilidades</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-         
+         <app-create-comphabilidades></app-create-comphabilidades>
         </div>
       </div>
       </div>
@@ -36,9 +36,9 @@
               </thead>
               <tbody>
 
-                <tr *ngFor="let a of allAreas">
-                  <th scope="row">{{ a.cohIdcompetenciashabilidades}}</th>
-                  <td>{{ a.cohDescripcion}}</td>
+                <tr *ngFor="let c of allComphabilidades">
+                  <th scope="row">{{ c.cohIdcompetencia}}</th>
+                  <td>{{ c.cohDescripcion}}</td>
 
 
                   <td class="text-center" >
@@ -48,14 +48,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', a.cohIdcompetenciashabilidades]"></i>
+                      [routerLink]="['/Edit-habilidades', c.cohIdcompetencia]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.cohIdcompetenciashabilidades, a.cohDescripcion)"></i>
+                      (click)="deleteBusiness(c.cohIdcompetencia, c.cohDescripcion)"></i>
                   </td>
                 </tr>
               </tbody>

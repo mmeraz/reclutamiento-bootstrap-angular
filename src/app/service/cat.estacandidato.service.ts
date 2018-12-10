@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Catestacandidato } from '../model/catestacandidato.model';
 
 @Injectable({
@@ -12,24 +9,49 @@ import { Catestacandidato } from '../model/catestacandidato.model';
 )
 
 export class EstaCandidatoService {
-    private url = 'http://localhost:8085/api/v1/';
+    private url = 'http://localhost:8085/api/v1/EstatusCandidato';
 
 
 
     constructor( private clienteHttp: HttpClient) {}
 
-    getAreas() {
+    getEstatusCandidatos() {
       return this.clienteHttp.get<Catestacandidato[]>(this.url + '/fetch');
     }
+    getEstatusCandidato(id): Observable<Catestacandidato> {
+      return this.clienteHttp.get<Catestacandidato>(`${this.url}/fetch/${id}`);
+    }
 
-    addestatuscandidato(escDescripcion) {
+    addEstatusCandidato(escDescripcion) {
       const obj = {
         escDescripcion: escDescripcion
       };
       this.clienteHttp.post(this.url + '/add', obj)
           .subscribe(res => console.log('Done'));
     }
-
+    refresh(): void {
+      window.location.reload();
+   }
+    editBusiness(id) {
+      return this
+              .clienteHttp
+              .get(`${this.url}/fetch/${id}`);
+      }
+    updateBusiness(escDescripcion, escIdestatus) {
+      escIdestatus = escIdestatus;
+      const obj = {
+        escDescripcion: escDescripcion,
+        };
+      this
+        .clienteHttp
+        .put(`${this.url}/update/${escIdestatus}`, obj)
+        .subscribe(res => console.log('Done editado'));
+    }
+    deleteBusiness(id) {
+      return this
+                .clienteHttp
+                .delete(`${this.url}/delete/${id}`);
+    }
 
   }
 

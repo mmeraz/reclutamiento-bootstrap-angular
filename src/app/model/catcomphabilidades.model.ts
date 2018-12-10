@@ -1,4 +1,4 @@
 export interface Catcomphabilidades {
-  cohIdcompetenciashabilidades: number;
-  cohDescripcion: string;
+cohIdcompetencia: number;
+cohDescripcion: string;
 }
