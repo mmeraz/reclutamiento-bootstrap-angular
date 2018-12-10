@@ -169,19 +169,20 @@ export class CatSolicitudComponent implements OnInit {
         proObservaciones: null,
         proDuracionmeses: this.duracionPro
       },
+      tvaTipoVacante: this.vacante,
       usrUsuarioBySolIdreclutador: {
-        usrIdusuario : 1,
-        usrUsername: null,
-        usrNombreUsuario: null,
-        usrPassword: null,
-        usrEmail: null,
-        usrPerfil: null,
-        usrTelefono: null,
+        usrUsuario: 1,
+        usrUsername: 'Alta',
+        usrNombreusuario: 'test',
+        usrPassword: 'test',
+        usrEmail: 'test@test.com',
+        usrPerfil: 'A',
+        usrTelefono: '123456789'
       },
       usrUsuarioBySolIdcomercial: {
-        usrIdusuario : 6,
+        usrUsuario : 6,
         usrUsername: null,
-        usrNombreUsuario: null,
+        usrNombreusuario: null,
         usrPassword: null,
         usrEmail: null,
         usrPerfil: null,
@@ -207,7 +208,8 @@ export class CatSolicitudComponent implements OnInit {
       equipos: this.listaEquipo,
       conocimientos: this.listaConocimiento,
       idiomas: this.listaIdioma,
-      habilidades: this.listaHabilidades
+      habilidades: this.listaHabilidades,
+      percepsiones: this.listaPercepciones
     };
     this.bs.addSolicitud(this.solicitud);
   }
@@ -216,7 +218,6 @@ export class CatSolicitudComponent implements OnInit {
    * Metodo para agregar el idioma a la solicitud;
    */
   addIdioma() {
-    console.log('add');
     this.idiomaSol = {
       id: null,
       solSolicitud: null,
@@ -297,7 +298,7 @@ export class CatSolicitudComponent implements OnInit {
   }
 
   /**
-   * Metodo para agregar el equipo
+   * Metodo para agregar el equipo a la solicitud
    */
   addEquipo() {
     this.equipoSol = {
@@ -308,5 +309,4 @@ export class CatSolicitudComponent implements OnInit {
     this.listaEquipo.push(this.equipoSol);
     this.equipo = null;
   }
-
 }

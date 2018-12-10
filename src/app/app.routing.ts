@@ -60,6 +60,8 @@ import { CreatePrepercepcionComponent } from './catalogos/cat-prepercepcion/crea
 import { EditEstasolicitudComponent } from './catalogos/cat-estasolicitud/edit-estasolicitud.component';
 import { CreateEstacandidatoComponent } from './catalogos/cat-estacandidato/create-estacandidato.component';
 import { EditContecnicosComponent } from './catalogos/cat-contecnicos/edit-contecnicos.component';
+import { ListSolicitudComponent } from './catalogos/cat-solicitud/list-solicitud.component';
+import { EditSolicitudComponent } from './catalogos/cat-solicitud/edit-solicitud.component';
 
 
 
@@ -114,7 +116,7 @@ import { EditContecnicosComponent } from './catalogos/cat-contecnicos/edit-conte
   {path: 'Proyecto', component: CatProyectoComponent },
   {path: 'Seguimiento-candidato', component: CatSeguicandidatoComponent },
   {path: 'Seguimiento-solicitud', component: CatSeguisolicitudComponent },
-  {path: 'Solicitud', component: CatSolicitudComponent },
+  {path: 'Create-solicitud', component: CatSolicitudComponent },
   {path: 'Idioma-solicitud', component: CatSolidiomaComponent },
   {path: 'Solicitud-percepciones', component: CatSolpercepcionesComponent },
   {path: 'Tipo-vacante', component: CatTipvacanteComponent },
@@ -127,6 +129,8 @@ import { EditContecnicosComponent } from './catalogos/cat-contecnicos/edit-conte
   {path: 'EditCliente/:id', component: EditClienteComponent},
   {path: 'EditPrioridad/:id', component: EditPrioridadComponent},
   {path: 'EditJornada/:id', component: EditJornadaComponent},
+  {path: 'EditSolicitud/:id', component: EditSolicitudComponent},
+  {path: 'Solicitud', component: ListSolicitudComponent},
   {path: 'Edit-contecnicos/:id', component: EditContecnicosComponent },
   {path: '**', component: NotfoundComponent}
   ];

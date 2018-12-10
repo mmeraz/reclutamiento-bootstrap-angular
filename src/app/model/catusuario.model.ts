@@ -1,7 +1,7 @@
 export interface Catusuario {
-  usrIdusuario: number;
+  usrUsuario: number;
   usrUsername: string;
-  usrNombreUsuario: string;
+  usrNombreusuario: string;
   usrPassword: string;
   usrEmail: string;
   usrPerfil: string;
