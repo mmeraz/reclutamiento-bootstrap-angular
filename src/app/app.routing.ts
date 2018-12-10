@@ -37,16 +37,16 @@ import { CatSolidiomaComponent } from './catalogos/cat-solidioma/cat-solidioma.c
 import { CatSolpercepcionesComponent } from './catalogos/cat-solpercepciones/cat-solpercepciones.component';
 import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacante.component';
 import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.component';
-import { LoginComponent} from './login/login.component';
+import { LoginComponent} from './pages/login/login.component';
 import { EditAreaComponent} from './catalogos/cat-area/edit.component';
 import { CreateAreaComponent } from './catalogos/cat-area/create-area.component';
-<<<<<<< HEAD
+
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { CandidatoComponent } from './pages/candidato/candidato.component';
 import { SolicitudComponent } from './pages/solicitud/solicitud.component';
-=======
 import { AuthGuard } from './Guard/auth.guard';
->>>>>>> 549c8030a29556ec446c5e8d9e32386640436b0b
+import { HomeComponent } from './pages/home/home.component';
+
 
 
 
@@ -54,7 +54,11 @@ import { AuthGuard } from './Guard/auth.guard';
 
 
  const appRoutes: Routes = [
-  {path: 'Area', component: CatAreaComponent, canActivate: [AuthGuard]},
+
+  // {path: '/', component: HomeComponent },
+  {path: 'Login', component: LoginComponent},
+
+  {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},
 
@@ -92,9 +96,10 @@ import { AuthGuard } from './Guard/auth.guard';
   {path: 'Solicitud-percepciones', component: CatSolpercepcionesComponent },
   {path: 'Tipo-vacante', component: CatTipvacanteComponent },
   {path: 'Usuarios', component: CatUsuarioComponent },
-  {path: 'Login', component: LoginComponent},
-  {path: 'New-Candidato', component: CandidatoComponent},
-  {path: 'NewSolicitud', component: SolicitudComponent},
+  {path: 'New-candidato', component: CandidatoComponent},
+  {path: '**', component: NotfoundComponent}
+
+
   ];
 
  export const appRoutingProviders: any[] = [];

@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { Observable} from 'rxjs';
 import { Cattipovacante } from '../model/cattipovacante.model';
 
 @Injectable({
@@ -36,5 +33,5 @@ export class TipoVacanteService {
   }
 
 
-}
 
+}

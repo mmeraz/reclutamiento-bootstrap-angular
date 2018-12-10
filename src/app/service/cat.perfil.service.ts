@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { Observable} from 'rxjs';
 import { Catperfil } from '../model/catperfil.model';
 
 @Injectable({
@@ -12,7 +9,7 @@ import { Catperfil } from '../model/catperfil.model';
 )
 
 export class PerfilService {
-    private url = 'http://localhost:8085/api/v1/Perfil';
+    private url = 'http://localhost:8085/api/v1/perfil';
 
 
     constructor( private clienteHttp: HttpClient) {}
@@ -26,11 +23,42 @@ export class PerfilService {
     }
     addperfil(perPerfil) {
       const obj = {
-        perPerfil : perPerfil
+        perPerfil: perPerfil
       };
       this.clienteHttp.post(this.url + '/add', obj)
           .subscribe(res => console.log('Done'));
     }
 
+    refresh(): void {
+      window.location.reload();
+   }
+
+    getArea(id): Observable<Catperfil> {
+      return this.clienteHttp.get<Catperfil>(`${this.url}/fetch/${id}`);
+    }
+    editBusiness(id) {
+      return this
+              .clienteHttp
+              .get(`${this.url}/fetch/${id}`);
+      }
+
+    updateBusiness(perPerfil, perIdperfil) {
+      perIdperfil = perIdperfil;
+      const obj = {
+        perPerfil: perPerfil,
+        };
+      this
+        .clienteHttp
+        .put(`${this.url}/update/${perIdperfil}`, obj)
+        .subscribe(res => console.log('Done editado'));
+    }
+    deleteBusiness(id) {
+      return this
+                .clienteHttp
+                .delete(`${this.url}/delete/${id}`);
+    }
+
+
 
   }
+

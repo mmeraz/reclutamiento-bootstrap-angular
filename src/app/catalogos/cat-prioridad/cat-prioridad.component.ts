@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
 export class CatPrioridadComponent implements OnInit {
 
   angForm: FormGroup;
-  arrayAreas: Catprioridad[];
+  arrayPrioridad: Catprioridad[];
 
   constructor( private prioridadService: PrioridadService,
     private fb: FormBuilder, private bs: PrioridadService,
@@ -22,8 +22,9 @@ export class CatPrioridadComponent implements OnInit {
     }
 
   ngOnInit() {
+
     this.prioridadService.getPrioridades().subscribe(
-      (data: Catprioridad[]) => this.arrayAreas = data
+      (data: Catprioridad[]) => this.arrayPrioridad = data
     );
   }
   createForm() {
