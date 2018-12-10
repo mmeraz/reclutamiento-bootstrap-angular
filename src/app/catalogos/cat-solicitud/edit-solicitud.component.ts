@@ -94,7 +94,7 @@ export class EditSolicitudComponent implements OnInit {
        swal({
         position: 'top',
         type: 'success',
-        title: `Solicitud modificada con éxito`,
+        title: `Solicitud modificada con éxito!!`,
         showConfirmButton: false,
         timer: 1500
       });

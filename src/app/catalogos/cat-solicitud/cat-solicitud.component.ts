@@ -62,7 +62,7 @@ export class CatSolicitudComponent implements OnInit {
   allEquipo: Catequipo[];
   allPerfiles: Catperfil[];
 
-  // propiedades para capturar la info de la pagina
+  // propiedades para capturar la info de la pagina de solicitud
   proyecto: Catproyecto;
   nombrePro: string;
   puestoPro: string;
