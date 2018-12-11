@@ -4,7 +4,6 @@ import { Catarea } from 'src/app/model/catarea.model';
 import { PrioridadService } from 'src/app/service/cat.prioridad.service';
 import { Catprioridad } from 'src/app/model/catprioridad.model';
 import { TipoVacanteService } from 'src/app/service/cat.tipvacante.service';
-import { CatTipvacanteComponent } from '../cat-tipvacante/cat-tipvacante.component';
 import { CatTipoVacante } from 'src/app/model/cattipovacante.model';
 import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
@@ -21,7 +20,6 @@ import { ConTecnicosService } from 'src/app/service/cat.contecnicos.service';
 import { Catcomphabilidades } from 'src/app/model/catcomphabilidades.model';
 import { CompHabilidadesService } from 'src/app/service/cat.comphabilidades.service';
 import { PrePercepcionService } from 'src/app/service/cat.prepercepcion.service';
-import { CatPrepercepcionComponent } from '../cat-prepercepcion/cat-prepercepcion.component';
 import { Catprepercepcion } from 'src/app/model/catprepercepcion.model';
 import { Catconsolicitado } from 'src/app/model/catconsolicitado.model';
 import { Cathabsol } from 'src/app/model/cathabsol.model';
@@ -43,7 +41,7 @@ import { SolicitudService } from 'src/app/service/cat.solicitud.service';
   providers: [AreaService, PrioridadService,
     TipoVacanteService, IdiomaService,
     ClienteService, JornadaLAbService,
-    ConTecnicosService, ]
+    ConTecnicosService]
 })
 export class CatSolicitudComponent implements OnInit {
   // a mandar el back
@@ -63,6 +61,7 @@ export class CatSolicitudComponent implements OnInit {
   allPerfiles: Catperfil[];
 
   // propiedades para capturar la info de la pagina de solicitud
+  index: number;
   proyecto: Catproyecto;
   nombrePro: string;
   puestoPro: string;
@@ -138,7 +137,7 @@ export class CatSolicitudComponent implements OnInit {
     this.clienteService.getClientes().subscribe((data: Catcliente[]) => this.allClientes = data);
     this.jornadaService.getJornadas().subscribe((data: Catjornadalab[]) => this.allJornada = data);
     this.conocimientoService.getContecnicos().subscribe((data: Catcontecnicos[]) => this.allConocimiento = data);
-    this.habilidadService.getcomphabilidadess().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
+    this.habilidadService.getCompHabilidades().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
     this.percepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
     this.equipoService.getEquipos().subscribe((data: Catequipo[]) => this.allEquipo = data);
     this.perfilService.getPerfiles().subscribe((data: Catperfil[]) => this.allPerfiles = data);
@@ -308,5 +307,66 @@ export class CatSolicitudComponent implements OnInit {
     };
     this.listaEquipo.push(this.equipoSol);
     this.equipo = null;
+  }
+  /**
+   * Eliminación del contacto de la lista
+   * @param item contacto a eliminar
+   */
+  deleteContacto(item: Catcontactcliente) {
+    this.index = this.contactosCliente.indexOf(item);
+    this.contactosCliente.splice(this.index, 1);
+    this.index = null;
+  }
+  /**
+   * Eliminación de la lista de idioma
+   * @param item CatsolIdioma
+   */
+  deleteIdioma(item: Catsolidioma) {
+    this.index = this.listaIdioma.indexOf(item);
+    this.listaIdioma.splice(this.index, 1);
+    this.index = null;
+  }
+  /**
+   * metodo para eliminar conocimiento
+   * @param item Catconosolicitado
+   */
+  deleteConocimiento(item: Catconsolicitado) {
+    this.index = this.listaConocimiento.indexOf(item);
+    this.listaConocimiento.splice(this.index, 1);
+    this.index = null;
+  }
+  /**
+   * metodo para eliminar habilidades
+   * @param item a eliminar
+   */
+  deleteHabilidades(item: Cathabsol) {
+    this.index = this.listaHabilidades.indexOf(item);
+    this.listaHabilidades.splice(this.index, 1);
+    this.index = null;
+  }
+
+  /**
+   * metodo para eliminar equipo
+   * @param item a eliminar
+   */
+  deleteEquipo(item: Catequiposol) {
+    this.index = this.listaEquipo.indexOf(item);
+    this.listaEquipo.splice(this.index, 1);
+    this.index = null;
+  }
+  /**
+   * metodo para eliminar funcion
+   * @param item a leiminar
+   */
+  deleteFuncion(item: Catfunciones) {
+    this.index = this.listaFunciones.indexOf(item);
+    this.listaFunciones.splice(this.index, 1);
+    this.index = null;
+  }
+
+  deletePercepcion(item: SlpSolPercepciones) {
+    this.index = this.listaPercepciones.indexOf(item);
+    this.listaPercepciones.splice(this.index, 1);
+    this.index = null;
   }
 }
