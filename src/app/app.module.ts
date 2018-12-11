@@ -78,6 +78,9 @@ import { CreateContecnicosComponent} from './catalogos/cat-contecnicos/create-co
 import { ListSolicitudComponent } from './catalogos/cat-solicitud/list-solicitud.component';
 import { EditSolicitudComponent } from './catalogos/cat-solicitud/edit-solicitud.component';
 import { CreateEstatuscandidatoComponent } from './catalogos/cat-estacandidato/create-estatuscandidato.component';
+import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
+import { EditEstatuscandidatoComponent } from './catalogos/cat-estacandidato/edit-estatuscandidato.component';
+import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.component';
 
 @NgModule({
   declarations: [
@@ -152,7 +155,10 @@ import { CreateEstatuscandidatoComponent } from './catalogos/cat-estacandidato/c
     EditContecnicosComponent,
     CreateContecnicosComponent,
     ListSolicitudComponent,
-    EditSolicitudComponent
+    EditSolicitudComponent,
+    EditComphabilidadesComponent,
+    EditEstatuscandidatoComponent,
+    EditIdiomaComponent
   ],
   imports: [
     BrowserModule,

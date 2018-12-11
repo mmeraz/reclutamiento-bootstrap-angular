@@ -53,8 +53,4 @@ export class TipoVacanteService {
               .delete(`${this.url}/delete/${id}`);
   }
 
-
-
-}
-
 }

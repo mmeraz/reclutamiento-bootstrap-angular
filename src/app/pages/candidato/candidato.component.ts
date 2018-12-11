@@ -80,8 +80,8 @@ listaHabilidades: Catcompcandidato[] = [];
 
   ngOnInit() {
     this.percepcionService.getPercepciones().subscribe((data: Catpercepcioncnda[]) => this.allPercepciones = data);
-    this.idiomaService.getidiomas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
-    this.conocimientoService.getCotecnicos().subscribe((data: Catcontecnicos[]) => this.allConTecnicos = data);
+    this.idiomaService.getIdiomas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
+    this.conocimientoService.getContecnicos().subscribe((data: Catcontecnicos[]) => this.allConTecnicos = data);
     this.percepcionService.getPercepciones().subscribe((data: Catpercepcioncnda[]) => this.allPercepciones = data);
   }
 
