@@ -1,0 +1,23 @@
+<p>
+  detalle-solicitud works!
+</p>
+                <select
+                    [(ngModel)]="solicitud && solicitud.arnAreanegocio"
+                    class="form-control"
+                    id="requerimiento"
+                    name="requerimiento"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    <option [value]="null" selected>Selecciona uno</option>
+                    <option *ngFor="let c of allAreas" [value]="c">{{
+                      c.arnTipo
+                    }}</option>
+               </select>
+
+               <div [(ngModel)]="solicitud && solicitud.arnAreanegocio">
+                  <label *ngFor="let c of allAreas" value="c">{{
+                      c.arnTipo
+                    }}</label>
+
+               </div>
+
