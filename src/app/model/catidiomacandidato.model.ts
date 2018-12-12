@@ -1,6 +1,6 @@
 import { Catidioma } from './catidioma.model';
 
-export interface Catidiomacandidato {
+export interface CatIdiomaCandidato {
   idcIdidiomacandidato: number;
   idcNivel: string;
   idcIdioma: Catidioma;

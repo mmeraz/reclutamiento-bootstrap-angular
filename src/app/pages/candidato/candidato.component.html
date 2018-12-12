@@ -1,7 +1,24 @@
 <div class="container">
   <!-- Carta donde se encuentra el collapsible con toda la información -->
   <div class="card" style="width: 100%;">
-    <div class="card-header">Nuevo Candidato</div>
+    <div class="card-header">
+      <div class="row">
+        <div class="col-lg-6"><h5>Nuevo Candidato</h5></div>
+        <div class="col-lg-6 align-content-lg-end">
+          <button
+            type="button"
+            class="btn btn-success"
+            data-dismiss="modal"
+            role="button"
+            (click)="addCandidato()"
+          >
+            Guardar
+          </button>
+          <button type="button" class="btn btn-primary">Borrador</button>
+        </div>
+      </div>
+    </div>
+
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <!-- Empieza el collapsible -->
@@ -11,18 +28,16 @@
           -->
           <div class="card">
             <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  Datos del candidato
-                </button>
-              </h5>
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                <h6 class="mb-0">Datos del candidato</h6>
+              </button>
             </div>
             <!-- Primer collapsible -->
             <div
@@ -34,186 +49,239 @@
               <!-- Contenido del primer collapsible -->
               <div class="card-body">
                 <!-- Formulario para el primer collapsible -->
-                <form>
-                  <div class="form-row">
-                    <div class=" col-md-3 mb-3">
-                      <label
-                        for="nombre"
-                        class="col-form-label-sm font-weight-bold"
-                        >Nombre</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        id="nombre"
-                        placeholder="nombre"
-                      />
-                    </div>
-
-                    <div class="col-md-3 mb-3">
-                      <label
-                        for="apePaterno"
-                        class="col-form-label-sm font-weight-bold"
-                        >Apellido Paterno</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        id="apePaterno"
-                        placeholder="Apellido Paterno"
-                      />
-                    </div>
-
-                    <div class="col-md-3 mb-3">
-                      <label
-                        for="apeMaterno"
-                        class="col-form-label-sm font-weight-bold"
-                        >Apellido Materno</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        id="apeMaterno"
-                        placeholder="Apellido Materno"
-                      />
-                    </div>
-
-                    <div class="col-md-3 mb-3">
-                      <label
-                        for="edad"
-                        class="col-form-label-sm font-weight-bold"
-                        >Edad</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        id="edad"
-                        placeholder="Edad"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                      <label
-                        for="email"
-                        class="col-form-label-sm font-weight-bold"
-                        >Email</label
-                      >
-                      <input
-                        type="email"
-                        class="form-control form-control-sm"
-                        id="email"
-                        placeholder="Email"
-                      />
-                    </div>
-
-
-                    <div class="col-md-6 mb-3">
-                      <label
-                        for="edoCivil"
-                        class="col-form-label-sm font-weight-bold"
-                        >Estado Civil</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control form-control-sm"
-                        id="edoCivil"
-                        placeholder="Estado Civil"
-                      />
-                    </div>
-                  </div>
-
-                    <div class="form-row">
-                    <div class="form-check form-check-inline col-md-1 mb-3">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="hijos"
-                        value=""
-                      />
-                      <label class="form-check-label" for="inlineCheckbox1"
-                        >Hijos</label
-                      >
-                    </div>
-
-                    <div class="form-check form-check-inline col-md-1 mb-3">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="visa"
-                        value=""
-                      />
-                      <label class="form-check-label" for="inlineCheckbox1"
-                        >Visa</label
-                      >
-                    </div>
-
-                    <div class="form-check form-check-inline col-md-1 mb-3">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="pasaporte"
-                        value=""
-                      />
-                      <label class="form-check-label" for="inlineCheckbox1"
-                        >Pasaporte</label
-                      >
-                    </div>
-
-                    <div class="form-check form-check-inline col-md-2 mb-3">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="dispViajar"
-                        value=""
-                      />
-                      <label class="form-check-label" for="inlineCheckbox1"
-                        >Disponibilidad para viajar</label
-                      >
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="col-md-12 col-lg-12 col-sm-12">
-                      <div class="form-group">
-                        <label for="txtDireccion" class="col-form-label-sm">Dirección</label>
-                        <textarea class="form-control form-control-sm" id="txtDireccion" rows="3"></textarea>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-row">
-                    <!-- Button trigger modal -->
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#modalContactoCandidato"
+                <div class="form-row">
+                  <div class=" col-md-3 mb-3">
+                    <label
+                      for="nombre"
+                      class="col-form-label-sm font-weight-bold"
+                      >Nombre</label
                     >
-                      Telefóno <i class="fas fa-plus"></i>
-                    </button>
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="cndNombre"
+                      placeholder="nombre"
+                      required
+                      [(ngModel)]="cndNombre"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
                   </div>
 
+                  <div class="col-md-3 mb-3">
+                    <label
+                      for="apePaterno"
+                      class="col-form-label-sm font-weight-bold"
+                      >Apellido Paterno</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="cndApellidopat"
+                      placeholder="Apellido Paterno"
+                      required
+                      name="cndApellidopat"
+                      [(ngModel)]="cndApellidopat"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
+                  </div>
 
-                </form>
+                  <div class="col-md-3 mb-3">
+                    <label
+                      for="apeMaterno"
+                      class="col-form-label-sm font-weight-bold"
+                      >Apellido Materno</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="cndApellidomat"
+                      placeholder="Apellido Materno"
+                      required
+                      name="cndApellidomat"
+                      [(ngModel)]="cndApellidomat"
+                    />
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="edad" class="col-form-label-sm font-weight-bold"
+                      >Edad</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="cndEdad"
+                      placeholder="Edad"
+                      name="cndEdad"
+                      [(ngModel)]="cndEdad"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label
+                      for="email"
+                      class="col-form-label-sm font-weight-bold"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control form-control-sm"
+                      id="cndEmail"
+                      placeholder="Email"
+                      name="cndEmail"
+                      [(ngModel)]="cndEmail"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label
+                      for="edoCivil"
+                      class="col-form-label-sm font-weight-bold"
+                      >Estado Civil</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="cndEstcivil"
+                      placeholder="Estado Civil"
+                      name="cndEstcivil"
+                      [(ngModel)]="cndEstcivil"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-check form-check-inline col-md-1 mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="cndHijos"
+                      value="true"
+                      name="cndHijos"
+                      [(ngModel)]="cndHijos"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox1"
+                      >Hijos</label
+                    >
+                  </div>
+
+                  <div class="form-check form-check-inline col-md-1 mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="cndVisa"
+                      value="true"
+                      name="cndVisa"
+                      [(ngModel)]="cndVisa"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox1"
+                      >Visa</label
+                    >
+                  </div>
+
+                  <div class="form-check form-check-inline col-md-1 mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="cndPasaporte"
+                      value="true"
+                      name="cndPasaporte"
+                      [(ngModel)]="cndPasaporte"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox1"
+                      >Pasaporte</label
+                    >
+                  </div>
+
+                  <div class="form-check form-check-inline col-md-2 mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="cndDispoViajar"
+                      value="true"
+                      name="cndDispoViajar"
+                      [(ngModel)]="cndDispoViajar"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox1"
+                      >Disponibilidad para viajar</label
+                    >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="form-group">
+                      <label for="txtDireccion" class="col-form-label-sm"
+                        >Dirección</label
+                      >
+                      <textarea
+                        class="form-control form-control-sm"
+                        id="cndCalle"
+                        rows="3"
+                        required
+                        name="cndCalle"
+                        [(ngModel)]="cndCalle"
+                        [ngModelOptions]="{ stanalone: true }"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <h6>Teléfonos de contacto</h6>
+                  <div class="hr"></div>
+                </div>
+                <div class="form-row">
+                  <div class="col-lg-2">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="conTelmovil"
+                        placeholder="Teléfono"
+                        name="conTelmovil"
+                        [(ngModel)]="Contacto"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-1">
+                    <i
+                      style="color:#28a745;"
+                      data-toggle="tooltip"
+                      data-placement="center"
+                      title="Agregar"
+                      class="fas fa-plus"
+                      (click)="addContacto()"
+                    ></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Segundo titulo del collapsible -->
           <div class="card">
-            <a
-              class="btn btn-link collapsed"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">Últimas Percepciones</h5>
-              </div>
-            </a>
+            <div class="card-header" id="headingTwo">
+              <button
+                class="btn btn-link collapsed"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <h6 class="mb-0">Percepciones</h6>
+              </button>
+            </div>
+
             <!-- Contenido del segundo collapsible -->
             <div
               id="collapseTwo"
@@ -222,36 +290,125 @@
               data-parent="#accordionExample"
             >
               <div class="card-body">
-                <form>
-                  <!-- Button trigger modal de percepción -->
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#modalPercepcionesCandidato"
-                  >
-                    Percepción <i class="fas fa-plus"></i>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
+                <h6>Últimas percepciones del candidato</h6>
+                <!-- Select para añadir las percepciones -->
+                  <div class="row">
+                      <!-- Select de la percepcion -->
+                      <div class="form-group">
+                        <label class="col-md-12 control-label" for="percepcion"
+                          >Tipo de percepción</label
+                        >
+                        <div class="col-md-12">
+                          <select
+                            id="percepcion"
+                            name="percepcion"
+                            class="form-control form-control-sm"
+                            [(ngModel)]="percepcion"
+                          [ngModelOptions]="{ stanalone: true }"
+                          >
+                            <option [ngValue]="null" selected>Selecciona una</option>
+                            <option *ngFor="let per of allPercepcion" [ngValue]="per">{{per.preTipo}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <!-- Text input -->
+                      <div class="form-group">
+                        <label class="col-md-12 control-label" for="descripcion"
+                          >Descripción</label
+                        >
+                        <div class="col-md-12">
+                          <input
+                            id="descripcion"
+                            name="descripcion"
+                            type="text"
+                            placeholder=""
+                            class="form-control form-control-sm"
+                            [(ngModel)]="descripcionPer"
+                          [ngModelOptions]="{ stanalone: true }"
+                          />
+                        </div>
+                      </div>
+
+                      <!-- Text input -->
+                      <div class="form-group">
+                        <label class="col-md-12 control-label" for="valor">Valor</label>
+                        <div class="col-md-12">
+                          <input
+                            id="valor"
+                            name="valor"
+                            type="text"
+                            placeholder=""
+                            class="form-control form-control-sm"
+                            [(ngModel)]="valorPer"
+                          [ngModelOptions]="{ stanalone: true }"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <i
+                          style="color:#dc3545;"
+                          data-toggle="tooltip"
+                          data-placement="center"
+                          title="Agregar"
+                          class="fas fa-plus"
+                        ></i>
+                      </div>
+                    </div>
+                    <!-- Percepciones ofrecidas -->
+                    <h6>Percepciones ofrecidas para el puesto</h6>
+                    <div class="row">
+                                            <!-- Select de la percepcion -->
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label" for="percepcion">Tipo de percepción</label>
+                                              <div class="col-md-12">
+                                                <select id="percepcion" name="percepcion" class="form-control form-control-sm" [(ngModel)]="percepcion"
+                                                  [ngModelOptions]="{ stanalone: true }">
+                                                  <option [ngValue]="null" selected>Selecciona una</option>
+                                                  <option *ngFor="let per of allPercepcion" [ngValue]="per">{{per.preTipo}}</option>
+                                                </select>
+                                              </div>
+                                            </div>
+
+                                            <!-- Text input -->
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label" for="descripcion">Descripción</label>
+                                              <div class="col-md-12">
+                                                <input id="descripcion" name="descripcion" type="text" placeholder="" class="form-control form-control-sm"
+                                                  [(ngModel)]="descripcionPer" [ngModelOptions]="{ stanalone: true }" />
+                                              </div>
+                                            </div>
+
+                                            <!-- Text input -->
+                                            <div class="form-group">
+                                              <label class="col-md-12 control-label" for="valor">Valor</label>
+                                              <div class="col-md-12">
+                                                <input id="valor" name="valor" type="text" placeholder="" class="form-control form-control-sm" [(ngModel)]="valorPer"
+                                                  [ngModelOptions]="{ stanalone: true }" />
+                                              </div>
+                                            </div>
+                                            <div>
+                                              <i style="color:#dc3545;" data-toggle="tooltip" data-placement="center" title="Agregar" class="fas fa-plus"></i>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
 
           <!-- Collapsible tres -->
           <div class="card">
             <div class="card-header" id="headingThree">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link collapsed"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  Asignación de solicitud
-                </button>
-              </h5>
+              <button
+                class="btn btn-link collapsed"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <h6 class="mb-0">Asignación de solicitud</h6>
+              </button>
             </div>
             <div
               id="collapseThree"
@@ -260,18 +417,21 @@
               data-parent="#accordionExample"
             >
               <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <label for="exampleFormControlSelect1">Solicitud</label>
-                    <select class="form-control" id="selectSolicitud">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-                </form>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Solicitud</label>
+                  <select
+                    [(ngModel)]="solicitud"
+                    class="form-control form-control-sm"
+                    name="solicitud"
+                    id="selectSolicitud"
+                    placeholder="Selecciona uno"
+                  >
+                    <option value="" selected>Selecciona una solicitud</option>
+                    <option *ngFor="let sol of allSolicitudes">
+                      {{sol.cliCliente}}
+                    </option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -279,18 +439,16 @@
           <!-- Collapsible 4 -->
           <div class="card">
             <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <button
-                  class="btn btn-link"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseFour"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  Conocimientos y habilidades
-                </button>
-              </h5>
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseFour"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <h6 class="mb-0">Conocimientos y habilidades</h6>
+              </button>
             </div>
 
             <div
@@ -300,432 +458,173 @@
               data-parent="#accordionExample"
             >
               <div class="card-body">
-
+                <!-- Select para  los conocimientos ténicos -->
+                <!-- Select Basic -->
                 <div class="row">
-                <!-- Button trigger modal de conocimientos ténicos -->
-                <div class="col-lg-4">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-toggle="modal"
-                  data-target="#modalConoTecnico"
-                >
-                  Técnico <i class="fas fa-plus"></i>
-                </button>
-              </div>
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="conocimiento"
+                      >Conocimiento</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        id="conocimiento"
+                        name="conocimiento"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="conocimiento"
+                        [ngModelOptions]="{ stanalone: true }"
+                      >
+                        <option [ngValue]="null">Selecciona uno</option>
+                        <option
+                          *ngFor="let cono of allConTecnicos"
+                          [ngValue]="cono"
+                          >{{ cono.cotTipo }}</option
+                        >
+                      </select>
+                    </div>
+                  </div>
 
-                <!-- Button trigger modal para el idioma -->
-                <div class="col-lg-4">
-                <button
-                  type="button"
-                  class="btn btn-info"
-                  data-toggle="modal"
-                  data-target="#modalIdioma"
-                >
-                  Idioma <i class="fas fa-plus"></i>
-                </button>
-              </div>
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="nivel"
+                      >Nivel</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="nivel"
+                        name="nivel"
+                        type="text"
+                        placeholder=""
+                        class="form-control form-control-sm"
+                        [(ngModel)]="nvCono"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <i
+                      style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="center"
+                      title="Agregar"
+                      class="fas fa-plus"
+                      (click)="addConocimiento()"
+                    ></i>
+                  </div>
+                </div>
 
-              <!--
-                Boton para el modal de habilidades
-              -->
-              <div class="col-lg-4">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-toggle="modal"
-                data-target="#modalHabilidades"
-              >
-                Habilidades <i class="fas fa-plus"></i>
-              </button>
-            </div>
+                <!-- select para el idioma -->
+                <div class="row">
+                  <!-- Select Basic -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="idioma"
+                      >Idioma</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        id="idioma"
+                        name="idioma"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="nvIdioma"
+                        [ngModelOptions]="{ stanalone: true }"
+                      >
+                        <option value="" selected>Selecciona uno</option>
+                        <option
+                          *ngFor="let item of allIdiomas"
+                          [ngValue]="item"
+                          >{{ item.idiNombre }}</option
+                        >
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="nivel"
+                      >Nivel</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="nivel"
+                        name="nivel"
+                        type="text"
+                        placeholder=""
+                        class="form-control form-control-sm"
+                        [(ngModel)]="nvIdioma"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <i
+                      style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="center"
+                      title="Agregar"
+                      class="fas fa-plus"
+                      (click)="addIdioma()"
+                    ></i>
+                  </div>
+                </div>
+
+                <!-- Select para  las habilidades -->
+
+                <!-- Select Basic -->
+                <div class="row">
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="habilidades"
+                      >Habilidades</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        id="habilidad"
+                        name="habilidad"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="habilidad"
+                        [ngModelOptions]="{ stanalone: true }"
+                      >
+                        <option [ngValue]="null">Selecciona uno</option>
+                        <option
+                          *ngFor="let hab of allHabilidades"
+                          [ngValue]="hab"
+                          >{{ hab.cohDescripcion }}</option
+                        >
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="nivel"
+                      >Nivel</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="nivel"
+                        name="nivel"
+                        type="text"
+                        placeholder=""
+                        class="form-control form-control-sm"
+                        [(ngModel)]="nvHab"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <i
+                      style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="center"
+                      title="Agregar"
+                      class="fas fa-plus"
+                      (click)="addHabilidad()"
+                    ></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      </div>
       </li>
     </ul>
-
   </div>
   <!-- Terminan los collapsibles -->
-
-  <!-- Modal para el contacto del candidato, teléfono -->
-  <div
-    class="modal fade"
-    id="modalContactoCandidato"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            Teléfono de contacto
-          </h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="tipoTel">Tipo</label>
-              <input
-                type="text"
-                class="form-control"
-                id="tipoTel"
-                placeholder="Tipo"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="telContacto">Teléfono</label>
-              <input
-                type="text"
-                class="form-control"
-                id="telContacto"
-                placeholder="Teléfono"
-              />
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">
-            Cerrar
-          </button>
-          <button type="button" class="btn btn-success">Agregar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal para las percepciones del candidato -->
-  <div
-    class="modal fade"
-    id="modalPercepcionesCandidato"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Nueva percepción</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="tipoPercepcion" class="col-form-label-sm"
-                  >Tipo</label
-                >
-                <select
-                  class="form-control form-control-sm"
-                  id="tipoPercepcion"
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-6">
-                <label for="valorMon" class="col-form-label-sm"
-                  >Valor Monetario</label
-                >
-                <input
-                  type="text"
-                  class="form-control form-control-sm"
-                  id="valorMon"
-                  placeholder="Valor monetario"
-                />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group col-md-12">
-                <label for="descripPercepcion">Descripción</label>
-                <textarea
-                  class="form-control form-control-sm"
-                  id="descripPercepcion"
-                  rows="3"
-                ></textarea>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">
-            Cerrar
-          </button>
-          <button type="button" class="btn btn-success">Agregar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal para los conocimientos ténicos candidato -->
-  <div
-    class="modal fade"
-    id="modalConoTecnico"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Nuevo conocimiento Técnico</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="tecnologia" class="col-form-label-sm"
-                  >Tecnología</label
-                >
-                <select
-                  class="form-control form-control-sm"
-                  id="tecnologia"
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-6">
-                <label for="tiempo" class="col-form-label-sm"
-                  >Tiempo</label
-                >
-                <select
-                  class="form-control form-control-sm"
-                  id="tiempo"
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-
-
-            </div>
-
-            <!-- <div class="form-row">
-              <div class="form-group col-md-12">
-                <label for="descripPercepcion">Descripción</label>
-                <textarea
-                  class="form-control form-control-sm"
-                  id="descripPercepcion"
-                  rows="3"
-                ></textarea>
-              </div>
-            </div> -->
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">
-            Cerrar
-          </button>
-          <button type="button" class="btn btn-success">Agregar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-    <!-- Modal para los idiomas -->
-    <div
-    class="modal fade"
-    id="modalIdioma"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Nuevo idioma</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="tipoPercepcion" class="col-form-label-sm"
-                  >idioma</label
-                >
-                <select
-                  class="form-control form-control-sm"
-                  id="idioma"
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-6">
-                <label for="valorMon" class="col-form-label-sm"
-                  >Tiempo</label
-                >
-                <select
-                  class="form-control form-control-sm"
-                  id="idioma"
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- <div class="form-row">
-              <div class="form-group col-md-12">
-                <label for="descripPercepcion">Descripción</label>
-                <textarea
-                  class="form-control form-control-sm"
-                  id="descripPercepcion"
-                  rows="3"
-                ></textarea>
-              </div>
-            </div> -->
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">
-            Cerrar
-          </button>
-          <button type="button" class="btn btn-success">Agregar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-    <!-- Modal para las habilidades-->
-    <div
-    class="modal fade"
-    id="modalHabilidades"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Nueva habilidad</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="tipoPercepcion" class="col-form-label-sm"
-                  >Habilidad</label
-                >
-                <select
-                  class="form-control form-control-sm"
-                  id="habilidad"
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-6">
-                <label for="valorMon" class="col-form-label-sm"
-                  >Tiempo</label
-                >
-                <select
-                  class="form-control form-control-sm"
-                  id="tiempo"
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- <div class="form-row">
-              <div class="form-group col-md-12">
-                <label for="descripPercepcion">Descripción</label>
-                <textarea
-                  class="form-control form-control-sm"
-                  id="descripPercepcion"
-                  rows="3"
-                ></textarea>
-              </div>
-            </div> -->
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">
-            Cerrar
-          </button>
-          <button type="button" class="btn btn-success">Agregar</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

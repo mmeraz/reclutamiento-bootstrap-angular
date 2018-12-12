@@ -2,7 +2,7 @@ import { Catprepercepcion } from './catprepercepcion.model';
 export interface Catpercepcioncnda {
 pcaIdpercepcionescnda: number;
 // private CndDatosCandidatoDTO cndDatoscandidato;
-prePercepciones: Catprepercepcion;
+pcaPercepciones: Catprepercepcion;
 pcaValor: number;
 pcaDescripcion: string;
 }

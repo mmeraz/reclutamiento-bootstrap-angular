@@ -138,7 +138,7 @@ export class CatSolicitudComponent implements OnInit {
     this.clienteService.getClientes().subscribe((data: Catcliente[]) => this.allClientes = data);
     this.jornadaService.getJornadas().subscribe((data: Catjornadalab[]) => this.allJornada = data);
     this.conocimientoService.getContecnicos().subscribe((data: Catcontecnicos[]) => this.allConocimiento = data);
-    this.habilidadService.getcomphabilidadess().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
+    this.habilidadService.getCompHabilidades().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
     this.percepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
     this.equipoService.getEquipos().subscribe((data: Catequipo[]) => this.allEquipo = data);
     this.perfilService.getPerfiles().subscribe((data: Catperfil[]) => this.allPerfiles = data);

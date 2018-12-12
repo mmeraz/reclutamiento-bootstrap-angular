@@ -1,20 +1,27 @@
-import { Catidiomacandidato } from '../model/catidiomacandidato.model';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-export class IdiomaCandidatoService {
+import { Observable } from 'rxjs';
+import { CatIdiomaCandidato } from '../model/catidiomacandidato.model';
+@Injectable({
+  providedIn: 'root'
+}
+)
+
+export class CatIdiomaCandidatoService {
   private url = 'http://localhost:8085/api/v1/Idioma';
 
   constructor( private clienteHttp: HttpClient) {}
 
-  getidiomas() {
+  getIdiomas() {
     return this.clienteHttp.get(this.url + '/fetch');
   }
+  getIdioma(id): Observable<CatIdiomaCandidato> {
+    return this.clienteHttp.get<CatIdiomaCandidato>(`${this.url}/fetch/${id}`);
+  }
 
-  addidioma(idcIdidiomacandidato, idcNivel, idcIdioma) {
+  addIdioma(idiNombre) {
     const obj = {
-      idcIdidiomacandidato,
-      idcNivel,
-      idcIdioma
+      idiNombre: idiNombre
     };
     this.clienteHttp.post(this.url + '/add', obj)
         .subscribe(res => console.log('Done'));
@@ -24,24 +31,21 @@ export class IdiomaCandidatoService {
     window.location.reload();
  }
 
-  getIdioma(id): Observable<Catidiomacandidato> {
-    return this.clienteHttp.get<Catidiomacandidato>(`${this.url}/fetch/${id}`);
-  }
+
   editBusiness(id) {
     return this
             .clienteHttp
             .get(`${this.url}/fetch/${id}`);
     }
 
-  updateBusiness(idcIdidiomacandidato, idcNivel, idcIdioma) {
-    idcIdidiomacandidato = idcIdidiomacandidato;
+  updateBusiness(idiNombre, idiIdidioma) {
+    idiIdidioma = idiIdidioma;
     const obj = {
-      idcNivel: idcNivel,
-      idcIdioma: idcIdioma
+      idiNombre: idiNombre,
       };
     this
       .clienteHttp
-      .put(`${this.url}/update/${idcIdidiomacandidato}`, obj)
+      .put(`${this.url}/update/${idiIdidioma}`, obj)
       .subscribe(res => console.log('Done editado'));
   }
   deleteBusiness(id) {
@@ -51,4 +55,5 @@ export class IdiomaCandidatoService {
   }
 
 
-  }
+
+}
