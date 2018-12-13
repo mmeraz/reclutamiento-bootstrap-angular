@@ -30,6 +30,4 @@ export class AuthService {
   loguot() {
     Cookie.delete('access_token');
   }
-
-
 }
