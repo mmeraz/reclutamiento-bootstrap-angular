@@ -67,6 +67,7 @@ import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.componen
 import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.component';
 import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/create-comphabilidades.component';
 import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
+import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-solicitud.component';
 
 
 
@@ -149,6 +150,7 @@ import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/ed
   {path: 'EditJornada/:id', component: EditJornadaComponent},
   {path: 'EditSolicitud/:id', component: EditSolicitudComponent},
   {path: 'Solicitud', component: ListSolicitudComponent},
+  {path: 'SolicitudDetalle/:id', component: DetalleSolicitudComponent},
   {path: 'Edit-contecnicos/:id', component: EditContecnicosComponent },
   {path: '**', component: NotfoundComponent}
   ];
