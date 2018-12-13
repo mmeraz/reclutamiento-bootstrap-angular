@@ -6,4 +6,5 @@ export interface Catusuario {
   usrEmail: string;
   usrPerfil: string;
   usrTelefono: string;
+  roles: string[];
 }

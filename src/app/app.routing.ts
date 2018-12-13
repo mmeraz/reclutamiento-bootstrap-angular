@@ -74,9 +74,9 @@ import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/ed
 
  const appRoutes: Routes = [
 
-  // {path: '/', component: HomeComponent },
+  {path: '', component: HomeComponent },
   {path: 'Home', component: HomeComponent },
-  {path: 'Login', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'Area', component: CatAreaComponent},
   {path: 'Create-area', component: CreateAreaComponent, },
   {path: 'Edit/:id', component: EditAreaComponent},

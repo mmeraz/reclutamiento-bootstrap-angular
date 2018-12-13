@@ -49,7 +49,7 @@ export class ListSolicitudComponent implements OnInit {
    */
   deleteBusiness(id, solFolio) {
     swal({
-      title: 'Está seguro?',
+      title: '¿Está seguro?',
     text: `¿Seguro desea eliminar la solicitud ${solFolio}?`,
       type: 'warning',
       showCancelButton: true,

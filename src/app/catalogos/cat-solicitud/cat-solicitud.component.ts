@@ -176,7 +176,8 @@ export class CatSolicitudComponent implements OnInit {
         usrPassword: 'test',
         usrEmail: 'test@test.com',
         usrPerfil: 'A',
-        usrTelefono: '123456789'
+        usrTelefono: '123456789',
+        roles: []
       },
       usrUsuarioBySolIdcomercial: {
         usrUsuario : 6,
@@ -186,6 +187,7 @@ export class CatSolicitudComponent implements OnInit {
         usrEmail: null,
         usrPerfil: null,
         usrTelefono: null,
+        roles: []
       },
       solFolio: null,
       solExistepresupuesto: this.presupuesto,
@@ -267,6 +269,7 @@ export class CatSolicitudComponent implements OnInit {
 
   /**
    * Metodo para agregar funciones a la solicitud;
+   * TODO
    */
   addFunciones() {
     this.funcion = {
