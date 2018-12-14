@@ -91,7 +91,9 @@ export class AreaService {
 
   getHeaders() {
      this.headers = new HttpHeaders();
-     this.headers = this.headers.append('Authorization', 'Bearer ' + Cookie.get('access_token'));
+     this.headers = this.headers
+     .append('Authorization', 'Bearer ' + Cookie
+     .get('access_token'));
      return this.headers;
   }
 }
