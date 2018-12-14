@@ -1,16 +1,20 @@
-<div class="card border-primary text-center">
-  <div class="card-header">{{ titulo }}</div>
-  <div class="card-body">
-    <form method="POST">
-      <div class="form-group col-sm-12">
-        <input [(ngModel)]="usuario && usuario.usrUsername" type="text" class="form-control" name="username" id="username" placeholder="Nombre Usuario" autofocus required/>
-      </div>
-      <div class="form-group col-sm-12">
-        <input [(ngModel)]="usuario && usuario.usrPassword" type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required/>
-      </div>
-      <div class="form-group col-sm-12">
-        <input (click)="login()" type="submit" class="btn btn-lg btn-primary btn-block" value="Iniciar Sesión" />
-      </div>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="../../../assets/img/ns.png" id="icon" alt="User Icon" />
+      <h1>{{ titulo }}</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input [(ngModel)]="usuario && usuario.usrUsername" type="text" id="login" class="fadeIn second" name="login" placeholder="username">
+      <input [(ngModel)]="usuario && usuario.usrPassword" type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input (click)="login()" type="submit" class="fadeIn fourth" value="Log In">
     </form>
+
+
   </div>
 </div>
