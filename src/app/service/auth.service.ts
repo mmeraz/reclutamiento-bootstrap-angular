@@ -8,7 +8,9 @@ import { Cookie } from 'ng2-cookies';
   providedIn: 'root'
 })
 export class AuthService {
-
+  private _usuario: Catusuario;
+  private _token: string;
+  private payload;
   constructor(private http: HttpClient) { }
 
   login(usuario: Catusuario): Observable<any> {
@@ -29,5 +31,37 @@ export class AuthService {
 
   loguot() {
     Cookie.delete('access_token');
+  }
+
+  Guardarusuario(accessToken: string): void {
+    this.payload = this.ObtenesToken(accessToken);
+    this._usuario = {
+      usrUsuario : null,
+      usrUsername: '',
+      usrNombreusuario: '',
+      usrPassword: '',
+      usrEmail: '',
+      usrPerfil: '',
+      usrTelefono: '',
+      roles: []
+  };
+  this._usuario.usrUsername = this.payload.usrUsername;
+  this._usuario.usrNombreusuario = this.payload.usrNombreusuario;
+  this._usuario.usrPassword = this.payload.usrPassword;
+  this._usuario.usrEmail = this.payload.usrEmail;
+  this._usuario.usrPerfil = this.payload.usrPerfil;
+  this._usuario.usrTelefono = this.payload.usrTelefono;
+  this._usuario.roles = this.payload.authorities;
+  }
+
+  Guardartoken(accessToken: string): void {
+
+  }
+
+  ObtenesToken(accessToken: string): any {
+    if (accessToken != null) {
+      return JSON.parse(atob(accessToken.split('.')[1]));
+    }
+    return null;
   }
 }
