@@ -52,10 +52,12 @@ export class AuthService {
   this._usuario.usrPerfil = this.payload.usrPerfil;
   this._usuario.usrTelefono = this.payload.usrTelefono;
   this._usuario.roles = this.payload.authorities;
+  sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
   }
 
   Guardartoken(accessToken: string): void {
-
+    this._token = accessToken;
+    sessionStorage.setItem('token', accessToken);
   }
 
   ObtenesToken(accessToken: string): any {
