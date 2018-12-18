@@ -38,7 +38,7 @@ export class EditPrioridadComponent implements OnInit {
    updateBusiness(priNombre) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(priNombre, params['id']);
-      //  this.router.navigate(['Prioridad']);
+       this.router.navigate(['Prioridad']);
        swal({
         position: 'top',
         type: 'success',

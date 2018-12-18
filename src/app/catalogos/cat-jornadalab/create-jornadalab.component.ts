@@ -29,7 +29,7 @@ export class CreateJornadalabComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        jolTipo: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s]*$')] ]
+        jolTipo: ['', [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
       });
     }
 

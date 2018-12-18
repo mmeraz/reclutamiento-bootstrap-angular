@@ -9,7 +9,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nueva área</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Conocimiento Técnico</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -20,14 +20,14 @@
                         <label for="cotConocimiento">Conocimientos Tecnicos</label>
                         <input maxlength="40" type="text" required class="form-control" placeholder="Escribe" name="cotConocimiento" formControlName="cotConocimiento" #cotConocimiento>
                         <div *ngIf="addForm.get('cotConocimiento').errors && addForm.get('cotConocimiento').dirty">
-                            <p style="color:darkred;" *ngIf="addForm.get('cotConocimiento').hasError('required')">El área es requerida</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('cotConocimiento').hasError('required')">El conocimiento técnico es requerida</p>
                             <p style="color:darkred;" *ngIf="addForm.get('cotConocimiento').hasError('maxlength')">Máximo 40 carácteres</p>
                             <p style="color:darkred;" *ngIf="addForm.get('cotConocimiento').hasError('pattern')">Solo se aceptan letras</p>
                         </div>
                         <label for="cotTipo">Tipo Conocimientos Tecnicos</label>
                         <input maxlength="40" type="text" required class="form-control" placeholder="Escribe" name="cotTipo" formControlName="cotTipo" #cotTipo>
                         <div *ngIf="addForm.get('cotTipo').errors && addForm.get('cotTipo').dirty">
-                            <p style="color:darkred;" *ngIf="addForm.get('cotTipo').hasError('required')">El área es requerida</p>
+                            <p style="color:darkred;" *ngIf="addForm.get('cotTipo').hasError('required')">El conocmiento técnico es requerida</p>
                             <p style="color:darkred;" *ngIf="addForm.get('cotTipo').hasError('maxlength')">Máximo 40 carácteres</p>
                             <p style="color:darkred;" *ngIf="addForm.get('cotTipo').hasError('pattern')">Solo se aceptan letras</p>
                         </div>

@@ -40,7 +40,9 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.usuario).subscribe(response => {
       this.saveToken(response);
-      console.log(response);
+      this.authService.Guardartoken(response.access_token);
+      this.authService.Guardarusuario(response.access_token);
+      console.log(this.authService.Guardarusuario);
     }
     );
   }
@@ -50,6 +52,7 @@ export class LoginComponent implements OnInit {
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
     this.router.navigate(['/']);
+    swal('Login', `Bienvenido ${this.usuario.usrUsername}`);
   }
 }
 
