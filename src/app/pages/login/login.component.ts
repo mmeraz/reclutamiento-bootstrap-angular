@@ -7,7 +7,7 @@ import { LoginService } from '../../service/login.service';
 import { Catusuario } from 'src/app/model/catusuario.model';
 import swal from 'sweetalert2';
 import { AuthService } from 'src/app/service/auth.service';
-import { Cookie } from 'ng2-cookies';
+import { Cookie, CookieService } from 'ng2-cookies';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   login(): void {
-    console.log(this.usuario);
     if (this.usuario.usrUsername === '' || this.usuario.usrPassword === '') {
       swal('Error Login', 'Nombre de usuario o contraseña vacios', 'error');
       return;
@@ -43,7 +42,6 @@ export class LoginComponent implements OnInit {
       this.saveToken(response);
       this.authService.Guardartoken(response.access_token);
       this.authService.Guardarusuario(response.access_token);
-
       console.log(this.authService.Guardarusuario);
     }, err => {
       if (err.status === 401) {

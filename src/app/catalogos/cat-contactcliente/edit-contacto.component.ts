@@ -43,11 +43,11 @@ export class EditContactoComponent implements OnInit {
    updateBusiness( clcNombre, clcTelefono, clcEmail, clcTipo, clcExtension) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(clcNombre, clcTelefono, clcEmail, clcTipo, clcExtension, params['id']);
-
+       this.router.navigate(['Contacto-cliente']);
        swal({
         position: 'top',
         type: 'success',
-        title: `Área modificada con éxito`,
+        title: `Contacto Cliente modificada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

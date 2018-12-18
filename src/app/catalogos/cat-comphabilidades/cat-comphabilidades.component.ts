@@ -31,7 +31,7 @@ export class CatComphabilidadesComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 2,
+      pageLength: 5,
     };
     this.comphabilidadesService.getCompHabilidades().subscribe(result => {
       this.allComphabilidades = result;

@@ -7,12 +7,12 @@
                   <label for="priNombre">Nombre</label>
                   <input [(ngModel)]="prioridad.priNombre" maxlength="40" type="text" required class="form-control" name="priNombre" formControlName="priNombre" #priNombre>
                   <div *ngIf="editForm.get('priNombre').errors && editForm.get('priNombre').dirty">
-                      <p class="text-danger" *ngIf="editForm.get('priNombre').hasError('required')">El área es requerida</p>
+                      <p class="text-danger" *ngIf="editForm.get('priNombre').hasError('required')">La prioridad es requerida</p>
                       <p class="text-danger" *ngIf="editForm.get('priNombre').hasError('maxlength')">Máximo 40 carácteres</p>
                       <p class="text-danger" *ngIf="editForm.get('priNombre').hasError('pattern')">Solo se aceptan letras</p>
                   </div>
                   <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(priNombre.value)' [disabled]="editForm.invalid">Editar</button>
-                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Contacto-cliente">Cancelar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Prioridad">Cancelar</button>
               </div>
           </form>
       </div>

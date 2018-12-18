@@ -52,7 +52,7 @@ export class CrearContactoComponent implements OnInit {
     swal({
       position: 'top',
       type: 'success',
-      title: `Área creada con éxito`,
+      title: `Contacto Cliente creada con éxito`,
       showConfirmButton: false,
       timer: 1500
     });

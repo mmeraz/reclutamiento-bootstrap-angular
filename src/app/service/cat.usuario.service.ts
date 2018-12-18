@@ -43,6 +43,7 @@ export class UsuarioService {
     return this.clienteHttp.get<Catusuario>(`${this.url}/fetch/${id}`);
   }
   editBusiness(id) {
+    this.getHeaders();
     return this
             .clienteHttp
             .get(`${this.url}/fetch/${id}`, {

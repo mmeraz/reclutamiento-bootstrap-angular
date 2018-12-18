@@ -2,25 +2,25 @@
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-offset-2 col-lg-8 col-lg-offset-2">
             <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
-                <h1 class="h3 mb-3 font-weight-normal">Editar área</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Editar cliente</h1>
                 <div class="form-group">
-                    <label for="cliNombre">Área</label>
+                    <label for="cliNombre">Cliente</label>
                     <input [(ngModel)]="cliente.cliNombre" maxlength="40" type="text" required class="form-control" name="cliNombre" formControlName="cliNombre" #cliNombre>
                     <div *ngIf="editForm.get('cliNombre').errors && editForm.get('cliNombre').dirty">
-                        <p class="text-danger" *ngIf="editForm.get('cliNombre').hasError('required')">El área es requerida</p>
+                        <p class="text-danger" *ngIf="editForm.get('cliNombre').hasError('required')">El cliente requerido</p>
                         <p class="text-danger" *ngIf="editForm.get('cliNombre').hasError('maxlength')">Máximo 40 carácteres</p>
                         <p class="text-danger" *ngIf="editForm.get('cliNombre').hasError('pattern')">Solo se aceptan letras</p>
                     </div>
 
-                    <label for="cliRazonsocial">Área</label>
+                    <label for="cliRazonsocial">Cliente</label>
                     <input [(ngModel)]="cliente.cliRazonsocial" maxlength="40" type="text" required class="form-control" name="cliRazonsocial" formControlName="cliRazonsocial" #cliRazonsocial>
                     <div *ngIf="editForm.get('cliRazonsocial').errors && editForm.get('cliRazonsocial').dirty">
-                        <p class="text-danger" *ngIf="editForm.get('cliRazonsocial').hasError('required')">El área es requerida</p>
+                        <p class="text-danger" *ngIf="editForm.get('cliRazonsocial').hasError('required')">El cliente requerido</p>
                         <p class="text-danger" *ngIf="editForm.get('cliRazonsocial').hasError('maxlength')">Máximo 40 carácteres</p>
                         <p class="text-danger" *ngIf="editForm.get('cliRazonsocial').hasError('pattern')">Solo se aceptan letras</p>
                     </div>
                     <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(cliNombre.value, cliRazonsocial.value)' [disabled]="editForm.invalid">Editar</button>
-                    <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Contacto-cliente">Cancelar</button>
+                    <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Cliente">Cancelar</button>
                 </div>
             </form>
         </div>
