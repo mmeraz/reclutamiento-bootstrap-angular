@@ -118,7 +118,7 @@ import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-sol
   {path: 'Create-estasolicitud', component: CreateEstatuscandidatoComponent, canActivate: [AuthGuard]  },
   {path: 'Funciones', component: CatFuncionesComponent, canActivate: [AuthGuard]  },
   {path: 'Habilidad-solicitada', component: CatHabsolicitudComponent, canActivate: [AuthGuard]  },
-
+  {path: 'Seguimiento-Sol', component: SolicitudComponent, canActivate: [AuthGuard]},
   {path: 'Idioma', component: CatIdiomaComponent, canActivate: [AuthGuard]  },
   {path: 'Edit-idioma/:id', component: EditIdiomaComponent, canActivate: [AuthGuard]  },
   {path: 'Create-idioma', component: CreateIdiomaComponent, canActivate: [AuthGuard]  },

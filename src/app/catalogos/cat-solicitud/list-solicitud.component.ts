@@ -12,6 +12,7 @@ import swal from 'sweetalert2';
   templateUrl: './list-solicitud.component.html',
   styles: []
 })
+
 export class ListSolicitudComponent implements OnInit {
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
