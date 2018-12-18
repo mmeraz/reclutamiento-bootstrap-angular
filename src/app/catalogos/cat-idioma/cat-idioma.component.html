@@ -37,7 +37,7 @@
               <tbody>
 
                 <tr *ngFor="let i of allIdiomas">
-                  <th scope="row">{{ i.idiIdioma }}</th>
+                  <th scope="row">{{ i.idiIdidioma }}</th>
                   <td>{{ i.idiNombre }}</td>
 
                   <td class="text-center" >
@@ -47,14 +47,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit-idioma', i.idiIdioma]"></i>
+                      [routerLink]="['/Edit-idioma', i.idiIdidioma]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(i.idiIdioma,i.idiNombre)"></i>
+                      (click)="deleteBusiness(i.idiIdidioma,i.idiNombre)"></i>
                   </td>
                 </tr>
               </tbody>
