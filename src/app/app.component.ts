@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from './service/auth.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { UsuarioService } from 'src/app/service/cat.usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,17 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'reclutamiento-angular';
 
-  constructor(private authService: AuthService,
+  constructor(private usuarioService: UsuarioService, private authService: AuthService,
     private router: Router) {}
+    //mostrarMenu: boolean = false;
+    ngOnInit() {
+     // this.authService.mostrarMenuEmitter.subscribe(
+     //   mostrar => this.mostrarMenu = mostrar
+     // );
+  
+  
+    
+    }
 
   logout() {
     this.authService.loguot();

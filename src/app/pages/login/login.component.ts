@@ -31,14 +31,21 @@ export class LoginComponent implements OnInit {
     };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(this.authService.isAuthenticated()){
+      this.router.navigate(['/']);
+    }
+
+  }
 
   login(): void {
     console.log(this.usuario);
     if (this.usuario.usrUsername === '' || this.usuario.usrPassword === '') {
       swal('Error Login', 'Nombre de usuario o contraseña vacios', 'error');
       return;
-    }
+    } 
+      
+    
     this.authService.login(this.usuario).subscribe(response => {
       this.saveToken(response);
       this.authService.Guardarusuario(response.access_token);
@@ -51,6 +58,8 @@ export class LoginComponent implements OnInit {
     const expireDate = new Date().getTime() + (1000 * token.expires_in);
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
+    //Cookie.set('access_token', JSON.stringify(this.authService.mostrarMenuEmitter.emit(true)));
+    
     this.router.navigate(['/']);
     swal('Login', `Bienvenido ${this.usuario.usrUsername}`);
   }

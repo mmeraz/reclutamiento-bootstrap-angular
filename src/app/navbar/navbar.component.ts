@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 import { CatAreaComponent } from '../catalogos/cat-area/cat-area.component';
 import { CatCandidatoComponent } from '../catalogos/cat-candidato/cat-candidato.component';
@@ -35,6 +36,8 @@ import { CatSolidiomaComponent } from '../catalogos/cat-solidioma/cat-solidioma.
 import { CatSolpercepcionesComponent } from '../catalogos/cat-solpercepciones/cat-solpercepciones.component';
 import { CatTipvacanteComponent } from '../catalogos/cat-tipvacante/cat-tipvacante.component';
 import { CatUsuarioComponent } from '../catalogos/cat-usuario/cat-usuario.component';
+import { UsuarioService } from 'src/app/service/cat.usuario.service';
+import { Catusuario } from 'src/app/model/catusuario.model';
 
 
 @Component({
@@ -44,9 +47,10 @@ import { CatUsuarioComponent } from '../catalogos/cat-usuario/cat-usuario.compon
 })
 export class NavbarComponent implements OnInit {
 
+  users$ : any = [];
   public catalogos: Array<{path: string, component: any, titulo: string }>;
 
-  constructor() {
+  constructor(private authService: AuthService, private usuarioService: UsuarioService) {
     this.catalogos = [
       {path: 'Area', component: CatAreaComponent, titulo: 'Area' },
       {path: 'Candidato', component: CatCandidatoComponent, titulo: 'Candidato' },
@@ -87,6 +91,8 @@ export class NavbarComponent implements OnInit {
   }
 
 ngOnInit() {
+  this.users$ = this.authService.usuario;
+  console.log(this.users$);
 }
 
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Catusuario } from '../model/catusuario.model';
@@ -11,6 +11,27 @@ export class AuthService {
   private _usuario: Catusuario;
   private _token: string;
   private payload;
+  //mostrarMenuEmitter = new EventEmitter<boolean>();
+
+  get usuario(): Catusuario {
+
+    if(this._usuario != null) {
+      return this._usuario ;
+    }else if(this._usuario == null && sessionStorage.getItem('usuario') != null){
+      this._usuario = JSON.parse(sessionStorage.getItem('usuario')) as Catusuario;
+      return this._usuario;
+    }
+  }
+  get token(): string {
+    if(this._usuario != null) {
+      return this._token ;
+    }else if(this._token == null && sessionStorage.getItem('token') != null){
+      this._token = sessionStorage.getItem('token');
+      return this._token;
+    }
+    return null;
+  }
+
   constructor(private http: HttpClient) { }
 
   login(usuario: Catusuario): Observable<any> {
@@ -26,6 +47,7 @@ export class AuthService {
     params.set('username', usuario.usrUsername);
     params.set('password', usuario.usrPassword);
     console.log(params.toString());
+
     return this.http.post<any>(urlEndpoint, params.toString(), {headers: httpHeaders});
   }
 
@@ -65,5 +87,15 @@ export class AuthService {
       return JSON.parse(atob(accessToken.split('.')[1]));
     }
     return null;
+  }
+
+  isAuthenticated(): boolean {
+    this.payload = this.ObtenesToken(this.token);
+    if(this.payload != null && this.payload.usrUsername && this.payload.usrUsername.length > 0){
+      return true;
+    }else{
+      return false;
+    }
+
   }
 }
