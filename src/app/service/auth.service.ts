@@ -68,7 +68,7 @@ export class AuthService {
   this._usuario.usrEmail = this.payload.usrEmail;
   this._usuario.usrPerfil = this.payload.usrPerfil;
   this._usuario.usrTelefono = this.payload.usrTelefono;
-  this._usuario.roles = this.payload.roles;
+  this._usuario.roles = this.payload.authorities;
   sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
   console.log(this.payload);
   }
