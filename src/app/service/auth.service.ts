@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Catusuario } from '../model/catusuario.model';
 import { Cookie } from 'ng2-cookies';
+import { CatUsuarioComponent } from '../catalogos/cat-usuario/cat-usuario.component';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,23 @@ export class AuthService {
   private _token: string;
   private payload;
   constructor(private http: HttpClient) { }
+  get usuario(): Catusuario {
+    if (this._usuario != null) {
+      return this._usuario;
+    } else if (this._usuario == null && sessionStorage.getItem('usuario') != null) {
+      this._usuario = JSON.parse(sessionStorage.getItem('usuario')) as Catusuario;
+      return this._usuario;
+    }
+  }
+  get token(): string {
+    if (this._token != null) {
+      return this._token;
+    } else if (this._token == null && sessionStorage.getItem('token') != null) {
+      this._token = sessionStorage.getItem('token');
+      return this._token;
+    }
+  }
+
 
   login(usuario: Catusuario): Observable<any> {
     const urlEndpoint = 'http://localhost:8085/oauth/token';
@@ -51,8 +69,9 @@ export class AuthService {
   this._usuario.usrEmail = this.payload.usrEmail;
   this._usuario.usrPerfil = this.payload.usrPerfil;
   this._usuario.usrTelefono = this.payload.usrTelefono;
-  this._usuario.roles = this.payload.authorities;
+  this._usuario.roles = this.payload.roles;
   sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
+  console.log(this.payload);
   }
 
   Guardartoken(accessToken: string): void {

@@ -41,8 +41,10 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.usuario).subscribe(response => {
       this.saveToken(response);
-      this.authService.Guardarusuario(response.access_token);
       this.authService.Guardartoken(response.access_token);
+      this.authService.Guardarusuario(response.access_token);
+
+      console.log(this.authService.Guardarusuario);
     }
     );
   }
