@@ -45,8 +45,13 @@ export class LoginComponent implements OnInit {
       this.authService.Guardarusuario(response.access_token);
 
       console.log(this.authService.Guardarusuario);
+    }, err => {
+      if (err.status === 401) {
+        swal('Error Login', 'Nombre de usuario o contraseña Incorrecta', 'error');
+      }
     }
     );
+
   }
 
   saveToken(token) {
@@ -54,7 +59,8 @@ export class LoginComponent implements OnInit {
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
     this.router.navigate(['/']);
-    swal('Login', `Bienvenido ${this.usuario.usrUsername}`);
+    this.usuario = this.authService.usuario;
+    swal('Login', `Bienvenido ${this.usuario.usrNombreusuario}`);
   }
 }
 
