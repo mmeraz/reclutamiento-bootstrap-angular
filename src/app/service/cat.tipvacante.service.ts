@@ -52,8 +52,5 @@ export class TipoVacanteService {
               .clienteHttp
               .delete(`${this.url}/delete/${id}`);
   }
-
-
-
 }
 

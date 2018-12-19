@@ -3,3 +3,4 @@ export interface Catprepercepcion {
   preTipo: string;
 
 }
+

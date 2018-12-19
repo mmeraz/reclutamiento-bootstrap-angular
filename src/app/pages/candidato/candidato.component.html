@@ -1,6 +1,7 @@
 <div class="container">
   <!-- Carta donde se encuentra el collapsible con toda la información -->
   <div class="card" style="width: 100%;">
+    <!-- <form [formGroup]="addForm" (submit)="saveData()"> -->
     <div class="card-header">
       <div class="row">
         <div class="col-lg-6"><h5>Nuevo Candidato</h5></div>
@@ -11,10 +12,23 @@
             data-dismiss="modal"
             role="button"
             (click)="addCandidato()"
-          >
-            Guardar
+            style="margin-right: 10px;">
+            Agregar
+            <i class="fa fa-check" aria-hidden="true"></i>
           </button>
-          <button type="button" class="btn btn-primary">Borrador</button>
+          <button
+          type="button"
+          class="btn btn-primary"
+          style="margin-right: 10px;">
+          Borrador
+          <i class="fa fa-broom" aria-hidden="true"></i>
+        </button>
+        <button
+        type="button"
+        class="btn btn-danger"
+        style="margin-right: 10px;">
+        Cancelar
+      </button>
         </div>
       </div>
     </div>
@@ -23,6 +37,7 @@
       <li class="list-group-item">
         <!-- Empieza el collapsible -->
         <div class="accordion" id="accordionExample">
+
           <!--
             Titulo del primer collapsible - tambien boton para abrir el primer collapsible
           -->
@@ -63,8 +78,11 @@
                       placeholder="nombre"
                       required
                       [(ngModel)]="cndNombre"
-                      [ngModelOptions]="{ stanalone: true }"
+                      required
+                      maxlength="20"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
+
                   </div>
 
                   <div class="col-md-3 mb-3">
@@ -81,8 +99,8 @@
                       required
                       name="cndApellidopat"
                       [(ngModel)]="cndApellidopat"
-                      [ngModelOptions]="{ stanalone: true }"
                     />
+
                   </div>
 
                   <div class="col-md-3 mb-3">
@@ -136,13 +154,21 @@
                     />
                   </div>
 
-                  <div class="col-md-6 mb-3">
+                  <div class="col-md-3 mb-3">
                     <label
                       for="edoCivil"
                       class="col-form-label-sm font-weight-bold"
                       >Estado Civil</label
                     >
-                    <input
+                    <select class="form-control form-control-sm"
+                    [(ngModel)]="cndEstcivil"
+                    >
+                        <option [ngValue]="" selected>Estado civil</option>
+                        <option value="Soltero">Soltero</option>
+                        <option value="Casado">Casado</option>
+                        <option value="Divorciado">Divorciado</option>
+                      </select>
+                    <!-- <input
                       type="text"
                       class="form-control form-control-sm"
                       id="cndEstcivil"
@@ -150,7 +176,24 @@
                       name="cndEstcivil"
                       [(ngModel)]="cndEstcivil"
                       [ngModelOptions]="{ stanalone: true }"
-                    />
+                    /> -->
+                  </div>
+                  <div class="col-md-3 mb-3 ">
+                    <label class="col-form-label-sm font-weight-bold" for="genero"
+                      >Sexo</label
+                    >
+                      <select
+                        [(ngModel)]="cndGenero"
+                        class="form-control form-control-sm"
+                        id="genero"
+                        name="genero"
+                        [ngModelOptions]="{ standalone: true }"
+                      >
+                        <option [value]="" selected>Selecciona uno</option>
+                        <option value="I">Indefinido</option>
+                        <option value="H">Hombre</option>
+                        <option value="M">Mujer</option>
+                      </select>
                   </div>
                 </div>
 
@@ -224,7 +267,7 @@
                       <textarea
                         class="form-control form-control-sm"
                         id="cndCalle"
-                        rows="3"
+                        rows="2"
                         required
                         name="cndCalle"
                         [(ngModel)]="cndCalle"
@@ -234,35 +277,74 @@
                   </div>
                 </div>
 
+                <!-- Empieza la parte del contacto -->
                 <div class="form-row">
                   <h6>Teléfonos de contacto</h6>
-                  <div class="hr"></div>
                 </div>
-                <div class="form-row">
-                  <div class="col-lg-2">
+
+                <!-- Formulario para agregar el contacto -->
+                <div class="form-row align-content-center">
+                  <div class="cool-auto">
                     <div class="form-group">
                       <input
                         type="text"
-                        class="form-control"
-                        id="conTelmovil"
+                        class="form-control form-control-sm"
+                        id="contacto"
                         placeholder="Teléfono"
-                        name="conTelmovil"
-                        [(ngModel)]="Contacto"
+                        name="conTelMovil"
+                        [(ngModel)]="conTelMovil"
                       />
                     </div>
                   </div>
-
-                  <div class="col-lg-1">
+                  <!-- Boton para agregar el contacto -->
+                  <div class="col-auto">
+                    <button class="btn btn-success btn-sm">
                     <i
-                      style="color:#28a745;"
                       data-toggle="tooltip"
                       data-placement="center"
                       title="Agregar"
                       class="fas fa-plus"
                       (click)="addContacto()"
                     ></i>
+                  </button>
                   </div>
+
+                  <div class="col-auto align-content-center">
+                      <table class="table table-striped table-bordered table-hover table-sm">
+                      <thead class="thead-ligth">
+                        <tr>
+                          <th scope="col">Telefono</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody class="tbody-ligth">
+                        <tr *ngFor="let c of contactosCandidato">
+                          <th scope="row">{{ c.conTelmovil }}</th>
+                          <td align="center" style="width: 6em;">
+                            <i
+                              style="color:#dc3545;"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              title="Eliminar"
+                              class="fas fa-trash-alt"
+                              (click)="deleteContacto(c)"
+                            ></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
                 </div>
+                <!-- Termina la parte del formulario del contacto -->
+                <!-- <div class="form-row">
+                  <div class="col-lg-4">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input form-control-sm custom-file-text"  id="customFile" lang="es">
+                  <label class="custom-file-label" for="customFile">Añadir CV</label>
+                </div>
+                </div>
+              </div> -->
               </div>
             </div>
           </div>
@@ -291,340 +373,584 @@
             >
               <div class="card-body">
                 <h6>Últimas percepciones del candidato</h6>
-                <!-- Select para añadir las percepciones -->
-                  <div class="row">
-                      <!-- Select de la percepcion -->
-                      <div class="form-group">
-                        <label class="col-md-12 control-label" for="percepcion"
-                          >Tipo de percepción</label
-                        >
-                        <div class="col-md-12">
-                          <select
-                            id="percepcion"
-                            name="percepcion"
-                            class="form-control form-control-sm"
-                            [(ngModel)]="percepcion"
-                          [ngModelOptions]="{ stanalone: true }"
-                          >
-                            <option [ngValue]="null" selected>Selecciona una</option>
-                            <option *ngFor="let per of allPercepcion" [ngValue]="per">{{per.preTipo}}</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <!-- Text input -->
-                      <div class="form-group">
-                        <label class="col-md-12 control-label" for="descripcion"
-                          >Descripción</label
-                        >
-                        <div class="col-md-12">
-                          <input
-                            id="descripcion"
-                            name="descripcion"
-                            type="text"
-                            placeholder=""
-                            class="form-control form-control-sm"
-                            [(ngModel)]="descripcionPer"
-                          [ngModelOptions]="{ stanalone: true }"
-                          />
-                        </div>
-                      </div>
-
-                      <!-- Text input -->
-                      <div class="form-group">
-                        <label class="col-md-12 control-label" for="valor">Valor</label>
-                        <div class="col-md-12">
-                          <input
-                            id="valor"
-                            name="valor"
-                            type="text"
-                            placeholder=""
-                            class="form-control form-control-sm"
-                            [(ngModel)]="valorPer"
-                          [ngModelOptions]="{ stanalone: true }"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <i
-                          style="color:#dc3545;"
-                          data-toggle="tooltip"
-                          data-placement="center"
-                          title="Agregar"
-                          class="fas fa-plus"
-                        ></i>
-                      </div>
-                    </div>
-                    <!-- Percepciones ofrecidas -->
-                    <h6>Percepciones ofrecidas para el puesto</h6>
-                    <div class="row">
-                                            <!-- Select de la percepcion -->
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label" for="percepcion">Tipo de percepción</label>
-                                              <div class="col-md-12">
-                                                <select id="percepcion" name="percepcion" class="form-control form-control-sm" [(ngModel)]="percepcion"
-                                                  [ngModelOptions]="{ stanalone: true }">
-                                                  <option [ngValue]="null" selected>Selecciona una</option>
-                                                  <option *ngFor="let per of allPercepcion" [ngValue]="per">{{per.preTipo}}</option>
-                                                </select>
-                                              </div>
-                                            </div>
-
-                                            <!-- Text input -->
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label" for="descripcion">Descripción</label>
-                                              <div class="col-md-12">
-                                                <input id="descripcion" name="descripcion" type="text" placeholder="" class="form-control form-control-sm"
-                                                  [(ngModel)]="descripcionPer" [ngModelOptions]="{ stanalone: true }" />
-                                              </div>
-                                            </div>
-
-                                            <!-- Text input -->
-                                            <div class="form-group">
-                                              <label class="col-md-12 control-label" for="valor">Valor</label>
-                                              <div class="col-md-12">
-                                                <input id="valor" name="valor" type="text" placeholder="" class="form-control form-control-sm" [(ngModel)]="valorPer"
-                                                  [ngModelOptions]="{ stanalone: true }" />
-                                              </div>
-                                            </div>
-                                            <div>
-                                              <i style="color:#dc3545;" data-toggle="tooltip" data-placement="center" title="Agregar" class="fas fa-plus"></i>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            </div>
-
-          <!-- Collapsible tres -->
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-              >
-                <h6 class="mb-0">Asignación de solicitud</h6>
-              </button>
-            </div>
-            <div
-              id="collapseThree"
-              class="collapse"
-              aria-labelledby="headingThree"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Solicitud</label>
-                  <select
-                    [(ngModel)]="solicitud"
-                    class="form-control form-control-sm"
-                    name="solicitud"
-                    id="selectSolicitud"
-                    placeholder="Selecciona uno"
-                  >
-                    <option value="" selected>Selecciona una solicitud</option>
-                    <option *ngFor="let sol of allSolicitudes">
-                      {{sol.cliCliente}}
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Collapsible 4 -->
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <button
-                class="btn btn-link"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseFour"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                <h6 class="mb-0">Conocimientos y habilidades</h6>
-              </button>
-            </div>
-
-            <div
-              id="collapseFour"
-              class="collapse show"
-              aria-labelledby="headingOne"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
-                <!-- Select para  los conocimientos ténicos -->
-                <!-- Select Basic -->
-                <div class="row">
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="conocimiento"
-                      >Conocimiento</label
-                    >
-                    <div class="col-md-12">
+                <!-- Select para añadir las percepciones del -->
+                <div class="form-row align-content-lg-center">
+                  <!-- Select de la percepcion -->
+                  <div class="col-auto">
+                    <div class="form-group">
                       <select
-                        id="conocimiento"
-                        name="conocimiento"
+                        id="percepcion"
+                        name="percepcion"
                         class="form-control form-control-sm"
-                        [(ngModel)]="conocimiento"
+                        [(ngModel)]="percepcion"
                         [ngModelOptions]="{ stanalone: true }"
                       >
-                        <option [ngValue]="null">Selecciona uno</option>
+                        <option [ngValue]="null" selected>
+                          Tipo percepción
+                        </option>
                         <option
-                          *ngFor="let cono of allConTecnicos"
-                          [ngValue]="cono"
-                          >{{ cono.cotTipo }}</option
+                          *ngFor="let per of allPercepciones"
+                          [ngValue]="per"
                         >
+                          {{ per.preTipo }}
+                        </option>
                       </select>
                     </div>
                   </div>
 
                   <!-- Text input -->
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="nivel"
-                      >Nivel</label
-                    >
-                    <div class="col-md-12">
+                  <div class="col-auto">
+                    <div class="form-group">
                       <input
-                        id="nivel"
-                        name="nivel"
+                        id="descripcionPerCnda"
+                        name="descripcionPerCnda"
                         type="text"
-                        placeholder=""
+                        placeholder="Descripción"
                         class="form-control form-control-sm"
-                        [(ngModel)]="nvCono"
+                        [(ngModel)]="descripcionPerCnda"
                         [ngModelOptions]="{ stanalone: true }"
                       />
                     </div>
                   </div>
-                  <div>
+
+                  <!-- Text input -->
+                  <div class="col-auto">
+                    <div class="form-group">
+                      <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">$</div>
+                        </div>
+                        <input
+                          id="valor"
+                          name="valorPerCnda"
+                          type="text"
+                          placeholder="Valor"
+                          class="form-control form-control-sm"
+                          [(ngModel)]="valorPerCnda"
+                          [ngModelOptions]="{ stanalone: true }"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Boton para agregar la percepcion del candidato -->
+                  <div class="col-auto">
+                    <button class="btn  btn-success btn-sm align-bottom">
+                      <i
+                        data-toggle="tooltip"
+                        data-placement="center"
+                        title="Agregar"
+                        class="fas fa-plus"
+                        (click)="addPercepcionCnda()"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- Tabla de las percepciones del candidato -->
+                <div class="row">
+                  <div class="col-lg-8 col-lg-offset">
+                    <table
+                      class="table table-striped table-bordered table-hover table-sm"
+                      id="tableArea"
+                    >
+                      <thead class="thead-ligth">
+                        <tr>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Descripción</th>
+                          <th scope="col">Valor</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody class="tbody-ligth">
+                        <tr *ngFor="let p of listaPercepcionCnda">
+                          <th scope="row">{{ p.prePercepciones.preTipo }}</th>
+                          <th scope="row">{{ p.pcaDescripcion }}</th>
+                          <th scope="row">{{ p.pcaValor }}</th>
+                          <td align="center" style="width: 6em;">
+                            <i
+                              style="color:#dc3545;"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              title="Eliminar"
+                              class="fas fa-trash-alt"
+                              (click)="deletePercepcionCnda(p)"
+                            ></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Percepciones ofrecidas -->
+                <h6>Percepciones ofrecidas para el puesto</h6>
+                <!--
+                  Empieza el select para añadir las percepciones ofrecidas
+                -->
+                <div class="form-row align-content-lg-center">
+                  <!-- Select de la percepcion -->
+                  <div class="col-auto">
+                    <div class="form-group">
+                      <select
+                        id="percepcion"
+                        name="percepcion"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="percepcion"
+                        [ngModelOptions]="{ stanalone: true }"
+                      >
+                        <option [ngValue]="null" selected>
+                          Tipo percepción
+                        </option>
+                        <option
+                          *ngFor="let per of allPercepciones"
+                          [ngValue]="per"
+                        >
+                          {{ per.preTipo }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Text input descripción percepción -->
+                  <div class="col-auto">
+                    <div class="form-group">
+                      <input
+                        id="descripcion"
+                        name="descripcionPerOfr"
+                        type="text"
+                        placeholder="Descripción"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="descripcionPerOfr"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Text input valor percepción ofrecida -->
+                  <div class="col-auto">
+                    <div class="form-group">
+                      <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">$</div>
+                        </div>
+                        <input
+                          id="valorPerOfr"
+                          name="valorPerOfr"
+                          type="text"
+                          placeholder="Valor"
+                          class="form-control form-control-sm"
+                          [(ngModel)]="valorPerOfr"
+                          [ngModelOptions]="{ stanalone: true }"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Boton para agregar la percepcion -->
+                  <div class="col-auto">
+                    <button class="btn  btn-success btn-sm align-bottom">
+                      <i
+                        data-toggle="tooltip"
+                        data-placement="center"
+                        title="Agregar"
+                        class="fas fa-plus"
+                        (click)="addPercepcionOfr()"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Tabla de las percepciones del candidato -->
+                <div class="row">
+                  <div class="col-lg-8 col-lg-offset">
+                    <table
+                      class="table table-striped table-bordered table-hover table-sm"
+                      id="tableArea"
+                    >
+                      <thead class="thead-ligth">
+                        <tr>
+                          <th scope="col">Tipo</th>
+                          <th scope="col">Descripción</th>
+                          <th scope="col">Valor</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody class="tbody-ligth">
+                        <tr *ngFor="let p of listaPercepcionOfr">
+                          <th scope="row">{{ p.prePercepciones.preTipo }}</th>
+                          <th scope="row">{{ p.pcoDescripcion }}</th>
+                          <th scope="row">{{ p.pcoValor }}</th>
+                          <td align="center" style="width: 6em;">
+                            <i
+                              style="color:#dc3545;"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              title="Eliminar"
+                              class="fas fa-trash-alt"
+                              (click)="deletePercepcionOfr(p)"
+                            ></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- Termina la tabla de las percepciones ofrecidas -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collapsible tres -->
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <button
+              class="btn btn-link collapsed"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              <h6 class="mb-0">Asignación de solicitud</h6>
+            </button>
+          </div>
+          <div
+            id="collapseThree"
+            class="collapse"
+            aria-labelledby="headingThree"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1" class="font-weight-bold">Solicitud</label>
+                <select
+                  [(ngModel)]="solicitud"
+                  class="form-control form-control-sm"
+                  name="solicitud"
+                  id="selectSolicitud"
+                  placeholder="Selecciona uno"
+                >
+                  <option [ngValue]="null" selected>Selecciona una solicitud</option>
+                  <option *ngFor="let sol of allSolicitudes">
+                    {{ sol.cliCliente }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collapsible 4 -->
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <button
+              class="btn btn-link"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapseFour"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              <h6 class="mb-0">Conocimientos y habilidades</h6>
+            </button>
+          </div>
+
+          <div
+            id="collapseFour"
+            class="collapse show"
+            aria-labelledby="headingOne"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body">
+              <!-- Empieza la parte de conocimientos técnicos -->
+              <div class="row">
+                <div class="col-auto">
+                  <h6>Conocimientos técnicos</h6>
+                </div>
+              </div>
+              <!-- <hr> -->
+              <!-- Empieza el formulario de los conocimientos técnicos -->
+              <div class="form-row align-content-lg-center">
+
+                <!-- Select para  los conocimientos ténicos -->
+                <div class="col-auto">
+                  <div class="form-group">
+                  <select
+                    id="conocimiento"
+                    name="conocimiento"
+                    class="form-control form-control-sm"
+                    [(ngModel)]="conocimiento"
+                    [ngModelOptions]="{ stanalone: true }"
+                  >
+                    <option [ngValue]="null" selected>Conocimiento</option>
+                    <option
+                      *ngFor="let cono of allConTecnicos"
+                      [ngValue]="cono"
+                      >{{ cono.cotConocimiento }}</option
+                    >
+                  </select>
+                </div>
+                </div>
+
+                <!-- Input text del nivel de conocimiento -->
+                <div class="col-auto">
+                  <div class="form-group">
+                  <input
+                    id="nvCono"
+                    name="nvCono"
+                    type="text"
+                    placeholder="Nivel"
+                    class="form-control form-control-sm"
+                    [(ngModel)]="nvCono"
+                    [ngModelOptions]="{ stanalone: true }"
+                  />
+                </div>
+                </div>
+
+                <!-- Boton para agregar el conocimiento técnico -->
+                <div class="col-auto">
+                  <div class="form-group">
+                  <button class="btn btn-success btn-sm">
                     <i
-                      style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="center"
                       title="Agregar"
                       class="fas fa-plus"
                       (click)="addConocimiento()"
                     ></i>
-                  </div>
-                </div>
-
-                <!-- select para el idioma -->
-                <div class="row">
-                  <!-- Select Basic -->
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="idioma"
-                      >Idioma</label
-                    >
-                    <div class="col-md-12">
-                      <select
-                        id="idioma"
-                        name="idioma"
-                        class="form-control form-control-sm"
-                        [(ngModel)]="nvIdioma"
-                        [ngModelOptions]="{ stanalone: true }"
-                      >
-                        <option value="" selected>Selecciona uno</option>
-                        <option
-                          *ngFor="let item of allIdiomas"
-                          [ngValue]="item"
-                          >{{ item.idiNombre }}</option
-                        >
-                      </select>
-                    </div>
-                  </div>
-
-                  <!-- Text input -->
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="nivel"
-                      >Nivel</label
-                    >
-                    <div class="col-md-12">
-                      <input
-                        id="nivel"
-                        name="nivel"
-                        type="text"
-                        placeholder=""
-                        class="form-control form-control-sm"
-                        [(ngModel)]="nvIdioma"
-                        [ngModelOptions]="{ stanalone: true }"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <i
-                      style="color:#dc3545;"
-                      data-toggle="tooltip"
-                      data-placement="center"
-                      title="Agregar"
-                      class="fas fa-plus"
-                      (click)="addIdioma()"
-                    ></i>
-                  </div>
-                </div>
-
-                <!-- Select para  las habilidades -->
-
-                <!-- Select Basic -->
-                <div class="row">
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="habilidades"
-                      >Habilidades</label
-                    >
-                    <div class="col-md-12">
-                      <select
-                        id="habilidad"
-                        name="habilidad"
-                        class="form-control form-control-sm"
-                        [(ngModel)]="habilidad"
-                        [ngModelOptions]="{ stanalone: true }"
-                      >
-                        <option [ngValue]="null">Selecciona uno</option>
-                        <option
-                          *ngFor="let hab of allHabilidades"
-                          [ngValue]="hab"
-                          >{{ hab.cohDescripcion }}</option
-                        >
-                      </select>
-                    </div>
-                  </div>
-
-                  <!-- Text input -->
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="nivel"
-                      >Nivel</label
-                    >
-                    <div class="col-md-12">
-                      <input
-                        id="nivel"
-                        name="nivel"
-                        type="text"
-                        placeholder=""
-                        class="form-control form-control-sm"
-                        [(ngModel)]="nvHab"
-                        [ngModelOptions]="{ stanalone: true }"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <i
-                      style="color:#dc3545;"
-                      data-toggle="tooltip"
-                      data-placement="center"
-                      title="Agregar"
-                      class="fas fa-plus"
-                      (click)="addHabilidad()"
-                    ></i>
-                  </div>
+                  </button>
                 </div>
               </div>
+
+              </div>
+              <!-- Cierre del formulario para agregar conocimiento técnico -->
+
+              <!-- Tabla donde se agregan los conocimientos -->
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset">
+
+                     <table class="table table-striped table-bordered table-hover table-sm" id="tableArea">
+                         <thead  class="thead-ligth">
+                             <tr>
+                                 <th scope="col">Tecnología</th>
+                                 <th scope="col">Nivel</th>
+                                 <th scope="col"></th>
+                             </tr>
+                         </thead>
+                         <tbody class="tbody-ligth" >
+                             <tr *ngFor="let c of listaConocimientos">
+                                 <th scope="row" >{{c.cotConocimientosTec.cotConocimiento}}</th>
+                                 <th scope="row" >{{c.cocNivel}}</th>
+                                 <td  style="width: 3em;" align="center" >
+                                   <i style="color:#dc3545;"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Eliminar"
+                                     class="fas fa-trash-alt"
+                                     (click)= "deleteConocimiento(c)"
+                                     ></i>
+                                 </td>
+                             </tr>
+                         </tbody>
+                     </table>
+                  </div>
+                </div>
+              <!-- Términa la tabla de los conocimientos -->
+
+              <!-- Empieza el formulario para agregar el idioma -->
+              <div class="row">
+                  <div class="col-auto">
+                    <h6>Idiomas</h6>
+                  </div>
+                </div>
+                <!-- <hr> -->
+                <div class="form-row align-content-lg-center">
+
+                    <!-- Select para  los idiomas -->
+                    <div class="col-auto">
+                      <div class="form-group">
+                      <select
+                        id="Idioma"
+                        name="Idioma"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="Idioma"
+                        [ngModelOptions]="{ stanalone: true }"
+                      >
+                        <option [ngValue]="null" selected>Idioma</option>
+                        <option
+                          *ngFor="let i of allIdiomas"
+                          [ngValue]="i"
+                          >{{ i.idiNombre }}</option
+                        >
+                      </select>
+                    </div>
+                    </div>
+
+                    <!-- Input text del nivel del idioma -->
+                    <div class="col-auto">
+                      <div class="form-group">
+                      <input
+                        id="nvIdioma"
+                        name="nvIdioma"
+                        type="text"
+                        placeholder="Nivel"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="nvIdioma"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                    </div>
+
+                    <!-- Boton para agregar el idioma -->
+                    <div class="col-auto">
+                      <div class="form-group">
+                      <button class="btn btn-primary btn-sm">
+                        <i
+                          data-toggle="tooltip"
+                          data-placement="center"
+                          title="Agregar"
+                          class="fas fa-plus"
+                          (click)="addIdioma()"
+                        ></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  </div>
+                  <!-- Cierre del formulario para agregar idioma -->
+
+                  <!-- Tabla donde se agregan los idiomas -->
+                  <div class="row">
+                      <div class="col-lg-8 col-lg-offset">
+
+                         <table class="table table-striped table-bordered table-hover table-sm" id="tableArea">
+                             <thead  class="thead-ligth">
+                                 <tr>
+                                     <th scope="col">Idioma</th>
+                                     <th scope="col">Nivel</th>
+                                     <th scope="col"></th>
+                                 </tr>
+                             </thead>
+                             <tbody class="tbody-ligth" >
+                                 <tr *ngFor="let i of listaIdiomas">
+                                     <th scope="row" >{{i.idiIdioma.idiNombre}}</th>
+                                     <th scope="row" >{{i.idcNivel}}</th>
+                                     <td  style="width: 3em;" align="center" >
+                                       <i style="color:#dc3545;"
+                                         data-toggle="tooltip"
+                                         data-placement="top"
+                                         title="Eliminar"
+                                         class="fas fa-trash-alt"
+                                         (click)= "deleteIdioma(i)"
+                                         ></i>
+                                     </td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                      </div>
+                    </div>
+                  <!-- Términa la tabla de los idiomas -->
+
+              <!-- Empieza la parte de las habilidades -->
+              <div class="row">
+                  <div class="col-auto">
+                    <h6>Habilidades</h6>
+                  </div>
+                </div>
+                <!-- <hr> -->
+                <!-- Empieza el formulario de las habilidades -->
+                <div class="form-row align-content-lg-center">
+
+                  <!-- Select para  las habilidades -->
+                  <div class="col-auto">
+                    <div class="form-group">
+                    <select
+                      id="habilidad"
+                      name="habilidad"
+                      class="form-control form-control-sm"
+                      [(ngModel)]="habilidad"
+                      [ngModelOptions]="{ stanalone: true }"
+                    >
+                      <option [ngValue]="null" selected>Habilidad</option>
+                      <option
+                        *ngFor="let h of allHabilidades"
+                        [ngValue]="h"
+                        >{{ h.cohDescripcion }}</option
+                      >
+                    </select>
+                  </div>
+                  </div>
+
+                  <!-- Input text del nivel de la habilidad -->
+                  <div class="col-auto">
+                    <div class="form-group">
+                    <input
+                      id="nvHab"
+                      name="nvHab"
+                      type="text"
+                      placeholder="Nivel"
+                      class="form-control form-control-sm"
+                      [(ngModel)]="nvHab"
+                      [ngModelOptions]="{ stanalone: true }"
+                    />
+                  </div>
+                  </div>
+
+                  <!-- Boton para agregar la habilidad-->
+                  <div class="col-auto">
+                    <div class="form-group">
+                    <button class="btn btn-warning btn-sm">
+                      <i
+                        data-toggle="tooltip"
+                        data-placement="center"
+                        title="Agregar"
+                        class="fas fa-plus"
+                        (click)="addHabilidad()"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+
+                </div>
+                <!-- Cierre del formulario para agregar las habilidades -->
+
+                <!-- Tabla donde se agregan las habilidades -->
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset">
+
+                       <table class="table table-striped table-bordered table-hover table-sm" id="tableArea">
+                           <thead  class="thead-ligth">
+                               <tr>
+                                   <th scope="col">Habilidad</th>
+                                   <th scope="col">Nivel</th>
+                                   <th scope="col"></th>
+                               </tr>
+                           </thead>
+                           <tbody class="tbody-ligth" >
+                               <tr *ngFor="let h of listaHabilidades">
+                                   <th scope="row" >{{h.cohCompetenciashabilidades.cohDescripcion}}</th>
+                                   <th scope="row" >{{h.chcNivel}}</th>
+                                   <td  style="width: 3em;" align="center" >
+                                     <i style="color:#dc3545;"
+                                       data-toggle="tooltip"
+                                       data-placement="top"
+                                       title="Eliminar"
+                                       class="fas fa-trash-alt"
+                                       (click)= "deleteHabilidades(h)"
+                                       ></i>
+                                   </td>
+                               </tr>
+                           </tbody>
+                       </table>
+                    </div>
+                  </div>
+                <!-- Términa la tabla de los conocimientos -->
+
             </div>
           </div>
+        </div>
       </li>
     </ul>
+    <!-- </form> -->
   </div>
   <!-- Terminan los collapsibles -->
 </div>

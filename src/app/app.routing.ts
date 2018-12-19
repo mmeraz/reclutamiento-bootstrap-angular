@@ -67,6 +67,8 @@ import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.componen
 import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.component';
 import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/create-comphabilidades.component';
 import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
+import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-solicitud.component';
+import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato.component';
 
 
 
@@ -89,6 +91,8 @@ import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/ed
   {path: 'Edit-tipvacante/:id', component: EditTipvacanteComponent},
   {path: 'Edit-prepercepcion/:id', component: EditPrepercepcionComponent},
   {path: 'Candidato', component: CatCandidatoComponent },
+  {path: 'Edit-candidato/:id', component: EditCandidatoComponent },
+
   {path: 'Cliente', component: CatClienteComponent },
   {path: 'Competencia-candidato', component: CatCompcandidatoComponent },
 
@@ -149,6 +153,7 @@ import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/ed
   {path: 'EditJornada/:id', component: EditJornadaComponent},
   {path: 'EditSolicitud/:id', component: EditSolicitudComponent},
   {path: 'Solicitud', component: ListSolicitudComponent},
+  {path: 'SolicitudDetalle/:id', component: DetalleSolicitudComponent},
   {path: 'Edit-contecnicos/:id', component: EditContecnicosComponent },
   {path: '**', component: NotfoundComponent}
   ];

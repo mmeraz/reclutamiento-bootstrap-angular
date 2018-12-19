@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Candidato } from '../model/candidato.model';
 import { Catcandidato } from '../model/catcandidato.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,26 +30,21 @@ export class CandidatoService {
       .subscribe(res => console.log('Done'));
     }
 
-    editBusiness(id) {
+    editBusiness(id): Observable<Catcandidato> {
       return this
               .clienteHttp
-              .get(`${this.url}/fetch/${id}`);
+              .get<Catcandidato>(`${this.url}/fetch/${id}`);
       }
 
-    // updateBusiness(arnTipo,) {
-    //    = arnIdarean;
-    //   const obj = {
-    //     arnTipo: arnTipo,
-    //     };
-    //   this
-    //     .clienteHttp
-    //     .put(`${this.url}/update/${arnIdarean}`, obj)
-    //     .subscribe(res => console.log('Done editado'));
-    // }
     deleteBusiness(id) {
       return this
                 .clienteHttp
                 .delete(`${this.url}/delete/${id}`);
+    }
+
+    updateBusiness(candidato: Catcandidato, cndIdcandidato ) {
+      const obj = candidato;
+      this.clienteHttp.put(`${this.url}/update/${cndIdcandidato}`, obj).subscribe(res => console.log('Done editado'));
     }
 
   }

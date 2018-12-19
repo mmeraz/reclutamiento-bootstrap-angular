@@ -48,8 +48,6 @@ import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacant
 import { HomeComponent } from './pages/home/home.component';
 import { CandidatoComponent} from './pages/candidato/candidato.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
-import { CreateCandidatoComponent } from './catalogos/cat-candidato/create-candidato.component';
-import { EditComponent } from './catalogos/cat-candidato/edit.component';
 import { CrearContactoComponent } from './catalogos/cat-contactcliente/crear-contacto.component';
 import { EditContactoComponent } from './catalogos/cat-contactcliente/edit-contacto.component';
 import { CreateClienteComponent } from './catalogos/cat-cliente/create-cliente.component';
@@ -81,6 +79,8 @@ import { CreateEstatuscandidatoComponent } from './catalogos/cat-estacandidato/c
 import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
 import { EditEstatuscandidatoComponent } from './catalogos/cat-estacandidato/edit-estatuscandidato.component';
 import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.component';
+import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-solicitud.component';
+import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato.component';
 
 @NgModule({
   declarations: [
@@ -126,8 +126,6 @@ import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.componen
     HomeComponent,
     CandidatoComponent,
     NotfoundComponent,
-    CreateCandidatoComponent,
-    EditComponent,
     CreateEquipoComponent,
     CreatePerfilComponent,
     CreateUsuarioComponent,
@@ -159,6 +157,8 @@ import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.componen
     EditComphabilidadesComponent,
     EditEstatuscandidatoComponent,
     EditIdiomaComponent,
+    DetalleSolicitudComponent,
+    EditCandidatoComponent
   ],
   imports: [
     BrowserModule,

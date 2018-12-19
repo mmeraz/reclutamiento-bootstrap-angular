@@ -35,14 +35,14 @@ import { SlpSolPercepciones } from 'src/app/model/catsolpercepcion.model';
 import { Catfunciones } from 'src/app/model/catfunciones.model';
 
 @Component({
-  selector: 'app-edit-solicitud',
-  templateUrl: './edit-solicitud.component.html',
+  selector: 'app-detalle-solicitud',
+  templateUrl: './detalle-solicitud.component.html',
   providers: [AreaService, PrioridadService,
     TipoVacanteService, IdiomaService,
     ClienteService, JornadaLAbService,
     ConTecnicosService]
 })
-export class EditSolicitudComponent implements OnInit {
+export class DetalleSolicitudComponent implements OnInit {
   editForm: FormGroup;
   solicitud: Catsolicitud;
 
@@ -98,7 +98,6 @@ export class EditSolicitudComponent implements OnInit {
     private fb: FormBuilder) {
 
      }
-
   ngOnInit() {
     this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
     this.prioridadService.getPrioridades().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
@@ -118,139 +117,6 @@ export class EditSolicitudComponent implements OnInit {
         console.log(this.solicitud.solExistepresupuesto);
       });
     });
-  }
-
-  updateBusiness() {
-    this.route.params.subscribe(params => {
-       this.bs.updateBusiness(this.solicitud, params['id']);
-       this.router.navigate(['/Solicitud']);
-       swal({
-        position: 'top',
-        type: 'success',
-        title: `Solicitud modificada con éxito!!`,
-        showConfirmButton: false,
-        timer: 1500
-      });
-    });
-    this.update();
- }
-
- update(): void {
-  window.location.reload();
- }
-
- addIdioma() {
-  this.idiomaSol = {
-    id: null,
-    solSolicitud: null,
-    idiIdioma: this.idioma,
-    sliNivel: this.nvIdioma
-  };
-  this.solicitud.idiomas.push(this.idiomaSol);
-  this.idioma = null;
-  this.nvIdioma = null;
- }
-
- deleteIdioma(item: Catsolidioma) {
-  this.index = this.solicitud.idiomas.indexOf(item);
-  this.solicitud.idiomas.splice(this.index, 1);
-  this.index = null;
- }
-
-  /**
-   * Metodo para agregar conocimiento a la solicitud;
-   */
-  addConocimiento() {
-    this.conoSol = {
-      id: null,
-      cotConocimientosTec: this.conocimiento,
-      solSolicitud: null,
-      socNivel: this.nvCono
-    };
-    this.solicitud.conocimientos.push(this.conoSol);
-    this.conocimiento = null;
-    this.nvCono = null;
-  }
-
-  /**
-   * Metodo para agregar habilidad a la solicitud;
-   */
-  addHabilidad() {
-    this.habSol = {
-      cohCompetenciashabilidades: this.habilidad,
-      solSolicitud: null,
-      hbsNivel: this.nvhab
-    };
-    this.solicitud.habilidades.push(this.habSol);
-    this.habilidad = null;
-    this.nvhab = null;
-  }
-
-   /**
-   * Metodo para agregar el equipo a la solicitud
-   */
-  addEquipo() {
-    this.equipoSol = {
-      eslIdequiposol: null,
-      equEquipo: this.equipo,
-      solSolicitud: null
-    };
-    this.solicitud.equipos.push(this.equipoSol);
-    this.equipo = null;
-  }
-
- deleteConocimiento(item: Catconsolicitado) {
-   this.index = this.solicitud.conocimientos.indexOf(item);
-   this.solicitud.conocimientos.splice(this.index, 1);
-   this.index = null;
- }
-
- deleteHabilidad(item: Cathabsol) {
-  this.index = this.solicitud.habilidades.indexOf(item);
-  this.solicitud.habilidades.splice(this.index, 1);
-  this.index = null;
- }
-
- deleteEquipo(item: Catequiposol) {
-  this.index = this.solicitud.equipos.indexOf(item);
-  this.solicitud.equipos.splice(this.index, 1);
-  this.index = null;
- }
-
- deleteFuncion(item: Catfunciones) {
-  this.index = this.solicitud.funciones.indexOf(item);
-  this.solicitud.funciones.splice(this.index, 1);
-  this.index = null;
- }
-
-  /**
-   * Metodo para agregar percepcion a la solicitud;
-   */
-  addPercepcion() {
-    this.percepcionsol = {
-      slpIdpercepciones: null,
-      prePercepciones: this.percepcion,
-      solSolicitud: null,
-      slpValorm: this.valorPer,
-      slpDescripcion: this.descripcionPer
-    };
-    this.solicitud.percepsiones.push(this.percepcionsol);
-    this.percepcion = null;
-    this.valorPer = null;
-    this.descripcionPer = null;
-  }
-
-   /**
-   * Metodo para agregar funciones a la solicitud;
-   */
-  addFunciones() {
-    this.funcion = {
-      funIdfunciones: null,
-      solSolicitud: null,
-      funDescripcion: this.descripcionF
-    };
-    this.solicitud.funciones.push(this.funcion);
-    this.descripcionF = null;
   }
 
 }

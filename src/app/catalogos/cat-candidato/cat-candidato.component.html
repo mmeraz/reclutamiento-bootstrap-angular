@@ -12,7 +12,7 @@
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo candidatos</i>
         </div>
         <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
-          <app-create-area></app-create-area>
+          <button [routerLink]="['/New-candidato']" class="btn btn-link">Nuevo</button>
         </div>
       </div>
       </div>
@@ -41,13 +41,13 @@
                   <td>{{ c.cndNombre }}</td>
 
                   <td class="text-center" >
-<!--
+
                     <i style="color:#007bff; margin-right:20px;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit', c.cnd]"></i> -->
+                      [routerLink]="['/Edit-candidato', c.cndIdcandidato]"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"

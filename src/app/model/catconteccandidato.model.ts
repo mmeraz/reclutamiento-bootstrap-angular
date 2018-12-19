@@ -8,3 +8,5 @@ cotConocimientosTec: Catcontecnicos;
 cocNivel: string;
 
 }
+
+
