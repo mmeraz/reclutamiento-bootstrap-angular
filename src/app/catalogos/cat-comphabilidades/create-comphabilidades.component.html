@@ -17,7 +17,7 @@
             <div class="modal-body">
                 <form [formGroup]="addForm" (submit)="saveData()">
                     <div class="form-group">
-                        <label for="cohDescripcion">Competencia habilidades</label>
+                        <label for="cohDescripcion">Competencia y habilidades</label>
                         <input maxlength="50" type="text" required class="form-control" placeholder="Escribe la nueva competencia" name="cohDescripcion" formControlName="cohDescripcion" #cohDescripcion>
                         <div *ngIf="addForm.get('cohDescripcion').errors && addForm.get('cohDescripcion').dirty">
                             <p style="color:darkred;" *ngIf="addForm.get('cohDescripcion').hasError('required')">La habilidad es requerida</p>

@@ -28,6 +28,24 @@ export class SolicitudService {
         headers: this.headers});
     }
 
+    getSolicitudesA() {
+      this.getHeaders();
+      return this.clienteHttp.get(this.url + '/fetchBy/Alta', {
+        headers: this.headers});
+    }
+
+    getSolicitudesM() {
+      this.getHeaders();
+      return this.clienteHttp.get(this.url + '/fetchBy/Media', {
+        headers: this.headers});
+    }
+
+    getSolicitudesB() {
+      this.getHeaders();
+      return this.clienteHttp.get(this.url + '/fetchBy/Baja', {
+        headers: this.headers});
+    }
+
     deleteBusiness(id) {
       this.getHeaders();
       return this

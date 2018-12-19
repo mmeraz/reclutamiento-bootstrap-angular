@@ -46,11 +46,10 @@ import { Catusuario } from 'src/app/model/catusuario.model';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  users$ : any = [];
+  user$;
   public catalogos: Array<{path: string, component: any, titulo: string }>;
 
-  constructor(private authService: AuthService, private usuarioService: UsuarioService) {
+  constructor(private authService: AuthService) {
     this.catalogos = [
       {path: 'Area', component: CatAreaComponent, titulo: 'Area' },
       {path: 'Candidato', component: CatCandidatoComponent, titulo: 'Candidato' },
@@ -91,8 +90,9 @@ export class NavbarComponent implements OnInit {
   }
 
 ngOnInit() {
-  this.users$ = this.authService.usuario;
-  console.log(this.users$);
+
+  this.user$ = this.authService.usuario;
+  console.log(this.user$);
 }
 
 }

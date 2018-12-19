@@ -4,7 +4,7 @@
           <form [formGroup]="editForm" (submit)="saveData()" class="form-signin">
               <h1 class="h3 mb-3 font-weight-normal">Editar habilidad</h1>
               <div class="form-group">
-                  <label for="arnTipo">Área</label>
+                  <label for="arnTipo">Habilidades</label>
                   <input [(ngModel)]="competencia.cohDescripcion" maxlength="50" type="text" required class="form-control" name="cohDescripcion" formControlName="cohDescripcion" #cohDescripcion>
                   <div *ngIf="editForm.get('cohDescripcion').errors && editForm.get('cohDescripcion').dirty">
                       <p class="text-danger" *ngIf="editForm.get('cohDescripcion').hasError('required')">La habilidad es requerida</p>
