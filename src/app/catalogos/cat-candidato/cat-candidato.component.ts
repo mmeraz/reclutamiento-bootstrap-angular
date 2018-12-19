@@ -60,7 +60,7 @@ export class CatCandidatoComponent implements OnInit {
   deleteBusiness(id, cndNombre) {
     swal({
       title: 'Está seguro?',
-    text: `¿Seguro desea eliminar al área ${cndNombre}?`,
+    text: `¿Seguro desea eliminar el candidato ${cndNombre}?`,
       type: 'warning',
       showCancelButton: true,
     confirmButtonColor: '#3085d6',
@@ -70,7 +70,7 @@ export class CatCandidatoComponent implements OnInit {
     }).then(result => {
       if (result.value) {
       this.candidatoService.deleteBusiness(id).subscribe(data => {
-          this.allCandidatos = this.allCandidatos.filter(c => c.arnIdarea !== id);
+          this.allCandidatos = this.allCandidatos.filter(c => c.id !== id);
         });
         swal('Eliminado!', 'Se ha eliminado el candidato.', 'success');
         this.rerender();
