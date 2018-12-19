@@ -69,6 +69,9 @@ import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/
 import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
 import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-solicitud.component';
 import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato.component';
+import { SolicValidadasTiComponent } from './pages/usuarios/ti/components/solic-validadas-ti.component';
+import { CandiValidadosTiComponent } from './pages/usuarios/ti/components/candi-validados-ti.component';
+import { IndexTiComponent } from './pages/usuarios/ti/index-ti.component';
 
 
 
@@ -172,7 +175,11 @@ import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato
   {path: 'Solicitud', component: ListSolicitudComponent, canActivate: [AuthGuard] },
   {path: 'SolicitudDetalle/:id', component: DetalleSolicitudComponent, canActivate: [AuthGuard] },
   {path: 'Edit-contecnicos/:id', component: EditContecnicosComponent, canActivate: [AuthGuard]  },
-  {path: '**', component: NotfoundComponent, canActivate: [AuthGuard] }
+  {path: '**', component: NotfoundComponent, canActivate: [AuthGuard] },
+
+  {path: 'index-ti', component: IndexTiComponent, canActivate: [AuthGuard] },
+  {path: 'Sol-val-ti', component: SolicValidadasTiComponent, canActivate: [AuthGuard] },
+  {path: 'Can-val-ti', component: CandiValidadosTiComponent, canActivate: [AuthGuard] }
   ];
 
  export const appRoutingProviders: any[] = [];
