@@ -263,7 +263,7 @@
                       <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconclilid"
                       [ngModelOptions]="{ stanalone: true }">
                         <option [ngValue]="null" selected>Selecciona Contacto</option>
-                        <option *ngFor="let clc of solicitud?.cliCliente.contactos" [value]="clc">{{clc.clcNombre}}</option>
+                        <option *ngFor="let clca of solicitud?.cliCliente.contactos" [value]="clca">{{clca.clcNombre}}</option>
                       </select>
                     </div>
                     <label class="col-md-12 control-label" for="clcCliente"
@@ -272,7 +272,7 @@
                         <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconclitode"
                         [ngModelOptions]="{ stanalone: true }">
                           <option [ngValue]="null" selected>Selecciona Contacto</option>
-                          <option *ngFor="let clc of solicitud?.cliCliente.contactos" [value]="clc">{{clc.clcNombre}}</option>
+                          <option *ngFor="let clcb of solicitud?.cliCliente.contactos" [value]="clcb">{{clcb.clcNombre}}</option>
                         </select>
                       </div>
               </div>
@@ -945,7 +945,7 @@
                                 <i style="color:#dc3545;"
                                   data-toggle="tooltip"
                                   data-placement="top"
-                                  title="Eliminar"
+                                  title="Eliminar¡"
                                   class="fas fa-trash-alt"
                                   (click)="deleteFuncion(a)"
                                   ></i>
@@ -970,8 +970,8 @@
       >
         Guardar
       </button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">
-        Borrador
+      <button [routerLink]="['/Solicitud']" type="button" class="btn btn-danger" data-dismiss="modal">
+        Cancelar
       </button>
     </div>
   </div>

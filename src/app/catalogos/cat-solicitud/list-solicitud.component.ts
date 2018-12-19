@@ -12,6 +12,7 @@ import swal from 'sweetalert2';
   templateUrl: './list-solicitud.component.html',
   styles: []
 })
+
 export class ListSolicitudComponent implements OnInit {
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
@@ -49,7 +50,7 @@ export class ListSolicitudComponent implements OnInit {
    */
   deleteBusiness(id, solFolio) {
     swal({
-      title: 'Está seguro?',
+      title: '¿Está seguro?',
     text: `¿Seguro desea eliminar la solicitud ${solFolio}?`,
       type: 'warning',
       showCancelButton: true,

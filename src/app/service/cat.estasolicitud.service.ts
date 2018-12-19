@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { Catestasolicitud } from '../model/catestasolicitud.model';
-
+import { Cookie } from 'ng2-cookies';
 @Injectable({
   providedIn: 'root'
 }
@@ -10,18 +10,22 @@ import { Catestasolicitud } from '../model/catestasolicitud.model';
 export class EstasolicitudService {
 
   private url = 'http://localhost:8085/api/v1/EstatusSolicitud';
-
+  private headers;
   constructor( private clienteHttp: HttpClient) {}
 
   getestasolicituds() {
-    return this.clienteHttp.get(this.url + '/fetch');
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetch', {
+      headers: this.headers});
   }
 
   addestasolicitud(estDescripcion) {
+    this.getHeaders();
     const obj = {
       estDescripcion: estDescripcion
     };
-    this.clienteHttp.post(this.url + '/add', obj)
+    this.clienteHttp.post(this.url + '/add', obj, {
+      headers: this.headers})
         .subscribe(res => console.log('Done'));
   }
 
@@ -30,15 +34,19 @@ export class EstasolicitudService {
  }
 
   getestasolicitud(id): Observable<Catestasolicitud> {
-    return this.clienteHttp.get<Catestasolicitud>(`${this.url}/fetch/${id}`);
+    this.getHeaders();
+    return this.clienteHttp.get<Catestasolicitud>(`${this.url}/fetch/${id}`, {
+      headers: this.headers});
   }
   editBusiness(id) {
     return this
             .clienteHttp
-            .get(`${this.url}/fetch/${id}`);
+            .get(`${this.url}/fetch/${id}`, {
+              headers: this.headers});
     }
 
   updateBusiness(estDescripcion, estIdestatus) {
+    this.getHeaders();
     estIdestatus = estIdestatus;
     const obj = {
       estDescripcion: estDescripcion,
@@ -54,6 +62,12 @@ export class EstasolicitudService {
               .delete(`${this.url}/delete/${id}`);
   }
 
-
+  getHeaders() {
+    this.headers = new HttpHeaders();
+    this.headers = this.headers
+    .append('Authorization', 'Bearer ' + Cookie
+    .get('access_token'));
+    return this.headers;
+ }
 
 }

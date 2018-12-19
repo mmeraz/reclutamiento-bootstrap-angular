@@ -4,6 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { LoginService } from '../../service/login.service';
+import { Catusuario } from 'src/app/model/catusuario.model';
+import swal from 'sweetalert2';
+import { AuthService } from 'src/app/service/auth.service';
+import { Cookie, CookieService } from 'ng2-cookies';
 
 @Component({
   selector: 'app-login',
@@ -12,55 +16,59 @@ import { LoginService } from '../../service/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
-    loading = false;
-    submitted = false;
-    returnUrl: string;
+  titulo: 'Iniciar Sesión';
+  usuario: Catusuario;
+  constructor(private authService: AuthService, private router: Router) {
+    this.usuario = {
+        usrUsuario : 0,
+        usrUsername: '',
+        usrNombreusuario: '',
+        usrPassword: '',
+        usrEmail: '',
+        usrPerfil: '',
+        usrTelefono: '',
+        roles: []
+    };
+  }
 
-    constructor(
-        private formBuilder: FormBuilder,
-        private route: ActivatedRoute,
-        private router: Router,
-        private authenticationService: LoginService
-    ) {
-        // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/']);
-        }
+  ngOnInit() {
+    if(this.authService.isAuthenticated()){
+      this.router.navigate(['/']);
     }
 
-    ngOnInit() {
-        this.loginForm = this.formBuilder.group({
-          usrEmail: ['', Validators.required],
-          usrPassword: ['', Validators.required]
-        });
+  }
 
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['/'] || '/';
+  login(): void {
+    if (this.usuario.usrUsername === '' || this.usuario.usrPassword === '') {
+      swal('Error Login', 'Nombre de usuario o contraseña vacios', 'error');
+      return;
+    } 
+      
+    
+    this.authService.login(this.usuario).subscribe(response => {
+      this.saveToken(response);
+      this.authService.Guardartoken(response.access_token);
+      this.authService.Guardarusuario(response.access_token);
+      console.log(this.authService.Guardarusuario);
+    }, err => {
+      if (err.status === 401) {
+        swal('Error Login', 'Nombre de usuario o contraseña Incorrecta', 'error');
+      }
     }
+    );
 
-    // convenience getter for easy access to form fields
-    get f() { return this.loginForm.controls; }
+  }
 
-    onSubmit() {
-        this.submitted = true;
-
-        // stop here if form is invalid
-        if (this.loginForm.invalid) {
-            return;
-        }
-
-        this.loading = true;
-        this.authenticationService.login(this.f.usrEmail.value, this.f.usrPassword.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.loading = false;
-                });
-    }
+  saveToken(token) {
+    const expireDate = new Date().getTime() + (1000 * token.expires_in);
+    Cookie.set('access_token', token.access_token, expireDate);
+    console.log('Obtained Access token');
+    //Cookie.set('access_token', JSON.stringify(this.authService.mostrarMenuEmitter.emit(true)));
+    
+    this.router.navigate(['/']);
+    this.usuario = this.authService.usuario;
+    swal('Login', `Bienvenido ${this.usuario.usrNombreusuario}`);
+  }
 }
 
 

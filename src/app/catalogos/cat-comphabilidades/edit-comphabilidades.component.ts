@@ -47,12 +47,12 @@ export class EditComphabilidadesComponent implements OnInit {
         timer: 1500
       });
     });
-    this.update();
+     this.update();
  }
 
  update(): void {
-  window.location.reload();
-}
+   window.location.reload();
+ }
 
  saveData() {
   alert(JSON.stringify(this.editForm.value));

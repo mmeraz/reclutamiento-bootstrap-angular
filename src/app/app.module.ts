@@ -81,7 +81,10 @@ import { EditEstatuscandidatoComponent } from './catalogos/cat-estacandidato/edi
 import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.component';
 import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-solicitud.component';
 import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato.component';
-
+import { SolicitudComponent } from './pages/solicitud/solicitud.component';
+import { ListadoAComponent } from './pages/solicitud/listado-a.component';
+import { ListadoMComponent } from './pages/solicitud/listado-m.component';
+import { ListadoBComponent } from './pages/solicitud/listado-b.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -158,7 +161,11 @@ import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato
     EditEstatuscandidatoComponent,
     EditIdiomaComponent,
     DetalleSolicitudComponent,
-    EditCandidatoComponent
+    EditCandidatoComponent,
+    ListadoAComponent,
+    ListadoMComponent,
+    ListadoBComponent,
+    SolicitudComponent
   ],
   imports: [
     BrowserModule,

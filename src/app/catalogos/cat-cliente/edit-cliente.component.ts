@@ -39,11 +39,11 @@ export class EditClienteComponent implements OnInit {
    updateBusiness(cliNombre, cliRazonsocial) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(cliNombre, cliRazonsocial, params['id']);
-       this.router.navigate(['Area']);
+       this.router.navigate(['Cliente']);
        swal({
         position: 'top',
         type: 'success',
-        title: `Área modificada con éxito`,
+        title: `Cliente modificada con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

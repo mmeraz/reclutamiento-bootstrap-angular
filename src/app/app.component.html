@@ -5,21 +5,21 @@
         <form class="form-inline my-2 my-lg-0 ml-auto">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home
+                  <a class="nav-link" routerLink="/">Home
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" routerLink="/Login">Login</a>
+                  <a class="nav-link" routerLink="/login">Login</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Logout</a>
+                  <a class="nav-link" href="" (click)="logout()">Logout</a>
                 </li>
               </ul>
         </form>
     </nav>
 
-    <nav id="sidebar" class="sidebar-wrapper">
+    <nav id="sidebar" class="sidebar-wrapper" >
         <app-navbar></app-navbar>
     </nav>
 

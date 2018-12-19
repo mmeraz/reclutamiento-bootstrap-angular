@@ -27,6 +27,8 @@ export class CatAreaComponent implements OnInit {
     private http: HttpClient) {
     }
 
+
+
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -35,8 +37,7 @@ export class CatAreaComponent implements OnInit {
     this.areaService.getAreas().subscribe(result => {
       this.allAreas = result;
       this.dtTrigger.next();
-    });
-    console.log(this.allAreas);
+    }) ;
   }
 
   OnDestroy(): void {
