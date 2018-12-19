@@ -41,16 +41,7 @@ export class CandidatoService {
       }
 
 
-    // updateBusiness(arnTipo,) {
-    //    = arnIdarean;
-    //   const obj = {
-    //     arnTipo: arnTipo,
-    //     };
-    //   this
-    //     .clienteHttp
-    //     .put(`${this.url}/update/${arnIdarean}`, obj)
-    //     .subscribe(res => console.log('Done editado'));
-    // }
+
 
     deleteBusiness(id) {
       return this

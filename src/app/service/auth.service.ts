@@ -11,21 +11,20 @@ export class AuthService {
   private _usuario: Catusuario;
   private _token: string;
   private payload;
-  //mostrarMenuEmitter = new EventEmitter<boolean>();
 
   get usuario(): Catusuario {
 
-    if(this._usuario != null) {
+    if (this._usuario != null) {
       return this._usuario ;
-    }else if(this._usuario == null && sessionStorage.getItem('usuario') != null){
+    } else if (this._usuario == null && sessionStorage.getItem('usuario') != null) {
       this._usuario = JSON.parse(sessionStorage.getItem('usuario')) as Catusuario;
       return this._usuario;
     }
   }
   get token(): string {
-    if(this._usuario != null) {
+    if (this._token != null) {
       return this._token ;
-    }else if(this._token == null && sessionStorage.getItem('token') != null){
+    } else if (this._token == null && sessionStorage.getItem('token') != null) {
       this._token = sessionStorage.getItem('token');
       return this._token;
     }
@@ -53,9 +52,11 @@ export class AuthService {
 
   loguot() {
     Cookie.delete('access_token');
+    this._usuario = null;
+
   }
 
-  Guardarusuario(accessToken: string): void {
+  Guardarusuario(accessToken: string) {
     this.payload = this.ObtenesToken(accessToken);
     this._usuario = {
       usrUsuario : null,
@@ -75,6 +76,7 @@ export class AuthService {
   this._usuario.usrTelefono = this.payload.usrTelefono;
   this._usuario.roles = this.payload.authorities;
   sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
+  console.log(this.payload);
   }
 
   Guardartoken(accessToken: string): void {
@@ -91,9 +93,9 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     this.payload = this.ObtenesToken(this.token);
-    if(this.payload != null && this.payload.usrUsername && this.payload.usrUsername.length > 0){
+    if (this.payload != null && this.payload.usrUsername && this.payload.usrUsername.length > 0) {
       return true;
-    }else{
+    } else {
       return false;
     }
 
