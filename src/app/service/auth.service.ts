@@ -58,16 +58,6 @@ export class AuthService {
 
   Guardarusuario(accessToken: string) {
     this.payload = this.ObtenesToken(accessToken);
-    this._usuario = {
-      usrUsuario : null,
-      usrUsername: '',
-      usrNombreusuario: '',
-      usrPassword: '',
-      usrEmail: '',
-      usrPerfil: '',
-      usrTelefono: '',
-      roles: []
-  };
   this._usuario.usrUsername = this.payload.usrUsername;
   this._usuario.usrNombreusuario = this.payload.usrNombreusuario;
   this._usuario.usrPassword = this.payload.usrPassword;

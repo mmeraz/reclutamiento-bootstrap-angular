@@ -47,6 +47,8 @@ export class LoginComponent implements OnInit {
       this.saveToken(response);
       this.authService.Guardartoken(response.access_token);
       this.authService.Guardarusuario(response.access_token);
+      this.usuario = this.authService.usuario;
+    swal('Login', `Bienvenido ${this.usuario.usrNombreusuario}`);
       console.log(this.authService.Guardarusuario);
     }, err => {
       if (err.status === 401) {
@@ -63,8 +65,7 @@ export class LoginComponent implements OnInit {
     console.log('Obtained Access token');
 
     this.router.navigate(['/']);
-    this.usuario = this.authService.usuario;
-    swal('Login', `Bienvenido ${this.usuario.usrNombreusuario}`);
+
   }
 }
 
