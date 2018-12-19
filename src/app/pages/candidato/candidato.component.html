@@ -168,15 +168,6 @@
                         <option value="Casado">Casado</option>
                         <option value="Divorciado">Divorciado</option>
                       </select>
-                    <!-- <input
-                      type="text"
-                      class="form-control form-control-sm"
-                      id="cndEstcivil"
-                      placeholder="Estado Civil"
-                      name="cndEstcivil"
-                      [(ngModel)]="cndEstcivil"
-                      [ngModelOptions]="{ stanalone: true }"
-                    /> -->
                   </div>
                   <div class="col-md-3 mb-3 ">
                     <label class="col-form-label-sm font-weight-bold" for="genero"
@@ -198,66 +189,116 @@
                 </div>
 
                 <div class="form-row">
-                  <div class="form-check form-check-inline col-md-1 mb-3">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="cndHijos"
-                      value="true"
-                      name="cndHijos"
-                      [(ngModel)]="cndHijos"
-                      [ngModelOptions]="{ stanalone: true }"
-                    />
-                    <label class="form-check-label" for="inlineCheckbox1"
-                      >Hijos</label
-                    >
-                  </div>
+                    <div class="col-md-2 col-lg-2 mb-3">
+                        <label
+                          for="cndTrabaja"
+                          class="col-form-label-sm font-weight-bold"
+                          >Trabaja</label
+                        >
+                        <select class="form-control form-control-sm"
+                        [(ngModel)]="cndTrabaja"
+                        >
+                            <option [ngValue]="null" selected>Trabaja</option>
+                            <option value="true">Sí</option>
+                            <option value="false">No</option>
+                          </select>
+                      </div>
 
-                  <div class="form-check form-check-inline col-md-1 mb-3">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="cndVisa"
-                      value="true"
-                      name="cndVisa"
-                      [(ngModel)]="cndVisa"
-                      [ngModelOptions]="{ stanalone: true }"
-                    />
-                    <label class="form-check-label" for="inlineCheckbox1"
-                      >Visa</label
-                    >
-                  </div>
 
-                  <div class="form-check form-check-inline col-md-1 mb-3">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="cndPasaporte"
-                      value="true"
-                      name="cndPasaporte"
-                      [(ngModel)]="cndPasaporte"
-                      [ngModelOptions]="{ stanalone: true }"
-                    />
-                    <label class="form-check-label" for="inlineCheckbox1"
-                      >Pasaporte</label
-                    >
-                  </div>
+                      <div class="col-md-2 col-lg-2 mb-3">
+                          <label
+                            for="cndHijos"
+                            class="col-form-label-sm font-weight-bold"
+                            >Hijos</label
+                          >
+                          <select class="form-control form-control-sm"
+                          [(ngModel)]="cndHijos"
+                          >
+                              <option [ngValue]="null" selected>Hijos</option>
+                              <option value="true">Sí</option>
+                              <option value="false">No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-lg-2 mb-3">
+                            <label
+                              for="cndVisa"
+                              class="col-form-label-sm font-weight-bold"
+                              >Visa</label
+                            >
+                            <select class="form-control form-control-sm"
+                            [(ngModel)]="cndVisa"
+                            >
+                                <option value="null" selected>Visa</option>
+                                <option value="true">Sí</option>
+                                <option value="false">No</option>
+                              </select>
+                          </div>
 
-                  <div class="form-check form-check-inline col-md-2 mb-3">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="cndDispoViajar"
-                      value="true"
-                      name="cndDispoViajar"
-                      [(ngModel)]="cndDispoViajar"
-                      [ngModelOptions]="{ stanalone: true }"
-                    />
-                    <label class="form-check-label" for="inlineCheckbox1"
-                      >Disponibilidad para viajar</label
-                    >
-                  </div>
+                          <div class="col-md-2 col-lg-2 mb-3">
+                              <label
+                                for="cndPasaporte"
+                                class="col-form-label-sm font-weight-bold"
+                                >Pasaporte</label
+                              >
+                              <select class="form-control form-control-sm"
+                              [(ngModel)]="cndPasaporte"
+                              >
+                                  <option [ngValue]="" selected>Pasaporte</option>
+                                  <option value="true">Sí</option>
+                                  <option value="false">No</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-lg-3 mb-3">
+                                <label
+                                  for="cndDispoViajar"
+                                  class="col-form-label-sm font-weight-bold"
+                                  >Disponibilidad para viajar</label
+                                >
+                                <select class="form-control form-control-sm"
+                                [(ngModel)]="cndDispoViajar"
+                                >
+                                    <option value="" selected>Disponibilidad</option>
+                                    <option value="true">Sí</option>
+                                    <option value="false">No</option>
+                                  </select>
+                              </div>
+
                 </div>
+                <div class="form-row">
+                    <div class="col-md-6 col-lg-6 mb-3">
+                        <label
+                          for="cndDisponibilidad"
+                          class="col-form-label-sm font-weight-bold"
+                          >Disponibilidad Entrevista</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control form-control-sm"
+                          id="cndEmail"
+                          placeholder="Disponibilidad Entrevista"
+                          name="cndDisponibilidad"
+                          [(ngModel)]="cndDisponibilidad"
+                          [ngModelOptions]="{ stanalone: true }"
+                        />
+                    </div>
+                    <div class="col-md-6 col-lg-6 mb-3">
+                        <label
+                          for="cndDisponibilidad"
+                          class="col-form-label-sm font-weight-bold"
+                          >Disponibilidad para trabajar</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control form-control-sm"
+                          id="cndDispotrabajo"
+                          placeholder="Disponibilidad para trabajar"
+                          name="cndDispotrabajo"
+                          [(ngModel)]="cndDispotrabajo"
+                          [ngModelOptions]="{ stanalone: true }"
+                        />
+                    </div>
+                </div>
+
                 <div class="form-row">
                   <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="form-group">
@@ -298,13 +339,14 @@
                   </div>
                   <!-- Boton para agregar el contacto -->
                   <div class="col-auto">
-                    <button class="btn btn-success btn-sm">
+                    <button (click)="addContacto()"
+                    class="btn btn-success btn-sm">
                     <i
                       data-toggle="tooltip"
                       data-placement="center"
                       title="Agregar"
                       class="fas fa-plus"
-                      (click)="addContacto()"
+
                     ></i>
                   </button>
                   </div>
@@ -313,7 +355,7 @@
                       <table class="table table-striped table-bordered table-hover table-sm">
                       <thead class="thead-ligth">
                         <tr>
-                          <th scope="col">Telefono</th>
+                          <th scope="col">Teléfono</th>
                           <th scope="col"></th>
                         </tr>
                       </thead>
@@ -434,13 +476,14 @@
                   </div>
                   <!-- Boton para agregar la percepcion del candidato -->
                   <div class="col-auto">
-                    <button class="btn  btn-success btn-sm align-bottom">
+                    <button (click)="addPercepcionCnda()"
+                    class="btn  btn-success btn-sm align-bottom">
                       <i
                         data-toggle="tooltip"
                         data-placement="center"
                         title="Agregar"
                         class="fas fa-plus"
-                        (click)="addPercepcionCnda()"
+
                       ></i>
                     </button>
                   </div>
@@ -546,13 +589,14 @@
                   </div>
                   <!-- Boton para agregar la percepcion -->
                   <div class="col-auto">
-                    <button class="btn  btn-success btn-sm align-bottom">
+                    <button (click)="addPercepcionOfr()"
+                     class="btn  btn-success btn-sm align-bottom">
                       <i
                         data-toggle="tooltip"
                         data-placement="center"
                         title="Agregar"
                         class="fas fa-plus"
-                        (click)="addPercepcionOfr()"
+
                       ></i>
                     </button>
                   </div>
@@ -709,13 +753,14 @@
                 <!-- Boton para agregar el conocimiento técnico -->
                 <div class="col-auto">
                   <div class="form-group">
-                  <button class="btn btn-success btn-sm">
+                  <button (click)="addConocimiento()"
+                   class="btn btn-success btn-sm">
                     <i
                       data-toggle="tooltip"
                       data-placement="center"
                       title="Agregar"
                       class="fas fa-plus"
-                      (click)="addConocimiento()"
+
                     ></i>
                   </button>
                 </div>
@@ -803,13 +848,14 @@
                     <!-- Boton para agregar el idioma -->
                     <div class="col-auto">
                       <div class="form-group">
-                      <button class="btn btn-primary btn-sm">
+                      <button (click)="addIdioma()"
+                       class="btn btn-primary btn-sm">
                         <i
                           data-toggle="tooltip"
                           data-placement="center"
                           title="Agregar"
                           class="fas fa-plus"
-                          (click)="addIdioma()"
+
                         ></i>
                       </button>
                     </div>

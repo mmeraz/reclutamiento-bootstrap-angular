@@ -18,32 +18,37 @@ export class CandidatoService {
     constructor( private clienteHttp: HttpClient) {}
 
     getCandidatos() {
+      this.getHeaders();
       return this.clienteHttp.get(this.url + '/fetch', {
         headers: this.headers});
     }
 
     getCandidato(id) {
+      this.getHeaders();
       return this.clienteHttp.get<Candidato>(`${this.url}/fetch${id}`, {
         headers: this.headers});
 
     }
 
     addCandidato(candidato: Catcandidato) {
+      this.getHeaders();
       const obj = candidato;
-      this.clienteHttp.post(this.url + '/add', obj)
+      this.clienteHttp.post(this.url + '/add', obj, {headers: this.headers})
       .subscribe(res => console.log('Done'));
     }
 
     editBusiness(id): Observable<Catcandidato> {
+      this.getHeaders();
       return this
               .clienteHttp
-              .get<Catcandidato>(`${this.url}/fetch/${id}`);
+              .get<Catcandidato>(`${this.url}/fetch/${id}`, {headers: this.headers});
       }
 
 
 
 
     deleteBusiness(id) {
+      this.getHeaders();
       return this
                 .clienteHttp
                 .delete(`${this.url}/delete/${id}`, {
@@ -51,8 +56,10 @@ export class CandidatoService {
     }
 
     updateBusiness(candidato: Catcandidato, cndIdcandidato ) {
+      this.getHeaders();
       const obj = candidato;
-      this.clienteHttp.put(`${this.url}/update/${cndIdcandidato}`, obj).subscribe(res => console.log('Done editado'));
+      this.clienteHttp.put(`${this.url}/update/${cndIdcandidato}`, obj,
+      {headers: this.headers}).subscribe(res => console.log('Done editado'));
     }
     getHeaders() {
       this.headers = new HttpHeaders();
