@@ -90,8 +90,13 @@ export class NavbarComponent implements OnInit {
   }
 
 ngOnInit() {
+    // this.user$ = this.authService.usuario;
 
-  this.user$ = this.authService.usuario;
+
+
+    this.user$ = this.authService.usuario;
+
+
   console.log(this.user$);
 }
 

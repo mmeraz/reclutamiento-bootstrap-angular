@@ -14,15 +14,8 @@ export class AppComponent {
 
   constructor(private usuarioService: UsuarioService, private authService: AuthService,
     private router: Router) {}
-    //mostrarMenu: boolean = false;
-    ngOnInit() {
-     // this.authService.mostrarMenuEmitter.subscribe(
-     //   mostrar => this.mostrarMenu = mostrar
-     // );
-  
-  
-    
-    }
+
+
 
   logout() {
     this.authService.loguot();
