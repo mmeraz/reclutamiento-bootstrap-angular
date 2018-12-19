@@ -1,6 +1,9 @@
 import { Catcomphabilidades } from './catcomphabilidades.model';
+import { Catcandidato } from './catcandidato.model';
 export interface Catcompcandidato {
-chcIdcomcandidato: number;
-Catcomphabilidades: Catcomphabilidades;
-chcNivel: string;
+  chcIdcomcandidato: number;
+  cndDatoscandidato: Catcandidato;
+  cohCompetenciashabilidades: Catcomphabilidades;
+  chcNivel: string;
 }
+

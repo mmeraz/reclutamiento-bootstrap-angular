@@ -14,9 +14,9 @@
             <img class="img-responsive img-rounded" src="../../assets/img/ns.png" alt="User picture">
         </div>
         <div class="user-info">
-            <span class="user-name">{{user$.usrNombreusuario}}
+            <span class="user-name">{{user$ && user$.usrNombreusuario}}
             </span>
-            <span class="user-role">{{user$.roles}}</span>
+            <span class="user-role">{{user$ && user$.roles}}</span>
         </div>
     </div>
     <!-- términa sidebar-header  -->

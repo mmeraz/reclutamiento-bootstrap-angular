@@ -12,30 +12,25 @@ import { Cookie } from 'ng2-cookies';
 )
 export class AreaService {
   private url = 'http://localhost:8085/api/v1/areaNegocio';
-  private headers;
+  private headers; // agregar
   constructor( private clienteHttp: HttpClient, private router: Router) {}
 
-  private isNoAutorizado(e): boolean {
-    if (e.status === 401 || e.status === 403) {
-      this.router.navigate(['/login']);
-      return true;
-    }
-    return false;
-  }
+  // private isNoAutorizado(e): boolean {
+  //   if (e.status === 401 || e.status === 403) {
+  //     this.router.navigate(['/login']);
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   getAreas() {
-    this.getHeaders();
+    this.getHeaders(); // agregar
     return this.clienteHttp.get(this.url + '/fetch', {
-      headers: this.headers}).pipe(
-      catchError (e => {
-        this.isNoAutorizado(e);
-        return throwError(e);
-      })
-    );
+      headers: this.headers}); // agregar
   }
 
   addarea(arnTipo) {
-    this.getHeaders();
+    this.getHeaders(); // agregar
     const obj = {
       arnTipo: arnTipo
     };
@@ -48,17 +43,12 @@ export class AreaService {
  }
 
   getArea(id): Observable<Catarea> {
-    this.getHeaders();
+    this.getHeaders(); // agregar
     return this.clienteHttp.get<Catarea>(`${this.url}/fetch/${id}`, {
-      headers: this.headers}).pipe(
-      catchError (e => {
-        this.isNoAutorizado(e);
-        return throwError(e);
-      })
-    );
+      headers: this.headers}); // agregar
   }
   editBusiness(id) {
-    this.getHeaders();
+    this.getHeaders(); // agregar
     return this
             .clienteHttp
             .get(`${this.url}/fetch/${id}`, {
@@ -66,7 +56,7 @@ export class AreaService {
     }
 
   updateBusiness(arnTipo, arnIdarean) {
-    this.getHeaders();
+    this.getHeaders(); // agregar
     arnIdarean = arnIdarean;
     const obj = {
       arnTipo: arnTipo,
@@ -74,19 +64,14 @@ export class AreaService {
     this
       .clienteHttp
       .put(`${this.url}/update/${arnIdarean}`, obj, {
-        headers: this.headers}).subscribe(res => console.log(''));
+        headers: this.headers}).subscribe(res => console.log('')); // agregar
   }
   deleteBusiness(id) {
-    this.getHeaders();
+    this.getHeaders(); // agregar
     return this
               .clienteHttp
               .delete(`${this.url}/delete/${id}`, {
-                headers: this.headers}).pipe(
-                catchError (e => {
-                  this.isNoAutorizado(e);
-                  return throwError(e);
-                })
-              );
+                headers: this.headers}); // agregar
   }
 
   getHeaders() {
@@ -95,6 +80,6 @@ export class AreaService {
      .append('Authorization', 'Bearer ' + Cookie
      .get('access_token'));
      return this.headers;
-  }
+  } // agregar
 }
 

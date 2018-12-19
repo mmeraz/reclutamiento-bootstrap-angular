@@ -68,6 +68,7 @@ import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.comp
 import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/create-comphabilidades.component';
 import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
 import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-solicitud.component';
+import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato.component';
 
 
 
@@ -75,6 +76,25 @@ import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-sol
 
  const appRoutes: Routes = [
 
+  // {path: '/', component: HomeComponent },
+  {path: 'Home', component: HomeComponent },
+  {path: 'Login', component: LoginComponent},
+  {path: 'Area', component: CatAreaComponent},
+  {path: 'Create-area', component: CreateAreaComponent, },
+  {path: 'Edit/:id', component: EditAreaComponent},
+  {path: 'EditPerfil/:id', component: EditPerfilComponent},
+  {path: 'EditEquipo/:id', component: EditEquipoComponent},
+  {path: 'EditUser/:id', component: EditUsuarioComponent},
+  {path: 'EditPerfil/:id', component: EditPerfilComponent},
+  {path: 'EditEquipo/:id', component: EditEquipoComponent},
+  {path: 'EditUser/:id', component: EditUsuarioComponent},
+  {path: 'Edit-tipvacante/:id', component: EditTipvacanteComponent},
+  {path: 'Edit-prepercepcion/:id', component: EditPrepercepcionComponent},
+  {path: 'Candidato', component: CatCandidatoComponent },
+  {path: 'Edit-candidato/:id', component: EditCandidatoComponent },
+
+  {path: 'Cliente', component: CatClienteComponent },
+  {path: 'Competencia-candidato', component: CatCompcandidatoComponent },
   {path: '', component: HomeComponent, canActivate: [AuthGuard] },
   // {path: 'Home', component: HomeComponent },
   {path: 'login', component: LoginComponent},

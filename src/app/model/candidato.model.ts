@@ -1,5 +1,5 @@
 import { Catpercepcioncnda } from './catpercepcioncnda.model';
-import { Catidiomacandidato } from './catidiomacandidato.model';
+import { CatIdiomaCandidato } from './catidiomacandidato.model';
 import { Catpercepcioncndofr } from './catpercepcioncndofr.model';
 import { CatContactoCandidato } from './catcontactocandidato';
 import { Catentrevista } from './catentrevista.model';
@@ -27,7 +27,7 @@ export interface Candidato {
   cndDispotrabajo: string;
   cndGenero: string;
   Percecpciones: Catpercepcioncnda[];
-  Idiomas: Catidiomacandidato[];
+  Idiomas: CatIdiomaCandidato[];
   Percepcionsfr: Catpercepcioncndofr[];
   Contacto: CatContactoCandidato[];
   // Entrevista: Catentrevista[];

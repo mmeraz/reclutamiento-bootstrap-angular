@@ -1,38 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { Catpercepcioncnda } from '../../model/catpercepcioncnda.model';
-import { Catpercepcioncndofr } from '../../model/catpercepcioncndofr.model';
-import { Catidioma } from '../../model/catidioma.model';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CatIdiomaCandidato } from '../../model/catidiomacandidato.model';
-import { CatContactoCandidato } from '../../model/catcontactocandidato';
-import { Catcontecnicos } from '../../model/catcontecnicos.model';
-import { Catcomphabilidades } from '../../model/catcomphabilidades.model';
-import { Catcandidato } from '../../model/catcandidato.model';
-import { Catcompcandidato } from '../../model/catcompcandidato.model';
-import { IdiomaService } from '../../service/cat.idioma.service';
-import { ContactoService } from '../../service/cat.contacto.service';
-import { CompHabilidadesService } from '../../service/cat.comphabilidades.service';
-import { ContactoCandService } from '../../service/catcontactcand.service';
-import { ConTecnicosService } from '../../service/cat.contecnicos.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CandidatoService } from '../../service/cat.candidato.service';
-import { CatCompcandidatoComponent } from '../../catalogos/cat-compcandidato/cat-compcandidato.component';
 import { CatConTecCandidato } from '../../model/catconteccandidato.model';
+import { Catcompcandidato } from '../../model/catcompcandidato.model';
+import { Catpercepcioncndofr } from '../../model/catpercepcioncndofr.model';
+import { Catpercepcioncnda } from '../../model/catpercepcioncnda.model';
+import { CatContactoCandidato } from '../../model/catcontactocandidato';
 import { Catprepercepcion } from '../../model/catprepercepcion.model';
-import { Catsolicitud } from '../../model/catsolicitud.model';
+import { Catcomphabilidades } from '../../model/catcomphabilidades.model';
+import { Catcontecnicos } from '../../model/catcontecnicos.model';
+import { Catidioma } from '../../model/catidioma.model';
+import { CandidatoService } from '../../service/cat.candidato.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { PrePercepcionService } from '../../service/cat.prepercepcion.service';
-import { stringify } from '@angular/compiler/src/util';
-import { Router, ActivatedRoute } from '@angular/router';
+import { CompHabilidadesService } from '../../service/cat.comphabilidades.service';
+import { ConTecnicosService } from '../../service/cat.contecnicos.service';
+import { ContactoCandService } from '../../service/catcontactcand.service';
+import { IdiomaService } from '../../service/cat.idioma.service';
+import { Catsolicitud } from '../../model/catsolicitud.model';
+import { Catcandidato } from '../../model/catcandidato.model';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-candidato',
-  templateUrl: './candidato.component.html',
-  providers: [ IdiomaService, ConTecnicosService, CompHabilidadesService,
-  PrePercepcionService, ContactoCandService]
+  selector: 'app-edit-candidato',
+  templateUrl: './edit-candidato.component.html',
+  styles: []
 })
-export class CandidatoComponent implements OnInit {
-
+export class EditCandidatoComponent implements OnInit {
     // a mandar al back
+    editForm: FormGroup;
     candidato: Catcandidato;
 
   // Información para los select
@@ -116,10 +112,12 @@ listaHabilidades: Catcompcandidato[] = [];
                private conocimientoService: ConTecnicosService,
                private habilidadesService: CompHabilidadesService,
                private prePercepcionService: PrePercepcionService,
-               private fb: FormBuilder, private bs: CandidatoService,
+               private fb: FormBuilder,
+               private bs: CandidatoService,
                private route: ActivatedRoute,
                private router: Router) {
-               }
+
+              }
 
   ngOnInit() {
     this.idiomaService.getIdiomas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
@@ -127,63 +125,36 @@ listaHabilidades: Catcompcandidato[] = [];
     this.habilidadesService.getCompHabilidades().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
     this.prePercepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
     this.contactoService.getContactos().subscribe((data: CatContactoCandidato[]) => this.contactosCandidato = data);
+    this.route.params.subscribe(params  => {
+      this.bs.editBusiness(params['id']).subscribe(res => {
+        this.candidato = res;
+        console.log(res.cndEstado);
+      });
+    });
   }
-
 
   /**
-   * Método para agregar el candidato
+   * Método para editar al candidato.
    */
-  addCandidato() {
-    console.log('Todo terminar métodos');
-    this.candidato = {
-      cndIdcandidato: null,
-      cndNombre: this.cndNombre,
-      cndApellidopat: this.cndApellidopat,
-      cndApellidomat: this.cndApellidomat,
-      cndCalle: this.cndCalle,
-      cndNumext: null,
-      cndNumint: null,
-      cndCodpostal: null,
-      cndColonia: null,
-      cndMunicipio: null,
-      cndEstado: null,
-      cndPais: null,
-      cndEdad: this.cndEdad,
-      cndEstcivil: this.cndEstcivil,
-      cndEmail: this.cndEmail,
-      cndHijos: this.cndHijos,
-      cndDispoViajar: this.cndDispoViajar,
-      cndVisa: this.cndVisa,
-      cndPasaporte: this.cndPasaporte,
-      cndTrabaja: this.cndTrabaja,
-      cndDisponibilidad: this.cndDisponibilidad,
-      cndDispotrabajo: this.cndDispotrabajo,
-      cndGenero: this.cndGenero,
-      pcaPercepcionescndas: this.listaPercepcionCnda,
-      idcIdiomaCandidatos: this.listaIdiomas,
-      pcaPercepcionescndofrs: this.listaPercepcionOfr,
-      conContactocans:  this.contactosCandidato,
-      chcComcandidatos: this.listaHabilidades,
-      cocConTecCandidatos: this.listaConocimientos
-    };
-    console.log(this.candidato);
+  updateBusiness() {
     this.route.params.subscribe(params => {
-      this.bs.addCandidato(this.candidato);
-      this.router.navigate(['Candidato']);
-      swal({
-       position: 'top',
-       type: 'success',
-       title: `Candidato creado con éxito`,
-       showConfirmButton: false,
-       timer: 1500
-     });
-   });
-   this.update();
-  }
+       this.bs.updateBusiness(this.candidato, params['id']);
+       this.router.navigate(['/Candidato']);
+       swal({
+        position: 'top',
+        type: 'success',
+        title: `Candidato modificado con éxito!!`,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
+    this.update();
+ }
 
-  update(): void {
-    window.location.reload();
-  }
+ update(): void {
+  window.location.reload();
+ }
+
 
     /**
    * Metodo para agregar el idioma a la solicitud;
@@ -335,6 +306,5 @@ listaHabilidades: Catcompcandidato[] = [];
     this.listaHabilidades.splice(this.index, 1);
     this.index = null;
   }
-
 
 }

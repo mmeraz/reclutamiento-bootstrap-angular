@@ -74,3 +74,4 @@ export class TipoVacanteService {
     return this.headers;
  }
 }
+
