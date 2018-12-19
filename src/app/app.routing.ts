@@ -68,6 +68,11 @@ import { CreateIdiomaComponent } from './catalogos/cat-idioma/create-idioma.comp
 import { CreateComphabilidadesComponent } from './catalogos/cat-comphabilidades/create-comphabilidades.component';
 import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/edit-comphabilidades.component';
 import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-solicitud.component';
+import { AceptadosComercialComponent } from './pages/usuarios/comercial/componets/aceptados-comercial.component';
+import { IndexComercialComponent } from './pages/usuarios/comercial/index-comercial.component';
+import { RechazadosComercialComponent } from './pages/usuarios/comercial/componets/rechazados-comercial.component';
+import { BorradorComercialComponent } from './pages/usuarios/comercial/componets/borrador-comercial.component';
+import { IniciocabeceraComercialComponent } from './pages/usuarios/comercial/componets/iniciocabecera-comercial.component';
 
 
 
@@ -152,7 +157,14 @@ import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-sol
   {path: 'Solicitud', component: ListSolicitudComponent, canActivate: [AuthGuard] },
   {path: 'SolicitudDetalle/:id', component: DetalleSolicitudComponent, canActivate: [AuthGuard] },
   {path: 'Edit-contecnicos/:id', component: EditContecnicosComponent, canActivate: [AuthGuard]  },
-  {path: '**', component: NotfoundComponent, canActivate: [AuthGuard] }
+  // {path: '**', component: NotfoundComponent, canActivate: [AuthGuard] },
+  {path: 'AceptadosComercial', component: AceptadosComercialComponent, canActivate: [AuthGuard]  },
+  {path: 'IndexComercial', component: IndexComercialComponent, canActivate: [AuthGuard]  },
+  {path: 'RechazadosComercial', component: RechazadosComercialComponent, canActivate: [AuthGuard]  },
+  {path: 'BorradorComercial', component: BorradorComercialComponent, canActivate: [AuthGuard]  },
+  {path: 'IniciocabeceraComercial', component: IniciocabeceraComercialComponent, canActivate: [AuthGuard]  },
+
+
   ];
 
  export const appRoutingProviders: any[] = [];

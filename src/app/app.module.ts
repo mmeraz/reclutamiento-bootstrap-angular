@@ -82,6 +82,11 @@ import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/ed
 import { EditEstatuscandidatoComponent } from './catalogos/cat-estacandidato/edit-estatuscandidato.component';
 import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.component';
 import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-solicitud.component';
+import { AceptadosComercialComponent } from './pages/usuarios/comercial/componets/aceptados-comercial.component';
+import { IndexComercialComponent } from './pages/usuarios/comercial/index-comercial.component';
+import { RechazadosComercialComponent } from './pages/usuarios/comercial/componets/rechazados-comercial.component';
+import { BorradorComercialComponent } from './pages/usuarios/comercial/componets/borrador-comercial.component';
+import { IniciocabeceraComercialComponent } from './pages/usuarios/comercial/componets/iniciocabecera-comercial.component';
 
 @NgModule({
   declarations: [
@@ -160,7 +165,12 @@ import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-sol
     EditComphabilidadesComponent,
     EditEstatuscandidatoComponent,
     EditIdiomaComponent,
-    DetalleSolicitudComponent
+    DetalleSolicitudComponent,
+    AceptadosComercialComponent,
+    IndexComercialComponent,
+    RechazadosComercialComponent,
+    BorradorComercialComponent,
+    IniciocabeceraComercialComponent
   ],
   imports: [
     BrowserModule,

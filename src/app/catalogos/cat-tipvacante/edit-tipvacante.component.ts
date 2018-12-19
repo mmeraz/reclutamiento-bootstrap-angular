@@ -47,7 +47,7 @@ export class EditTipvacanteComponent implements OnInit {
         timer: 1500
       });
     });
-    // this.update();
+     this.update();
  }
 
  update(): void {
