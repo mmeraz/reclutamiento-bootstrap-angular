@@ -11,6 +11,7 @@ import swal from 'sweetalert2';
 })
 export class EditUsuarioComponent implements OnInit {
   editForm: FormGroup;
+  password: string;
   usuario: any = {};
 
   constructor(private route: ActivatedRoute,

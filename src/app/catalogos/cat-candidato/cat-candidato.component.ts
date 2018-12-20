@@ -32,7 +32,7 @@ export class CatCandidatoComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 5,
     };
-    this.candidatoService.getCandidatos().subscribe(result =>{
+    this.candidatoService.getCandidatos().subscribe(result => {
       this.allCandidatos = result;
       this.dtTrigger.next();
     });

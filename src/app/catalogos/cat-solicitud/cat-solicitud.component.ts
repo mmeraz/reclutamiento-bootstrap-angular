@@ -171,23 +171,33 @@ export class CatSolicitudComponent implements OnInit {
       tvaTipoVacante: this.vacante,
       usrUsuarioBySolIdreclutador: {
         usrUsuario: 1,
-        usrUsername: 'Alta',
-        usrNombreusuario: 'test',
-        usrPassword: 'test',
+        usrUsername: 'mmeraz',
+        usrNombreusuario: 'Miguel Meraz',
+        usrPassword: '$2a$10$SmhAUWYd7rCG9MfKdVZl2OAg.BrEP7GyuGfBf83wXUFmqytMM5MwW',
         usrEmail: 'test@test.com',
         usrPerfil: 'A',
-        usrTelefono: '123456789',
-        roles: []
+        usrTelefono: '1234567890',
+        roles: [
+            {
+                id: null,
+                nombre: 'ROLE_ADMIN'
+            }
+        ]
       },
       usrUsuarioBySolIdcomercial: {
-        usrUsuario : 6,
-        usrUsername: null,
-        usrNombreusuario: null,
-        usrPassword: null,
-        usrEmail: null,
-        usrPerfil: null,
-        usrTelefono: null,
-        roles: []
+        usrUsuario: 1,
+        usrUsername: 'mmeraz',
+        usrNombreusuario: 'Miguel Meraz',
+        usrPassword: '$2a$10$SmhAUWYd7rCG9MfKdVZl2OAg.BrEP7GyuGfBf83wXUFmqytMM5MwW',
+        usrEmail: 'test@test.com',
+        usrPerfil: 'A',
+        usrTelefono: '1234567890',
+        roles: [
+            {
+                id: null,
+                nombre: 'ROLE_ADMIN'
+            }
+        ]
       },
       solFolio: null,
       solExistepresupuesto: this.presupuesto,

@@ -18,7 +18,8 @@ export class SolicitudService {
     addSolicitud(solicitud: Catsolicitud) {
       this.getHeaders();
       const obj = solicitud;
-      this.clienteHttp.post(this.url + '/add', obj)
+      this.clienteHttp.post(this.url + '/add', obj, {
+        headers: this.headers})
           .subscribe(res => console.log('Done'));
     }
 

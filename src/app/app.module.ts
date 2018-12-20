@@ -88,6 +88,7 @@ import { ListadoBComponent } from './pages/solicitud/listado-b.component';
 import { IndexTiComponent } from './pages/usuarios/ti/index-ti.component';
 import { SolicValidadasTiComponent } from './pages/usuarios/ti/components/solic-validadas-ti.component';
 import { CandiValidadosTiComponent } from './pages/usuarios/ti/components/candi-validados-ti.component';
+import { SeguimientoVtiComponent } from './catalogos/cat-seguisolicitud/seguimiento-vti.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -171,7 +172,8 @@ import { CandiValidadosTiComponent } from './pages/usuarios/ti/components/candi-
     SolicitudComponent,
     IndexTiComponent,
     SolicValidadasTiComponent,
-    CandiValidadosTiComponent
+    CandiValidadosTiComponent,
+    SeguimientoVtiComponent
   ],
   imports: [
     BrowserModule,

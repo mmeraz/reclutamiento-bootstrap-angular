@@ -52,12 +52,11 @@ export class AuthService {
 
   loguot() {
     Cookie.delete('access_token');
-    this._usuario = null;
-
   }
 
   Guardarusuario(accessToken: string) {
-    this.payload = this.ObtenesToken(accessToken);
+  this.payload = this.ObtenesToken(accessToken);
+  console.log(this.payload.usrUsername);
   this._usuario.usrUsername = this.payload.usrUsername;
   this._usuario.usrNombreusuario = this.payload.usrNombreusuario;
   this._usuario.usrPassword = this.payload.usrPassword;
@@ -66,7 +65,6 @@ export class AuthService {
   this._usuario.usrTelefono = this.payload.usrTelefono;
   this._usuario.roles = this.payload.authorities;
   sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
-  console.log(this.payload);
   }
 
   Guardartoken(accessToken: string): void {
