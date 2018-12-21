@@ -84,8 +84,9 @@ import { PrimeLiderrecluComponent } from './pages/usuarios/liderreclutamiento/co
 import { PribaLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/priba-liderreclu.component';
 import { ValidadasLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/validadas-liderreclu.component';
 import { AsignaLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/asigna-liderreclu.component';
-import { CandRechaLiderreclutamientoComponent } from'./pages/usuarios/liderreclutamiento/componets/cand-recha-liderreclutamiento.component';
-import { CandAceptadosLiderreclutamientoComponent } from'./pages/usuarios/liderreclutamiento/componets/cand-aceptados-liderreclutamiento.component';
+import { SeguimientoVtiComponent } from './catalogos/cat-seguisolicitud/seguimiento-vti.component';
+import { CandRechaLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-recha-liderreclutamiento.component';
+import { CandAceptadosLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-aceptados-liderreclutamiento.component';
 
 
 
@@ -147,6 +148,7 @@ import { CandAceptadosLiderreclutamientoComponent } from'./pages/usuarios/liderr
   {path: 'Estatus-solicitud', component: CatEstasolicitudComponent, canActivate: [AuthGuard]  },
   {path: 'Edit-estasolicitud/:id', component: EditEstasolicitudComponent, canActivate: [AuthGuard]  },
   {path: 'Create-estasolicitud', component: CreateEstatuscandidatoComponent, canActivate: [AuthGuard]  },
+  {path: 'Solicitudvti/:id', component: SeguimientoVtiComponent, canActivate: [AuthGuard] },
   {path: 'Seguimiento-Sol', component: SolicitudComponent, canActivate: [AuthGuard]},
   {path: 'Idioma', component: CatIdiomaComponent, canActivate: [AuthGuard]  },
   {path: 'Edit-idioma/:id', component: EditIdiomaComponent, canActivate: [AuthGuard]  },

@@ -33,6 +33,7 @@ import { Cathabsolicitud } from 'src/app/model/cathabsolicitud.model';
 import { Catequiposol } from 'src/app/model/catequiposol.model';
 import { SlpSolPercepciones } from 'src/app/model/catsolpercepcion.model';
 import { Catfunciones } from 'src/app/model/catfunciones.model';
+import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 
 @Component({
   selector: 'app-seguimiento-vti',
@@ -95,6 +96,7 @@ export class SeguimientoVtiComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private bs: SolicitudService,
+    private service: SeguimientoSolService,
     private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -120,8 +122,8 @@ export class SeguimientoVtiComponent implements OnInit {
 
   updateBusiness() {
     this.route.params.subscribe(params => {
-       this.bs.updateBusiness(this.solicitud, params['id']);
-       this.router.navigate(['/Solicitud']);
+      this.service.addValidar(this.solicitud);
+      this.router.navigate(['/Seguimiento-solicitud']);
        swal({
         position: 'top',
         type: 'success',
