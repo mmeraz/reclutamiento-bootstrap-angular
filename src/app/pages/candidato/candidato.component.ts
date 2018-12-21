@@ -15,7 +15,6 @@ import { ContactoCandService } from '../../service/catcontactcand.service';
 import { ConTecnicosService } from '../../service/cat.contecnicos.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CandidatoService } from '../../service/cat.candidato.service';
-import { CatCompcandidatoComponent } from '../../catalogos/cat-compcandidato/cat-compcandidato.component';
 import { CatConTecCandidato } from '../../model/catconteccandidato.model';
 import { Catprepercepcion } from '../../model/catprepercepcion.model';
 import { Catsolicitud } from '../../model/catsolicitud.model';
