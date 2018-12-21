@@ -201,6 +201,18 @@ export class SeguimientoSolService {
          .subscribe(res => console.log('Done'));
   }
 
+  getSgsSeguimientoSolicitudValidadas() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(this.url + '/fetchActive/1', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudXValidar() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(this.url + '/fetchActive/10', {
+      headers: this.headers});
+  }
+
   getHeaders() {
     this.headers = new HttpHeaders();
     this.headers = this.headers
