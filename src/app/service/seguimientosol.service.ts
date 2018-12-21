@@ -213,9 +213,34 @@ export class SeguimientoSolService {
       headers: this.headers});
   }
 
-  getSeguimiento() {
+  getSgsSeguimientoAsignada() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(this.url + '/fetchActive/13', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoPendiente() {
     this.getHeaders();
-    return this.clienteHttp.get(this.url + '/fetch', {
+    return this.clienteHttp.get(this.url + '/fetchActive/14', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoRechazadas() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/15', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoBorrador() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/6', {
+      headers: this.headers});
+  }
+
+
+  getSeguimiento(id) {
+    this.getHeaders();
+    return this.clienteHttp.get(`${this.url}/fetch/${id}`, {
       headers: this.headers});
   }
 
