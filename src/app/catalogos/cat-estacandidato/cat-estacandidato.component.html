@@ -11,7 +11,9 @@
           <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo estatus </i>
         </div>
-        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+        <div class="float-right align-baseline "
+        style="margin: 0 !important;padding:0 important;"
+        *ngIf="authservice.hasRole('ROLE_ADMIN')">
           <app-create-estatuscandidato></app-create-estatuscandidato>
         </div>
       </div>
@@ -47,14 +49,16 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit-estacand', e.escIdestatus]"></i>
+                      [routerLink]="['/Edit-estacand', e.escIdestatus]"
+                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(e.escIdestatus,e.escDescripcion)"></i>
+                      (click)="deleteBusiness(e.escIdestatus,e.escDescripcion)"
+                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
                   </td>
                 </tr>
               </tbody>

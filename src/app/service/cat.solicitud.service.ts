@@ -18,13 +18,32 @@ export class SolicitudService {
     addSolicitud(solicitud: Catsolicitud) {
       this.getHeaders();
       const obj = solicitud;
-      this.clienteHttp.post(this.url + '/add', obj)
+      this.clienteHttp.post(this.url + '/add', obj, {
+        headers: this.headers})
           .subscribe(res => console.log('Done'));
     }
 
     getSolicitudes() {
       this.getHeaders();
       return this.clienteHttp.get(this.url + '/fetch', {
+        headers: this.headers});
+    }
+
+    getSolicitudesA() {
+      this.getHeaders();
+      return this.clienteHttp.get(this.url + '/fetchBy/Alta', {
+        headers: this.headers});
+    }
+
+    getSolicitudesM() {
+      this.getHeaders();
+      return this.clienteHttp.get(this.url + '/fetchBy/Media', {
+        headers: this.headers});
+    }
+
+    getSolicitudesB() {
+      this.getHeaders();
+      return this.clienteHttp.get(this.url + '/fetchBy/Baja', {
         headers: this.headers});
     }
 

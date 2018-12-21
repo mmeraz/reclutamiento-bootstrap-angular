@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from './service/auth.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { UsuarioService } from 'src/app/service/cat.usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,10 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'reclutamiento-angular';
 
-  constructor(private authService: AuthService,
+  constructor(private usuarioService: UsuarioService, protected authService: AuthService,
     private router: Router) {}
+
+
 
   logout() {
     this.authService.loguot();

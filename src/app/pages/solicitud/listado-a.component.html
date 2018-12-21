@@ -1,0 +1,25 @@
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Área</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">op</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of allSolicitud">
+          <th scope="row">{{ s.solIdsolicitud }}</th>
+          <td>{{ s.arnAreanegocio.arnTipo }}</td>
+          <td>{{ s.cliCliente.cliNombre }}</td>
+          <td><i style="color:#007bff; margin-right:20px;"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Editar"
+            class="fas fa-pencil-alt"
+            [routerLink]="['/Solicitudvti', s.solIdsolicitud]"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

@@ -4,50 +4,36 @@
       <h6>Bienvenido $Username / Comercial</h6>
     </div>
     <div class="col-lg-6 col-md-5 col-sm-12">
-     <!-- <button class="btn btn-success btn-sm" [routerLink]="['/Candidato']"> Nuevo</button> -->
+     <button class="btn btn-success btn-md float-right" [routerLink]="['/Create-solicitud']"> Nuevo <i class="fa fa-plus"></i></button>
     </div>
   </div>
+  <hr>
 
-
-
-
-    <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="row mb-lg-5 mt-lg-5 mb-md-2 mt-md-2">
+    <div class="col-lg-4 col-md-4 col-sm-12 mt-sm-1 mb-sm-1">
       <app-aceptados-comercial></app-aceptados-comercial>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="col-lg-4 col-md-4 col-sm-12 mt-sm-1 mb-sm-1">
       <app-rechazados-comercial></app-rechazados-comercial>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="col-lg-4 col-md-4 col-sm-12 mt-sm-1 mb-sm-1">
      <app-borrador-comercial></app-borrador-comercial>
     </div>
     </div>
 
-<br>
-<br>
-<br>
-
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="row mb-lg-5 mt-lg-5 mb-md-2 mt-md-2">
+      <div class="col-lg-6 col-md-6 col-sm-12 mt-sm-1 mb-sm-1">
         <app-candidatospendientes-comercial></app-candidatospendientes-comercial>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="col-lg-6 col-md-6 col-sm-12 mt-sm-1 mb-sm-1">
         <app-retroespectivas-comercial></app-retroespectivas-comercial>
       </div>
-
-
-
-      <br>
-
-
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <app-solicitudespendientes-comercial></app-solicitudespendientes-comercial>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
-
-        </div>
-      </div>
-
-
   </div>
+
+  <div class="row mb-lg-5 mt-lg-5 mb-md-2 mt-md-2">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-lg-offset-6 col-md-offset-6">
+      <app-solicitudespendientes-comercial></app-solicitudespendientes-comercial>
+    </div>
+  </div>
+
+</div>

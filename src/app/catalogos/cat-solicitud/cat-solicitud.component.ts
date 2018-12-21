@@ -32,6 +32,7 @@ import { Catperfil } from 'src/app/model/catperfil.model';
 import { PerfilService } from 'src/app/service/cat.perfil.service';
 import { Catequiposol } from 'src/app/model/catequiposol.model';
 import { SolicitudService } from 'src/app/service/cat.solicitud.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 
 
@@ -123,7 +124,7 @@ export class CatSolicitudComponent implements OnInit {
     private percepcionService: PrePercepcionService,
     private equipoService: EquipoService,
     private perfilService: PerfilService,
-    private fb: FormBuilder, private bs: SolicitudService) {
+    private fb: FormBuilder, private bs: SolicitudService, private auth: AuthService) {
     }
 
     /**
@@ -171,24 +172,20 @@ export class CatSolicitudComponent implements OnInit {
       tvaTipoVacante: this.vacante,
       usrUsuarioBySolIdreclutador: {
         usrUsuario: 1,
-        usrUsername: 'Alta',
-        usrNombreusuario: 'test',
-        usrPassword: 'test',
+        usrUsername: 'mmeraz',
+        usrNombreusuario: 'Miguel Meraz',
+        usrPassword: '$2a$10$SmhAUWYd7rCG9MfKdVZl2OAg.BrEP7GyuGfBf83wXUFmqytMM5MwW',
         usrEmail: 'test@test.com',
         usrPerfil: 'A',
-        usrTelefono: '123456789',
-        roles: []
+        usrTelefono: '1234567890',
+        roles: [
+            {
+                id: null,
+                nombre: 'ROLE_ADMIN'
+            }
+        ]
       },
-      usrUsuarioBySolIdcomercial: {
-        usrUsuario : 6,
-        usrUsername: null,
-        usrNombreusuario: null,
-        usrPassword: null,
-        usrEmail: null,
-        usrPerfil: null,
-        usrTelefono: null,
-        roles: []
-      },
+      usrUsuarioBySolIdcomercial: this.auth.usuario,
       solFolio: null,
       solExistepresupuesto: this.presupuesto,
       solNovacantes: this.nVacante,

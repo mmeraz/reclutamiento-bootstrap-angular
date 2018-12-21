@@ -7,6 +7,7 @@ import { ActivatedRoute} from '@angular/router';
 import swal from 'sweetalert2';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-cat-contecnicos',
@@ -25,7 +26,8 @@ export class CatContecnicosComponent implements OnInit {
   constructor( private contecnicosService: ConTecnicosService,
     private fb: FormBuilder, private bs: ConTecnicosService,
     private activatedRoute: ActivatedRoute,
-    private http: HttpClient) {
+    private http: HttpClient,
+    protected authservice: AuthService) {
     }
 
   ngOnInit(): void {

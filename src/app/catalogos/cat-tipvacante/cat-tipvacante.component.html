@@ -11,7 +11,8 @@
           <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo tipo vacante</i>
         </div>
-        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;"
+        *ngIf="authservice.hasRole('ROLE_ADMIN')">
         <app-create-tipvacante></app-create-tipvacante>
         </div>
       </div>
@@ -47,14 +48,16 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit-tipvacante', t.tvaIdtipovacante]"></i>
+                      [routerLink]="['/Edit-tipvacante', t.tvaIdtipovacante]"
+                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(t.tvaIdtipovacante,t.tvaTipo)"></i>
+                      (click)="deleteBusiness(t.tvaIdtipovacante,t.tvaTipo)"
+                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
                   </td>
                 </tr>
               </tbody>
