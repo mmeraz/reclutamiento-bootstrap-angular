@@ -61,7 +61,8 @@
                           data-placement="top"
                           title="Editar"
                           class="fas fa-pencil-alt"
-                          [routerLink]="['/EditContacto', a.clcIdconcli]"></i>
+                          [routerLink]="['/EditContacto', a.clcIdconcli]"
+                          *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
 
                           <i style="color:#dc3545;"
                           data-toggle="tooltip"
@@ -69,7 +70,7 @@
                           title="Eliminar"
                           class="fas fa-trash-alt"
                           (click)="deleteBusiness(a.clcIdconcli, a.clcNombre)"
-                          ></i>
+                          *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
                       </td>
                   </tr>
 

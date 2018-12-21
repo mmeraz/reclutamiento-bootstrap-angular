@@ -5,36 +5,23 @@ import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { CatAreaComponent } from './catalogos/cat-area/cat-area.component';
 import { CatCandidatoComponent } from './catalogos/cat-candidato/cat-candidato.component';
 import { CatClienteComponent } from './catalogos/cat-cliente/cat-cliente.component';
-import { CatCompcandidatoComponent } from './catalogos/cat-compcandidato/cat-compcandidato.component';
 import { CatComphabilidadesComponent } from './catalogos/cat-comphabilidades/cat-comphabilidades.component';
-import { CatConsolicitadoComponent } from './catalogos/cat-consolicitado/cat-consolicitado.component';
 import { CatContactclienteComponent } from './catalogos/cat-contactcliente/cat-contactcliente.component';
-import { CatContactoComponent } from './catalogos/cat-contacto/cat-contacto.component';
-import { CatConteccandidatoComponent } from './catalogos/cat-conteccandidato/cat-conteccandidato.component';
 import { CatContecnicosComponent } from './catalogos/cat-contecnicos/cat-contecnicos.component';
 import { CatDoccandidatoComponent } from './catalogos/cat-doccandidato/cat-doccandidato.component';
 import { CatDocumentosComponent } from './catalogos/cat-documentos/cat-documentos.component';
 import { CatEntrevistaComponent } from './catalogos/cat-entrevista/cat-entrevista.component';
 import { CatEquipoComponent } from './catalogos/cat-equipo/cat-equipo.component';
-import { CatEquipsolComponent } from './catalogos/cat-equipsol/cat-equipsol.component';
 import { CatEstacandidatoComponent } from './catalogos/cat-estacandidato/cat-estacandidato.component';
 import { CatEstasolicitudComponent } from './catalogos/cat-estasolicitud/cat-estasolicitud.component';
-import { CatFuncionesComponent } from './catalogos/cat-funciones/cat-funciones.component';
-import { CatHabsolicitudComponent } from './catalogos/cat-habsolicitud/cat-habsolicitud.component';
 import { CatIdiomaComponent } from './catalogos/cat-idioma/cat-idioma.component';
-import { CatIdiomacandidatoComponent } from './catalogos/cat-idiomacandidato/cat-idiomacandidato.component';
 import { CatJornadalabComponent } from './catalogos/cat-jornadalab/cat-jornadalab.component';
-import { CatPercepcioncndaComponent } from './catalogos/cat-percepcioncnda/cat-percepcioncnda.component';
-import { CatPercepcioncndofrComponent } from './catalogos/cat-percepcioncndofr/cat-percepcioncndofr.component';
 import { CatPerfilComponent } from './catalogos/cat-perfil/cat-perfil.component';
 import { CatPrepercepcionComponent } from './catalogos/cat-prepercepcion/cat-prepercepcion.component';
 import { CatPrioridadComponent } from './catalogos/cat-prioridad/cat-prioridad.component';
-import { CatProyectoComponent } from './catalogos/cat-proyecto/cat-proyecto.component';
 import { CatSeguicandidatoComponent } from './catalogos/cat-seguicandidato/cat-seguicandidato.component';
 import { CatSeguisolicitudComponent } from './catalogos/cat-seguisolicitud/cat-seguisolicitud.component';
 import { CatSolicitudComponent } from './catalogos/cat-solicitud/cat-solicitud.component';
-import { CatSolidiomaComponent } from './catalogos/cat-solidioma/cat-solidioma.component';
-import { CatSolpercepcionesComponent } from './catalogos/cat-solpercepciones/cat-solpercepciones.component';
 import { CatTipvacanteComponent } from './catalogos/cat-tipvacante/cat-tipvacante.component';
 import { CatUsuarioComponent } from './catalogos/cat-usuario/cat-usuario.component';
 import { LoginComponent} from './pages/login/login.component';
@@ -124,7 +111,6 @@ import { CandAceptadosLiderreclutamientoComponent } from'./pages/usuarios/liderr
   {path: 'Edit-candidato/:id', component: EditCandidatoComponent },
 
   {path: 'Cliente', component: CatClienteComponent },
-  {path: 'Competencia-candidato', component: CatCompcandidatoComponent },
   {path: '', component: HomeComponent, canActivate: [AuthGuard] },
   // {path: 'Home', component: HomeComponent },
   {path: 'login', component: LoginComponent},
@@ -141,23 +127,18 @@ import { CandAceptadosLiderreclutamientoComponent } from'./pages/usuarios/liderr
   {path: 'Edit-prepercepcion/:id', component: EditPrepercepcionComponent, canActivate: [AuthGuard] },
   {path: 'Candidato', component: CatCandidatoComponent, canActivate: [AuthGuard]  },
   {path: 'Cliente', component: CatClienteComponent, canActivate: [AuthGuard] },
-  {path: 'Competencia-candidato', component: CatCompcandidatoComponent, canActivate: [AuthGuard]  },
 
   {path: 'Habilidades', component: CatComphabilidadesComponent, canActivate: [AuthGuard] },
   {path: 'Create-habilidades', component: CreateComphabilidadesComponent , canActivate: [AuthGuard] },
   {path: 'Edit-habilidades/:id', component: EditComphabilidadesComponent, canActivate: [AuthGuard]  },
 
-  {path: 'Conocimiento-solicitado', component: CatConsolicitadoComponent, canActivate: [AuthGuard]  },
   {path: 'Contacto-cliente', component: CatContactclienteComponent, canActivate: [AuthGuard]  },
-  {path: 'Contacto', component: CatContactoComponent, canActivate: [AuthGuard]  },
-  {path: 'Conocimiento-tecnico-candidato', component: CatConteccandidatoComponent, canActivate: [AuthGuard]  },
   {path: 'Conocimientos-tecnicos', component: CatContecnicosComponent, canActivate: [AuthGuard]  },
   {path: 'Edit-estasolicitud/:id', component: EditEstasolicitudComponent, canActivate: [AuthGuard]  },
   {path: 'Documento-candidatos', component: CatDoccandidatoComponent, canActivate: [AuthGuard]  },
   {path: 'Documentos', component: CatDocumentosComponent , canActivate: [AuthGuard] },
   {path: 'Entrevista', component: CatEntrevistaComponent, canActivate: [AuthGuard]  },
   {path: 'Equipo', component: CatEquipoComponent, canActivate: [AuthGuard]  },
-  {path: 'Equipo-solicitud', component: CatEquipsolComponent, canActivate: [AuthGuard]  },
 
   {path: 'Estatus-candidato', component: CatEstacandidatoComponent, canActivate: [AuthGuard]  },
   {path: 'Create-estacand', component: CreateEstatuscandidatoComponent, canActivate: [AuthGuard]  },
@@ -166,28 +147,20 @@ import { CandAceptadosLiderreclutamientoComponent } from'./pages/usuarios/liderr
   {path: 'Estatus-solicitud', component: CatEstasolicitudComponent, canActivate: [AuthGuard]  },
   {path: 'Edit-estasolicitud/:id', component: EditEstasolicitudComponent, canActivate: [AuthGuard]  },
   {path: 'Create-estasolicitud', component: CreateEstatuscandidatoComponent, canActivate: [AuthGuard]  },
-  {path: 'Funciones', component: CatFuncionesComponent, canActivate: [AuthGuard]  },
-  {path: 'Habilidad-solicitada', component: CatHabsolicitudComponent, canActivate: [AuthGuard]  },
   {path: 'Seguimiento-Sol', component: SolicitudComponent, canActivate: [AuthGuard]},
   {path: 'Idioma', component: CatIdiomaComponent, canActivate: [AuthGuard]  },
   {path: 'Edit-idioma/:id', component: EditIdiomaComponent, canActivate: [AuthGuard]  },
   {path: 'Create-idioma', component: CreateIdiomaComponent, canActivate: [AuthGuard]  },
 
-  {path: 'Idioma-candidato', component: CatIdiomacandidatoComponent, canActivate: [AuthGuard]  },
   {path: 'Jornada-laboral', component: CatJornadalabComponent, canActivate: [AuthGuard]  },
-  {path: 'Percepcion-candidato', component: CatPercepcioncndaComponent, canActivate: [AuthGuard]  },
-  {path: 'Percepcion-candidato-fr', component: CatPercepcioncndofrComponent, canActivate: [AuthGuard] },
   {path: 'Perfil', component: CatPerfilComponent, canActivate: [AuthGuard]  },
   {path: 'Pre-percepcion', component: CatPrepercepcionComponent, canActivate: [AuthGuard]  },
   {path: 'Edit-prepercepcion/:id', component: EditPrepercepcionComponent, canActivate: [AuthGuard]  },
   {path: 'Create-prepercepcion', component: CreatePrepercepcionComponent, canActivate: [AuthGuard]  },
   {path: 'Prioridad', component: CatPrioridadComponent, canActivate: [AuthGuard]  },
-  {path: 'Proyecto', component: CatProyectoComponent, canActivate: [AuthGuard]  },
   {path: 'Seguimiento-candidato', component: CatSeguicandidatoComponent, canActivate: [AuthGuard]  },
   {path: 'Seguimiento-solicitud', component: CatSeguisolicitudComponent, canActivate: [AuthGuard]  },
   {path: 'Create-solicitud', component: CatSolicitudComponent, canActivate: [AuthGuard]  },
-  {path: 'Idioma-solicitud', component: CatSolidiomaComponent, canActivate: [AuthGuard]  },
-  {path: 'Solicitud-percepciones', component: CatSolpercepcionesComponent, canActivate: [AuthGuard]  },
   {path: 'Tipo-vacante', component: CatTipvacanteComponent, canActivate: [AuthGuard]  },
   {path: 'Edit-tipvacante/:id', component: EditTipvacanteComponent , canActivate: [AuthGuard] },
   {path: 'Create-tipvac', component: CreateTipvacanteComponent, canActivate: [AuthGuard]  },

@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Catusuario } from '../model/catusuario.model';
+import { CatRol } from '../model/catrol.model';
 import { Cookie } from 'ng2-cookies';
 
 @Injectable({
@@ -52,12 +53,34 @@ export class AuthService {
 
   loguot() {
     Cookie.delete('access_token');
+    this._token = null;
     this._usuario = null;
-
+    sessionStorage.clear();
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('usuario');
   }
 
-  Guardarusuario(accessToken: string) {
-    this.payload = this.ObtenesToken(accessToken);
+  hasRole(role: CatRol): boolean {
+    if (this.usuario.roles.includes(role)) {
+      return true;
+    }
+    return false;
+  }
+
+  Guardarusuario(accessToken: string): void {
+
+    this._usuario = {
+      usrUsuario : null,
+      usrUsername: '',
+      usrNombreusuario: '',
+      usrPassword: '',
+      usrEmail: '',
+      usrPerfil: '',
+      usrTelefono: '',
+      roles: []
+  };
+  this.payload = this.ObtenesToken(accessToken);
+  this._usuario.usrUsuario = this.payload.usrUsuario;
   this._usuario.usrUsername = this.payload.usrUsername;
   this._usuario.usrNombreusuario = this.payload.usrNombreusuario;
   this._usuario.usrPassword = this.payload.usrPassword;

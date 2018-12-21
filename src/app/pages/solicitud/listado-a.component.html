@@ -5,6 +5,7 @@
           <th scope="col">Id</th>
           <th scope="col">Área</th>
           <th scope="col">Cliente</th>
+          <th scope="col">op</th>
         </tr>
       </thead>
       <tbody>
@@ -12,6 +13,12 @@
           <th scope="row">{{ s.solIdsolicitud }}</th>
           <td>{{ s.arnAreanegocio.arnTipo }}</td>
           <td>{{ s.cliCliente.cliNombre }}</td>
+          <td><i style="color:#007bff; margin-right:20px;"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Editar"
+            class="fas fa-pencil-alt"
+            [routerLink]="['/EditSolicitud', s.solIdsolicitud]"></i></td>
         </tr>
       </tbody>
     </table>

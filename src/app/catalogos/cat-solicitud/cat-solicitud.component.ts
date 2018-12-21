@@ -177,8 +177,13 @@ export class CatSolicitudComponent implements OnInit {
         usrEmail: 'test@test.com',
         usrPerfil: 'A',
         usrTelefono: '1234567890',
-        roles: ['ROLE_ADMIN']
-    },
+        roles: [
+            {
+                id: null,
+                nombre: 'ROLE_ADMIN'
+            }
+        ]
+      },
       usrUsuarioBySolIdcomercial: {
         usrUsuario: 1,
         usrUsername: 'mmeraz',
@@ -187,8 +192,13 @@ export class CatSolicitudComponent implements OnInit {
         usrEmail: 'test@test.com',
         usrPerfil: 'A',
         usrTelefono: '1234567890',
-        roles: ['ROLE_ADMIN']
-    },
+        roles: [
+            {
+                id: null,
+                nombre: 'ROLE_ADMIN'
+            }
+        ]
+      },
       solFolio: null,
       solExistepresupuesto: this.presupuesto,
       solNovacantes: this.nVacante,

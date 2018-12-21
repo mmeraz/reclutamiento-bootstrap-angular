@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
 import { Catcliente } from 'src/app/model/catcliente.model';
 import swal from 'sweetalert2';
+import { AuthService} from '../../service/auth.service';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class CatContactclienteComponent implements OnInit {
 
   constructor(private contaclienteService: ContactClienteService,
     private fb: FormBuilder, private bs: ContactClienteService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    protected authservice: AuthService) { }
 
   ngOnInit() {
     this.contaclienteService.getContactcliente().subscribe

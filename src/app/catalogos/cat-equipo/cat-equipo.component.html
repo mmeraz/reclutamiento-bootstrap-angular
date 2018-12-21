@@ -11,7 +11,9 @@
           <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo equipo</i>
         </div>
-        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+        <div class="float-right align-baseline "
+        style="margin: 0 !important;padding:0 important;"
+        *ngIf="authservice.hasRole('ROLE_ADMIN')">
           <app-create-equipo></app-create-equipo>
         </div>
       </div>

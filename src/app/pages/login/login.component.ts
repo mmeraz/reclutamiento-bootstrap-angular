@@ -47,9 +47,7 @@ export class LoginComponent implements OnInit {
       this.saveToken(response);
       this.authService.Guardartoken(response.access_token);
       this.authService.Guardarusuario(response.access_token);
-      this.usuario = this.authService.usuario;
-      swal('Login', `Bienvenido ${this.usuario.usrNombreusuario}`);
-      this.router.navigate(['/']);
+
       console.log(this.authService.Guardarusuario);
     }, err => {
       if (err.status === 401) {
@@ -64,8 +62,10 @@ export class LoginComponent implements OnInit {
     const expireDate = new Date().getTime() + (1000 * token.expires_in);
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
-    // Cookie.set('access_token', JSON.stringify(this.authService.mostrarMenuEmitter.emit(true)));
+    this.router.navigate(['/']);
+    // this.rerender();
   }
+  // rerender(): void {
+  //   window.location.reload();
+  // }
 }
-
-

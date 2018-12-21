@@ -7,6 +7,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import swal from 'sweetalert2';
+import { AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-cat-candidato',
@@ -25,14 +26,15 @@ export class CatCandidatoComponent implements OnInit {
   constructor(private candidatoService: CandidatoService,
               private fb: FormBuilder,
               private activatedRoute: ActivatedRoute,
-              private http: HttpClient) { }
+              private http: HttpClient,
+              protected authservice: AuthService) { }
 
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
     };
-    this.candidatoService.getCandidatos().subscribe(result =>{
+    this.candidatoService.getCandidatos().subscribe(result => {
       this.allCandidatos = result;
       this.dtTrigger.next();
     });
