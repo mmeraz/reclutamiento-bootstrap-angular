@@ -7,6 +7,7 @@ import { ActivatedRoute} from '@angular/router';
 import swal from 'sweetalert2';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-cat-estasolicitud',
@@ -24,7 +25,8 @@ export class CatEstasolicitudComponent implements OnInit {
   constructor( private estasolicitudService: EstasolicitudService,
     private fb: FormBuilder, private bs: EstasolicitudService,
     private activatedRoute: ActivatedRoute,
-    private http: HttpClient) {
+    private http: HttpClient,
+    protected authservice: AuthService) {
     }
 
   ngOnInit(): void {

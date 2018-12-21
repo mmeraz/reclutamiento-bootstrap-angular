@@ -10,7 +10,8 @@
           <div class="float-left align-baseline" style="margin: 0 !important;padding:0 important;">
           <i class="fas fa-table" style="font-size: 15px;"> Catálogo prioridad</i>
         </div>
-        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;">
+        <div class="float-right align-baseline " style="margin: 0 !important;padding:0 important;"
+        *ngIf="authservice.hasRole('ROLE_ADMIN')">
           <app-create-prioridad></app-create-prioridad>
         </div>
       </div>
@@ -46,14 +47,16 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/EditPrioridad', a.priIdprioridad]"></i>
+                      [routerLink]="['/EditPrioridad', a.priIdprioridad]"
+                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.priIdprioridad,a.priNombre)"></i>
+                      (click)="deleteBusiness(a.priIdprioridad,a.priNombre)"
+                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
                   </td>
                 </tr>
               </tbody>

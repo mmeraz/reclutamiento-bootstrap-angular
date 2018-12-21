@@ -7,6 +7,7 @@ import { ActivatedRoute} from '@angular/router';
 import swal from 'sweetalert2';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-cat-perfil',
@@ -24,7 +25,8 @@ export class CatPerfilComponent implements OnInit {
   constructor( private perfilService: PerfilService,
     private fb: FormBuilder, private bs: PerfilService,
     private activatedRoute: ActivatedRoute,
-    private http: HttpClient) {
+    private http: HttpClient,
+    protected authservice: AuthService) {
     }
 
   ngOnInit(): void {

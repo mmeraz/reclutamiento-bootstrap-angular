@@ -47,14 +47,14 @@
                       data-placement="top"
                       title="Editar"
                       class="fas fa-pencil-alt"
-                      [routerLink]="['/Edit-candidato', c.cndIdcandidato]"></i>
+                      [routerLink]="['/Edit-candidato', c.cndIdcandidato]" *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
 
                       <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      (click)="deleteBusiness(c.cndIdcandidato,c.cndNombre)"></i>
+                      (click)="deleteBusiness(c.cndIdcandidato,c.cndNombre)" *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
                   </td>
                 </tr>
               </tbody>

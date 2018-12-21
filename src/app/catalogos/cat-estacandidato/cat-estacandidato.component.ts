@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import swal from 'sweetalert2';
+import { AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-cat-estacandidato',
@@ -23,7 +24,8 @@ export class CatEstacandidatoComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject();
 
 
-  constructor( private estatuscandidatoService: EstaCandidatoService) {
+  constructor( private estatuscandidatoService: EstaCandidatoService,
+    protected authservice: AuthService) {
     }
 
   ngOnInit() {

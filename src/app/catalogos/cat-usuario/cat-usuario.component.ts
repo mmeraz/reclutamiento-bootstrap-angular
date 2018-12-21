@@ -7,6 +7,7 @@ import { ActivatedRoute} from '@angular/router';
 import swal from 'sweetalert2';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-cat-usuario',
@@ -25,7 +26,8 @@ export class CatUsuarioComponent implements OnInit {
   constructor( private usuarioService: UsuarioService,
     private fb: FormBuilder, private bs: UsuarioService,
     private activatedRoute: ActivatedRoute,
-    private http: HttpClient) {
+    private http: HttpClient,
+    protected authservice: AuthService) {
     }
 
     ngOnInit(): void {

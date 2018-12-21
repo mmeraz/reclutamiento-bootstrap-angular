@@ -17,7 +17,7 @@
         </form>
     </nav>
 
-    <nav id="sidebar" class="sidebar-wrapper" >
+    <nav id="sidebar" class="sidebar-wrapper" *ngIf="authService.isAuthenticated()">
         <app-navbar></app-navbar>
     </nav>
 

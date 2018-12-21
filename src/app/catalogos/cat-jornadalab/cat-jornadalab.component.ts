@@ -7,6 +7,7 @@ import { ActivatedRoute} from '@angular/router';
 import swal from 'sweetalert2';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import { AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-cat-jornadalab',
@@ -24,7 +25,8 @@ export class CatJornadalabComponent implements OnInit {
   constructor( private jornadalabService: JornadaLAbService,
     private fb: FormBuilder, private bs: JornadaLAbService,
     private activatedRoute: ActivatedRoute,
-    private http: HttpClient) {
+    private http: HttpClient,
+    protected authservice: AuthService) {
     }
 
   ngOnInit(): void {
