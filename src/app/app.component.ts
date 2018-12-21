@@ -12,7 +12,7 @@ import { UsuarioService } from 'src/app/service/cat.usuario.service';
 export class AppComponent {
   title = 'reclutamiento-angular';
 
-  constructor(private usuarioService: UsuarioService, private authService: AuthService,
+  constructor(private usuarioService: UsuarioService, protected authService: AuthService,
     private router: Router) {}
 
 

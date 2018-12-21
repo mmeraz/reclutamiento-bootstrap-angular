@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
   user$;
   public catalogos: Array<{path: string, component: any, titulo: string }>;
 
-  constructor(private authService: AuthService) {
+  constructor(protected authService: AuthService) {
     this.catalogos = [
       {path: 'Area', component: CatAreaComponent, titulo: 'Area' },
       {path: 'Candidato', component: CatCandidatoComponent, titulo: 'Candidato' },
@@ -90,7 +90,7 @@ export class NavbarComponent implements OnInit {
   }
 
 ngOnInit() {
-    // this.user$ = this.authService.usuario;
+    this.user$ = this.authService.usuario;
     this.user$ = this.authService.usuario;
     console.log(this.user$);
 }

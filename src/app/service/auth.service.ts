@@ -11,6 +11,7 @@ export class AuthService {
   private _usuario: Catusuario;
   private _token: string;
   private payload;
+  private usuarios: Catusuario;
 
   get usuario(): Catusuario {
 
@@ -52,11 +53,25 @@ export class AuthService {
 
   loguot() {
     Cookie.delete('access_token');
+    this._token = null;
+    this._usuario = null;
+    sessionStorage.clear();
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('usuario');
   }
 
-  Guardarusuario(accessToken: string) {
+  Guardarusuario(accessToken: string): void {
+    this._usuario = {
+      usrUsuario : 0,
+      usrUsername: '',
+      usrNombreusuario: '',
+      usrPassword: '',
+      usrEmail: '',
+      usrPerfil: '',
+      usrTelefono: '',
+      roles: []
+  };
   this.payload = this.ObtenesToken(accessToken);
-  console.log(this.payload.usrUsername);
   this._usuario.usrUsername = this.payload.usrUsername;
   this._usuario.usrNombreusuario = this.payload.usrNombreusuario;
   this._usuario.usrPassword = this.payload.usrPassword;
@@ -65,6 +80,7 @@ export class AuthService {
   this._usuario.usrTelefono = this.payload.usrTelefono;
   this._usuario.roles = this.payload.authorities;
   sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
+  console.log(this.payload);
   }
 
   Guardartoken(accessToken: string): void {

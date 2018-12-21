@@ -13,7 +13,7 @@
         <div class="user-pic">
             <img class="img-responsive img-rounded" src="../../assets/img/ns.png" alt="User picture">
         </div>
-        <div class="user-info">
+        <div class="user-info" *ngIf="authService.isAuthenticated">
             <span class="user-name">{{user$ && user$.usrNombreusuario}}
             </span>
             <span class="user-role">{{user$ && user$.roles}}</span>
