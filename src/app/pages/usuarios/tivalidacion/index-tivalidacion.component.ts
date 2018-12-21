@@ -8,10 +8,10 @@ import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 })
 export class IndexTivalidacionComponent implements OnInit {
   numer: number;
-  constructor(private seguimientosol: SeguimientoSolService) { }
+  constructor(private serviceSgsSolicitud: SeguimientoSolService) { }
 
   ngOnInit() {
-    this.numer = this.seguimientosol.getSgsSeguimientoSolicitudXValidar().forEach.length;
+    this.numer = this.serviceSgsSolicitud.getSgsSeguimientoSolicitudXValidar().forEach.length;
   }
 
 }

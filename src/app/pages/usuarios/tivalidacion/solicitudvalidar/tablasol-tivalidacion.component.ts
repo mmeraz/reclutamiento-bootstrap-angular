@@ -31,7 +31,4 @@ export class TablasolTivalidacionComponent implements OnInit {
     });
   }
 
-  getListSize(): number {
-    return 0;
-  }
 }

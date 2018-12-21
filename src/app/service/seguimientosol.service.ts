@@ -4,6 +4,7 @@ import { Catsolicitud } from '../model/catsolicitud.model';
 import { Cookie } from 'ng2-cookies';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
+import { CatSeguimientoSol } from '../model/catsegimientosolicitud.model';
 @Injectable({
   providedIn: 'root'
 }
@@ -237,10 +238,34 @@ export class SeguimientoSolService {
       headers: this.headers});
   }
 
+  getSgsSeguimietoAceptadaXCliente() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/16', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoAceptadaXPerdida() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/17', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoEnEspera() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/18', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudAct() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(this.url + '/fetchActive', {
+      headers: this.headers});
+  }
+
 
   getSeguimiento(id) {
     this.getHeaders();
-    return this.clienteHttp.get(`${this.url}/fetch/${id}`, {
+    return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetch/${id}`, {
       headers: this.headers});
   }
 
