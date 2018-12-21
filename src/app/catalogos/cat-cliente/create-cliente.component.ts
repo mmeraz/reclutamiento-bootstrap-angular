@@ -29,8 +29,8 @@ export class CreateClienteComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        cliNombre: ['', [Validators.required, Validators.maxLength(150), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ.\\s]*$')] ],
-      cliRazonsocial: ['', [Validators.required, Validators.maxLength(150), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ.\\s]*$')] ]
+        cliNombre: ['', [Validators.required, Validators.maxLength(150), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ.,&\\s]*$')] ],
+      cliRazonsocial: ['', [Validators.required, Validators.maxLength(150), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ.,&\\s]*$')] ]
       });
     }
 
