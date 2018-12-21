@@ -63,9 +63,9 @@ export class LoginComponent implements OnInit {
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
     this.router.navigate(['/']);
-    // this.rerender();
+    this.rerender();
   }
-  // rerender(): void {
-  //   window.location.reload();
-  // }
+  rerender(): void {
+    window.location.reload();
+  }
 }
