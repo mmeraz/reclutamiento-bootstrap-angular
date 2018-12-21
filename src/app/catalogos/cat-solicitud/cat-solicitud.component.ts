@@ -33,6 +33,7 @@ import { PerfilService } from 'src/app/service/cat.perfil.service';
 import { Catequiposol } from 'src/app/model/catequiposol.model';
 import { SolicitudService } from 'src/app/service/cat.solicitud.service';
 import { AuthService } from 'src/app/service/auth.service';
+import { Router } from '@angular/router';
 
 
 
@@ -124,6 +125,7 @@ export class CatSolicitudComponent implements OnInit {
     private percepcionService: PrePercepcionService,
     private equipoService: EquipoService,
     private perfilService: PerfilService,
+    private router: Router,
     private fb: FormBuilder, private bs: SolicitudService, private auth: AuthService) {
     }
 
@@ -210,6 +212,7 @@ export class CatSolicitudComponent implements OnInit {
       percepsiones: this.listaPercepciones
     };
     this.bs.addSolicitud(this.solicitud);
+    this.router.navigate(['/Solicitud']);
   }
 
   /**

@@ -213,6 +213,12 @@ export class SeguimientoSolService {
       headers: this.headers});
   }
 
+  getSeguimiento() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetch', {
+      headers: this.headers});
+  }
+
   getHeaders() {
     this.headers = new HttpHeaders();
     this.headers = this.headers

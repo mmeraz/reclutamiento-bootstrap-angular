@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 
 @Component({
   selector: 'app-consultar-tivalidacion',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultarTivalidacionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceSeguimiento: SeguimientoSolService) { }
 
   ngOnInit() {
   }
