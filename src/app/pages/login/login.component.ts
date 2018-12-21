@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     const expireDate = new Date().getTime() + (1000 * token.expires_in);
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
-    this.router.navigate(['/']);
+    this.router.navigate(['/IndexComercial']);
     this.rerender();
   }
   rerender(): void {
