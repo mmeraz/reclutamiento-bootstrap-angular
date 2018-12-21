@@ -88,6 +88,33 @@ import { ListadoBComponent } from './pages/solicitud/listado-b.component';
 import { IndexTiComponent } from './pages/usuarios/ti/index-ti.component';
 import { SolicValidadasTiComponent } from './pages/usuarios/ti/components/solic-validadas-ti.component';
 import { CandiValidadosTiComponent } from './pages/usuarios/ti/components/candi-validados-ti.component';
+import { RechacliReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/rechacli-reclutamiento.component';
+import { RechazadosComercialComponent } from './pages/usuarios/comercial/componets/rechazados-comercial.component';
+import { CandirechaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/candirecha-reclutamiento.component';
+import { PrialtaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/prialta-reclutamiento.component';
+import { PribajaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/pribaja-reclutamiento.component';
+import { PrimediaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/primedia-reclutamiento.component';
+import { CandivaliReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/candivali-reclutamiento.component';
+import { IndexRecursoshumanosComponent } from './pages/usuarios/recursoshumanos/index-recursoshumanos.component';
+import { ContratadosRecursoshumanosComponent } from './pages/usuarios/recursoshumanos/componets/contratados-recursoshumanos.component';
+import { PendientesRecursoshumanosComponent } from './pages/usuarios/recursoshumanos/componets/pendientes-recursoshumanos.component';
+import { RetroespectivasComercialComponent } from './pages/usuarios/comercial/componets/retroespectivas-comercial.component';
+import { AceptadosComercialComponent } from './pages/usuarios/comercial/componets/aceptados-comercial.component';
+import { BorradorComercialComponent } from './pages/usuarios/comercial/componets/borrador-comercial.component';
+import { CandidatospendientesComercialComponent } from './pages/usuarios/comercial/componets/candidatospendientes-comercial.component';
+import { SolicitudespendientesComercialComponent } from './pages/usuarios/comercial/componets/solicitudespendientes-comercial.component';
+import { Solicitud2ReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/solicitud2-reclutamiento.component';
+import { IndexComercialComponent } from './pages/usuarios/comercial/index-comercial.component';
+import { IndexReclutamientoComponent } from './pages/usuarios/reclutamiento/index-reclutamiento.component';
+import { PendientescoRecursoshumanosComponent } from './pages/usuarios/recursoshumanos/componets/pendientesco-recursoshumanos.component';
+import { IndexLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/index-liderreclutamiento.component';
+import { PrialLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/prial-liderreclu.component';
+import { AsignaLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/asigna-liderreclu.component';
+import { PrimeLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/prime-liderreclu.component';
+import { PribaLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/priba-liderreclu.component';
+import { ValidadasLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/validadas-liderreclu.component';
+import { CandRechaLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-recha-liderreclutamiento.component';
+import { CandAceptadosLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-aceptados-liderreclutamiento.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -170,8 +197,35 @@ import { CandiValidadosTiComponent } from './pages/usuarios/ti/components/candi-
     ListadoBComponent,
     SolicitudComponent,
     IndexTiComponent,
+    IndexRecursoshumanosComponent,
+    IndexComercialComponent,
+    IndexReclutamientoComponent,
     SolicValidadasTiComponent,
-    CandiValidadosTiComponent
+    CandiValidadosTiComponent,
+    RechacliReclutamientoComponent,
+    RechazadosComercialComponent,
+    CandirechaReclutamientoComponent,
+    PrialtaReclutamientoComponent,
+    PribajaReclutamientoComponent,
+    PrimediaReclutamientoComponent,
+    CandivaliReclutamientoComponent,
+    ContratadosRecursoshumanosComponent,
+    PendientesRecursoshumanosComponent,
+    PendientescoRecursoshumanosComponent,
+    RetroespectivasComercialComponent,
+    AceptadosComercialComponent,
+    BorradorComercialComponent,
+    CandidatospendientesComercialComponent,
+    SolicitudespendientesComercialComponent,
+    Solicitud2ReclutamientoComponent,
+    IndexLiderreclutamientoComponent,
+    PrialLiderrecluComponent,
+    AsignaLiderrecluComponent,
+    PrimeLiderrecluComponent,
+    PribaLiderrecluComponent,
+    ValidadasLiderrecluComponent,
+    CandRechaLiderreclutamientoComponent,
+    CandAceptadosLiderreclutamientoComponent,
   ],
   imports: [
     BrowserModule,

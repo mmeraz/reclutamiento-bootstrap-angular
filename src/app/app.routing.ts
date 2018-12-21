@@ -72,6 +72,33 @@ import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato
 import { SolicValidadasTiComponent } from './pages/usuarios/ti/components/solic-validadas-ti.component';
 import { CandiValidadosTiComponent } from './pages/usuarios/ti/components/candi-validados-ti.component';
 import { IndexTiComponent } from './pages/usuarios/ti/index-ti.component';
+import { IndexComercialComponent } from './pages/usuarios/comercial/index-comercial.component';
+import { AceptadosComercialComponent } from './pages/usuarios/comercial/componets/aceptados-comercial.component';
+import { BorradorComercialComponent } from './pages/usuarios/comercial/componets/borrador-comercial.component';
+import { CandidatospendientesComercialComponent } from './pages/usuarios/comercial/componets/candidatospendientes-comercial.component';
+import { RechazadosComercialComponent } from './pages/usuarios/comercial/componets/rechazados-comercial.component';
+import { RetroespectivasComercialComponent } from './pages/usuarios/comercial/componets/retroespectivas-comercial.component';
+import { SolicitudespendientesComercialComponent } from './pages/usuarios/comercial/componets/solicitudespendientes-comercial.component';
+import { IndexReclutamientoComponent } from './pages/usuarios/reclutamiento/index-reclutamiento.component';
+import { CandirechaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/candirecha-reclutamiento.component';
+import { CandivaliReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/candivali-reclutamiento.component';
+import { PrialtaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/prialta-reclutamiento.component';
+import { PribajaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/pribaja-reclutamiento.component';
+import { PrimediaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/primedia-reclutamiento.component';
+import { RechacliReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/rechacli-reclutamiento.component';
+import { Solicitud2ReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/solicitud2-reclutamiento.component';
+import { IndexRecursoshumanosComponent } from './pages/usuarios/recursoshumanos/index-recursoshumanos.component';
+import { ContratadosRecursoshumanosComponent } from './pages/usuarios/recursoshumanos/componets/contratados-recursoshumanos.component';
+import { PendientesRecursoshumanosComponent } from './pages/usuarios/recursoshumanos/componets/pendientes-recursoshumanos.component';
+import { PendientescoRecursoshumanosComponent } from './pages/usuarios/recursoshumanos/componets/pendientesco-recursoshumanos.component';
+import { IndexLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/index-liderreclutamiento.component';
+import { PrialLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/prial-liderreclu.component';
+import { PrimeLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/prime-liderreclu.component';
+import { PribaLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/priba-liderreclu.component';
+import { ValidadasLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/validadas-liderreclu.component';
+import { AsignaLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/asigna-liderreclu.component';
+import { CandRechaLiderreclutamientoComponent } from'./pages/usuarios/liderreclutamiento/componets/cand-recha-liderreclutamiento.component';
+import { CandAceptadosLiderreclutamientoComponent } from'./pages/usuarios/liderreclutamiento/componets/cand-aceptados-liderreclutamiento.component';
 
 
 
@@ -175,11 +202,40 @@ import { IndexTiComponent } from './pages/usuarios/ti/index-ti.component';
   {path: 'Solicitud', component: ListSolicitudComponent, canActivate: [AuthGuard] },
   {path: 'SolicitudDetalle/:id', component: DetalleSolicitudComponent, canActivate: [AuthGuard] },
   {path: 'Edit-contecnicos/:id', component: EditContecnicosComponent, canActivate: [AuthGuard]  },
-  {path: '**', component: NotfoundComponent, canActivate: [AuthGuard] },
+  // {path: '**', component: NotfoundComponent, canActivate: [AuthGuard] },
 
-  {path: 'index-ti', component: IndexTiComponent, canActivate: [AuthGuard] },
+  {path: 'Index-ti', component: IndexTiComponent, canActivate: [AuthGuard] },
   {path: 'Sol-val-ti', component: SolicValidadasTiComponent, canActivate: [AuthGuard] },
-  {path: 'Can-val-ti', component: CandiValidadosTiComponent, canActivate: [AuthGuard] }
+  {path: 'Can-val-ti', component: CandiValidadosTiComponent, canActivate: [AuthGuard] },
+
+  {path: 'Index-comercial', component: IndexComercialComponent, canActivate: [AuthGuard] },
+  {path: 'Aceptados-comercial', component: AceptadosComercialComponent, canActivate: [AuthGuard] },
+  {path: 'Borrador-comercial', component: BorradorComercialComponent , canActivate: [AuthGuard] },
+  {path: 'Can-pendientes-comercial', component: CandidatospendientesComercialComponent, canActivate: [AuthGuard] },
+  {path: 'Rechazados-comercial', component: RechazadosComercialComponent , canActivate: [AuthGuard] },
+  {path: 'Retro-comercial', component: RetroespectivasComercialComponent, canActivate: [AuthGuard] },
+  {path: 'Sol-pendiente-comercial', component: SolicitudespendientesComercialComponent , canActivate: [AuthGuard] },
+
+  {path: 'Index-reclutamiento', component: IndexReclutamientoComponent, canActivate: [AuthGuard] },
+  {path: 'Can-rechazados-reclutamiento', component: CandirechaReclutamientoComponent, canActivate: [AuthGuard] },
+  {path: 'Can-validados-reclutamiento', component: CandivaliReclutamientoComponent , canActivate: [AuthGuard] },
+  {path: 'Pri-alta-reclutamiento', component: PrialtaReclutamientoComponent , canActivate: [AuthGuard] },
+  {path: 'Pri-baja-reclutamiento', component: PribajaReclutamientoComponent , canActivate: [AuthGuard] },
+  {path: 'Pri-media-reclutamiento', component: PrimediaReclutamientoComponent , canActivate: [AuthGuard] },
+  {path: 'Rechazado-cliente-comercial', component: RechacliReclutamientoComponent , canActivate: [AuthGuard] },
+  {path: 'Solicitud2-reclutamiento', component: Solicitud2ReclutamientoComponent  , canActivate: [AuthGuard] },
+  {path: 'Index-rh', component: IndexRecursoshumanosComponent , canActivate: [AuthGuard] },
+  {path: 'Contratados-rh', component: ContratadosRecursoshumanosComponent , canActivate: [AuthGuard] },
+  {path: 'Pendientes-rh', component: PendientesRecursoshumanosComponent , canActivate: [AuthGuard] },
+  {path: 'Pendientes-contratacion-rh', component: PendientescoRecursoshumanosComponent , canActivate: [AuthGuard] } ,
+  {path: 'Index-lider', component: IndexLiderreclutamientoComponent , canActivate: [AuthGuard] },
+  {path: 'Pri-altalider', component: PrialLiderrecluComponent , canActivate: [AuthGuard] },
+  {path: 'Pri-medlider', component: PrimeLiderrecluComponent , canActivate: [AuthGuard] },
+  {path: 'Pri-bajalider', component: PribaLiderrecluComponent , canActivate: [AuthGuard] },
+  {path: 'Validadas-lider', component: ValidadasLiderrecluComponent , canActivate: [AuthGuard] },
+  {path: 'Asignadas-lider', component: AsignaLiderrecluComponent , canActivate: [AuthGuard] },
+  {path: 'Cand-reclider', component: CandRechaLiderreclutamientoComponent , canActivate: [AuthGuard] },
+  {path: 'Cand-aceptados-lider', component: CandAceptadosLiderreclutamientoComponent , canActivate: [AuthGuard] }
   ];
 
  export const appRoutingProviders: any[] = [];
