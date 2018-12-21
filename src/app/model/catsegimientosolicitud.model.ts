@@ -8,4 +8,5 @@ export interface CatSeguimientoSol {
   estEstatusSolicitud: Catestasolicitud;
   solSolicitud: Catsolicitud;
   usrUsuario: Catusuario;
+  comentario: string;
 }
