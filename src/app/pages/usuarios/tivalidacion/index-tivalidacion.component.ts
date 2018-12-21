@@ -8,10 +8,14 @@ import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 })
 export class IndexTivalidacionComponent implements OnInit {
   numer: number;
+  allAreas: any = [];
   constructor(private serviceSgsSolicitud: SeguimientoSolService) { }
 
   ngOnInit() {
-    this.numer = this.serviceSgsSolicitud.getSgsSeguimientoSolicitudXValidar().forEach.length;
+    this.serviceSgsSolicitud.getSgsSeguimientoSolicitudXValidar().subscribe(result => {
+      this.allAreas = result;
+    });
+    this.numer = this.allAreas.length;
   }
 
 }
