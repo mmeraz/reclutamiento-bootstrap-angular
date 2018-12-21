@@ -29,12 +29,12 @@
             <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>
             <td>{{ a.solSolicitud.priPrioridad.priNombre }}</td>
             <td class="text-center" >
-
-              <i style="color:#007bff; margin-right:20px;"
+                <i style="color:#007bff; margin-right:20px;"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Editar"
                 class="fas fa-pencil-alt"
+                [routerLink]="['/ConsultarTiValidacion', a.sgsIdseguimientosol]"
                 *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
             </td>
           </tr>

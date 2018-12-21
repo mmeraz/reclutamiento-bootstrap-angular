@@ -30,5 +30,4 @@ export class TablasolTivalidacionComponent implements OnInit {
       this.dtTrigger.next();
     });
   }
-
 }

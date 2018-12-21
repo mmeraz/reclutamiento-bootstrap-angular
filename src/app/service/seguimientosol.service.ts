@@ -5,6 +5,7 @@ import { Cookie } from 'ng2-cookies';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { CatSeguimientoSol } from '../model/catsegimientosolicitud.model';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 }
@@ -262,11 +263,12 @@ export class SeguimientoSolService {
       headers: this.headers});
   }
 
-
-  getSeguimiento(id) {
+  editBusiness(id): Observable<CatSeguimientoSol> {
     this.getHeaders();
-    return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetch/${id}`, {
-      headers: this.headers});
+    return this
+            .clienteHttp
+            .get<CatSeguimientoSol>(`${this.url}/fetch/${id}`, {
+              headers: this.headers});
   }
 
   getHeaders() {
