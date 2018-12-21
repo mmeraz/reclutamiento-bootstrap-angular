@@ -124,7 +124,7 @@ import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato
   {path: 'Edit-candidato/:id', component: EditCandidatoComponent },
 
   {path: 'Cliente', component: CatClienteComponent },
-  {path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  // {path: '', component: HomeComponent, canActivate: [AuthGuard] },
   // {path: 'Home', component: HomeComponent },
   {path: 'login', component: LoginComponent},
   {path: 'Area', component: CatAreaComponent, canActivate: [AuthGuard] },
