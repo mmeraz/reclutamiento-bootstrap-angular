@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 
 @Component({
   selector: 'app-index-tivalidacion',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexTivalidacionComponent implements OnInit {
   numer: number;
-  constructor() { }
+  constructor(private serviceSgsSolicitud: SeguimientoSolService) { }
 
   ngOnInit() {
-    this.numer = 3;
+    this.numer = this.serviceSgsSolicitud.getSgsSeguimientoSolicitudXValidar().forEach.length;
   }
 
 }
