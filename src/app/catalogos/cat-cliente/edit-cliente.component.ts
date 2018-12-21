@@ -23,8 +23,8 @@ export class EditClienteComponent implements OnInit {
 
      createForm() {
       this.editForm = this.fb.group({
-        cliNombre: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
-      cliRazonsocial: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+        cliNombre: ['', [Validators.required, Validators.maxLength(150), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ.\\s]*$')] ],
+      cliRazonsocial: ['', [Validators.required, Validators.maxLength(150), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ.\\s]*$')] ]
       });
       }
 

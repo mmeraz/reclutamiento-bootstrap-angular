@@ -5,7 +5,7 @@
                 <h1 class="h3 mb-3 font-weight-normal">Editar cliente</h1>
                 <div class="form-group">
                     <label for="cliNombre">Cliente</label>
-                    <input [(ngModel)]="cliente.cliNombre" maxlength="40" type="text" required class="form-control" name="cliNombre" formControlName="cliNombre" #cliNombre>
+                    <input [(ngModel)]="cliente.cliNombre" maxlength="150" type="text" required class="form-control" name="cliNombre" formControlName="cliNombre" #cliNombre>
                     <div *ngIf="editForm.get('cliNombre').errors && editForm.get('cliNombre').dirty">
                         <p class="text-danger" *ngIf="editForm.get('cliNombre').hasError('required')">El cliente requerido</p>
                         <p class="text-danger" *ngIf="editForm.get('cliNombre').hasError('maxlength')">Máximo 40 carácteres</p>
@@ -13,7 +13,7 @@
                     </div>
 
                     <label for="cliRazonsocial">Cliente</label>
-                    <input [(ngModel)]="cliente.cliRazonsocial" maxlength="40" type="text" required class="form-control" name="cliRazonsocial" formControlName="cliRazonsocial" #cliRazonsocial>
+                    <input [(ngModel)]="cliente.cliRazonsocial" maxlength="150" type="text" required class="form-control" name="cliRazonsocial" formControlName="cliRazonsocial" #cliRazonsocial>
                     <div *ngIf="editForm.get('cliRazonsocial').errors && editForm.get('cliRazonsocial').dirty">
                         <p class="text-danger" *ngIf="editForm.get('cliRazonsocial').hasError('required')">El cliente requerido</p>
                         <p class="text-danger" *ngIf="editForm.get('cliRazonsocial').hasError('maxlength')">Máximo 40 carácteres</p>
