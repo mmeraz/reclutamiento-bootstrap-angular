@@ -123,7 +123,7 @@ export class SeguimientoVtiComponent implements OnInit {
 
   updateBusiness() {
     this.route.params.subscribe(params => {
-      this.service.addValidar(this.solicitud);
+      // this.service.addValidar(this.solicitud);
       this.router.navigate(['/Seguimiento-solicitud']);
        swal({
         position: 'top',

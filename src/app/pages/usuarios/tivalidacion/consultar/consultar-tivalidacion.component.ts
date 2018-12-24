@@ -135,7 +135,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
 
   updateBusiness() {
     this.route.params.subscribe(params => {
-      this.service.addValidar(this.segimiento.solSolicitud);
+      this.service.addValidar(this.segimiento.solSolicitud, this.comentario);
       this.router.navigate(['/IndexTiValidacion']);
        swal({
         position: 'top',
@@ -147,6 +147,21 @@ export class ConsultarTivalidacionComponent implements OnInit {
     });
     this.update();
  }
+
+ updateRechazada() {
+  this.route.params.subscribe(params => {
+    this.service.addRechazadaTI(this.segimiento.solSolicitud, this.comentario);
+    this.router.navigate(['/IndexTiValidacion']);
+     swal({
+      position: 'top',
+      type: 'error',
+      title: `¡¡Solicitud Rechazada!!`,
+      showConfirmButton: false,
+      timer: 1500
+    });
+  });
+  this.update();
+}
 
  update(): void {
   window.location.reload();
