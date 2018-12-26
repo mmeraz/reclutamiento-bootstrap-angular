@@ -1,264 +1,1012 @@
-  <div class="container">
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-   <h6> Datos del requerimiento</h6>
-    <hr>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
 
-    <div class="row">
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        Tipo: {{ segimiento?.solSolicitud.arnAreanegocio.arnTipo }}
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-12">
-        Prioridad: {{ segimiento?.solSolicitud.priPrioridad.priNombre }}
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        Area de negocio: {{ segimiento?.solSolicitud.arnAreanegocio.arnTipo }}
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-12">
-       Existe presupuesto: {{ segimiento?.solSolicitud.solExistepresupuesto }}
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        Tipo de vacante: {{ segimiento?.solSolicitud.tvaTipoVacante.tvaTipo }}
-       </div>
-    </div>
+      <div>
+        <!-- Accordion wrapper -->
+        <div
+          class="accordion l-accordion accordion-12"
+          id="accordionEx2"
+          role="tablist"
+          aria-multiselectable="false"
+        >
+          <!-- Accordion card -->
+          <div class="card">
+            <!-- Card header -->
+            <div
+              class="card-header z-depth-1 teal lighten-4"
+              role="tab"
+              id="heading10"
+            >
+              <a
+                data-toggle="collapse"
+                data-parent="#accordionEx2"
+                href="#collapse10"
+                aria-expanded="false"
+                aria-controls="collapse10"
+              >
+                <h6 class="mb-0 black-text font-weight-bold">
+                  Datos del requerimiento
+                </h6>
+              </a>
+            </div>
 
-    <div class="row">
-      <div class="col-lg-3 col-md-2 col-sm-12">
-        Tarifa comercial: {{ segimiento?.solSolicitud.solTarifacomercial }}
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        Número Vacantes: {{ segimiento?.solSolicitud.solNovacantes }}
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-12">
-        Sueldo Tope:
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-12">
-       Sexo: {{ segimiento?.solSolicitud.solGenero }}
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-12">
-      Escolaridad: {{ segimiento?.solSolicitud.solEscolaridad }}
-       </div>
-    </div>
+            <!-- Card body -->
+            <div
+              id="collapse10"
+              class="collapse show"
+              role="tabpanel"
+              aria-labelledby="heading10"
+              data-parent="#accordionEx2"
+            >
+              <div class="card-body rgba-teal-strong white-text">
+                <!-- Select Basic -->
+                <div class="row">
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="requerimiento"
+                      >Tipo Requerimiento</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        [(ngModel)]="solicitud && solicitud.arnAreanegocio"
+                        class="form-control"
+                        id="requerimiento"
+                        name="requerimiento"
+                        [ngModelOptions]="{ standalone: true }"
+                      >
+                        <option [value]="null" selected>Selecciona uno</option>
+                        <option *ngFor="let c of allAreas" [value]="c">{{
+                          c.arnTipo
+                        }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Select Basic -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="prioridad"
+                      >Prioridad</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        [(ngModel)]="solicitud && solicitud.priPrioridad"
+                        id="prioridad"
+                        name="prioridad"
+                        [ngModelOptions]="{ stanalone: true }"
+                        class="form-control"
+                      >
+                        <option [value]="null" selected>Selecciona uno</option>
+                        <option *ngFor="let item of allPrioridad" [value]="item">{{
+                          item.priNombre
+                        }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Select Basic -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="presupuesto"
+                      >Presupuesto</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        id="presupuesto"
+                        name="presupuesto"
+                        class="form-control"
+                        [(ngModel)]="solicitud && solicitud.solExistepresupuesto"
+                        [ngModelOptions]="{ stanalone: true }"
+                      >
+                        <option [ngValue]="">Selecciona uno</option>
+                        <option value="S">Si</option>
+                        <option value="N">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Select Basic -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="vacante"
+                      >Tipo Vacante</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        id="vacante"
+                        name="vacante"
+                        class="form-control"
+                        [(ngModel)]="solicitud && solicitud.tvaTipoVacante"
+                        [ngModelOptions]="{ stanalone: true }"
+                      >
+                        <option [ngValue]="null" selected>Selecciona una</option>
+                        <option *ngFor="let item of allVacantes" [value]="item">{{
+                          item.tvaTipo
+                        }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="perfil"
+                      >Tipo perfil</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        [(ngModel)]="solicitud && solicitud.perPerfil"
+                        class="form-control"
+                        id="perfil"
+                        name="perfil"
+                        [ngModelOptions]="{ standalone: true }"
+                      >
+                        <option [value]="null" selected>Selecciona uno</option>
+                        <option *ngFor="let p of allPerfiles" [value]="p">{{
+                          p.perPerfil
+                        }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="genero"
+                      >Sexo</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        [(ngModel)]="solicitud && solicitud.solGenero"
+                        class="form-control"
+                        id="genero"
+                        name="genero"
+                        [ngModelOptions]="{ standalone: true }"
+                      >
+                        <option >Selecciona uno</option>
+                        <option value="I">Indefinido</option>
+                        <option value="H">Hombre</option>
+                        <option value="M">Mujer</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="escolaridad"
+                      >Escolaridad</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="escolaridad"
+                        name="escolaridad"
+                        type="text"
+                        placeholder="Grado escolar"
+                        class="form-control input-md"
+                        required=""
+                        [(ngModel)]="solicitud && solicitud.solEscolaridad"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="edad"
+                      >Edad</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="edad"
+                        name="edad"
+                        type="number"
+                        min="20" max="99"
+                        placeholder="Escribe la edad"
+                        class="form-control input-md"
+                        required=""
+                        [(ngModel)]="solicitud && solicitud.solEdadfinal"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion card -->
 
+          <!-- Accordion card -->
+          <div class="card">
+            <!-- Card header -->
+            <div
+              class="card-header z-depth-1 teal lighten-3"
+              role="tab"
+              id="heading11"
+            >
+              <a
+                class="collapsed"
+                data-toggle="collapse"
+                data-parent="#accordionEx2"
+                href="#collapse11"
+                aria-expanded="false"
+                aria-controls="collapse11"
+              >
+                <h6 class="mb-0 black-text font-weight-bold">Datos Cliente</h6>
+              </a>
+            </div>
 
-    <div class="row mb-4">
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        Requiere equipo:
-        <table class="table table-striped table-bordered table-hover" id="tableArea">
-            <thead  class="thead-ligth">
-                <tr>
-                    <th scope="col">Equipo</th>
-                    <th scope="col">Descripción</th>
-                </tr>
-            </thead>
-            <tbody class="tbody-ligth" >
-                <tr *ngFor="let a of segimiento?.solSolicitud.equipos">
-                    <th scope="row" >{{a.equEquipo.equNombre}}</th>
-                    <th scope="row" >{{a.equEquipo.equDescripcion}}</th>
-                </tr>
-            </tbody>
-        </table>
-      </div>
-      <div class="col-lg-4 col-md-2 col-sm-12">
-        Lugar entrevista:
-      </div>
-      <div class="col-lg-4 col-md-3 col-sm-12">
-      Lugar de asignación:
-      </div>
-    </div>
+            <!-- Card body -->
+            <div
+              id="collapse11"
+              class="collapse"
+              role="tabpanel"
+              aria-labelledby="heading11"
+              data-parent="#accordionEx2"
+            >
+              <div class="card-body rgba-teal-strong white-text">
+                <div class="row">
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="cliente"
+                      >Cliente</label
+                    >
+                    <div class="col-md-12">
+                      <select
+                        [(ngModel)]="solicitud && solicitud.cliCliente"
+                        [ngModelOptions]="{ stanalone: true }"
+                        id="cliente"
+                        name="cliente"
+                        class="form-control"
+                      >
+                        <option [ngValue]="null" selected>Selecciona Cliente</option>
+                        <option *ngFor="let c of allClientes" [value]="c"
+                          >{{c.cliNombre}}</option
+                        >
+                      </select>
+                    </div>
+                  </div>
+                  <!-- Select Basic -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="clcCliente"
+                      >Contacto gerente</label
+                    >
+                    <div class="col-md-12">
+                        <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconcligerente"
+                        [ngModelOptions]="{ stanalone: true }">
+                          <option [ngValue]="null" selected>Selecciona Contacto</option>
+                          <option *ngFor="let clc of solicitud?.cliCliente.contactos" [value]="clc">{{clc.clcNombre}}</option>
+                        </select>
+                      </div>
+                      <label class="col-md-12 control-label" for="clcCliente"
+                      >Contacto lider</label>
+                      <div class="col-md-12">
+                          <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconclilid"
+                          [ngModelOptions]="{ stanalone: true }">
+                            <option [ngValue]="null" selected>Selecciona Contacto</option>
+                            <option *ngFor="let clca of solicitud?.cliCliente.contactos" [value]="clca">{{clca.clcNombre}}</option>
+                          </select>
+                        </div>
+                        <label class="col-md-12 control-label" for="clcCliente"
+                      >Contacto tomador de decisiones</label>
+                        <div class="col-md-12">
+                            <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconclitode"
+                            [ngModelOptions]="{ stanalone: true }">
+                              <option [ngValue]="null" selected>Selecciona Contacto</option>
+                              <option *ngFor="let clcb of solicitud?.cliCliente.contactos" [value]="clcb">{{clcb.clcNombre}}</option>
+                            </select>
+                          </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion card -->
 
-<h6> Datos del cliente</h6>
-<hr>
-<div class="row">
-  <div class="col-lg-3 col-md-2 col-sm-12">
-    Nombre: {{ segimiento.solSolicitud.cliCliente.cliNombre }}
-  </div>
-  <div class="col-lg-2 col-md-2 col-sm-12">
-  <B> Contacto  </B>
+          <!-- Accordion card -->
+          <div class="card">
+            <!-- Card header -->
+            <div
+              class="card-header z-depth-1 teal lighten-2"
+              role="tab"
+              id="heading12"
+            >
+              <a
+                class="collapsed"
+                data-toggle="collapse"
+                data-parent="#accordionEx2"
+                href="#collapse12"
+                aria-expanded="false"
+                aria-controls="collapse12"
+              >
+                <h6 class="mb-0 black-text font-weight-bold">Datos del proyecto</h6>
+              </a>
+            </div>
 
-  </div>
-</div>
+            <!-- Card body -->
+            <div
+              id="collapse12"
+              class="collapse"
+              role="tabpanel"
+              aria-labelledby="heading12"
+              data-parent="#accordionEx2"
+            >
+              <div class="card-body rgba-teal-strong white-text">
+                <div class="row">
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="proyecto"
+                      >Nombre del proyecto</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="proyecto"
+                        name="proyecto"
+                        type="text"
+                        placeholder="nombre del proyecto"
+                        class="form-control input-md"
+                        required=""
+                        [(ngModel)]="solicitud?.proProyecto.proNombre"
+                        [ngModelOptions]="{ stanalone: true }"
 
-<div class="row mb-4">
-  <div class="col-lg-3 col-md-2 col-sm-12">
-    Razon Social: {{ segimiento.solSolicitud.cliCliente.cliRazonsocial }}
-  </div>
-  <div class="col-lg-2 col-md-2 col-sm-12">
-    Nombre: {{ segimiento.solSolicitud.proProyecto.clcContactoClienteByProIdconcligerente.clcNombre }}
+                      />
+                    </div>
+                  </div>
 
-   </div>
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="Puesto">Puesto</label>
+                    <div class="col-md-12">
+                      <input
+                        id="Puesto"
+                        name="Puesto"
+                        type="text"
+                        placeholder="Puesto del proyecto"
+                        class="form-control input-md"
+                        [(ngModel)]="solicitud?.proProyecto.proPuestoarea"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
 
-   <div class="col-lg-2 col-md-2 col-sm-12">
-    Teléfono(s): {{ segimiento.solSolicitud.proProyecto.clcContactoClienteByProIdconcligerente.clcTelefono }}
-   </div>
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="duracion"
+                      >Duración proyecto</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="duracion"
+                        name="duracion"
+                        type="text"
+                        placeholder="Duracion Proyecto"
+                        class="form-control input-md"
+                        [(ngModel)]="solicitud?.proProyecto.proDuracionmeses"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
 
-   <div class="col-lg-2 col-md-2 col-sm-12">
-    Email: {{ segimiento.solSolicitud.proProyecto.clcContactoClienteByProIdconcligerente.clcEmail }}
-   </div>
+                  <!-- Select Basic -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="jornada"
+                      >Jornada Laboral</label
+                    >
+                    <div class="col-md-12">
+                      <select id="jornada" name="jornada" class="form-control" [(ngModel)]="solicitud && solicitud.jolJornadalaboral"
+                      [ngModelOptions]="{ stanalone: true }">
+                        <option value="" selected>Selecciona una</option>
+                        <option *ngFor="let item of allJornada" [value]=item>{{item.jolTipo}}</option>
+                      </select>
+                    </div>
+                  </div>
 
-   <div class="col-lg-2 col-md-2 col-sm-12">
-    Puesto:
-   </div>
+                  <!-- Textarea -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="descripcion"
+                      >Descripción</label
+                    >
+                    <div class="col-md-12">
+                      <textarea
+                        class="form-control"
+                        id="descripcion"
+                        name="descripcion"
+                        [(ngModel)]="solicitud?.proProyecto.proDescripcion"
+                        [ngModelOptions]="{ stanalone: true }"
+                      >Descripción del proyecto</textarea>
+                    </div>
+                  </div>
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="nVacante"
+                      >Numero de vacantes</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="nVacante"
+                        name="nVacante"
+                        type="number"
+                        placeholder="Numero vacantes"
+                        min="1" max="100"
+                        class="form-control input-md"
+                        [(ngModel)]="solicitud && solicitud.solNovacantes"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="duracion"
+                      >Tarifa comercial</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="tarifaC"
+                        name="tarifaC"
+                        type="number"
+                        placeholder="Tarifa comercial"
+                        min="1" max="100"
+                        class="form-control input-md"
+                        [(ngModel)]="solicitud && solicitud.solTarifacomercial"
+                        [ngModelOptions]="{ stanalone: true }"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion card -->
+          <div class="card">
+            <!-- Card header -->
+            <div
+              class="card-header z-depth-1 teal lighten-1"
+              role="tab"
+              id="heading13"
+            >
+              <a
+                class="collapsed"
+                data-toggle="collapse"
+                data-parent="#accordionEx2"
+                href="#collapse13"
+                aria-expanded="true"
+                aria-controls="collapse13"
+              >
+                <h6 class="mb-0 black-text font-weight-bold">
+                  Conocimiento requeridos
+                </h6>
+              </a>
+            </div>
 
-</div>
+            <!-- Card body -->
+            <div
+              id="collapse13"
+              class="collapse"
+              role="tabpanel"
+              aria-labelledby="heading13"
+              data-parent="#accordionEx2"
+            >
+              <div class="card-body rgba-teal-strong white-text">
+                <div class="row">
+                  <!-- Select Basic -->
+                  <div class="form-group">
+                      <label class="col-md-12 control-label" for="idioma">Idioma</label>
+                      <div class="col-md-12">
+                        <select
+                        id="idioma"
+                        name="idioma"
+                        class="form-control"
+                        [(ngModel)]="idioma"
+                        [ngModelOptions]="{ stanalone: true }">
+                          <option value="" selected>Selecciona uno</option>
+                          <option *ngFor="let item of allIdiomas" [ngValue]="item">{{item.idiNombre}}</option>
+                        </select>
+                      </div>
+                  </div>
 
-<h6>Datos del proyecto </h6>
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="nivel">Nivel</label>
+                    <div class="col-md-12">
+                        <input
+                          id="nivel"
+                          name="nivel"
+                          type="text"
+                          placeholder=""
+                          class="form-control input-md"
+                          [(ngModel)]="nvIdioma"
+                          [ngModelOptions]="{ stanalone: true }"
+                        />
+                      </div>
+                  </div>
+                  <div>
+                      <i
+                      style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="center"
+                      title="Agregar"
+                      class="fas fa-plus"
+                      (click)="addIdioma()"
+                    ></i>
+                  </div>
+                  <div>
+                      <table class="table table-striped table-bordered table-hover" id="tableIdioma">
+                          <thead  class="thead-ligth">
+                              <tr>
+                                  <th scope="col">Idioma</th>
+                                  <th scope="col">Nivel</th>
+                                  <th scope="col">Eliminar</th>
+                              </tr>
+                          </thead>
+                          <tbody class="tbody-ligth" >
+                              <tr *ngFor="let a of solicitud?.idiomas">
+                                  <th scope="row" >{{a.idiIdioma.idiNombre}}</th>
+                                  <th scope="row" >{{a.sliNivel}}</th>
+                                  <td  align="center" style="width: 6em;">
+                                    <i style="color:#dc3545;"
+                                      data-toggle="tooltip"
+                                      data-placement="top"
+                                      title="Eliminar"
+                                      class="fas fa-trash-alt"
+                                      (click)="deleteIdioma(a)"
+                                      ></i>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </div>
+                <!-- Select Basic -->
+                <div class="row">
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="conocimiento"
+                      >Conocimiento</label
+                    >
+                    <div class="col-md-12">
+                        <select
+                        id="conocimiento"
+                        name="conocimiento"
+                        class="form-control"
+                        [(ngModel)]="conocimiento"
+                        [ngModelOptions]="{ stanalone: true }"
+                      >
+                        <option [ngValue]="null">Selecciona uno</option>
+                        <option *ngFor="let cono of allConocimiento" [ngValue]="cono">{{cono.cotConocimiento}}</option>
+                      </select>
+                    </div>
+                  </div>
 
-<hr>
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="nivel">Nivel</label>
+                    <div class="col-md-12">
+                        <input
+                          id="nivel"
+                          name="nivel"
+                          type="text"
+                          placeholder=""
+                          class="form-control input-md"
+                          [(ngModel)]="nvCono"
+                          [ngModelOptions]="{ stanalone: true }"
+                        />
+                      </div>
+                  </div>
+                  <div>
+                      <i
+                      style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="center"
+                      title="Agregar"
+                      class="fas fa-plus"
+                      (click)="addConocimiento()"
+                    ></i>
+                  </div>
+                  <div>
+                      <table class="table table-striped table-bordered table-hover" id="tableArea">
+                          <thead  class="thead-ligth">
+                              <tr>
+                                  <th scope="col">Conocimiento</th>
+                                  <th scope="col">Nivel</th>
+                                  <th scope="col">Eliminar</th>
+                              </tr>
+                          </thead>
+                          <tbody class="tbody-ligth" >
+                              <tr *ngFor="let a of solicitud?.conocimientos">
+                                  <th scope="row" >{{a.cotConocimientosTec.cotConocimiento}}</th>
+                                  <th scope="row" >{{a.socNivel}}</th>
+                                  <td  align="center" style="width: 6em;">
+                                    <i style="color:#dc3545;"
+                                      data-toggle="tooltip"
+                                      data-placement="top"
+                                      title="Eliminar"
+                                      class="fas fa-trash-alt"
+                                      (click)="deleteConocimiento(a)"
+                                      ></i>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </div>
+                <!-- Select Basic -->
+                <div class="row">
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="habilidades"
+                      >Habilidades</label
+                    >
+                    <div class="col-md-12">
+                        <select
+                          id="habilidades"
+                          name="habilidades"
+                          class="form-control"
+                          [(ngModel)]="habilidad"
+                          [ngModelOptions]="{ stanalone: true }"
+                        >
+                          <option [ngValue]="null">Selecciona uno</option>
+                          <option *ngFor="let hab of allHabilidades" [ngValue]="hab">{{hab.cohDescripcion}}</option>
+                        </select>
+                      </div>
+                  </div>
 
-<div class="row ">
-  <div class="col-lg-3 col-md-2 col-sm-12">
-    Nombre: {{ segimiento.solSolicitud.proProyecto.proNombre }}
-  </div>
-  <div class="col-lg-2 col-md-2 col-sm-12">
-    Descripción: {{ segimiento.solSolicitud.proProyecto.proDescripcion }}
-   </div>
+                  <!-- Text input -->
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="nivel">Nivel</label>
+                    <div class="col-md-12">
+                        <input
+                          id="nivel"
+                          name="nivel"
+                          type="text"
+                          placeholder=""
+                          class="form-control input-md"
+                          [(ngModel)]="nvhab"
+                          [ngModelOptions]="{ stanalone: true }"
+                        />
+                      </div>
+                  </div>
+                  <div>
+                      <i
+                      style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="center"
+                      title="Agregar"
+                      class="fas fa-plus"
+                      (click)="addHabilidad()"
+                    ></i>
+                  </div>
+                  <div>
+                      <table class="table table-striped table-bordered table-hover" id="tableArea">
+                          <thead  class="thead-ligth">
+                              <tr>
+                                  <th scope="col">Conocimiento</th>
+                                  <th scope="col">Nivel</th>
+                                  <th scope="col">Eliminar</th>
+                              </tr>
+                          </thead>
+                          <tbody class="tbody-ligth" >
+                              <tr *ngFor="let a of solicitud?.habilidades">
+                                  <th scope="row" >{{a.cohCompetenciashabilidades.cohDescripcion}}</th>
+                                  <th scope="row" >{{a.hbsNivel}}</th>
+                                  <td  align="center" style="width: 6em;">
+                                    <i style="color:#dc3545;"
+                                      data-toggle="tooltip"
+                                      data-placement="top"
+                                      title="Eliminar"
+                                      class="fas fa-trash-alt"
+                                      (click)="deleteHabilidad(a)"
+                                      ></i>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header z-depth-1 teal" role="tab" id="heading1">
+                <a
+                  class="collapsed"
+                  data-toggle="collapse"
+                  data-parent="#accordionEx2"
+                  href="#collapse1"
+                  aria-expanded="false"
+                  aria-controls="collapse1"
+                >
+                  <h6 class="mb-0 black-text font-weight-bold">
+                    Equipos
+                  </h6>
+                </a>
+              </div>
 
-   <div class="col-lg-2 col-md-2 col-sm-12">
-    Puesto: {{ segimiento.solSolicitud.proProyecto.proPuestoarea }}
-   </div>
+              <!-- Card body -->
+              <div
+                id="collapse1"
+                class="collapse"
+                role="tabpanel"
+                aria-labelledby="heading1"
+                data-parent="#accordionEx2"
+              >
+                <div class="card-body rgba-teal-strong white-text">
+                  <div class="row">
+                    <!-- Select Basic -->
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="equipo">Equipos</label>
+                      <select
+                      id="equipo"
+                      name="equipo"
+                      class="form-control"
+                      [(ngModel)]="equipo"
+                      [ngModelOptions]="{ stanalone: true }"
+                    >
+                      <option [ngValue]="null" selected>Selecciona uno</option>
+                      <option *ngFor="let e of allEquipo" [ngValue]="e">{{e.equNombre}}</option>
+                    </select>
+                    </div>
+                    <div>
+                        <div>
+                            <i
+                              style="color:#dc3545;"
+                              data-toggle="tooltip"
+                              data-placement="center"
+                              title="Agregar"
+                              class="fas fa-plus"
+                              (click)="addEquipo()"
+                            ></i>
+                          </div>
+                    </div>
+                    <div>
+                        <table class="table table-striped table-bordered table-hover" id="tableArea">
+                            <thead  class="thead-ligth">
+                                <tr>
+                                    <th scope="col">Conocimiento</th>
+                                    <th scope="col">Nivel</th>
+                                    <th scope="col">Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody-ligth" >
+                                <tr *ngFor="let a of solicitud?.equipos">
+                                    <th scope="row" >{{a.equEquipo.equNombre}}</th>
+                                    <th scope="row" >{{a.equEquipo.equDescripcion}}</th>
+                                    <td  align="center" style="width: 6em;">
+                                      <i style="color:#dc3545;"
+                                        data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="Eliminar"
+                                        class="fas fa-trash-alt"
+                                        (click)="deleteEquipo(a)"
+                                        ></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion card -->
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header z-depth-1 teal" role="tab" id="heading14">
+                <a
+                  class="collapsed"
+                  data-toggle="collapse"
+                  data-parent="#accordionEx2"
+                  href="#collapse14"
+                  aria-expanded="false"
+                  aria-controls="collapse14"
+                >
+                  <h6 class="mb-0 black-text font-weight-bold">
+                    Funciones
+                  </h6>
+                </a>
+              </div>
 
-   <div class="col-lg-2 col-md-2 col-sm-12">
-    Inicio:
-   </div>
-  </div>
+              <!-- Card body -->
+              <div
+                id="collapse14"
+                class="collapse"
+                role="tabpanel"
+                aria-labelledby="heading14"
+                data-parent="#accordionEx2"
+              >
+                <div class="card-body rgba-teal-strong white-text">
+                  <div class="row">
+                    <!-- Select Basic -->
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="funcion">Funcion</label>
+                      <div class="col-md-12">
+                          <input
+                            id="funcion"
+                            name="funcion"
+                            type="text"
+                            placeholder="Descripcion de la funcion"
+                            class="form-control input-md"
+                            [(ngModel)]="descripcionF"
+                          [ngModelOptions]="{ stanalone: true }"
+                          />
+                        </div>
+                    </div>
+                    <div>
+                        <i
+                        style="color:#dc3545;"
+                        data-toggle="tooltip"
+                        data-placement="center"
+                        title="Agregar"
+                        class="fas fa-plus"
+                        (click)="addFunciones()"
+                      ></i>
+                    </div>
+                    <div>
+                        <table class="table table-striped table-bordered table-hover" id="tableArea">
+                            <thead  class="thead-ligth">
+                                <tr>
+                                    <th scope="col">Funcion</th>
+                                    <th scope="col">Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody-ligth" >
+                                <tr *ngFor="let a of solicitud?.funciones">
+                                    <th scope="row" >{{a.funDescripcion}}</th>
+                                    <td  align="center" style="width: 6em;">
+                                      <i style="color:#dc3545;"
+                                        data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="Eliminar"
+                                        class="fas fa-trash-alt"
+                                        (click)="deleteFuncion(a)"
+                                        ></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion card -->
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header z-depth-1 teal" role="tab" id="heading15">
+                <a
+                  class="collapsed"
+                  data-toggle="collapse"
+                  data-parent="#accordionEx2"
+                  href="#collapse15"
+                  aria-expanded="false"
+                  aria-controls="collapse15"
+                >
+                  <h6 class="mb-0 black-text font-weight-bold">Percepciones</h6>
+                </a>
+              </div>
 
-  <div class="row mb-4">
-    <div class="col-lg-3 col-md-2 col-sm-12">
-      Observaciones: {{ segimiento.solSolicitud.proProyecto.proObservaciones }}
-    </div>
-  </div>
+              <!-- Card body -->
+              <div
+                id="collapse15"
+                class="collapse"
+                role="tabpanel"
+                aria-labelledby="heading15"
+                data-parent="#accordionEx2"
+              >
+                <div class="card-body rgba-teal-strong white-text">
+                  <div class="row">
+                    <!-- Select Basic -->
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="percepcion"
+                        >Tipo de percepción</label
+                      >
+                      <select
+                      id="percepcion"
+                      name="percepcion"
+                      class="form-control"
+                      [(ngModel)]="percepcion"
+                    [ngModelOptions]="{ stanalone: true }"
+                    >
+                      <option [ngValue]="null" selected="true">Selecciona una</option>
+                      <option *ngFor="let per of allPercepciones" [ngValue]="per">{{per.preTipo}}</option>
+                    </select>
+                    </div>
 
-
-  <h6>Conocimientos requeridos </h6>
-
-  <hr>
-
-  <div class="row">
-    <div class="col-lg-2 col-md-2 col-sm-12">
-      Tecnología
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-12">
-      nivel:
-     </div>
-     <div class="col-lg-2 col-md-2 col-sm-12">
-      Habilidades:
-     </div>
-     <div class="col-lg-2 col-md-2 col-sm-12">
-      nivel:
-     </div>
-
-     <div class="col-lg-2 col-md-2 col-sm-12">
-      Idioma:
-     </div>
-     <div class="col-lg-2 col-md-2 col-sm-12">
-      nivel:
-     </div>
-    </div>
-
-
-    <div class="row row mb-4">
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        Tecnología
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        nivel:
-       </div>
-       <div class="col-lg-2 col-md-2 col-sm-12">
-        Habilidades:
-       </div>
-       <div class="col-lg-2 col-md-2 col-sm-12">
-        nivel:
-       </div>
-
-       <div class="col-lg-2 col-md-2 col-sm-12">
-        Idioma:
-       </div>
-       <div class="col-lg-2 col-md-2 col-sm-12">
-        nivel:
-       </div>
-      </div>
-
-
-
-
-  <h6>  Conocimientos deseabes </h6>
-
-  <hr>
-
-    <div class="row">
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        Tecnología
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-12">
-        nivel:
-       </div>
-       <div class="col-lg-2 col-md-2 col-sm-12">
-        Habilidades:
-       </div>
-       <div class="col-lg-2 col-md-2 col-sm-12">
-        nivel:
-       </div>
-
-       <div class="col-lg-2 col-md-2 col-sm-12">
-        Idioma:
-       </div>
-       <div class="col-lg-2 col-md-2 col-sm-12">
-        nivel:
-       </div>
-      </div>
-
-
+                    <!-- Text input -->
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="descripcion"
+                        >Descripción</label
+                      >
+                          <div class="col-md-12">
+                              <input
+                                id="descripcion"
+                                name="descripcion"
+                                type="text"
+                                placeholder=""
+                                class="form-control input-md"
+                                [(ngModel)]="descripcionPer"
+                              [ngModelOptions]="{ stanalone: true }"
+                              />
+                            </div>
+                      </div>
+                    <!-- Text input -->
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="valor">Valor</label>
+                          <div class="col-md-12">
+                              <input
+                                id="valor"
+                                name="valor"
+                                type="text"
+                                placeholder=""
+                                class="form-control input-md"
+                                [(ngModel)]="valorPer"
+                              [ngModelOptions]="{ stanalone: true }"
+                              />
+                            </div>
+                  </div>
+                  <div>
+                      <i
+                      style="color:#dc3545;"
+                      data-toggle="tooltip"
+                      data-placement="center"
+                      title="Agregar"
+                      class="fas fa-plus"
+                      (click)="addPercepcion()"
+                    ></i>
+                  </div>
+                  <div>
+                      <table class="table table-striped table-bordered table-hover" id="tableArea">
+                          <thead  class="thead-ligth">
+                              <tr>
+                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Descripcion</th>
+                                  <th scope="col">Valor</th>
+                                  <th scope="col">Eliminar</th>
+                              </tr>
+                          </thead>
+                          <tbody class="tbody-ligth" >
+                              <tr *ngFor="let a of solicitud?.percepsiones">
+                                  <th scope="row" >{{a.prePercepciones.preTipo}}</th>
+                                  <th scope="row" >{{a.slpDescripcion}}</th>
+                                  <th scope="row" >{{a.slpValorm}}</th>
+                                  <td  align="center" style="width: 6em;">
+                                    <i style="color:#dc3545;"
+                                      data-toggle="tooltip"
+                                      data-placement="top"
+                                      title="Eliminar¡"
+                                      class="fas fa-trash-alt"
+                                      (click)="deleteFuncion(a)"
+                                      ></i>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.Accordion wrapper -->
+        </div>
       <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Tecnología
+        <div class="col-lg-6">
+          <form>
+            <div class="form-group">
+              <label class="font-weight-bold">Comentario</label>
+              <textarea
+                [(ngModel)]="comentario"
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="5"
+                [ngModelOptions]="{standalone: true}"
+              ></textarea>
+            </div>
+          </form>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-12">
-          Habilidades:
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-         </div>
 
-         <div class="col-lg-2 col-md-2 col-sm-12">
-          Idioma:
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-         </div>
+        <div class="row mt-4">
+
+          <div class="row">
+            <div class="col-lg-2">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="updateBusiness()"
+              >
+                Guardar
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="updateRechazada()"
+              >
+                Rechazar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-lg-6">
-        <form>
-      <div class="form-group">
-          <label class="font-weight-bold" >Comentario</label>
-          <textarea [(ngModel)]="comentario" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-        </div>
-      </form>
-  </div>
-
-  <div class="row mt-4">
-  <div class="col-lg-3">
     </div>
-
-    <div class="row">
-        <div class="col-lg-2">
-
-    <button type="button" class="btn btn-success" (click)="updateBusiness()">Guardar</button>
-
-
-
-
-    <button type="button" class="btn btn-danger" (click)="updateRechazada()">Rechazar</button>
-
   </div>
-
-
 </div>

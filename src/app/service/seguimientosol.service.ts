@@ -205,9 +205,15 @@ export class SeguimientoSolService {
          .subscribe(res => console.log('Done'));
   }
 
-  getSgsSeguimientoSolicitudValidadas() {
+  getSgsSeguimientoSolicitudValidadas(nombre: string) {
     this.getHeaders(); // agregar
-    return this.clienteHttp.get(this.url + '/fetchActive/1', {
+    return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetchActive/1/${nombre}`, {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudValidadasTI() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetchActive/1`, {
       headers: this.headers});
   }
 

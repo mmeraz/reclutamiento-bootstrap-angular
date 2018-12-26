@@ -5,6 +5,8 @@ import { CatSeguimientoSol } from 'src/app/model/catsegimientosolicitud.model';
 import { Subject } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
+import { SeguiSolicitudService } from 'src/app/service/cat.seguisolicitud.service';
+import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 
 @Component({
   selector: 'app-prialta-reclutamiento',
@@ -18,19 +20,18 @@ export class PrialtaReclutamientoComponent implements OnInit {
   arrayAreas: Catsolicitud[];
   allSeguimiento: any = [];
   dtTrigger: Subject<any> = new Subject();
-  constructor(private serviceSolicitud: SolicitudService, protected authservice: AuthService) { }
+  constructor(private serviceSolicitud: SeguimientoSolService, protected authservice: AuthService) { }
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-
-
-  this.serviceSolicitud.getSolicitudesA().subscribe(result => {
+    this.serviceSolicitud.getSgsSeguimientoSolicitudValidadas('Alta').subscribe(result => {
       this.allSeguimiento = result;
       this.dtTrigger.next();
-    });
+  });
+
   }
 
   getListSize(): number {

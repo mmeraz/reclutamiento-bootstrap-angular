@@ -34,7 +34,7 @@
                 data-placement="top"
                 title="Editar"
                 class="fas fa-pencil-alt"
-                [routerLink]="['/ConsultarTiValidacion', a.sgsIdseguimientosol]"
+                [routerLink]="['/ConsultarTiValidacion', a.solSolicitud.solIdsolicitud]"
                 *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
             </td>
           </tr>

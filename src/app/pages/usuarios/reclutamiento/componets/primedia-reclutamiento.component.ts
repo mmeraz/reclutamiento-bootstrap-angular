@@ -5,6 +5,7 @@ import { CatSeguimientoSol } from 'src/app/model/catsegimientosolicitud.model';
 import { Subject } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
+import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 
 @Component({
   selector: 'app-primedia-reclutamiento',
@@ -18,14 +19,14 @@ export class PrimediaReclutamientoComponent implements OnInit {
   arrayAreas: Catsolicitud[];
   allSeguimiento: any = [];
   dtTrigger: Subject<any> = new Subject();
-  constructor(private serviceSgsSolicitud: SolicitudService, protected authservice: AuthService) { }
+  constructor(private serviceSolicitud: SeguimientoSolService, protected authservice: AuthService) { }
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.serviceSgsSolicitud.getSolicitudesM().subscribe(result => {
+    this.serviceSolicitud.getSgsSeguimientoSolicitudValidadas('Media').subscribe(result => {
       this.allSeguimiento = result;
       this.dtTrigger.next();
     });

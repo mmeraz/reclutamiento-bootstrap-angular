@@ -19,6 +19,12 @@ export class UsuarioService {
       headers: this.headers});
   }
 
+  getReclutadores() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetch', {
+      headers: this.headers});
+  }
+
   addusuario(usrUsername, usrNombreUsuario, usrPassword, usrEmail, usrPerfil, usrTelefono) {
     this.getHeaders();
     const obj = {

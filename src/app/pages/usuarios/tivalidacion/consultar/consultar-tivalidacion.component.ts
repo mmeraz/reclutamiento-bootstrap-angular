@@ -128,13 +128,16 @@ export class ConsultarTivalidacionComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.service.editBusiness(params['id']).subscribe(res => {
         this.segimiento = res;
+        this.solicitud = this.segimiento.solSolicitud;
         console.log(this.segimiento.solSolicitud.cliCliente.cliNombre);
+        console.log(this.solicitud, this.solicitud.solIdsolicitud);
       });
     });
   }
 
   updateBusiness() {
     this.route.params.subscribe(params => {
+      this.bs.updateBusiness(this.solicitud, this.solicitud.solIdsolicitud);
       this.service.addValidar(this.segimiento.solSolicitud, this.comentario);
       this.router.navigate(['/IndexTiValidacion']);
        swal({

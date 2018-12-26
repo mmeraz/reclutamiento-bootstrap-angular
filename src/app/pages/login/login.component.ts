@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
       this.saveToken(response);
       this.authService.Guardartoken(response.access_token);
       this.authService.Guardarusuario(response.access_token);
-
       console.log(this.authService.Guardarusuario);
     }, err => {
       if (err.status === 401) {
@@ -55,7 +54,6 @@ export class LoginComponent implements OnInit {
       }
     }
     );
-
   }
 
   saveToken(token) {
