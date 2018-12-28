@@ -228,7 +228,7 @@ import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato
   {path: 'CandidatosValidados', component: CandivaTivalidacionComponent, canActivate: [AuthGuard]  },
   {path: 'TablaSolicitudPorValidarTiValidacion', component: TablasolTivalidacionComponent, canActivate: [AuthGuard]  },
   {path: 'ConsultarTiValidacion/:id', component: ConsultarTivalidacionComponent, canActivate: [AuthGuard]  },
-  {path: 'AltaLiderReclutamiento', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
+  {path: 'AltaLiderReclutamiento/:id', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
   {path: 'CitaClienteBackoffice', component: CitaclienteBackofficeComponent, canActivate: [AuthGuard]  },
 
 ];

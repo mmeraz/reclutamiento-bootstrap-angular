@@ -21,7 +21,7 @@ export class UsuarioService {
 
   getReclutadores() {
     this.getHeaders();
-    return this.clienteHttp.get(this.url + '/fetch', {
+    return this.clienteHttp.get(this.url + '/fetchBy/R', {
       headers: this.headers});
   }
 
