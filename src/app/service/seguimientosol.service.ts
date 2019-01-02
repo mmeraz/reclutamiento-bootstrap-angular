@@ -271,6 +271,12 @@ export class SeguimientoSolService {
       headers: this.headers});
   }
 
+  getSgsSeguimientoSolicitudByUser() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(`${this.url}/fetchByReclutador/${this.auth.usuario.usrUsuario}`, {
+      headers: this.headers});
+  }
+
   editBusiness(id): Observable<CatSeguimientoSol> {
     this.getHeaders();
     return this

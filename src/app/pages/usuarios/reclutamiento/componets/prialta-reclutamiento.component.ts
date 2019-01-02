@@ -27,7 +27,7 @@ export class PrialtaReclutamientoComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.serviceSolicitud.getSgsSeguimientoSolicitudValidadas('Alta').subscribe(result => {
+    this.serviceSolicitud.getSgsSeguimientoSolicitudByUser().subscribe(result => {
       this.allSeguimiento = result;
       this.dtTrigger.next();
   });
