@@ -96,9 +96,8 @@ import { ConsultarTivalidacionComponent } from './pages/usuarios/tivalidacion/co
 import { AltaLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/alta/alta-liderreclutamiento.component';
 import { CitaclienteBackofficeComponent } from './pages/usuarios/backoffice/citacliente/citacliente-backoffice.component';
 import { SeguimientoVtiComponent } from './catalogos/cat-seguisolicitud/seguimiento-vti.component';
-import { CandRechaLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-recha-liderreclutamiento.component';
-import { CandAceptadosLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-aceptados-liderreclutamiento.component';
 import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato.component';
+import { CandidatoValidarTiComponent } from './pages/usuarios/tivalidacion/candidatovalidar/candidato-validar-ti.component';
 
 
 
@@ -229,6 +228,7 @@ import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato
   {path: 'TablaSolicitudPorValidarTiValidacion', component: TablasolTivalidacionComponent, canActivate: [AuthGuard]  },
   {path: 'ConsultarTiValidacion/:id', component: ConsultarTivalidacionComponent, canActivate: [AuthGuard]  },
   {path: 'AltaLiderReclutamiento', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoValidarTi', component: CandidatoValidarTiComponent, canActivate: [AuthGuard]  },
   {path: 'CitaClienteBackoffice', component: CitaclienteBackofficeComponent, canActivate: [AuthGuard]  },
 
 ];

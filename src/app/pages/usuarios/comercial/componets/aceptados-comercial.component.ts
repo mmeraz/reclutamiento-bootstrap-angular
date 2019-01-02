@@ -24,7 +24,7 @@ export class AceptadosComercialComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.serviceSgsSolicitud.getSgsSeguimientoSolicitudValidadas().subscribe(result => {
+    this.serviceSgsSolicitud.getSgsSeguimientoSolicitudValidadas('Alta').subscribe(result => {
       this.allSeguimiento = result;
       this.dtTrigger.next();
     });

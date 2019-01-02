@@ -16,7 +16,7 @@ export class SeguimientoSolService {
 
   constructor(private clienteHttp: HttpClient, private router: Router, private auth: AuthService) {}
 
-  addValidar(solicitud: Catsolicitud) {
+  addValidar(solicitud: Catsolicitud, comentario: string) {
     this.getHeaders();
     const obj = {
       sgsIdseguimientosol: null,
@@ -25,7 +25,8 @@ export class SeguimientoSolService {
         estDescripcion: 'Validada'
       },
       solSolicitud: solicitud,
-      usrUsuario: this.auth.usuario
+      usrUsuario: this.auth.usuario,
+      sgsComentario: comentario
     };
     console.log(obj.usrUsuario.usrUsuario);
      this.clienteHttp.post(this.url + '/add', obj, {
@@ -135,7 +136,7 @@ export class SeguimientoSolService {
          .subscribe(res => console.log('Done'));
   }
 
-  addRechazadaTI(solicitud: Catsolicitud) {
+  addRechazadaTI(solicitud: Catsolicitud, comentario: string) {
     this.getHeaders();
     const obj = {
       sgsIdseguimientosol: null,
@@ -144,7 +145,8 @@ export class SeguimientoSolService {
         estDescripcion: 'Rechazada por TI'
       },
       solSolicitud: solicitud,
-      usrUsuario: this.auth.usuario
+      usrUsuario: this.auth.usuario,
+      sgsComentario: comentario
     };
     console.log(obj.usrUsuario.usrUsuario);
      this.clienteHttp.post(this.url + '/add', obj, {
@@ -203,9 +205,15 @@ export class SeguimientoSolService {
          .subscribe(res => console.log('Done'));
   }
 
-  getSgsSeguimientoSolicitudValidadas() {
+  getSgsSeguimientoSolicitudValidadas(nombre: string) {
     this.getHeaders(); // agregar
-    return this.clienteHttp.get(this.url + '/fetchActive/1', {
+    return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetchActive/1/${nombre}`, {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudValidadasTI() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetchActive/1`, {
       headers: this.headers});
   }
 

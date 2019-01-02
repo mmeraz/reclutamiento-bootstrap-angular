@@ -23,27 +23,27 @@
     >
       <div class="card-body">
           <div class="container">
-              <table id="dataTable" datatable class="row-border hover table-sm" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
-                  <thead>
-                    <tr>
-                      <th scope="col">Id</th>
-                      <th scope="col">Fecha</th>
-                      <th scope="col">Cliente</th>
-                      <th scope="col">Puesto</th>
-                      <th scope="col">Prioridad</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+            <table id="dataTable" datatable class="row-border hover table-sm" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Puesto</th>
+                  <th scope="col">Prioridad</th>
+                </tr>
+              </thead>
+              <tbody>
 
-                    <tr *ngFor="let a of allSeguimiento">
-                      <th scope="row">{{ a.solIdsolicitud }}</th>
-                      <td>{{ a.sgsFecha }}</td>
-                      <td>{{ a.cliCliente.cliNombre}}</td>
-                      <td>{{ a.proProyecto.proPuestoarea }}</td>
-                      <td>{{ a.priPrioridad.priNombre }}</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <tr *ngFor="let a of allSeguimiento">
+                  <th scope="row">{{ a.solSolicitud.solIdsolicitud }}</th>
+                  <td>{{ a.sgsFecha }}</td>
+                  <td>{{ a.solSolicitud.cliCliente.cliNombre}}</td>
+                  <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>
+                  <td>{{ a.solSolicitud.priPrioridad.priNombre }}</td>
+                </tr>
+              </tbody>
+            </table>
               </div>
 
           </div>

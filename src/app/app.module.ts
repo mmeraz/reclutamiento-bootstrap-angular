@@ -119,6 +119,7 @@ import { CandAceptadosLiderreclutamientoComponent } from './pages/usuarios/lider
 import { SeguimientoVtiComponent } from './catalogos/cat-seguisolicitud/seguimiento-vti.component';
 import { IndexBackofficeComponent } from './pages/usuarios/backoffice/index-backoffice.component';
 import { IndexTivalidacionComponent } from './pages/usuarios/tivalidacion/index-tivalidacion.component';
+import { CandidatoValidarTiComponent } from './pages/usuarios/tivalidacion/candidatovalidar/candidato-validar-ti.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -257,7 +258,8 @@ import { IndexTivalidacionComponent } from './pages/usuarios/tivalidacion/index-
     ValidadasLiderrecluComponent,
     CandRechaLiderreclutamientoComponent,
     CandAceptadosLiderreclutamientoComponent,
-    SeguimientoVtiComponent
+    SeguimientoVtiComponent,
+    CandidatoValidarTiComponent
   ],
   imports: [
     BrowserModule,

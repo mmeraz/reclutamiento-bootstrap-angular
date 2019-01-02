@@ -128,14 +128,17 @@ export class ConsultarTivalidacionComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.service.editBusiness(params['id']).subscribe(res => {
         this.segimiento = res;
+        this.solicitud = this.segimiento.solSolicitud;
         console.log(this.segimiento.solSolicitud.cliCliente.cliNombre);
+        console.log(this.solicitud, this.solicitud.solIdsolicitud);
       });
     });
   }
 
   updateBusiness() {
     this.route.params.subscribe(params => {
-      this.service.addValidar(this.segimiento.solSolicitud);
+      this.bs.updateBusiness(this.solicitud, this.solicitud.solIdsolicitud);
+      this.service.addValidar(this.segimiento.solSolicitud, this.comentario);
       this.router.navigate(['/IndexTiValidacion']);
        swal({
         position: 'top',
@@ -147,6 +150,21 @@ export class ConsultarTivalidacionComponent implements OnInit {
     });
     this.update();
  }
+
+ updateRechazada() {
+  this.route.params.subscribe(params => {
+    this.service.addRechazadaTI(this.segimiento.solSolicitud, this.comentario);
+    this.router.navigate(['/IndexTiValidacion']);
+     swal({
+      position: 'top',
+      type: 'error',
+      title: `¡¡Solicitud Rechazada!!`,
+      showConfirmButton: false,
+      timer: 1500
+    });
+  });
+  this.update();
+}
 
  update(): void {
   window.location.reload();
