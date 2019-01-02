@@ -37,6 +37,8 @@ import { PerfilService } from 'src/app/service/cat.perfil.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SolicitudService } from 'src/app/service/cat.solicitud.service';
 import swal from 'sweetalert2';
+import { UsuarioService } from 'src/app/service/cat.usuario.service';
+import { Catusuario } from 'src/app/model/catusuario.model';
 
 @Component({
   selector: 'app-consultar-tivalidacion',
@@ -70,6 +72,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
     private router: Router,
     private bs: SolicitudService,
     private service: SeguimientoSolService,
+    private userService: UsuarioService,
     private fb: FormBuilder) { }
 
   editForm: FormGroup;
@@ -110,7 +113,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
     percepcion: Catprepercepcion;
     descripcionPer: string;
     cliente: Catcliente;
-
+    user: Catusuario;
     comentario: string;
 
   ngOnInit() {
@@ -125,6 +128,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
     this.percepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
     this.equipoService.getEquipos().subscribe((data: Catequipo[]) => this.allEquipo = data);
     this.perfilService.getPerfiles().subscribe((data: Catperfil[]) => this.allPerfiles = data);
+    this.userService.getUsuario(3).subscribe((data: Catusuario) => this.user = data);
     this.route.params.subscribe(params => {
       this.service.editBusiness(params['id']).subscribe(res => {
         this.segimiento = res;
@@ -137,6 +141,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
 
   updateBusiness() {
     this.route.params.subscribe(params => {
+      this.solicitud.usrUsuarioBySolIdreclutador = this.user;
       this.bs.updateBusiness(this.solicitud, this.solicitud.solIdsolicitud);
       this.service.addValidar(this.segimiento.solSolicitud, this.comentario);
       this.router.navigate(['/IndexTiValidacion']);
