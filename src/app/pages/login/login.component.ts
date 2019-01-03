@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
       this.saveToken(response);
       this.authService.Guardartoken(response.access_token);
       this.authService.Guardarusuario(response.access_token);
-
       console.log(this.authService.Guardarusuario);
     }, err => {
       if (err.status === 401) {
@@ -55,17 +54,16 @@ export class LoginComponent implements OnInit {
       }
     }
     );
-
   }
 
   saveToken(token) {
     const expireDate = new Date().getTime() + (1000 * token.expires_in);
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
-    this.router.navigate(['/']);
-    // this.rerender();
+    this.router.navigate(['/IndexComercial']);
+    this.rerender();
   }
-  // rerender(): void {
-  //   window.location.reload();
-  // }
+  rerender(): void {
+    window.location.reload();
+  }
 }

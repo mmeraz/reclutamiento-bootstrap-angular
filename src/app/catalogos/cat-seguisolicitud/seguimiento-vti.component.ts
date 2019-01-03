@@ -34,6 +34,7 @@ import { Catequiposol } from 'src/app/model/catequiposol.model';
 import { SlpSolPercepciones } from 'src/app/model/catsolpercepcion.model';
 import { Catfunciones } from 'src/app/model/catfunciones.model';
 import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
+import { CatSeguimientoSol } from 'src/app/model/catsegimientosolicitud.model';
 
 @Component({
   selector: 'app-seguimiento-vti',
@@ -46,6 +47,7 @@ import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 export class SeguimientoVtiComponent implements OnInit {
   editForm: FormGroup;
   solicitud: Catsolicitud;
+  segimiento: CatSeguimientoSol;
 
     // info para los select :P
     allAreas: Catarea[];
@@ -114,7 +116,6 @@ export class SeguimientoVtiComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
         this.solicitud = res;
-        this.area = res.arnAreanegocio;
         console.log(this.solicitud.solExistepresupuesto);
       });
     });
@@ -122,7 +123,7 @@ export class SeguimientoVtiComponent implements OnInit {
 
   updateBusiness() {
     this.route.params.subscribe(params => {
-      this.service.addValidar(this.solicitud);
+      // this.service.addValidar(this.solicitud);
       this.router.navigate(['/Seguimiento-solicitud']);
        swal({
         position: 'top',

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-index-liderreclutamiento',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class IndexLiderreclutamientoComponent implements OnInit {
-
-  constructor() { }
+  user$;
+  constructor(protected authService: AuthService) { }
 
   ngOnInit() {
+    this.user$ = this.authService.usuario;
   }
 
 }

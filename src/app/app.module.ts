@@ -67,7 +67,6 @@ import { EditComphabilidadesComponent } from './catalogos/cat-comphabilidades/ed
 import { EditEstatuscandidatoComponent } from './catalogos/cat-estacandidato/edit-estatuscandidato.component';
 import { EditIdiomaComponent } from './catalogos/cat-idioma/edit-idioma.component';
 import { DetalleSolicitudComponent } from './catalogos/cat-solicitud/detalle-solicitud.component';
-import { IniciocabeceraComercialComponent } from './pages/usuarios/comercial/componets/iniciocabecera-comercial.component';
 import { RequeriBackofficeComponent } from './pages/usuarios/backoffice/componets/requeri-backoffice.component';
 import { CandiBackofficeComponent } from './pages/usuarios/backoffice/componets/candi-backoffice.component';
 import { RequipeBackofficeComponent } from './pages/usuarios/backoffice/componets/requipe-backoffice.component';
@@ -119,6 +118,8 @@ import { CandAceptadosLiderreclutamientoComponent } from './pages/usuarios/lider
 import { SeguimientoVtiComponent } from './catalogos/cat-seguisolicitud/seguimiento-vti.component';
 import { IndexBackofficeComponent } from './pages/usuarios/backoffice/index-backoffice.component';
 import { IndexTivalidacionComponent } from './pages/usuarios/tivalidacion/index-tivalidacion.component';
+import { CandidatoValidarTiComponent } from './pages/usuarios/tivalidacion/candidatovalidar/candidato-validar-ti.component';
+import { SoliReclutamientoComponent } from './pages/usuarios/reclutamiento/soli-reclutamiento/soli-reclutamiento.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -186,7 +187,6 @@ import { IndexTivalidacionComponent } from './pages/usuarios/tivalidacion/index-
     IndexComercialComponent,
     RechazadosComercialComponent,
     BorradorComercialComponent,
-    IniciocabeceraComercialComponent,
     CandidatospendientesComercialComponent,
     RetroespectivasComercialComponent,
     SolicitudespendientesComercialComponent,
@@ -257,7 +257,9 @@ import { IndexTivalidacionComponent } from './pages/usuarios/tivalidacion/index-
     ValidadasLiderrecluComponent,
     CandRechaLiderreclutamientoComponent,
     CandAceptadosLiderreclutamientoComponent,
-    SeguimientoVtiComponent
+    SeguimientoVtiComponent,
+    CandidatoValidarTiComponent,
+    SoliReclutamientoComponent
   ],
   imports: [
     BrowserModule,

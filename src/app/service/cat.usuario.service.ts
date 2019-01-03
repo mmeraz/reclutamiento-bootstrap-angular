@@ -19,6 +19,12 @@ export class UsuarioService {
       headers: this.headers});
   }
 
+  getReclutadores() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchBy/R', {
+      headers: this.headers});
+  }
+
   addusuario(usrUsername, usrNombreUsuario, usrPassword, usrEmail, usrPerfil, usrTelefono) {
     this.getHeaders();
     const obj = {
@@ -40,7 +46,8 @@ export class UsuarioService {
 
   getUsuario(id): Observable<Catusuario> {
     this.getHeaders();
-    return this.clienteHttp.get<Catusuario>(`${this.url}/fetch/${id}`);
+    return this.clienteHttp.get<Catusuario>(`${this.url}/fetch/${id}`, {
+      headers: this.headers});
   }
   editBusiness(id) {
     this.getHeaders();

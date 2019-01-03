@@ -4,6 +4,8 @@ import { Catsolicitud } from '../model/catsolicitud.model';
 import { Cookie } from 'ng2-cookies';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
+import { CatSeguimientoSol } from '../model/catsegimientosolicitud.model';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 }
@@ -14,7 +16,7 @@ export class SeguimientoSolService {
 
   constructor(private clienteHttp: HttpClient, private router: Router, private auth: AuthService) {}
 
-  addValidar(solicitud: Catsolicitud) {
+  addValidar(solicitud: Catsolicitud, comentario: string) {
     this.getHeaders();
     const obj = {
       sgsIdseguimientosol: null,
@@ -23,7 +25,8 @@ export class SeguimientoSolService {
         estDescripcion: 'Validada'
       },
       solSolicitud: solicitud,
-      usrUsuario: this.auth.usuario
+      usrUsuario: this.auth.usuario,
+      sgsComentario: comentario
     };
     console.log(obj.usrUsuario.usrUsuario);
      this.clienteHttp.post(this.url + '/add', obj, {
@@ -48,13 +51,13 @@ export class SeguimientoSolService {
          .subscribe(res => console.log('Done'));
   }
 
-  addCacelada(solicitud: Catsolicitud) {
+  addCancelada(solicitud: Catsolicitud) {
     this.getHeaders();
     const obj = {
       sgsIdseguimientosol: null,
       estEstatusSolicitud: {
-        estIdestatus: 6,
-        estDescripcion: 'Borrador'
+        estIdestatus: 8,
+        estDescripcion: 'Cancelada'
       },
       solSolicitud: solicitud,
       usrUsuario: this.auth.usuario
@@ -133,7 +136,7 @@ export class SeguimientoSolService {
          .subscribe(res => console.log('Done'));
   }
 
-  addRechazadaTI(solicitud: Catsolicitud) {
+  addRechazadaTI(solicitud: Catsolicitud, comentario: string) {
     this.getHeaders();
     const obj = {
       sgsIdseguimientosol: null,
@@ -142,7 +145,8 @@ export class SeguimientoSolService {
         estDescripcion: 'Rechazada por TI'
       },
       solSolicitud: solicitud,
-      usrUsuario: this.auth.usuario
+      usrUsuario: this.auth.usuario,
+      sgsComentario: comentario
     };
     console.log(obj.usrUsuario.usrUsuario);
      this.clienteHttp.post(this.url + '/add', obj, {
@@ -199,6 +203,86 @@ export class SeguimientoSolService {
      this.clienteHttp.post(this.url + '/add', obj, {
        headers: this.headers})
          .subscribe(res => console.log('Done'));
+  }
+
+  getSgsSeguimientoSolicitudValidadas(nombre: string) {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetchActive/1/${nombre}`, {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudValidadasTI() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetchActive/1`, {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudXValidar() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(this.url + '/fetchActive/10', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoAsignada() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(this.url + '/fetchActive/13', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoPendiente() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/14', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoRechazadas() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/15', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoBorrador() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/6', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoAceptadaXCliente() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/16', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoAceptadaXPerdida() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/17', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoEnEspera() {
+    this.getHeaders();
+    return this.clienteHttp.get(this.url + '/fetchActive/18', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudAct() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(this.url + '/fetchActive', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudByUser() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(`${this.url}/fetchByReclutador/${this.auth.usuario.usrUsuario}`, {
+      headers: this.headers});
+  }
+
+  editBusiness(id): Observable<CatSeguimientoSol> {
+    this.getHeaders();
+    return this
+            .clienteHttp
+            .get<CatSeguimientoSol>(`${this.url}/fetch/${id}`, {
+              headers: this.headers});
   }
 
   getHeaders() {

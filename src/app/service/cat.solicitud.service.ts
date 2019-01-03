@@ -66,7 +66,8 @@ export class SolicitudService {
     updateBusiness(solicitud: Catsolicitud, solIdsolicitud) {
       this.getHeaders();
       const obj = solicitud;
-      this.clienteHttp.put(`${this.url}/update/${solIdsolicitud}`, obj).subscribe(res => console.log('Done editado'));
+      this.clienteHttp.put(`${this.url}/update/${solIdsolicitud}`, obj, {
+        headers: this.headers}).subscribe(res => console.log('Done editado'));
     }
     getHeaders() {
       this.headers = new HttpHeaders();

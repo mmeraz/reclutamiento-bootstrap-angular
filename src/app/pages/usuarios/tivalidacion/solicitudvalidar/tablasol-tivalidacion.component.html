@@ -9,34 +9,34 @@
     </div>
 
 
-    <table class="table">
-        <thead class="thead-dark">
+    <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+        <thead>
           <tr>
-            <th scope="col">Nombre de solicitud</th>
-            <th scope="col">Fecha de solicitud</th>
-            <th scope="col">Fecha maxima por validar</th>
-            <th scope="col">Consultar</th>
-            <th scope="col">Validar</th>
+            <th scope="col">Id</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Puesto</th>
+            <th scope="col">Prioridad</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+
+          <tr *ngFor="let a of allSeguimiento">
+            <th scope="row">{{ a.solSolicitud.solIdsolicitud }}</th>
+            <td>{{ a.sgsFecha }}</td>
+            <td>{{ a.solSolicitud.cliCliente.cliNombre}}</td>
+            <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>
+            <td>{{ a.solSolicitud.priPrioridad.priNombre }}</td>
+            <td class="text-center" >
+                <i style="color:#007bff; margin-right:20px;"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Editar"
+                class="fas fa-pencil-alt"
+                [routerLink]="['/ConsultarTiValidacion', a.sgsIdseguimientosol]"
+                *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+            </td>
           </tr>
         </tbody>
       </table>

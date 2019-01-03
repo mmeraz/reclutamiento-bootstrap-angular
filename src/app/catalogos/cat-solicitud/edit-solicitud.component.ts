@@ -115,7 +115,6 @@ export class EditSolicitudComponent implements OnInit {
       this.bs.editBusiness(params['id']).subscribe(res => {
         this.solicitud = res;
         this.area = res.arnAreanegocio;
-        console.log(this.solicitud.solExistepresupuesto);
       });
     });
   }

@@ -44,14 +44,13 @@
                 >
                 <div class="col-md-12">
                   <select
-                    [(ngModel)]="solicitud && solicitud.arnAreanegocio"
+                    [(ngModel)]="solicitud && solicitud.arnAreanegocio.arnIdarean"
                     class="form-control"
                     id="requerimiento"
                     name="requerimiento"
-                    [ngModelOptions]="{ standalone: true }"
                   >
-                    <option [value]="null" selected>Selecciona uno</option>
-                    <option *ngFor="let c of allAreas" [value]="c">{{
+                    <option [ngValue]="null" selected>Selecciona uno</option>
+                    <option *ngFor="let c of allAreas" [ngValue]="c.arnIdarean">{{
                       c.arnTipo
                     }}</option>
                   </select>
@@ -64,14 +63,13 @@
                 >
                 <div class="col-md-12">
                   <select
-                    [(ngModel)]="solicitud && solicitud.priPrioridad"
+                    [(ngModel)]="solicitud && solicitud.priPrioridad.priIdprioridad"
                     id="prioridad"
                     name="prioridad"
-                    [ngModelOptions]="{ stanalone: true }"
                     class="form-control"
                   >
-                    <option [value]="null" selected>Selecciona uno</option>
-                    <option *ngFor="let item of allPrioridad" [value]="item">{{
+                    <option [ngValue]="null" selected>Selecciona uno</option>
+                    <option *ngFor="let item of allPrioridad" [ngValue]="item.priIdprioridad">{{
                       item.priNombre
                     }}</option>
                   </select>
@@ -88,7 +86,6 @@
                     name="presupuesto"
                     class="form-control"
                     [(ngModel)]="solicitud && solicitud.solExistepresupuesto"
-                    [ngModelOptions]="{ stanalone: true }"
                   >
                     <option [ngValue]="">Selecciona uno</option>
                     <option value="S">Si</option>
@@ -106,11 +103,11 @@
                     id="vacante"
                     name="vacante"
                     class="form-control"
-                    [(ngModel)]="solicitud && solicitud.tvaTipoVacante"
-                    [ngModelOptions]="{ stanalone: true }"
+                    [(ngModel)]="solicitud && solicitud.tvaTipoVacante.tvaIdtipovacante"
+
                   >
                     <option [ngValue]="null" selected>Selecciona una</option>
-                    <option *ngFor="let item of allVacantes" [value]="item">{{
+                    <option *ngFor="let item of allVacantes" [ngValue]="item.tvaIdtipovacante">{{
                       item.tvaTipo
                     }}</option>
                   </select>
@@ -122,14 +119,14 @@
                 >
                 <div class="col-md-12">
                   <select
-                    [(ngModel)]="solicitud && solicitud.perPerfil"
+                    [(ngModel)]="solicitud && solicitud.perPerfil.perIdperfil"
                     class="form-control"
                     id="perfil"
                     name="perfil"
-                    [ngModelOptions]="{ standalone: true }"
+
                   >
                     <option [value]="null" selected>Selecciona uno</option>
-                    <option *ngFor="let p of allPerfiles" [value]="p">{{
+                    <option *ngFor="let p of allPerfiles" [ngValue]="p.perIdperfil">{{
                       p.perPerfil
                     }}</option>
                   </select>
@@ -232,14 +229,14 @@
                 >
                 <div class="col-md-12">
                   <select
-                    [(ngModel)]="solicitud && solicitud.cliCliente"
+                    [(ngModel)]="solicitud && solicitud.cliCliente.cliIdcliente"
                     [ngModelOptions]="{ stanalone: true }"
                     id="cliente"
                     name="cliente"
                     class="form-control"
                   >
                     <option [ngValue]="null" selected>Selecciona Cliente</option>
-                    <option *ngFor="let c of allClientes" [value]="c"
+                    <option *ngFor="let c of allClientes" [ngValue]="c.cliIdcliente"
                       >{{c.cliNombre}}</option
                     >
                   </select>
@@ -251,28 +248,28 @@
                   >Contacto gerente</label
                 >
                 <div class="col-md-12">
-                    <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconcligerente"
+                    <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconcligerente.clcIdconcli"
                     [ngModelOptions]="{ stanalone: true }">
                       <option [ngValue]="null" selected>Selecciona Contacto</option>
-                      <option *ngFor="let clc of solicitud?.cliCliente.contactos" [value]="clc">{{clc.clcNombre}}</option>
+                      <option *ngFor="let clc of solicitud?.cliCliente.contactos" [ngValue]="clc.clcIdconcli">{{clc.clcNombre}}</option>
                     </select>
                   </div>
                   <label class="col-md-12 control-label" for="clcCliente"
                   >Contacto lider</label>
                   <div class="col-md-12">
-                      <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconclilid"
+                      <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconclilid.clcIdconcli"
                       [ngModelOptions]="{ stanalone: true }">
                         <option [ngValue]="null" selected>Selecciona Contacto</option>
-                        <option *ngFor="let clca of solicitud?.cliCliente.contactos" [value]="clca">{{clca.clcNombre}}</option>
+                        <option *ngFor="let clca of solicitud?.cliCliente.contactos" [ngValue]="clca.clcIdconcli">{{clca.clcNombre}}</option>
                       </select>
                     </div>
                     <label class="col-md-12 control-label" for="clcCliente"
                   >Contacto tomador de decisiones</label>
                     <div class="col-md-12">
-                        <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconclitode"
+                        <select id="clcCliente" name="clcCliente" class="form-control" [(ngModel)]="solicitud?.proProyecto.clcContactoClienteByProIdconclitode.clcIdconcli"
                         [ngModelOptions]="{ stanalone: true }">
                           <option [ngValue]="null" selected>Selecciona Contacto</option>
-                          <option *ngFor="let clcb of solicitud?.cliCliente.contactos" [value]="clcb">{{clcb.clcNombre}}</option>
+                          <option *ngFor="let clcb of solicitud?.cliCliente.contactos" [ngValue]="clcb.clcIdconcli">{{clcb.clcNombre}}</option>
                         </select>
                       </div>
               </div>
@@ -327,7 +324,6 @@
                     required=""
                     [(ngModel)]="solicitud?.proProyecto.proNombre"
                     [ngModelOptions]="{ stanalone: true }"
-
                   />
                 </div>
               </div>
@@ -372,10 +368,10 @@
                   >Jornada Laboral</label
                 >
                 <div class="col-md-12">
-                  <select id="jornada" name="jornada" class="form-control" [(ngModel)]="solicitud && solicitud.jolJornadalaboral"
-                  [ngModelOptions]="{ stanalone: true }">
-                    <option value="" selected>Selecciona una</option>
-                    <option *ngFor="let item of allJornada" [value]=item>{{item.jolTipo}}</option>
+                  <select id="jornada" name="jornada" class="form-control" [(ngModel)]="solicitud && solicitud.jolJornadalaboral.jolIdjornada"
+                  >
+                    <option [ngValue]="null" selected>Selecciona una</option>
+                    <option *ngFor="let item of allJornada" [ngValue]="item.jolIdjornada">{{item.jolTipo}}</option>
                   </select>
                 </div>
               </div>

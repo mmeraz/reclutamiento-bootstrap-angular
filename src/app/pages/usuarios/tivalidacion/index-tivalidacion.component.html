@@ -1,31 +1,44 @@
 <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-5 col-md-offset col-sm-12">
-        <h6>Bienvenido $Username / TI Validación</h6>
-      </div>
-      <div class="col-lg-6 col-md-5 col-sm-12">
-       <!-- <button class="btn btn-success btn-sm" [routerLink]="['/Candidato']"> Nuevo</button> -->
-      </div>
+    <div class="row mb-lg-5 mb-md-5">
+
+        <div class="col-lg-4 col-md-4 col-sm-12 mb-sm-1 mt-sm-1">
+          <div class="card-counter primary" [routerLink]="['/TablaSolicitudPorValidarTiValidacion']">
+            <i class="fas fa-warehouse"></i>
+            <span class="count-numbers">{{ allAreas.length }}</span>
+            <span class="count-name">Solicitudes Pendientes</span>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 mb-sm-1 mt-sm-1">
+          <div class="card-counter danger" [routerLink]="['/CandidatosPorValidar']">
+            <i class="fas fa-user-friends"></i>
+            <span class="count-numbers">{{allCandXValidar.length}}</span>
+            <span class="count-name">Candidatos por validar</span>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 mb-sm-1 mt-sm-1">
+          <div class="card-counter success">
+            <i class="fa fa-users"></i>
+            <span class="count-numbers">6875</span>
+            <span class="count-name">2da Opcion</span>
+          </div>
+        </div>
+
+
+ </div>
+
+
+  <div class="row mb-lg-5 mt-lg-5 mb-md-5 mt-md-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 mb-sm-1 mt-sm-1">
+<app-solic-validadas-ti></app-solic-validadas-ti>
     </div>
+  </div>
+  <div class="row mb-lg-5 mt-lg-5 mb-md-5 mt-md-5">
 
+    <div class="col-lg-12 col-md-12 col-sm-12 mb-sm-1 mt-sm-1">
+<app-candi-validados-ti></app-candi-validados-ti>
+    </div>
+  </div>
 
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <app-solipen-tivalidacion></app-solipen-tivalidacion>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <app-candivali-tivalidacion></app-candivali-tivalidacion>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <app-opcicandi-tivalidacion></app-opcicandi-tivalidacion>
-        </div>
-      </div>
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-              <app-solivali-tivalidacion></app-solivali-tivalidacion>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <app-candiva-tivalidacion></app-candiva-tivalidacion>
-              </div>
 </div>

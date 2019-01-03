@@ -33,6 +33,7 @@ import { PerfilService } from 'src/app/service/cat.perfil.service';
 import { Catequiposol } from 'src/app/model/catequiposol.model';
 import { SolicitudService } from 'src/app/service/cat.solicitud.service';
 import { AuthService } from 'src/app/service/auth.service';
+import { Router } from '@angular/router';
 
 
 
@@ -100,6 +101,9 @@ export class CatSolicitudComponent implements OnInit {
   edad: number;
   direccion: string;
   experiencia: string;
+  conClientG: Catcontactcliente;
+  conClientLP: Catcontactcliente;
+  conClientTL: Catcontactcliente;
 
   // lista de la solicitud (relaciones)
   contactosCliente: Catcontactcliente[] = [];
@@ -124,6 +128,7 @@ export class CatSolicitudComponent implements OnInit {
     private percepcionService: PrePercepcionService,
     private equipoService: EquipoService,
     private perfilService: PerfilService,
+    private router: Router,
     private fb: FormBuilder, private bs: SolicitudService, private auth: AuthService) {
     }
 
@@ -158,9 +163,17 @@ export class CatSolicitudComponent implements OnInit {
       priPrioridad: this.prioridad,
       proProyecto: {
         proIdproyecto: null,
-        clcContactoClienteByProIdconclitode: this.contactosCliente[0],
-        clcContactoClienteByProIdconclilid: this.contactosCliente[1],
-        clcContactoClienteByProIdconcligerente: this.contactosCliente[2],
+        clcContactoClienteByProIdconclitode: {
+          clcIdconcli: this.conClientTL.clcIdconcli,
+          cliCliente: this.conClientTL.cliCliente,
+          clcNombre: this.conClientTL.clcNombre,
+          clcTelefono: this.conClientTL.clcTelefono,
+          clcEmail: this.conClientTL.clcEmail,
+          clcTipo: this.conClientTL.clcTipo,
+          clcExtension: this.conClientTL.clcExtension
+        },
+        clcContactoClienteByProIdconclilid: this.conClientLP,
+        clcContactoClienteByProIdconcligerente: this.conClientG,
         cliCliente: this.cliente,
         proNombre: this.nombrePro,
         proDescripcion: this.descripcion,
@@ -210,6 +223,7 @@ export class CatSolicitudComponent implements OnInit {
       percepsiones: this.listaPercepciones
     };
     this.bs.addSolicitud(this.solicitud);
+    this.router.navigate(['/Solicitud']);
   }
 
   /**

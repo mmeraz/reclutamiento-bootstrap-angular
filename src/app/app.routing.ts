@@ -59,7 +59,6 @@ import { AceptadosComercialComponent } from './pages/usuarios/comercial/componet
 import { IndexComercialComponent } from './pages/usuarios/comercial/index-comercial.component';
 import { RechazadosComercialComponent } from './pages/usuarios/comercial/componets/rechazados-comercial.component';
 import { BorradorComercialComponent } from './pages/usuarios/comercial/componets/borrador-comercial.component';
-import { IniciocabeceraComercialComponent } from './pages/usuarios/comercial/componets/iniciocabecera-comercial.component';
 import { CandidatospendientesComercialComponent } from './pages/usuarios/comercial/componets/candidatospendientes-comercial.component';
 import { RetroespectivasComercialComponent } from './pages/usuarios/comercial/componets/retroespectivas-comercial.component';
 import { SolicitudespendientesComercialComponent } from './pages/usuarios/comercial/componets/solicitudespendientes-comercial.component';
@@ -96,9 +95,9 @@ import { ConsultarTivalidacionComponent } from './pages/usuarios/tivalidacion/co
 import { AltaLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/alta/alta-liderreclutamiento.component';
 import { CitaclienteBackofficeComponent } from './pages/usuarios/backoffice/citacliente/citacliente-backoffice.component';
 import { SeguimientoVtiComponent } from './catalogos/cat-seguisolicitud/seguimiento-vti.component';
-import { CandRechaLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-recha-liderreclutamiento.component';
-import { CandAceptadosLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-aceptados-liderreclutamiento.component';
 import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato.component';
+import { CandidatoValidarTiComponent } from './pages/usuarios/tivalidacion/candidatovalidar/candidato-validar-ti.component';
+import { SoliReclutamientoComponent } from './pages/usuarios/reclutamiento/soli-reclutamiento/soli-reclutamiento.component';
 
 
 
@@ -124,7 +123,7 @@ import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato
   {path: 'Edit-candidato/:id', component: EditCandidatoComponent },
 
   {path: 'Cliente', component: CatClienteComponent },
-  {path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  // {path: '', component: HomeComponent, canActivate: [AuthGuard] },
   // {path: 'Home', component: HomeComponent },
   {path: 'login', component: LoginComponent},
   {path: 'Area', component: CatAreaComponent, canActivate: [AuthGuard] },
@@ -194,7 +193,6 @@ import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato
   {path: 'IndexComercial', component: IndexComercialComponent, canActivate: [AuthGuard]  },
   {path: 'RechazadosComercial', component: RechazadosComercialComponent, canActivate: [AuthGuard]  },
   {path: 'BorradorComercial', component: BorradorComercialComponent, canActivate: [AuthGuard]  },
-  {path: 'IniciocabeceraComercial', component: IniciocabeceraComercialComponent, canActivate: [AuthGuard]  },
   {path: 'CandidatospendienteComercial', component: CandidatospendientesComercialComponent, canActivate: [AuthGuard]  },
   {path: 'RetroespectivasComercial', component: RetroespectivasComercialComponent, canActivate: [AuthGuard]  },
   {path: 'SolicitudespendientesComercial', component: SolicitudespendientesComercialComponent, canActivate: [AuthGuard]  },
@@ -227,9 +225,12 @@ import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato
   {path: 'SolicitudesValidadas', component: SolivaliTivalidacionComponent, canActivate: [AuthGuard]  },
   {path: 'CandidatosValidados', component: CandivaTivalidacionComponent, canActivate: [AuthGuard]  },
   {path: 'TablaSolicitudPorValidarTiValidacion', component: TablasolTivalidacionComponent, canActivate: [AuthGuard]  },
-  {path: 'ConsultarTiValidacion', component: ConsultarTivalidacionComponent, canActivate: [AuthGuard]  },
+  {path: 'ConsultarTiValidacion/:id', component: ConsultarTivalidacionComponent, canActivate: [AuthGuard]  },
   {path: 'AltaLiderReclutamiento', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
-  {path: 'CitaClienteBackoffice', component: CitaclienteBackofficeComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoValidarTi', component: CandidatoValidarTiComponent, canActivate: [AuthGuard]  },
+  {path: 'AltaLiderReclutamiento/:id', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
+  {path: 'CitaClienteBackoffice', component: CitaclienteBackofficeComponent, canActivate: [AuthGuard]},
+  {path: 'Solicitud-reclutamiento/:id', component: SoliReclutamientoComponent, canActivate: [AuthGuard]}
 
 ];
 
