@@ -10,9 +10,9 @@
         </div>
 
         <div class="col-lg-4 col-md-4 col-sm-12 mb-sm-1 mt-sm-1">
-          <div class="card-counter danger">
+          <div class="card-counter danger" [routerLink]="['/CandidatosPorValidar']">
             <i class="fas fa-user-friends"></i>
-            <span class="count-numbers">599</span>
+            <span class="count-numbers">{{allCandXValidar.length}}</span>
             <span class="count-name">Candidatos por validar</span>
           </div>
         </div>

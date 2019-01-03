@@ -21,7 +21,7 @@ export class UsuarioService {
 
   getReclutadores() {
     this.getHeaders();
-    return this.clienteHttp.get(this.url + '/fetch', {
+    return this.clienteHttp.get(this.url + '/fetchBy/R', {
       headers: this.headers});
   }
 
@@ -46,7 +46,8 @@ export class UsuarioService {
 
   getUsuario(id): Observable<Catusuario> {
     this.getHeaders();
-    return this.clienteHttp.get<Catusuario>(`${this.url}/fetch/${id}`);
+    return this.clienteHttp.get<Catusuario>(`${this.url}/fetch/${id}`, {
+      headers: this.headers});
   }
   editBusiness(id) {
     this.getHeaders();

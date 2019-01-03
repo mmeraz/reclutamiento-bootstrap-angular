@@ -1,0 +1,321 @@
+<div class="card">
+    <div class="card-header">
+        Solicitud
+    </div>
+    <div class="card-body">
+
+          <h5 class="col-md-12">Datos del Requerimiento</h5>
+
+            <div class="form-group row">
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Tipo de Requerimiento:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud?.arnAreanegocio.arnTipo">
+                </div>
+
+                <label for="area" class="col-sm-2 col-form-label"><strong>Prioridad:</strong></label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud?.priPrioridad.priNombre">
+                </div>
+
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Presupuesto:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud.solExistepresupuesto">
+                </div>
+
+                <label for="area" class="col-sm-2 col-form-label"><strong>Tipo Vacante:</strong></label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud?.tvaTipoVacante.tvaTipo">
+                </div>
+
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Tipo perfil:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud?.perPerfil.perPerfil">
+                </div>
+
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Sexo:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud.solGenero">
+                </div>
+
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Escolaridad:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud.solEscolaridad">
+                </div>
+
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Edad:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud.solEdadfinal">
+                </div>
+
+            </div>
+              <br>
+
+            <h5 class="col-md-12">Datos del Cliente</h5>
+
+            <div class="form-group row">
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Cliente:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud?.cliCliente.cliNombre">
+                </div>
+
+                <label for="area" class="col-sm-2 col-form-label"><strong>Contacto:</strong></label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud?.cliCliente.contactos">
+                </div>
+            </div>
+            <br>
+
+            <h5 class="col-md-12">Datos del Proyecto</h5>
+
+            <div class="form-group row">
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Nombre del proyecto:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud?.proProyecto.proNombre">
+                </div>
+
+                <label for="area" class="col-sm-2 col-form-label"><strong>Puesto:</strong></label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud?.proProyecto.proPuestoarea">
+                </div>
+
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Duración proyecto:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud?.proProyecto.proDuracionmeses">
+                </div>
+
+                <label for="area" class="col-sm-2 col-form-label"><strong>Jornada Laboral:</strong></label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud.jolJornadalaboral.jolTipo">
+                </div>
+
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Descripción:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud?.proProyecto.proDescripcion">
+                </div>
+
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Numero de vacantes:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud.solNovacantes">
+                </div>
+
+                <label  for="area" class="col-sm-2 col-form-label"><strong>Tarifa comercial:</strong> </label>
+                <div class="col-sm-2">
+                  <input
+                  type="text"
+                  readonly
+                  class="form-control-plaintext"
+                  id="area"
+                  [(ngModel)]="solicitud && solicitud.solTarifacomercial">
+                </div>
+                </div>
+                <br>
+
+            <h5 class="col-md-12">Conocimiento requeridos</h5>
+
+            <div class="form-group row">
+                <div class="col-sm-2 ">
+                <table class="table table-striped table-bordered table-hover" id="tableIdioma">
+                    <thead  class="thead-ligth">
+                        <tr>
+                            <th scope="col">Idioma</th>
+                            <th scope="col">Nivel</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-ligth" >
+                        <tr *ngFor="let a of solicitud?.idiomas">
+                            <th scope="row" >{{a.idiIdioma.idiNombre}}</th>
+                            <th scope="row" >{{a.sliNivel}}</th>
+
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+                <div class="col-sm-2 offset-md-2">
+                <table class="table table-striped table-bordered table-hover" id="tableArea">
+                    <thead  class="thead-ligth">
+                        <tr>
+                            <th scope="col">Conocimiento</th>
+                            <th scope="col">Nivel</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-ligth" >
+                        <tr *ngFor="let a of solicitud?.conocimientos">
+                            <th scope="row" >{{a.cotConocimientosTec.cotConocimiento}}</th>
+                            <th scope="row" >{{a.socNivel}}</th>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div class="col-sm-2 offset-md-3">
+                <table class="table table-striped table-bordered table-hover" id="tableArea">
+                    <thead  class="thead-ligth">
+                        <tr>
+                            <th scope="col">Habilidades</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-ligth" >
+                        <tr *ngFor="let a of solicitud?.habilidades">
+                            <th scope="row" >{{a.cohCompetenciashabilidades.cohDescripcion}}</th>
+
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+            <br>
+
+            <h5 class="col-md-12">Equipo/Funciones</h5>
+
+            <div class="form-group row">
+                <div class="col-sm-2 ">
+                    <table class="table table-striped table-bordered table-hover" id="tableArea">
+                        <thead  class="thead-ligth">
+                            <tr>
+                                <th scope="col">Equipo</th>
+                                <th scope="col">Descripcion</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody-ligth" >
+                            <tr *ngFor="let a of solicitud?.equipos">
+                                <th scope="row" >{{a.equEquipo.equNombre}}</th>
+                                <th scope="row" >{{a.equEquipo.equDescripcion}}</th>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-2 offset-md-2">
+                <table class="table table-striped table-bordered table-hover" id="tableArea">
+                    <thead  class="thead-ligth">
+                        <tr>
+                            <th scope="col">Funcion</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-ligth" >
+                        <tr *ngFor="let a of solicitud?.funciones">
+                            <th scope="row" >{{a.funDescripcion}}</th>
+
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h5 class="col-md-12">Percepciones</h5>
+
+            <div class="form-group row">
+                <div class="col-sm-2 ">
+                    <table class="table table-striped table-bordered table-hover" id="tableArea">
+                        <thead  class="thead-ligth">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody-ligth" >
+                            <tr *ngFor="let a of solicitud?.percepsiones">
+                                <th scope="row" >{{a.prePercepciones.preTipo}}</th>
+                                <th scope="row" >{{a.slpDescripcion}}</th>
+                                <th scope="row" >{{a.slpValorm}}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-12">
+        <button class="btn btn-success mr-2"
+        [routerLink]="['/New-candidato']"
+        >Nuevo</button>
+
+        <button class="btn btn-danger"
+        [routerLink]="['/IndexReclutamiento']"
+        >Atras</button>
+      </div>
+
+    </div>

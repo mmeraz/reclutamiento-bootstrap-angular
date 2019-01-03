@@ -1,46 +1,64 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6 col-md-5 col-md-offset col-sm-12">
-      <h6>Bienvenido {{user$ && user$.usrNombreusuario}} / Comercial</h6>
+      <h6>Bienvenido {{ user$ && user$.usrNombreusuario }} / Comercial</h6>
     </div>
     <div class="col-lg-6 col-md-5 col-sm-12">
-     <button class="btn btn-success btn-md float-right" [routerLink]="['/Create-solicitud']"> Nuevo <i class="fa fa-plus"></i></button>
+      <button
+        class="btn btn-success btn-md float-right"
+        [routerLink]="['/Create-solicitud']"
+      >
+        Nuevo <i class="fa fa-plus"></i>
+      </button>
     </div>
   </div>
-  <hr>
-
-    <div class="row mb-lg-5 mt-lg-5 mb-md-2 mt-md-2">
-    <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
-      <app-aceptados-comercial></app-aceptados-comercial>
-    </div>
-    </div>
-    <div class="row mb-lg-5 mt-lg-5 mb-md-2 mt-md-2">
-    <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
-      <app-rechazados-comercial></app-rechazados-comercial>
-    </div>
-
-    </div>
-
-    <div class="row mb-lg-5 mt-lg-5 mb-md-2 mt-md-2">
-        <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
+  <hr />
+<!--Carta con las solicitudes-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card border border-primary">
+        <h5 class="card-header bg-primary text-white">Solicitudes</h5>
+        <div class="card-body">
+          <!--Solicitudes validadas por TI-->
+          <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
+            <app-aceptados-comercial></app-aceptados-comercial>
+          </div>
+          <!--Solicitudes Rechazados por TI-->
+          <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
+            <app-rechazados-comercial></app-rechazados-comercial>
+          </div>
+        <!--Solicitudes en borrador -->
+          <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
             <app-borrador-comercial></app-borrador-comercial>
-           </div>
-    </div>
-    <div class="row mb-lg-5 mt-lg-5 mb-md-2 mt-md-2">
-      <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
-        <app-candidatospendientes-comercial></app-candidatospendientes-comercial>
-      </div>
-  </div>
-
-  <div class="row mb-lg-5 mt-lg-5 mb-md-2 mt-md-2">
-      <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
-          <app-retroespectivas-comercial></app-retroespectivas-comercial>
+          </div>
+          <!--Solicitudes Pendientes por el cliente-->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-lg-offset-6 col-md-offset-6">
+            <app-solicitudespendientes-comercial></app-solicitudespendientes-comercial>
+          </div>
         </div>
-  </div>
-  <div class="row mb-lg-5 mt-lg-5 mb-md-2 mt-md-2">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-lg-offset-6 col-md-offset-6">
-      <app-solicitudespendientes-comercial></app-solicitudespendientes-comercial>
+      </div>
     </div>
   </div>
-  </div>
 
+<!--Separacion de las tarjetas-->
+  <div class="m-5"></div>
+
+  <!--Tarjeta de los candidatos-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card border border-purple">
+        <h5 class="card-header text-white bg-purple">Candidatos</h5>
+        <div class="card-body">
+          <!--Candidatos Pendientes de entrevista-->
+          <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
+            <app-candidatospendientes-comercial></app-candidatospendientes-comercial>
+          </div>
+        <!--Candidatos con retroespectiva-->
+          <div class="col-lg-12 col-md-12 col-sm-12 mt-sm-1 mb-sm-1">
+            <app-retroespectivas-comercial></app-retroespectivas-comercial>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

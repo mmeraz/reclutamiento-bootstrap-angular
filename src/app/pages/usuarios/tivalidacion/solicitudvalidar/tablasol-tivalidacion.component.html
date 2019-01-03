@@ -32,9 +32,9 @@
                 <i style="color:#007bff; margin-right:20px;"
                 data-toggle="tooltip"
                 data-placement="top"
-                title="Consultar"
-                class="fa fa-search"
-                [routerLink]="['/ConsultarTiValidacion', a.solSolicitud.solIdsolicitud]"
+                title="Editar"
+                class="fas fa-pencil-alt"
+                [routerLink]="['/ConsultarTiValidacion', a.sgsIdseguimientosol]"
                 *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
             </td>
           </tr>

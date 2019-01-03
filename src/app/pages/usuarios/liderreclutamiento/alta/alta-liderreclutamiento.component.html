@@ -1,244 +1,240 @@
 <div class="container">
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h6> Datos del requerimiento</h6>
-      <hr>
+      <h6>Datos del requerimiento</h6>
+      <hr />
 
       <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-12">Tipo:</div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          Tipo:
+          Prioridad: {{ solicitud && solicitud.priPrioridad.priNombre }}
         </div>
         <div class="col-lg-3 col-md-3 col-sm-12">
-          Prioridad:
+          Area de negocio: {{ solicitud && solicitud.arnAreanegocio.arnTipo }}
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Area de negocio:
+        <div class="col-lg-3 col-md-3 col-sm-12">
+          Existe presupuesto: {{ solicitud && solicitud.solExistepresupuesto }}
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Existe presupuesto:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Tipo de vacante:
+        <div class="col-lg-3 col-md-3 col-sm-12">
+          Tipo de vacante: {{ solicitud && solicitud.tvaTipoVacante.tvaTipo }}
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-3 col-md-2 col-sm-12">
-          Tarifa comercial:
+          Tarifa comercial: {{ solicitud && solicitud.solTarifacomercial }}
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+          Número Vacantes: {{ solicitud && solicitud.solNovacantes }}
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-12">Sueldo Tope:</div>
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Sexo: {{ solicitud && solicitud.solGenero }}
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          Número Vacantes:
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-12">
-          Sueldo Tope:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Sexo:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Escolaridad:
+          Escolaridad: {{ solicitud && solicitud.solEscolaridad }}
         </div>
       </div>
-
 
       <div class="row mb-4">
         <div class="col-lg-2 col-md-2 col-sm-12">
-          Requiere equipo:
+          Lista de equipo:
+          <div *ngFor="let item of solicitud?.equipos">
+            {{ item.equEquipo.equNombre }} {{ item.equEquipo.equDescripcion }}
+          </div>
         </div>
-        <div class="col-lg-4 col-md-2 col-sm-12">
-          Lugar entrevista:
-        </div>
-        <div class="col-lg-4 col-md-3 col-sm-12">
-          Lugar de asignación:
-        </div>
+        <div class="col-lg-4 col-md-2 col-sm-12">Lugar entrevista:</div>
+        <div class="col-lg-4 col-md-3 col-sm-12">Lugar de asignación:</div>
       </div>
 
-      <h6> Datos del cliente</h6>
-      <hr>
+      <h6>Datos del cliente</h6>
+      <hr />
       <div class="row">
         <div class="col-lg-3 col-md-2 col-sm-12">
-          Nombre:
+          Nombre: {{ solicitud?.cliCliente.cliNombre }}
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          <B> Contacto </B>
-          <hr>
+          <B> Contactos </B>
+          <hr />
         </div>
       </div>
 
       <div class="row mb-4">
         <div class="col-lg-3 col-md-2 col-sm-12">
-          Razon Social:
+          Razon Social: {{ solicitud?.cliCliente.cliRazonsocial }}
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
           Nombre:
+          {{
+            solicitud?.proProyecto.clcContactoClienteByProIdconclitode.clcNombre
+          }}
         </div>
 
         <div class="col-lg-2 col-md-2 col-sm-12">
           Teléfono(s):
+          {{
+            solicitud?.proProyecto.clcContactoClienteByProIdconclitode
+              .clcTelefono
+          }}
         </div>
 
         <div class="col-lg-2 col-md-2 col-sm-12">
           Email:
+          {{
+            solicitud?.proProyecto.clcContactoClienteByProIdconclitode.clcEmail
+          }}
         </div>
 
         <div class="col-lg-2 col-md-2 col-sm-12">
-          Puesto:
+          Puesto:<br />
+          Tomador de desiciones
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-lg-3 col-md-2 col-sm-12"></div>
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Nombre:
+          {{
+            solicitud?.proProyecto.clcContactoClienteByProIdconclilid.clcNombre
+          }}
         </div>
 
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Teléfono(s):
+          {{
+            solicitud?.proProyecto.clcContactoClienteByProIdconclilid.clcTelefono
+          }}
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Email:
+          {{
+            solicitud?.proProyecto.clcContactoClienteByProIdconclilid.clcEmail
+          }}
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Puesto:<br />
+          Lider de proyecto
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-lg-3 col-md-2 col-sm-12"></div>
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Nombre:
+          {{
+            solicitud?.proProyecto.clcContactoClienteByProIdconcligerente
+              .clcNombre
+          }}
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Teléfono(s):
+          {{
+            solicitud?.proProyecto.clcContactoClienteByProIdconcligerente
+              .clcTelefono
+          }}
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Email:
+          {{
+            solicitud?.proProyecto.clcContactoClienteByProIdconcligerente
+              .clcEmail
+          }}
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Puesto:<br />
+          Gerente
+        </div>
       </div>
 
-      <h6>Datos del proyecto </h6>
+      <h6>Datos del proyecto</h6>
 
-      <hr>
+      <hr />
 
       <div class="row ">
         <div class="col-lg-3 col-md-2 col-sm-12">
-          Nombre:
+          Nombre: {{ solicitud?.proProyecto.proNombre }}
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          Descripción:
-        </div>
-
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Puesto:
+          Descripción: {{ solicitud?.proProyecto.proDescripcion }}
         </div>
 
         <div class="col-lg-2 col-md-2 col-sm-12">
-          Inicio:
+          Puesto: {{ solicitud?.proProyecto.proPuestoarea }}
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-12">
+          Inicio: {{ solicitud?.proProyecto.proInicio }}
         </div>
       </div>
 
       <div class="row mb-4">
         <div class="col-lg-3 col-md-2 col-sm-12">
-          Observaciones:
+          Observaciones: {{ segimiento?.sgsComentario }}
         </div>
       </div>
 
+      <h6>Conocimientos requeridos</h6>
 
-      <h6>Conocimientos requeridos </h6>
+      <hr />
 
-      <hr>
-
-      <div class="row">
+      <div class="row" *ngFor="let item of solicitud?.conocimientos">
         <div class="col-lg-2 col-md-2 col-sm-12">
-          Tecnología
+          Tecnología: {{ item?.cotConocimientosTec.cotConocimiento }}
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Habilidades:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Idioma:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
+          nivel: {{ item.socNivel }}
         </div>
       </div>
 
-
-      <div class="row row mb-4">
+      <div class="row row mb-4" *ngFor="let item of solicitud?.idiomas">
         <div class="col-lg-2 col-md-2 col-sm-12">
-          Tecnología
+          Idioma: {{ item.idiIdioma.idiNombre }}
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Habilidades:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Idioma:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
+          nivel: {{ item.sliNivel }}
         </div>
       </div>
 
+      <h6>Conocimientos deseabes</h6>
 
+      <hr />
 
+      <div class="row"></div>
 
-      <h6> Conocimientos deseabes </h6>
-
-      <hr>
-
-      <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Tecnología
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Habilidades:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Idioma:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Tecnología
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Habilidades:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Idioma:
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          nivel:
-        </div>
-      </div>
+      <div class="row"></div>
     </div>
   </div>
 
-
-
-
-
-    <div class="row">
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-primary">Asignar</button>
-      </div>
-      <div class="col-lg-1">
-      <button type="button" class="btn btn-success">Nueva</button>
+  <div class="row">
+    <div class="col-lg-1">
+      <button type="button" class="btn btn-primary" (click)="updateBusiness()">Asignar</button>
     </div>
     <div class="col-lg-1">
-      <button type="button" class="btn btn-danger">Atras</button>
+      <button type="button" class="btn btn-success" (click)="updateBusinessLider()">Nueva</button>
+    </div>
+    <div class="col-lg-1">
+      <button [routerLink]="['/IndexLiderreclutamiento']" type="button" class="btn btn-danger">Atras</button>
     </div>
     <div class="col-lg-9">
-    <div class=" float-rigth">
-      <span class="badge badge-secondary">New</span>
+      <div class=" float-rigth">
+        Asignación:
+        <select
+          id="conClientTL"
+          name="conClientTL"
+          class="form-control"
+          [(ngModel)]="solicitud && solicitud.usrUsuarioBySolIdreclutador"
+          [ngModelOptions]="{ stanalone: true }"
+        >
+          <option [ngValue]="null" selected>Selecciona Reclutador</option>
+          <option *ngFor="let r of allUsuario" [ngValue]="r">{{
+            r.usrNombreusuario
+          }}</option>
+        </select>
+      </div>
     </div>
   </div>
-
-    </div>
-
-
-  </div>
+</div>

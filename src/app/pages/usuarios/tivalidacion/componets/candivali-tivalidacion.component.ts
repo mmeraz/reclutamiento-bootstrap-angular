@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DataTableDirective } from 'angular-datatables';
+import { Catcandidato } from '../../../../model/catcandidato.model';
+import { Subject } from 'rxjs';
+import { SeguimientoCandService } from '../../../../service/seguimientocandidato.service';
+import { AuthService } from '../../../../service/auth.service';
 
 @Component({
   selector: 'app-candivali-tivalidacion',
@@ -7,9 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandivaliTivalidacionComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
+  dtOptions: DataTables.Settings = {};
+  arrayCandidatos: Catcandidato[];
+  allSeguimiento: any = [];
+  dtTrigger: Subject<any> = new Subject();
+
+  constructor(private serviceSecCandidato: SeguimientoCandService, protected authservice: AuthService) { }
 
   ngOnInit() {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+    };
+    this.serviceSecCandidato.getSecSeguimientoPendienteValidacion().subscribe(result => {
+      this.allSeguimiento = result;
+      this.dtTrigger.next();
+    });
   }
 
 }

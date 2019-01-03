@@ -51,13 +51,13 @@ export class SeguimientoSolService {
          .subscribe(res => console.log('Done'));
   }
 
-  addCacelada(solicitud: Catsolicitud) {
+  addCancelada(solicitud: Catsolicitud) {
     this.getHeaders();
     const obj = {
       sgsIdseguimientosol: null,
       estEstatusSolicitud: {
-        estIdestatus: 6,
-        estDescripcion: 'Borrador'
+        estIdestatus: 8,
+        estDescripcion: 'Cancelada'
       },
       solSolicitud: solicitud,
       usrUsuario: this.auth.usuario
@@ -268,6 +268,12 @@ export class SeguimientoSolService {
   getSgsSeguimientoSolicitudAct() {
     this.getHeaders(); // agregar
     return this.clienteHttp.get(this.url + '/fetchActive', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudByUser() {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(`${this.url}/fetchByReclutador/${this.auth.usuario.usrUsuario}`, {
       headers: this.headers});
   }
 

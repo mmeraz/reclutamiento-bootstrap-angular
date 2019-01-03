@@ -9,12 +9,15 @@
           data-dismiss="modal"
           role="button"
           (click)="addSolicitud()"
+          [routerLink]="['/IndexComercial']"
         >
           Guardar <i class="fa fa-check" aria-hidden="true"></i>
         </button>
       </div>
       <div class="col-md-2">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">
+        <button type="button"
+        class="btn btn-primary"
+        >
           Borrador <i class="fa fa-broom" aria-hidden="true"></i>
         </button>
       </div>

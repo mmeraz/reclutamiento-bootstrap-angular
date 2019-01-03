@@ -48,8 +48,8 @@
                   data-placement="top"
                   title="Editar"
                   class="fas fa-pencil-alt"
-
-                  *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                  *ngIf="authservice.hasRole('ROLE_ADMIN') || authservice.hasRole('ROLE_LIDERRECLU')"
+                  [routerLink]="['/AltaLiderReclutamiento', a.sgsIdseguimientosol]"></i>
               </td>
             </tr>
           </tbody>
