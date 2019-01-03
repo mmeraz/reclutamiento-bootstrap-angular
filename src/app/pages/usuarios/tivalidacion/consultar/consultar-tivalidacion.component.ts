@@ -72,7 +72,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
     private router: Router,
     private bs: SolicitudService,
     private service: SeguimientoSolService,
-    private usuarioService: UsuarioService,
+    private userService: UsuarioService,
     private fb: FormBuilder) { }
 
   editForm: FormGroup;
@@ -113,9 +113,8 @@ export class ConsultarTivalidacionComponent implements OnInit {
     percepcion: Catprepercepcion;
     descripcionPer: string;
     cliente: Catcliente;
-
-    comentario: string;
     user: Catusuario;
+    comentario: string;
 
   ngOnInit() {
     this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
@@ -129,6 +128,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
     this.percepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
     this.equipoService.getEquipos().subscribe((data: Catequipo[]) => this.allEquipo = data);
     this.perfilService.getPerfiles().subscribe((data: Catperfil[]) => this.allPerfiles = data);
+    this.userService.getUsuario(3).subscribe((data: Catusuario) => this.user = data);
     this.route.params.subscribe(params => {
       this.service.editBusiness(params['id']).subscribe(res => {
         this.segimiento = res;
@@ -141,8 +141,9 @@ export class ConsultarTivalidacionComponent implements OnInit {
 
   updateBusiness() {
     this.route.params.subscribe(params => {
+      this.solicitud.usrUsuarioBySolIdreclutador = this.user;
       this.bs.updateBusiness(this.solicitud, this.solicitud.solIdsolicitud);
-      this.usuarioService.getUsuario(3).subscribe(result => {
+      this.userService.getUsuario(3).subscribe(result => {
         this.user = result; });
       this.solicitud.usrUsuarioBySolIdreclutador = this.user;
       this.service.addValidar(this.segimiento.solSolicitud, this.comentario);
