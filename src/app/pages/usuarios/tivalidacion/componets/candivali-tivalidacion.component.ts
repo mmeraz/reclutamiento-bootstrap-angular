@@ -4,6 +4,7 @@ import { Catcandidato } from '../../../../model/catcandidato.model';
 import { Subject } from 'rxjs';
 import { SeguimientoCandService } from '../../../../service/seguimientocandidato.service';
 import { AuthService } from '../../../../service/auth.service';
+import { Catseguicandidato } from '../../../../model/catseguicandidato.model';
 
 @Component({
   selector: 'app-candivali-tivalidacion',
@@ -15,7 +16,7 @@ export class CandivaliTivalidacionComponent implements OnInit {
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
-  arrayCandidatos: Catcandidato[];
+  arrayCandidatos: Catseguicandidato[];
   allSeguimiento: any = [];
   dtTrigger: Subject<any> = new Subject();
 
