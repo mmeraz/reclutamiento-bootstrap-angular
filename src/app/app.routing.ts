@@ -73,7 +73,6 @@ import { PribajaReclutamientoComponent } from './pages/usuarios/reclutamiento/co
 import { CandirechaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/candirecha-reclutamiento.component';
 import { CandivaliReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/candivali-reclutamiento.component';
 import { Solicitud2ReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/solicitud2-reclutamiento.component';
-import { RechacliReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/rechacli-reclutamiento.component';
 import { IndexBackofficeComponent } from './pages/usuarios/backoffice/index-backoffice.component';
 import { RequeriBackofficeComponent } from './pages/usuarios/backoffice/componets/requeri-backoffice.component';
 import { CandiBackofficeComponent } from './pages/usuarios/backoffice/componets/candi-backoffice.component';
@@ -98,6 +97,11 @@ import { SeguimientoVtiComponent } from './catalogos/cat-seguisolicitud/seguimie
 import { EditCandidatoComponent } from './catalogos/cat-candidato/edit-candidato.component';
 import { CandidatoValidarTiComponent } from './pages/usuarios/tivalidacion/candidatovalidar/candidato-validar-ti.component';
 import { SoliReclutamientoComponent } from './pages/usuarios/reclutamiento/soli-reclutamiento/soli-reclutamiento.component';
+import { CanrechaliderComponent } from './pages/usuarios/liderreclutamiento/componets/canrechalider.component';
+import { CandiacepliderComponent } from './pages/usuarios/liderreclutamiento/componets/candiaceplider.component';
+import { CandiaceprecluComponent } from './pages/usuarios/reclutamiento/componets/candiacepreclu.component';
+import { RechaclienComponent } from './pages/usuarios/reclutamiento/componets/rechaclien.component';
+import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/componets/solicitu2lider.component';
 
 
 
@@ -207,7 +211,6 @@ import { SoliReclutamientoComponent } from './pages/usuarios/reclutamiento/soli-
   {path: 'CandidatoRechazadoReclutamiento', component: CandirechaReclutamientoComponent, canActivate: [AuthGuard]  },
   {path: 'CandidatoValidadoReclutamiento', component: CandivaliReclutamientoComponent, canActivate: [AuthGuard]  },
   {path: 'Solicitud2OpcionReclutamiento', component: Solicitud2ReclutamientoComponent, canActivate: [AuthGuard]  },
-  {path: 'RechazadosporCliente', component: RechacliReclutamientoComponent, canActivate: [AuthGuard]  },
   {path: 'IndexBackoffice', component: IndexBackofficeComponent, canActivate: [AuthGuard]  },
   {path: 'RequerimientosBackoffice', component: RequeriBackofficeComponent, canActivate: [AuthGuard]  },
   {path: 'CandidatosBackoffice', component: CandiBackofficeComponent, canActivate: [AuthGuard]  },
@@ -230,8 +233,12 @@ import { SoliReclutamientoComponent } from './pages/usuarios/reclutamiento/soli-
   {path: 'CandidatoValidarTi', component: CandidatoValidarTiComponent, canActivate: [AuthGuard]  },
   {path: 'AltaLiderReclutamiento/:id', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
   {path: 'CitaClienteBackoffice', component: CitaclienteBackofficeComponent, canActivate: [AuthGuard]},
-  {path: 'Solicitud-reclutamiento/:id', component: SoliReclutamientoComponent, canActivate: [AuthGuard]}
-
+  {path: 'Solicitud-reclutamiento/:id', component: SoliReclutamientoComponent, canActivate: [AuthGuard]},
+  {path: 'CandidatoRechazadoLider', component: CanrechaliderComponent, canActivate: [AuthGuard]},
+  {path: 'CandidatoAceptadoLider', component: CandiacepliderComponent, canActivate: [AuthGuard]},
+  {path: 'CandidatosRechazadosClienteReclutamiento', component: RechaclienComponent, canActivate: [AuthGuard]},
+  {path: 'CandidatosAceptadosClienteReclutamiento', component: CandiaceprecluComponent, canActivate: [AuthGuard]},
+  {path: 'Solicitud2OpcionLider', component: Solicitu2liderComponent, canActivate: [AuthGuard]}
 ];
 
  export const appRoutingProviders: any[] = [];

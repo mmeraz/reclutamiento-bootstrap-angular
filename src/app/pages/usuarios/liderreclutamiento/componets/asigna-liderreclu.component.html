@@ -22,15 +22,30 @@
       data-parent="#accordionExample"
     >
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-        skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-        single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-        beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-        haven't heard of them accusamus labore sustainable VHS.
+        <div class="container">
+          <table id="dataTable" datatable class="row-border hover table-sm" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Reclutador</th>
+                  <th scope="col">Solicitud</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let a of allSeguimiento">
+                  <th scope="row">{{ a.solSolicitud.solIdsolicitud }}</th>
+                  <td>{{ a.usrUsuario.usrNombreusuario}}</td>
+                  <td>{{ a.solSolicitud.proProyecto.proNombre}}</td>
+                    <td>{{ a.sgsFecha }}</td>
+                    <td> <i class="fa fa-search"
+                      ></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
       </div>
     </div>
   </div>
