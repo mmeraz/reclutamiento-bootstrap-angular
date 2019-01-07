@@ -229,6 +229,12 @@ export class SeguimientoSolService {
       headers: this.headers});
   }
 
+  getSgsSeguimientoAsignadas(id: number) {
+    this.getHeaders();
+    return this.clienteHttp.get(`${this.url}/fetchAsignadas/${id}`,
+    {headers: this.headers});
+  }
+
   getSgsSeguimientoPendiente() {
     this.getHeaders();
     return this.clienteHttp.get(this.url + '/fetchActive/14', {

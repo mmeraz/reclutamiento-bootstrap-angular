@@ -6,6 +6,7 @@ import { Catpercepcioncnda } from './catpercepcioncnda.model';
 import { Catcompcandidato } from './catcompcandidato.model';
 import { CatConTecCandidato } from './catconteccandidato.model';
 import { Catseguicandidato } from './catseguicandidato.model';
+import { Catsolicitud } from './catsolicitud.model';
 
 export interface Catcandidato {
 
@@ -32,12 +33,14 @@ export interface Catcandidato {
   cndDisponibilidad: string;
   cndDispotrabajo: string;
   cndGenero: string;
+  usuario: Catusuario;
   pcaPercepcionescndas: Catpercepcioncnda[];
   idcIdiomaCandidatos: CatIdiomaCandidato[];
   pcaPercepcionescndofrs: Catpercepcioncndofr[];
   conContactocans: CatContactoCandidato[];
   chcComcandidatos: Catcompcandidato[];
   cocConTecCandidatos: CatConTecCandidato[];
+  solSolicitud: Catsolicitud;
 }
 
 

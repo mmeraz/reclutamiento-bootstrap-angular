@@ -9,6 +9,7 @@ import { SeguimientoCandService } from '../../../service/seguimientocandidato.se
 })
 export class IndexTivalidacionComponent implements OnInit {
   numer: number;
+  number1: number;
   allAreas: any = [];
   allCandXValidar: any = [];
   constructor(private serviceSgsSolicitud: SeguimientoSolService,
@@ -24,8 +25,8 @@ export class IndexTivalidacionComponent implements OnInit {
     this.serviceSecCandidato.getSecSeguimientoPendienteValidacion().subscribe(result => {
       this.allCandXValidar = result;
     });
-    this.numer = this.allCandXValidar.length;
-
+    this.number1 = this.allCandXValidar.length;
+    console.log(this.number1);
   }
 
 }

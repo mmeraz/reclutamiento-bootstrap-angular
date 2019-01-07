@@ -5,6 +5,7 @@ import { CatContactoCandidato } from './catcontactocandidato';
 import { Catentrevista } from './catentrevista.model';
 import { Catcontecnicos } from './catcontecnicos.model';
 import { Catcomphabilidades } from './catcomphabilidades.model';
+import { Catusuario } from './catusuario.model';
 
 export interface Candidato {
 
@@ -26,6 +27,7 @@ export interface Candidato {
   cndDisponibilidad: string;
   cndDispotrabajo: string;
   cndGenero: string;
+  usuario: Catusuario;
   Percecpciones: Catpercepcioncnda[];
   Idiomas: CatIdiomaCandidato[];
   Percepcionsfr: Catpercepcioncndofr[];

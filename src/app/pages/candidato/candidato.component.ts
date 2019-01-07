@@ -22,6 +22,17 @@ import { PrePercepcionService } from '../../service/cat.prepercepcion.service';
 import { stringify } from '@angular/compiler/src/util';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
+import { Catusuario } from '../../model/catusuario.model';
+import { AuthService } from '../../service/auth.service';
+import { Catseguicandidato } from '../../model/catseguicandidato.model';
+import { SeguimientoCandService } from '../../service/seguimientocandidato.service';
+import { CatSeguimientoSol } from '../../model/catsegimientosolicitud.model';
+import { Catentrevista } from '../../model/catentrevista.model';
+import { EntrevistaService } from '../../service/cat.entrevista.service';
+import { SolicitudComponent } from '../solicitud/solicitud.component';
+import { SolicitudService } from '../../service/cat.solicitud.service';
+import { SeguiSolicitudService } from 'src/app/service/cat.seguisolicitud.service';
+import { SeguimientoSolService } from '../../service/seguimientosol.service';
 
 @Component({
   selector: 'app-candidato',
@@ -40,6 +51,9 @@ export class CandidatoComponent implements OnInit {
   allConTecnicos: Catcontecnicos[];
   allHabilidades: Catcomphabilidades[];
   allSolicitudes: Catsolicitud[];
+  allSoliSeguimiento: CatSeguimientoSol[];
+  allSeguiCandidato: Catseguicandidato[];
+  allEntrevista: Catentrevista[];
 
 
 
@@ -92,6 +106,11 @@ conocimiento: Catcontecnicos = null;
 solicitud: Catsolicitud;
 conIdcontacto: number;
 conTelMovil: string;
+usuario: Catusuario;
+seguiCandidato: Catseguicandidato;
+seguiSolicitud: CatSeguimientoSol;
+entEntrevista: Catentrevista;
+solSolicitud: Catsolicitud;
 // Entrevista: Catentrevista[];
 
 // listas del candidato (relaciones)
@@ -102,7 +121,10 @@ listaIdiomas: CatIdiomaCandidato[] = [];
 listaContactos: CatContactoCandidato[] = [];
 listaConocimientos: CatConTecCandidato[] = [];
 listaHabilidades: Catcompcandidato[] = [];
-
+listaSeguimiento: Catseguicandidato[] = [];
+listaSolicitudes: Catsolicitud[] = [];
+listaSolSeguimiento: CatSeguimientoSol[] = [];
+listaEntrevista: Catentrevista[] = [];
 /**
  * Propiedadformulario para validaciones
 */
@@ -113,10 +135,14 @@ listaHabilidades: Catcompcandidato[] = [];
   constructor( private idiomaService: IdiomaService,
                private contactoService: ContactoCandService,
                private conocimientoService: ConTecnicosService,
+               private seguiCandidatoService: SeguimientoCandService,
                private habilidadesService: CompHabilidadesService,
                private prePercepcionService: PrePercepcionService,
+               private solicitudService: SolicitudService,
                private fb: FormBuilder, private bs: CandidatoService,
-               private route: ActivatedRoute,
+               private entrevistaService: EntrevistaService,
+               private seguiSolicitudService: SeguimientoSolService,
+               private route: ActivatedRoute, private auth: AuthService,
                private router: Router) {
                }
 
@@ -125,6 +151,11 @@ listaHabilidades: Catcompcandidato[] = [];
     this.conocimientoService.getContecnicos().subscribe((data: Catcontecnicos[]) => this.allConTecnicos = data);
     this.habilidadesService.getCompHabilidades().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
     this.prePercepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
+    this.entrevistaService.getEntrevistas().subscribe((data: Catentrevista[]) => this.allEntrevista = data);
+    this.seguiCandidatoService.getSecSeguimientoActivo().subscribe((data: Catseguicandidato[]) => this.allSeguiCandidato = data);
+    this.solicitudService.getSolicitudes().subscribe((data: Catsolicitud[]) => this.allSolicitudes = data);
+    this.seguiSolicitudService.getSgsSeguimientoSolicitudByUser()
+    .subscribe((data: CatSeguimientoSol[] ) => this.allSoliSeguimiento = data);
     // this.contactoService.getContactos().subscribe((data: CatContactoCandidato[]) => this.contactosCandidato = data);
   }
 
@@ -163,21 +194,23 @@ listaHabilidades: Catcompcandidato[] = [];
       pcaPercepcionescndofrs: this.listaPercepcionOfr,
       conContactocans:  this.contactosCandidato,
       chcComcandidatos: this.listaHabilidades,
-      cocConTecCandidatos: this.listaConocimientos
+      cocConTecCandidatos: this.listaConocimientos,
+      usuario: this.auth.usuario,
+      solSolicitud: this.solSolicitud
     };
     console.log(this.candidato);
     this.route.params.subscribe(params => {
       this.bs.addCandidato(this.candidato);
-      this.router.navigate(['Candidato']);
+      // this.router.navigate(['Candidato']);
       swal({
        position: 'top',
        type: 'success',
        title: `Candidato creado con éxito`,
        showConfirmButton: false,
-       timer: 1500
+       timer: 2500
      });
    });
-   this.update();
+  //  this.update();
   }
 
   update(): void {

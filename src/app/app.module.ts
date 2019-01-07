@@ -120,6 +120,7 @@ import { IndexBackofficeComponent } from './pages/usuarios/backoffice/index-back
 import { IndexTivalidacionComponent } from './pages/usuarios/tivalidacion/index-tivalidacion.component';
 import { CandidatoValidarTiComponent } from './pages/usuarios/tivalidacion/candidatovalidar/candidato-validar-ti.component';
 import { SoliReclutamientoComponent } from './pages/usuarios/reclutamiento/soli-reclutamiento/soli-reclutamiento.component';
+import { IndexVerifivigenciaComponent } from './pages/usuarios/comercial/verificarvigencia/index-verifivigencia.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -259,7 +260,8 @@ import { SoliReclutamientoComponent } from './pages/usuarios/reclutamiento/soli-
     CandAceptadosLiderreclutamientoComponent,
     SeguimientoVtiComponent,
     CandidatoValidarTiComponent,
-    SoliReclutamientoComponent
+    SoliReclutamientoComponent,
+    IndexVerifivigenciaComponent
   ],
   imports: [
     BrowserModule,

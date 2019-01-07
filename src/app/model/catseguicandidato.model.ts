@@ -8,7 +8,7 @@ secIdseguimientocandidato: number;
 cndDatoscandidato: Catcandidato;
 escEstatusCandidato: Catestacandidato;
 usrUsuario: Catusuario;
-// secEstatus: string;
+secEstatus: string;
 secComentario: string;
-// secActivo: string;
+secActivo: string;
 }

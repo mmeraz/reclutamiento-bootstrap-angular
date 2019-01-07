@@ -151,9 +151,9 @@ export class ConsultarTivalidacionComponent implements OnInit {
        swal({
         position: 'top',
         type: 'success',
-        title: `¡¡Solicitud modificada con éxito!!`,
+        title: `¡¡Solicitud Validada con éxito!!`,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
     });
     this.update();
@@ -168,7 +168,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
       type: 'error',
       title: `¡¡Solicitud Rechazada!!`,
       showConfirmButton: false,
-      timer: 1500
+      timer: 2000
     });
   });
   this.update();

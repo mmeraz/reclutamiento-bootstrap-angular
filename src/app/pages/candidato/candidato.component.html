@@ -183,7 +183,6 @@
                         [ngModelOptions]="{ standalone: true }"
                       >
                         <option [value]="" selected>Selecciona uno</option>
-                        <option value="I">Indefinido</option>
                         <option value="H">Hombre</option>
                         <option value="M">Mujer</option>
                       </select>
@@ -669,15 +668,15 @@
               <div class="form-group">
                 <label for="exampleFormControlSelect1" class="font-weight-bold">Solicitud</label>
                 <select
-                  [(ngModel)]="solicitud"
+                  [(ngModel)]="solSolicitud"
                   class="form-control form-control-sm"
-                  name="solicitud"
-                  id="selectSolicitud"
+                  name="solSolicitud"
+                  id="solSolicitud"
                   placeholder="Selecciona uno"
                 >
                   <option [ngValue]="null" selected>Selecciona una solicitud</option>
-                  <option *ngFor="let sol of allSolicitudes">
-                    {{ sol.cliCliente }}
+                  <option *ngFor="let sol of allSoliSeguimiento" [ngValue]="sol.solSolicitud">
+                    {{ sol.solSolicitud.proProyecto.proNombre }}
                   </option>
                 </select>
               </div>
@@ -946,13 +945,13 @@
                   <!-- Boton para agregar la habilidad-->
                   <div class="col-auto">
                     <div class="form-group">
-                    <button class="btn btn-warning btn-sm">
+                    <button class="btn btn-warning btn-sm"
+                    (click)="addHabilidad()">
                       <i
                         data-toggle="tooltip"
                         data-placement="center"
                         title="Agregar"
                         class="fas fa-plus"
-                        (click)="addHabilidad()"
                       ></i>
                     </button>
                   </div>
