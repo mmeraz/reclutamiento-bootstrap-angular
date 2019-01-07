@@ -6,11 +6,11 @@ import { SeguimientoCandService } from 'src/app/service/seguimientocandidato.ser
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
-  selector: 'app-pendientes-recursoshumanos',
-  templateUrl: './pendientes-recursoshumanos.component.html',
+  selector: 'app-candiacepreclu',
+  templateUrl: './candiacepreclu.component.html',
   styles: []
 })
-export class PendientesRecursoshumanosComponent implements OnInit {
+export class CandiaceprecluComponent implements OnInit {
 
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
@@ -25,14 +25,12 @@ export class PendientesRecursoshumanosComponent implements OnInit {
   pagingType: 'full_numbers',
   pageLength: 10,
   };
-  this.serviceSecCandidato.getSecSeguimientoPendienteDocumentacion().subscribe(result => {
+  this.serviceSecCandidato.getSecSeguimientoRechazadoXCliente().subscribe(result => {
   this.allSeguimiento = result;
   this.dtTrigger.next();
   });
   }
-
   getListSize(): number {
   return 0;
   }
-
   }

@@ -21,8 +21,8 @@ export class EditEquipoComponent implements OnInit {
 
      createForm() {
       this.editForm = this.fb.group({
-        equNombre: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ],
-        equDescripcion: ['', [Validators.required, Validators.maxLength(120), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+        equNombre: ['', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9,.\\\s]*$')] ],
+        equDescripcion: ['', [Validators.required, Validators.maxLength(120), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9,.\\\s]*$')] ]
       });
       }
 

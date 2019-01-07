@@ -264,7 +264,7 @@ export class SeguimientoCandService {
        {headers: this.headers});
   }
 
-  getSecSeguimientoCandidatoValidadosTI(nombre: string) {
+  getSecSeguimientoCandidatoValidadosTI() {
     this.getHeaders();
     return this.clienteHttp.get<Catseguicandidato>(`${this.url}/fetchActive/1`,
        {headers: this.headers});
@@ -279,7 +279,7 @@ export class SeguimientoCandService {
     return this.clienteHttp.get(`${this.url}/fetchActive/3`,
        {headers: this.headers});
   }
-  getSecSeguimientoRechazado() {
+  getSecSeguimientoRechazadoTI() {
     this.getHeaders();
     return this.clienteHttp.get(`${this.url}/fetchActive/9`,
        {headers: this.headers});
@@ -310,9 +310,9 @@ export class SeguimientoCandService {
     return this.clienteHttp.get(`${this.url}/fetchActive/15`,
        {headers: this.headers});
   }
-  getSecSeguimientoRechaxadoXCliente() {
+  getSecSeguimientoRechazadoXCliente() {
     this.getHeaders();
-    return this.clienteHttp.get(`${this.url}/fecthActive/16`,
+    return this.clienteHttp.get(`${this.url}/fetchActive/16`,
        {headers: this.headers});
   }
   getSecSeguimientoAceptado() {
@@ -327,7 +327,7 @@ export class SeguimientoCandService {
   }
   getSecSeguimientoPendienteDocumentacion() {
     this.getHeaders();
-    return this.clienteHttp.get(`${this.url}/fetchActive/`,
+    return this.clienteHttp.get(`${this.url}/fetchActive/19`,
        {headers: this.headers});
   }
   getSecSeguimientoPendienteContrato() {

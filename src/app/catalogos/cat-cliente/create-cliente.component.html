@@ -18,17 +18,19 @@
                   <form [formGroup]="addForm" (submit)="saveData()">
                       <div class="form-group">
                           <label for="cliNombre">Nombre</label>
-                          <input maxlength="40" type="text" required class="form-control" placeholder="Escribe Nombre Cliente" name="cliNombre" formControlName="cliNombre" #cliNombre>
-                          <div *ngIf="addForm.get('cliNombre').errors && addForm.get('cliNombre').dirty">
+                          <input maxlength="150" type="text" required class="form-control" placeholder="Escribe Nombre Cliente" name="cliNombre" formControlName="cliNombre" #cliNombre>
+                           <div *ngIf="addForm.get('cliNombre').errors && addForm.get('cliNombre').dirty">
                               <p style="color:darkred;" *ngIf="addForm.get('cliNombre').hasError('required')">El área es requerida</p>
-                              <p style="color:darkred;" *ngIf="addForm.get('cliNombre').hasError('maxlength')">Máximo 40 carácteres</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('cliNombre').hasError('maxlength')">Máximo 150 carácteres</p>
                               <p style="color:darkred;" *ngIf="addForm.get('cliNombre').hasError('pattern')">Solo se aceptan letras</p>
-                          </div>
+                            </div>
+
+
                           <label for="cliRazonsocial">Razon Social</label>
-                          <input maxlength="40" type="text" required class="form-control" placeholder="Escribe Razon Social" name="cliRazonsocial" formControlName="cliRazonsocial" #cliRazonsocial>
+                          <input maxlength="150" type="text" required class="form-control" placeholder="Escribe Razon Social" name="cliRazonsocial" formControlName="cliRazonsocial" #cliRazonsocial>
                           <div *ngIf="addForm.get('cliRazonsocial').errors && addForm.get('cliRazonsocial').dirty">
                               <p style="color:darkred;" *ngIf="addForm.get('cliRazonsocial').hasError('required')">El área es requerida</p>
-                              <p style="color:darkred;" *ngIf="addForm.get('cliRazonsocial').hasError('maxlength')">Máximo 40 carácteres</p>
+                              <p style="color:darkred;" *ngIf="addForm.get('cliRazonsocial').hasError('maxlength')">Máximo 150 carácteres</p>
                               <p style="color:darkred;" *ngIf="addForm.get('cliRazonsocial').hasError('pattern')">Solo se aceptan letras</p>
                           </div>
                       </div>

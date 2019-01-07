@@ -44,7 +44,7 @@ export class CreateComphabilidadesComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       });
-      // this.update();
+       this.update();
     }
 
     update(): void {

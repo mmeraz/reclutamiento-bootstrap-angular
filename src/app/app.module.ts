@@ -88,7 +88,6 @@ import { ListadoBComponent } from './pages/solicitud/listado-b.component';
 import { IndexTiComponent } from './pages/usuarios/ti/index-ti.component';
 import { SolicValidadasTiComponent } from './pages/usuarios/ti/components/solic-validadas-ti.component';
 import { CandiValidadosTiComponent } from './pages/usuarios/ti/components/candi-validados-ti.component';
-import { RechacliReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/rechacli-reclutamiento.component';
 import { RechazadosComercialComponent } from './pages/usuarios/comercial/componets/rechazados-comercial.component';
 import { CandirechaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/candirecha-reclutamiento.component';
 import { PrialtaReclutamientoComponent } from './pages/usuarios/reclutamiento/componets/prialta-reclutamiento.component';
@@ -113,14 +112,17 @@ import { AsignaLiderrecluComponent } from './pages/usuarios/liderreclutamiento/c
 import { PrimeLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/prime-liderreclu.component';
 import { PribaLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/priba-liderreclu.component';
 import { ValidadasLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/validadas-liderreclu.component';
-import { CandRechaLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-recha-liderreclutamiento.component';
-import { CandAceptadosLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/componets/cand-aceptados-liderreclutamiento.component';
 import { SeguimientoVtiComponent } from './catalogos/cat-seguisolicitud/seguimiento-vti.component';
 import { IndexBackofficeComponent } from './pages/usuarios/backoffice/index-backoffice.component';
 import { IndexTivalidacionComponent } from './pages/usuarios/tivalidacion/index-tivalidacion.component';
 import { CandidatoValidarTiComponent } from './pages/usuarios/tivalidacion/candidatovalidar/candidato-validar-ti.component';
 import { SoliReclutamientoComponent } from './pages/usuarios/reclutamiento/soli-reclutamiento/soli-reclutamiento.component';
 import { IndexVerifivigenciaComponent } from './pages/usuarios/comercial/verificarvigencia/index-verifivigencia.component';
+import { CanrechaliderComponent } from './pages/usuarios/liderreclutamiento/componets/canrechalider.component';
+import { CandiacepliderComponent } from './pages/usuarios/liderreclutamiento/componets/candiaceplider.component';
+import { CandiaceprecluComponent } from './pages/usuarios/reclutamiento/componets/candiacepreclu.component';
+import { RechaclienComponent } from './pages/usuarios/reclutamiento/componets/rechaclien.component';
+import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/componets/solicitu2lider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -202,7 +204,6 @@ import { IndexVerifivigenciaComponent } from './pages/usuarios/comercial/verific
     CandirechaReclutamientoComponent,
     CandivaliReclutamientoComponent,
     Solicitud2ReclutamientoComponent,
-    RechacliReclutamientoComponent,
     IndexBackofficeComponent,
     RequeriBackofficeComponent,
     CandiBackofficeComponent,
@@ -234,7 +235,6 @@ import { IndexVerifivigenciaComponent } from './pages/usuarios/comercial/verific
     IndexReclutamientoComponent,
     SolicValidadasTiComponent,
     CandiValidadosTiComponent,
-    RechacliReclutamientoComponent,
     RechazadosComercialComponent,
     CandirechaReclutamientoComponent,
     PrialtaReclutamientoComponent,
@@ -256,12 +256,15 @@ import { IndexVerifivigenciaComponent } from './pages/usuarios/comercial/verific
     PrimeLiderrecluComponent,
     PribaLiderrecluComponent,
     ValidadasLiderrecluComponent,
-    CandRechaLiderreclutamientoComponent,
-    CandAceptadosLiderreclutamientoComponent,
     SeguimientoVtiComponent,
     CandidatoValidarTiComponent,
+    CanrechaliderComponent,
     SoliReclutamientoComponent,
-    IndexVerifivigenciaComponent
+    IndexVerifivigenciaComponent,
+    CandiacepliderComponent,
+    RechaclienComponent,
+    CandiaceprecluComponent,
+    Solicitu2liderComponent,
   ],
   imports: [
     BrowserModule,

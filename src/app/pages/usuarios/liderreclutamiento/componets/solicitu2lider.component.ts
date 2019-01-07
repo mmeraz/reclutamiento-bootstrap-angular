@@ -6,11 +6,11 @@ import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
-  selector: 'app-asigna-liderreclu',
-  templateUrl: './asigna-liderreclu.component.html',
+  selector: 'app-solicitu2lider',
+  templateUrl: './solicitu2lider.component.html',
   styles: []
 })
-export class AsignaLiderrecluComponent implements OnInit {
+export class Solicitu2liderComponent implements OnInit {
 
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
@@ -25,7 +25,7 @@ export class AsignaLiderrecluComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.serviceSgsSolicitud.getSgsSeguimientoAsignada().subscribe(result => {
+    this.serviceSgsSolicitud.getSgsSeguimientoPendiente().subscribe(result => {
       this.allSeguimiento = result;
       this.dtTrigger.next();
     });
@@ -34,5 +34,4 @@ export class AsignaLiderrecluComponent implements OnInit {
   getListSize(): number {
     return 0;
   }
-
 }
