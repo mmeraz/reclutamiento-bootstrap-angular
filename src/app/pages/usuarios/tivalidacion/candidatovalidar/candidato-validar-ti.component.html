@@ -615,10 +615,12 @@
                   placeholder="Selecciona uno"
                 >
                   <option value="" selected>Selecciona una solicitud</option>
-                  <option *ngFor="let sol of allSolicitudes">
-                    {{ sol.cliCliente }}
+                  <option *ngFor="let sol of candidato?.solSolicitud"
+                  [ngValue]="sol">
+                    {{ sol.solSolicitud.proProyecto.proNombre }}
                   </option>
                 </select>
+
               </div>
             </div>
           </div>
@@ -853,9 +855,8 @@
                       [ngModelOptions]="{ stanalone: true }"
                     >
                       <option [ngValue]="null" selected>Habilidad</option>
-                      <option *ngFor="let h of allHabilidades" [ngValue]="h">{{
-                        h.cohDescripcion
-                      }}</option>
+                      <option *ngFor="let h of candidato?.chcComcandidatos" [ngValue]="h">
+                        {{ h.cohCompetenciashabilidades.cohDescripcion}}</option>
                     </select>
                   </div>
                 </div>
@@ -942,14 +943,17 @@
       <div class="form">
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Comentarios</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="9"></textarea>
+          <textarea class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="9"
+                    [(ngModel)]="secComentario"></textarea>
         </div>
         </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="mt-lg-5 mt-md-5"></div>
-      <button class="btn btn-success btn-sm mr-2">Validar</button>
-      <button class="btn btn-danger btn-sm">Rechazar</button>
+      <button class="btn btn-success btn-sm mr-2" (click)="updateBusiness()">Validar</button>
+      <button class="btn btn-danger btn-sm" (click)="updateRechazada()">Rechazar</button>
 
     </div>
   </div>

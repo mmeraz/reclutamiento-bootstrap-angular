@@ -230,7 +230,7 @@ import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/com
   {path: 'TablaSolicitudPorValidarTiValidacion', component: TablasolTivalidacionComponent, canActivate: [AuthGuard]  },
   {path: 'ConsultarTiValidacion/:id', component: ConsultarTivalidacionComponent, canActivate: [AuthGuard]  },
   {path: 'AltaLiderReclutamiento', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
-  {path: 'CandidatoValidarTi', component: CandidatoValidarTiComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoValidarTi/:id', component: CandidatoValidarTiComponent, canActivate: [AuthGuard]  },
   {path: 'AltaLiderReclutamiento/:id', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
   {path: 'CitaClienteBackoffice', component: CitaclienteBackofficeComponent, canActivate: [AuthGuard]},
   {path: 'Solicitud-reclutamiento/:id', component: SoliReclutamientoComponent, canActivate: [AuthGuard]},

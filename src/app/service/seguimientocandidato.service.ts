@@ -54,7 +54,7 @@ export class SeguimientoCandService {
       .subscribe(res => console.log('Done'));
   }
 
-  addRechazado(candidato: Catcandidato) {
+  addRechazado(candidato: Catcandidato, secComentario: string) {
     this.headers();
     const obj = {
       secIdseguimientocandidato: null,

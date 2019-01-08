@@ -24,6 +24,38 @@
       data-parent="#accordionExample"
     >
       <div class="card-body">
+        <!--Tabla con los candidatos ppor validar-->
+        <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Proyecto</th>
+                <th scope="col"></th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let a of allSeguimiento">
+                <th scope="row">{{ a.cndDatoscandidato.cndIdcandidato }}</th>
+                <td>{{ a.cndDatoscandidato.cndNombre}}</td>
+                <td>{{ a.solSolicitud.cliCliente.cliNombre }}</td>
+                <td>{{ a.solSolicitud.proProyecto.proNombre }}</td>
+                <td class="text-center" >
+                    <i style="color:#007bff; margin-right:20px;"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Consultar"
+                    class="fas fa-search"
+                    [routerLink]="['/', a.sgsIdseguimientosol]"
+                    *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
       </div>
     </div>
   </div>
