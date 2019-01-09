@@ -102,13 +102,10 @@ import { CandiacepliderComponent } from './pages/usuarios/liderreclutamiento/com
 import { CandiaceprecluComponent } from './pages/usuarios/reclutamiento/componets/candiacepreclu.component';
 import { RechaclienComponent } from './pages/usuarios/reclutamiento/componets/rechaclien.component';
 import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/componets/solicitu2lider.component';
-<<<<<<< HEAD
 import { IndexRetroComponent } from './pages/usuarios/comercial/retroexpectiva/index-retro.component';
 import { IndexRetroComComponent } from './pages/usuarios/comercial/retroexpeccompara/index-retro-com.component';
-=======
 import { AppComponent } from './app.component';
 
->>>>>>> 95dbf507c7742c57a60fa282deb6826d7c962a6d
 
 
 
