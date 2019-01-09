@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     }
 
   }
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
     const expireDate = new Date().getTime() + (1000 * token.expires_in);
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
-    this.router.navigate(['/IndexComercial']);
+    this.router.navigate(['/Home']);
     this.rerender();
   }
   rerender(): void {
