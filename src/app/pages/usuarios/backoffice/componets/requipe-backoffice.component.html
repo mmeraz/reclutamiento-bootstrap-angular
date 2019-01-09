@@ -22,6 +22,30 @@
       data-parent="#accordionExample"
     >
       <div class="card-body">
+        <div class="container">
+          <table id="dataTable" datatable class="row-border hover table-sm" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Nombre de la Solicitud</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Perfil</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let a of allSeguimiento">
+                <th scope="row">{{ a.sgsFecha}}</th>
+                <td>{{ a.solSolicitud.proProyecto.proNombre}}</td>
+                <td>{{a.solSolicitud.proProyecto.cliCliente.cliNombre}}</td>
+                <td>{{ a.solSolicitud.perPerfil.perPerfil}}</td>
+                  <td> <i class="fa fa-search"
+                    ></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
       </div>
     </div>
