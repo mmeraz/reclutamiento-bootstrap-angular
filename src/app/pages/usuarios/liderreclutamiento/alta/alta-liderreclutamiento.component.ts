@@ -39,6 +39,7 @@ import { Catfunciones } from 'src/app/model/catfunciones.model';
 import swal from 'sweetalert2';
 import { Catusuario } from 'src/app/model/catusuario.model';
 import { UsuarioService } from 'src/app/service/cat.usuario.service';
+import { MailService } from 'src/app/service/mail.service';
 
 @Component({
   selector: 'app-alta-liderreclutamiento',
@@ -70,7 +71,7 @@ export class AltaLiderreclutamientoComponent implements OnInit {
     private bs: SolicitudService,
     private service: SeguimientoSolService,
     private userService: UsuarioService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder, private serviceMail: MailService) { }
 
     editForm: FormGroup;
     solicitud: Catsolicitud;
@@ -139,6 +140,7 @@ export class AltaLiderreclutamientoComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.bs.updateBusiness(this.solicitud, this.solicitud.solIdsolicitud);
       this.service.addAsigna(this.segimiento.solSolicitud);
+      this.serviceMail.sendEmail('9');
       this.router.navigate(['/IndexLiderreclutamiento']);
        swal({
         position: 'top',
@@ -148,7 +150,7 @@ export class AltaLiderreclutamientoComponent implements OnInit {
         timer: 1500
       });
     });
-    // this.update();
+    this.update();
  }
 
  updateBusinessLider() {

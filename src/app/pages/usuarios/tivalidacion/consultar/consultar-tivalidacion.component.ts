@@ -39,6 +39,7 @@ import { SolicitudService } from 'src/app/service/cat.solicitud.service';
 import swal from 'sweetalert2';
 import { UsuarioService } from '../../../../service/cat.usuario.service';
 import { Catusuario } from '../../../../model/catusuario.model';
+import { MailService } from 'src/app/service/mail.service';
 
 @Component({
   selector: 'app-consultar-tivalidacion',
@@ -73,7 +74,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
     private bs: SolicitudService,
     private service: SeguimientoSolService,
     private userService: UsuarioService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder, private serviceEmail: MailService) { }
 
   editForm: FormGroup;
   solicitud: Catsolicitud;
@@ -147,6 +148,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
         this.user = result; });
       this.solicitud.usrUsuarioBySolIdreclutador = this.user;
       this.service.addValidar(this.segimiento.solSolicitud, this.comentario);
+      this.serviceEmail.sendEmail('2');
       this.router.navigate(['/IndexTiValidacion']);
        swal({
         position: 'top',
@@ -162,6 +164,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
  updateRechazada() {
   this.route.params.subscribe(params => {
     this.service.addRechazadaTI(this.segimiento.solSolicitud, this.comentario);
+    this.serviceEmail.sendEmail('3');
     this.router.navigate(['/IndexTiValidacion']);
      swal({
       position: 'top',

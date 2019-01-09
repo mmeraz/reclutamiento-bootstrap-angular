@@ -31,6 +31,7 @@ import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 import { EntrevistaService } from 'src/app/service/cat.entrevista.service';
 import { Catentrevista } from 'src/app/model/catentrevista.model';
 import { AuthService } from 'src/app/service/auth.service';
+import { MailService } from 'src/app/service/mail.service';
 
 @Component({
   selector: 'app-candidato-validar-ti',
@@ -128,7 +129,7 @@ user: Catusuario;
                private route: ActivatedRoute,
                private userService: UsuarioService,
                private solService: SeguimientoSolService,
-               private auth: AuthService,
+               private auth: AuthService, private serviceMail: MailService,
                private router: Router) {
 
               }
@@ -157,6 +158,7 @@ user: Catusuario;
       this.candidato.usuario = this.user;
       this.bsC.updateBusiness(this.candidato, this.candidato.cndIdcandidato);
       this.bsSeg.addValidar(this.candidato, this.secComentario);
+      this.serviceMail.sendEmail('5');
       this.router.navigate(['/IndexTiValidacion']);
        swal({
         position: 'top',
@@ -172,6 +174,7 @@ user: Catusuario;
  updateRechazada() {
   this.route.params.subscribe(params => {
     this.bsSeg.addRechazado(this.candidato, this.secComentario);
+    this.serviceMail.sendEmail('8');
     this.router.navigate(['/IndexTiValidacion']);
      swal({
       position: 'top',

@@ -34,6 +34,7 @@ import { Catequiposol } from 'src/app/model/catequiposol.model';
 import { SolicitudService } from 'src/app/service/cat.solicitud.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { Router } from '@angular/router';
+import { MailService } from 'src/app/service/mail.service';
 
 
 
@@ -129,7 +130,8 @@ export class CatSolicitudComponent implements OnInit {
     private equipoService: EquipoService,
     private perfilService: PerfilService,
     private router: Router,
-    private fb: FormBuilder, private bs: SolicitudService, private auth: AuthService) {
+    private fb: FormBuilder, private bs: SolicitudService, private auth: AuthService,
+    private mailService: MailService) {
     }
 
     /**
@@ -163,15 +165,7 @@ export class CatSolicitudComponent implements OnInit {
       priPrioridad: this.prioridad,
       proProyecto: {
         proIdproyecto: null,
-        clcContactoClienteByProIdconclitode: {
-          clcIdconcli: this.conClientTL.clcIdconcli,
-          cliCliente: this.conClientTL.cliCliente,
-          clcNombre: this.conClientTL.clcNombre,
-          clcTelefono: this.conClientTL.clcTelefono,
-          clcEmail: this.conClientTL.clcEmail,
-          clcTipo: this.conClientTL.clcTipo,
-          clcExtension: this.conClientTL.clcExtension
-        },
+        clcContactoClienteByProIdconclitode: this.conClientTL,
         clcContactoClienteByProIdconclilid: this.conClientLP,
         clcContactoClienteByProIdconcligerente: this.conClientG,
         cliCliente: this.cliente,
@@ -223,6 +217,7 @@ export class CatSolicitudComponent implements OnInit {
       percepsiones: this.listaPercepciones
     };
     this.bs.addSolicitud(this.solicitud);
+    this.mailService.sendEmail('1');
     this.router.navigate(['/Solicitud']);
   }
 

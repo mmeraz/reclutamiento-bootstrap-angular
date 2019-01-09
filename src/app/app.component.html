@@ -1,15 +1,17 @@
 
 <div class="page-wrapper chiller-theme toggled">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " styles="z-index:999;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " style="z-index:999; height: 50px !important;">
 
       <div class="sidebar-brand">
           <!-- <div id="close-sidebar" class="btn btn-sm btn-light">
               <i class="fas fa-bars"></i>
           </div> -->
-            <a class="btn btn-lg text-light" href="/Home">Reclutamiento</a>
+          <a class="btn btn-lg text-light" href="/Home"><b> RECLUTAMIENTO</b></a>
 
-
+            <a id="close-sidebar" class="btn btn-sm btn-link" style="color:#fff;">
+                <i class="fas fa-bars"></i>
+            </a>
         </div>
         <!-- <a id="close-sidebar" class="btn btn-sm btn-light">
             <i class="fas fa-bars"></i>
@@ -19,30 +21,30 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_ADMIN')">
-                    <button type="button" class="btn btn-outline-light btn-link" routerLink="/Area" >Home </button>
+                    <button type="button" style="color:#fff!important;font-weight: 500!important;" class="btn  btn-link" routerLink="/Area" >Home </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_COMERCIAL')">
-                    <button type="button" class="btn btn-outline-light" routerLink="/IndexComercial" >Home </button>
+                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn  btn-link" routerLink="/IndexComercial" >Home </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_RECLUTADOR')">
-                    <button type="button" class="btn btn-outline-light" routerLink="/IndexReclutamiento" >Home </button>
+                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/IndexReclutamiento" >Home </button>
                 </li>
                 <li class="nav-item" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_LIDERRECLU')">
                       <!-- <a  class="nav-link btn btn-outline-primary" routerLink="/IndexLiderreclutamiento" >Home </a> -->
-                      <button type="button" class="btn btn-outline-light" routerLink="/IndexLiderreclutamiento">Home</button>
+                      <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/IndexLiderreclutamiento">Home</button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_VALIDACION')">
-                    <button type="button" class="btn btn-outline-light" routerLink="/IndexTiValidacion" >Home </button>
+                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/IndexTiValidacion" >Home </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_BACKOFFICE')">
-                    <button type="button" class="btn btn-outline-light" routerLink="/IndexBackoffice" >Home </button>
+                    <button type="button" style="color:#fff!important;font-weight: 500!important;"class="btn btn-link" routerLink="/IndexBackoffice" >Home </button>
                 </li>
 
                 <li class="nav-item" *ngIf="!authService.isAuthenticated()">
-                    <button type="button" class="btn btn-outline-light" routerLink="/login" >Login</button>
+                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/login" >Login</button>
                 </li>
                 <li class="nav-item offset-md-1" *ngIf="authService.isAuthenticated()">
-                    <button type="button" class="btn btn-outline-dark" (click)="logout()" >Logout</button>
+                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" (click)="logout()" >Logout</button>
                 </li>
               </ul>
         </form>

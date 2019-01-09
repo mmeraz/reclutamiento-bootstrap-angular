@@ -33,6 +33,7 @@ import { SolicitudComponent } from '../solicitud/solicitud.component';
 import { SolicitudService } from '../../service/cat.solicitud.service';
 import { SeguiSolicitudService } from 'src/app/service/cat.seguisolicitud.service';
 import { SeguimientoSolService } from '../../service/seguimientosol.service';
+import { MailService } from 'src/app/service/mail.service';
 
 @Component({
   selector: 'app-candidato',
@@ -143,7 +144,7 @@ listaEntrevista: Catentrevista[] = [];
                private entrevistaService: EntrevistaService,
                private seguiSolicitudService: SeguimientoSolService,
                private route: ActivatedRoute, private auth: AuthService,
-               private router: Router) {
+               private router: Router, private serviceEmail: MailService) {
                }
 
   ngOnInit() {
@@ -201,7 +202,8 @@ listaEntrevista: Catentrevista[] = [];
     console.log(this.candidato);
     this.route.params.subscribe(params => {
       this.bs.addCandidato(this.candidato);
-      // this.router.navigate(['Candidato']);
+      this.serviceEmail.sendEmail('4');
+      this.router.navigate(['Candidato']);
       swal({
        position: 'top',
        type: 'success',
@@ -210,7 +212,7 @@ listaEntrevista: Catentrevista[] = [];
        timer: 2500
      });
    });
-  //  this.update();
+  this.update();
   }
 
   update(): void {
