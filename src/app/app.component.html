@@ -1,43 +1,58 @@
 
 <div class="page-wrapper chiller-theme toggled">
 
-    <nav id="sidebar" class="sidebar-wrapper" style="z-index: 999;">
-        <app-navbar></app-navbar>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " styles="z-index:999;">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" styles="z-index:999;">
+      <div class="sidebar-brand">
+          <!-- <div id="close-sidebar" class="btn btn-sm btn-light">
+              <i class="fas fa-bars"></i>
+          </div> -->
+            <a class="btn btn-lg text-light" href="/Home">Reclutamiento y Selección</a>
+
+            <a id="close-sidebar" class="btn btn-sm btn-light">
+                <i class="fas fa-bars"></i>
+            </a>
+        </div>
+
+
         <form class="form-inline my-2 my-lg-0 ml-auto">
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_ADMIN')">
-                    <button type="button" class="btn btn-outline-primary" routerLink="/Area" >Home </button>
+                    <button type="button" class="btn btn-outline-light" routerLink="/Area" >Home </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_COMERCIAL')">
-                    <button type="button" class="btn btn-outline-primary" routerLink="/IndexComercial" >Home </button>
+                    <button type="button" class="btn btn-outline-light" routerLink="/IndexComercial" >Home </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_RECLUTADOR')">
-                    <button type="button" class="btn btn-outline-primary" routerLink="/IndexReclutamiento" >Home </button>
+                    <button type="button" class="btn btn-outline-light" routerLink="/IndexReclutamiento" >Home </button>
                 </li>
                 <li class="nav-item" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_LIDERRECLU')">
                       <!-- <a  class="nav-link btn btn-outline-primary" routerLink="/IndexLiderreclutamiento" >Home </a> -->
-                      <button type="button" class="btn btn-outline-primary" routerLink="/IndexLiderreclutamiento">Home</button>
+                      <button type="button" class="btn btn-outline-light" routerLink="/IndexLiderreclutamiento">Home</button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_VALIDACION')">
-                    <button type="button" class="btn btn-outline-primary" routerLink="/IndexTiValidacion" >Home </button>
+                    <button type="button" class="btn btn-outline-light" routerLink="/IndexTiValidacion" >Home </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_BACKOFFICE')">
-                    <button type="button" class="btn btn-outline-primary" routerLink="/IndexBackoffice" >Home </button>
+                    <button type="button" class="btn btn-outline-light" routerLink="/IndexBackoffice" >Home </button>
                 </li>
 
                 <li class="nav-item" *ngIf="!authService.isAuthenticated()">
-                    <button type="button" class="btn btn-outline-primary" routerLink="/login" >Login</button>
+                    <button type="button" class="btn btn-outline-light" routerLink="/login" >Login</button>
                 </li>
                 <li class="nav-item offset-md-1" *ngIf="authService.isAuthenticated()">
-                    <button type="button" class="btn btn-outline-secondary" (click)="logout()" >Logout</button>
+                    <button type="button" class="btn btn-outline-dark" (click)="logout()" >Logout</button>
                 </li>
               </ul>
         </form>
     </nav>
+
+    <nav id="sidebar" class="sidebar-wrapper" >
+        <app-navbar></app-navbar>
+    </nav>
+
+
 
     <!-- sidebar-wrapper  -->
     <main class="page-content" >

@@ -4,6 +4,11 @@
 
 .nav-link{
 color: #fffdf9 !important;
+z-index: 999 !important;
+}
+
+.navbar{
+  z-index: 999 !important;
 }
 
 .page-content{
