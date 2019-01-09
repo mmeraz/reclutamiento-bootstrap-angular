@@ -123,6 +123,8 @@ import { CandiacepliderComponent } from './pages/usuarios/liderreclutamiento/com
 import { CandiaceprecluComponent } from './pages/usuarios/reclutamiento/componets/candiacepreclu.component';
 import { RechaclienComponent } from './pages/usuarios/reclutamiento/componets/rechaclien.component';
 import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/componets/solicitu2lider.component';
+import { IndexRetroComponent } from './pages/usuarios/comercial/retroexpectiva/index-retro.component';
+import { IndexRetroComComponent } from './pages/usuarios/comercial/retroexpeccompara/index-retro-com.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -265,6 +267,9 @@ import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/com
     RechaclienComponent,
     CandiaceprecluComponent,
     Solicitu2liderComponent,
+    IndexRetroComponent,
+    IndexRetroComComponent,
+    RetroespectivasComercialComponent
   ],
   imports: [
     BrowserModule,

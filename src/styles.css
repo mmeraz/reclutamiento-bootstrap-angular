@@ -78,6 +78,12 @@ body {
     margin: 2px;
 }
 
+.sidebar-submenu{
+  background-color: #1c292e !important;
+}
+.sidebar-menu:hover{
+  background-color: #1e282c !important;
+}
 .page-wrapper .theme.chiller-theme {
     background: #1d1d1d;
 }
@@ -142,7 +148,7 @@ body {
     height: calc(100% - 30px);
     overflow-y: auto;
     position: relative;
-    background: #f8f8f8 !important;
+    background: #1c292e !important;
 }
 
 .sidebar-content.desktop {
@@ -242,7 +248,7 @@ body {
     text-decoration: none;
     position: relative;
     padding: 8px 30px 8px 20px;
-    color: #79b8e1;
+    color: #f6f8e4;
 }
 
 .sidebar-wrapper .sidebar-menu ul li a i {
@@ -458,7 +464,7 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-brand>a,
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
 .chiller-theme .sidebar-footer>a {
-    color: #337ab7;
+    color: #f6f8e4;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
@@ -466,7 +472,7 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
 .chiller-theme .sidebar-wrapper .sidebar-brand>a:hover,
 .chiller-theme .sidebar-footer>a:hover i {
-    color: #0a0a0a;
+    color: #f6f8e4;
 }
 
 .page-wrapper.chiller-theme.toggled #close-sidebar {

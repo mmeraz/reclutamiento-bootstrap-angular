@@ -38,7 +38,7 @@ export class SeguimientoCandService {
   }
 
   addBorrador(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -55,7 +55,7 @@ export class SeguimientoCandService {
   }
 
   addRechazado(candidato: Catcandidato, secComentario: string) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -72,7 +72,7 @@ export class SeguimientoCandService {
   }
 
   addPendienteTI(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -89,7 +89,7 @@ export class SeguimientoCandService {
   }
 
   addPendienteEntrevista(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -106,7 +106,7 @@ export class SeguimientoCandService {
   }
 
   addEntrevistaAgendada(candidato: Catcandidato, comentario: string) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -124,7 +124,7 @@ export class SeguimientoCandService {
   }
 
   addEntrevistado(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -141,7 +141,7 @@ export class SeguimientoCandService {
   }
 
   addRechazadoXCliente(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -157,8 +157,8 @@ export class SeguimientoCandService {
       .subscribe(res => console.log('Done'));
   }
 
-  addAceptado(candidato: Catcandidato) {
-    this.headers();
+  addAceptado(candidato: Catcandidato, comentario: string  ) {
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -166,6 +166,7 @@ export class SeguimientoCandService {
       escIdestatus: 17,
       escDescripcion: 'aceptado'
       },
+      secComentario: comentario,
       usrUsuario: this.auth.usuario,
     };
     console.log(obj.usrUsuario.usrUsuario);
@@ -175,7 +176,7 @@ export class SeguimientoCandService {
   }
 
   addRechazadoXCandidato(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -192,7 +193,7 @@ export class SeguimientoCandService {
   }
 
   addPendienteDocumentacion(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -209,7 +210,7 @@ export class SeguimientoCandService {
   }
 
   addPendienteContrato(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -226,7 +227,7 @@ export class SeguimientoCandService {
   }
 
   addContratado(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -243,7 +244,7 @@ export class SeguimientoCandService {
   }
 
   addAsignable(candidato: Catcandidato) {
-    this.headers();
+    this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,

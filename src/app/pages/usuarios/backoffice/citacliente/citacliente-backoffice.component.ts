@@ -41,12 +41,12 @@ export class CitaclienteBackofficeComponent implements OnInit {
       swal({
         position: 'top',
         type: 'success',
-        title: `¡¡Solicitud Validada con éxito!!`,
+        title: `¡¡Entrevista agendada con éxito!!`,
         showConfirmButton: false,
         timer: 2000
       });
     });
-    this.update();
+    // this.update();
   }
 
   update(): void {

@@ -1,77 +1,70 @@
 <div class="container">
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h6>Datos del candidato</h6>
-      <hr />
-
-      <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Nombre: {{ candidato?.cndNombre }}
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-12">
-          Apellido Paterno:{{ candidato?.cndApellidopat }}
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Apellido Materno:{{ candidato?.cndApellidomat }}
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Sexo: {{ candidato?.cndGenero }}
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Email:{{ candidato?.cndEmail }}
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Candidato</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ candidato?.cndNombre }} {{ candidato?.cndApellidopat }}
+            {{ candidato?.cndApellidomat }}
+          </h6>
+          <p class="card-text" *ngFor="let con of candidato?.conContactocans">
+            Contacto: {{ con.conTelmovil }}
+          </p>
+          <p class="card-text">Email:{{ candidato?.cndEmail }}</p>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-2 col-sm-12">
-          Estado Civil:{{ candidato?.cndEstcivil }}
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Edad:{{ candidato?.cndEdad }}
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Hijos:{{ candidato?.cndHijos }}
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Disponibilidad de viajar:{{ candidato?.cndDispoViajar }}
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Visa:{{ candidato?.cndVisa }}
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Pasaporte:{{ candidato?.cndPasaporte }}
-        </div>
-      </div>
-
-      <div class="row mb-4">
-        <div class="col-lg-3 col-md-2 col-sm-12">Contacto:</div>
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          Telefono: {{ (candidato?.conContactocans)[0].conTelmovil }}
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Cliente</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{
+              solicitud?.proProyecto.clcContactoClienteByProIdconclilid
+                .clcNombre
+            }}
+          </h6>
+          <p class="card-text">
+            Contacto:
+            {{
+              solicitud?.proProyecto.clcContactoClienteByProIdconclilid
+                .clcTelefono
+            }}
+          </p>
+          <p class="card-text">Dirección: {{ solicitud?.cndCalle }}</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-lg-6">
-      Teléfono del contacto del cliente:
-      {{ solicitud?.proProyecto.clcContactoClienteByProIdconclilid.clcNombre }}
-      <br />
-      Número:
-      {{
-        solicitud?.proProyecto.clcContactoClienteByProIdconclilid.clcTelefono
-      }}
-    </div>
-    <div class="col-lg-6">
-      <input type="date" [(ngModel)]="comentario"/>
+  <div class="row mt-5">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <input
+        type="datetime-local"
+        [(ngModel)]="comentario"
+        class="form-control form-control-sm"
+      />
     </div>
     <div class="row">
-      <div class="col-lg-3">
-        <button type="button" class="btn btn-primary" (click)="updateBusiness()">Agendar</button>
+      <div class="col-lg-3 col-md-3 col-sm-12 mr-3">
+        <button
+          type="button"
+          class="btn btn-sm btn-primary"
+          (click)="updateBusiness()"
+        >
+          Agendar
+        </button>
       </div>
-      <div class="col-lg-3"></div>
-      <div class="col-lg-3">
-        <button type="button" class="btn btn-danger" [routerLink]="['/IndexBackoffice']" routerLinkActive="router-link-active" >Atras</button>
+      <div class="col-lg-3 col-md-3 col-sm-12 ml-2">
+        <button
+          type="button"
+          class="btn btn-danger btn-sm "
+          [routerLink]="['/IndexBackoffice']"
+          routerLinkActive="router-link-active"
+        >
+          Atras
+        </button>
       </div>
     </div>
   </div>
