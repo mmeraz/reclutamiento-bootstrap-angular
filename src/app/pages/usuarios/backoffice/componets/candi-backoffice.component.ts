@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SeguimientoCandService } from 'src/app/service/seguimientocandidato.service';
+import { DataTableDirective } from 'angular-datatables';
+import { Catcandidato } from 'src/app/model/catcandidato.model';
+import { Subject } from 'rxjs';
+import { AuthService } from 'src/app/service/auth.service';
+import { Catseguicandidato } from 'src/app/model/catseguicandidato.model';
 
 @Component({
   selector: 'app-candi-backoffice',
@@ -6,10 +12,33 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class CandiBackofficeComponent implements OnInit {
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
+  dtOptions: DataTables.Settings = {};
+  arraySolicitudes: Catcandidato[];
+  allSolicitud: Catseguicandidato[] = [];
+  dtTrigger: Subject<any> = new Subject();
+  constructor(private serviceSolicitud: SeguimientoCandService,
+              protected authservice: AuthService) { }
 
-  constructor() { }
+  ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+    };
+   this.serviceSolicitud.getSecSeguimientoActivoAll().subscribe(result => {
+      this.allSolicitud = result;
+      this.dtTrigger.next();
+    }) ;
+  }
 
-  ngOnInit() {
+  OnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
+  }
+
+  rerender(): void {
+    window.location.reload();
   }
 
 }

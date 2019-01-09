@@ -25,6 +25,12 @@ import { SeguimientoCandService } from '../../../../service/seguimientocandidato
 import { Catseguicandidato } from '../../../../model/catseguicandidato.model';
 import { Catusuario } from '../../../../model/catusuario.model';
 import { UsuarioService } from '../../../../service/cat.usuario.service';
+import { SolicitudService } from 'src/app/service/cat.solicitud.service';
+import { SeguiSolicitudService } from 'src/app/service/cat.seguisolicitud.service';
+import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
+import { EntrevistaService } from 'src/app/service/cat.entrevista.service';
+import { Catentrevista } from 'src/app/model/catentrevista.model';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-candidato-validar-ti',
@@ -36,6 +42,7 @@ export class CandidatoValidarTiComponent implements OnInit {
     editForm: FormGroup;
     candidato: Catcandidato;
     seguimiento: Catseguicandidato;
+    entrevista: Catentrevista;
 
   // Información para los select
   allPercepciones: Catprepercepcion[];
@@ -115,10 +122,13 @@ user: Catusuario;
                private habilidadesService: CompHabilidadesService,
                private prePercepcionService: PrePercepcionService,
                private fb: FormBuilder,
-               private bs: CandidatoService,
+               private bs: EntrevistaService,
+               private bsC: CandidatoService,
                private bsSeg: SeguimientoCandService,
                private route: ActivatedRoute,
                private userService: UsuarioService,
+               private solService: SeguimientoSolService,
+               private auth: AuthService,
                private router: Router) {
 
               }
@@ -129,10 +139,12 @@ user: Catusuario;
     this.habilidadesService.getCompHabilidades().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
     this.prePercepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
     this.contactoService.getContactos().subscribe((data: CatContactoCandidato[]) => this.allContactos = data);
+    this.solService.getSgsSeguimientoAsignada().subscribe((data: Catsolicitud[]) => this.allSolicitudes = data);
     this.route.params.subscribe(params  => {
       this.bs.editBusiness(params['id']).subscribe(res => {
-        this.candidato = res;
-        console.log(res.cndEstado);
+        this.entrevista = res;
+        this.candidato = this.entrevista.cndDatoscandidato;
+        console.log(res.cndDatoscandidato.cndIdcandidato);
       });
     });
   }
@@ -143,10 +155,8 @@ user: Catusuario;
   updateBusiness() {
     this.route.params.subscribe(params => {
       this.candidato.usuario = this.user;
-      this.bs.updateBusiness(this.candidato, this.candidato.cndIdcandidato);
-      this.userService.getUsuario(1).subscribe(result => {
-        this.user = result; });
-      this.bsSeg.addValidar(this.seguimiento.cndDatoscandidato, this.secComentario);
+      this.bsC.updateBusiness(this.candidato, this.candidato.cndIdcandidato);
+      this.bsSeg.addValidar(this.candidato, this.secComentario);
       this.router.navigate(['/IndexTiValidacion']);
        swal({
         position: 'top',
@@ -156,12 +166,12 @@ user: Catusuario;
         timer: 2500
       });
     });
-    // this.update();
+    this.update();
  }
 
  updateRechazada() {
   this.route.params.subscribe(params => {
-    this.bsSeg.addRechazado(this.seguimiento.cndDatoscandidato, this.secComentario);
+    this.bsSeg.addRechazado(this.candidato, this.secComentario);
     this.router.navigate(['/IndexTiValidacion']);
      swal({
       position: 'top',

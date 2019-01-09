@@ -607,20 +607,7 @@
                 <label for="exampleFormControlSelect1" class="font-weight-bold"
                   >Solicitud</label
                 >
-                <select
-                  [(ngModel)]="solicitud"
-                  class="form-control form-control-sm"
-                  name="solicitud"
-                  id="selectSolicitud"
-                  placeholder="Selecciona uno"
-                >
-                  <option value="" selected>Selecciona una solicitud</option>
-                  <option *ngFor="let sol of candidato?.solSolicitud"
-                  [ngValue]="sol">
-                    {{ sol.solSolicitud.proProyecto.proNombre }}
-                  </option>
-                </select>
-
+                <input readonly [(ngModel)]="entrevista && entrevista.solSolicitud.proProyecto.proNombre" class="form-control-plaintext"/>
               </div>
             </div>
           </div>
