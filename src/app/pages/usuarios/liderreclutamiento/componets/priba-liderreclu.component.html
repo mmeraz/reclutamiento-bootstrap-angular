@@ -30,6 +30,7 @@
               <th scope="col">Cliente</th>
               <th scope="col">Puesto</th>
               <th scope="col">Prioridad</th>
+              <th scope="col">Asignar</th>
             </tr>
           </thead>
           <tbody>
@@ -40,6 +41,17 @@
               <td>{{ a.solSolicitud.cliCliente.cliNombre}}</td>
               <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>
               <td>{{ a.solSolicitud.priPrioridad.priNombre }}</td>
+              <td class="text-center" >
+
+                  <i style="color:#007bff; margin-right:20px;"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Editar"
+                    class="fas fa-pencil-alt"
+                    *ngIf="authservice.hasRole('ROLE_ADMIN')
+                    || authservice.hasRole('ROLE_LIDERRECLU')"
+                    [routerLink]="['/AltaLiderReclutamiento', a.sgsIdseguimientosol]"></i>
+                </td>
             </tr>
           </tbody>
         </table>
