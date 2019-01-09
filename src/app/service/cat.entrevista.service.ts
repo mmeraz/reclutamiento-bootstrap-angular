@@ -24,9 +24,16 @@ export class EntrevistaService {
       this.headers = this.headers.append('Authorization', 'Bearer ' + Cookie.get('access_token'));
       return this.headers;
    }
+
    getEntrevista(id) {
     this.getHeaders();
     return this.clienteHttp.get<Catentrevista>(`${this.url}/fetch/${id}`, {
+      headers: this.headers});
+  }
+
+  getEntrevistaByC(id) {
+    this.getHeaders();
+    return this.clienteHttp.get<Catentrevista>(`${this.url}/fetchByC/${id}`, {
       headers: this.headers});
   }
 
