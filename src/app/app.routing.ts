@@ -102,6 +102,8 @@ import { CandiacepliderComponent } from './pages/usuarios/liderreclutamiento/com
 import { CandiaceprecluComponent } from './pages/usuarios/reclutamiento/componets/candiacepreclu.component';
 import { RechaclienComponent } from './pages/usuarios/reclutamiento/componets/rechaclien.component';
 import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/componets/solicitu2lider.component';
+import { AppComponent } from './app.component';
+
 
 
 
@@ -111,7 +113,7 @@ import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/com
 
   {path: 'Edit-candidato/:id', component: EditCandidatoComponent },
 
-  // {path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  {path: '', component: AppComponent, canActivate: [AuthGuard] },
   {path: 'Home', component: HomeComponent, canActivate: [AuthGuard]  },
   {path: 'login', component: LoginComponent},
   {path: 'Area', component: CatAreaComponent, canActivate: [AuthGuard] },
