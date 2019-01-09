@@ -11,6 +11,9 @@ z-index: 999 !important;
   z-index: 999 !important;
 }
 
+.page-wrapper{
+  background-color:#ecf0f5 !important;
+}
 .page-content{
   background-color:#ecf0f5 !important;
 

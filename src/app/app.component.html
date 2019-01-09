@@ -7,7 +7,7 @@
           <!-- <div id="close-sidebar" class="btn btn-sm btn-light">
               <i class="fas fa-bars"></i>
           </div> -->
-            <a class="btn btn-lg text-light" href="/Home">Reclutamiento y Selección</a>
+            <a class="btn btn-lg text-light" href="/Home">Reclutamiento</a>
 
             <a id="close-sidebar" class="btn btn-sm btn-light">
                 <i class="fas fa-bars"></i>
@@ -19,7 +19,7 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_ADMIN')">
-                    <button type="button" class="btn btn-outline-light" routerLink="/Area" >Home </button>
+                    <button type="button" class="btn btn-outline-light btn-link" routerLink="/Area" >Home </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_COMERCIAL')">
                     <button type="button" class="btn btn-outline-light" routerLink="/IndexComercial" >Home </button>

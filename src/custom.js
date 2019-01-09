@@ -22,10 +22,16 @@ jQuery(function($) {
         }
     });
 
-    $("#close-sidebar").click(function() {
-        $(".page-wrapper").removeClass("toggled");
+    $("#close-sidebar").ready(function() {
+      $( ".page-wrapper" ).click(function() {
+        $( this ).toggleClass( "toggled" );
+      });
     });
-    $("#show-sidebar").click(function() {
-        $(".page-wrapper").addClass("toggled");
-    });
+
+    // $("#close-sidebar").click(function() {
+    //     $(".page-wrapper").removeClass("toggled");
+    // });
+    // $("#show-sidebar").click(function() {
+    //     $(".page-wrapper").addClass("toggled");
+    // });
 });
