@@ -22,11 +22,11 @@ jQuery(function($) {
         }
     });
 
-    $("#close-sidebar").ready(function() {
-      $( ".page-wrapper" ).click(function() {
-        $( this ).toggleClass( "toggled" );
-      });
-    });
+    // $("#close-sidebar").ready(function() {
+    //   $( ".page-wrapper" ).click(function() {
+    //     $( this ).toggleClass( "toggled" );
+    //   });
+    // });
 
     // $("#close-sidebar").click(function() {
     //     $(".page-wrapper").removeClass("toggled");
