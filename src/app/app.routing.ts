@@ -216,7 +216,7 @@ import { AppComponent } from './app.component';
   {path: 'AltaLiderReclutamiento', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
   {path: 'CandidatoValidarTi/:id', component: CandidatoValidarTiComponent, canActivate: [AuthGuard]  },
   {path: 'AltaLiderReclutamiento/:id', component: AltaLiderreclutamientoComponent, canActivate: [AuthGuard]  },
-  {path: 'CitaClienteBackoffice', component: CitaclienteBackofficeComponent, canActivate: [AuthGuard]},
+  {path: 'CitaClienteBackoffice/:id', component: CitaclienteBackofficeComponent, canActivate: [AuthGuard]},
   {path: 'Solicitud-reclutamiento/:id', component: SoliReclutamientoComponent, canActivate: [AuthGuard]},
   {path: 'CandidatoRechazadoLider', component: CanrechaliderComponent, canActivate: [AuthGuard]},
   {path: 'CandidatoAceptadoLider', component: CandiacepliderComponent, canActivate: [AuthGuard]},

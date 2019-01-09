@@ -33,7 +33,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -50,7 +50,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -67,7 +67,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -84,7 +84,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -101,11 +101,11 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
-  addEntrevistaAgendada(candidato: Catcandidato) {
+  addEntrevistaAgendada(candidato: Catcandidato, comentario: string) {
     this.headers();
     const obj = {
       secIdseguimientocandidato: null,
@@ -114,11 +114,12 @@ export class SeguimientoCandService {
       escIdestatus: 14,
       escDescripcion: 'entrevista agendada'
       },
+      secComentario: comentario,
       usrUsuario: this.auth.usuario,
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -135,7 +136,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -152,7 +153,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -169,7 +170,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -186,7 +187,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -203,7 +204,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -220,7 +221,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -237,7 +238,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -254,7 +255,7 @@ export class SeguimientoCandService {
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
-      .post(this.url + 'add/', obj, { headers: this.headers })
+      .post(this.url + '/add', obj, { headers: this.headers })
       .subscribe(res => console.log('Done'));
   }
 
@@ -272,6 +273,12 @@ export class SeguimientoCandService {
   getSecSeguimientoActivo() {
     this.getHeaders();
     return this.clienteHttp.get(`${this.url}/fetchActive/1`,
+       {headers: this.headers});
+  }
+
+  getSecSeguimientoActivoAll() {
+    this.getHeaders();
+    return this.clienteHttp.get<Catseguicandidato[]>(`${this.url}/fetchActive`,
        {headers: this.headers});
   }
   getSecSeguimientoEntrevista() {

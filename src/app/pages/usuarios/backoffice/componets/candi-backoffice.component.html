@@ -22,7 +22,39 @@
       data-parent="#accordionExample"
     >
       <div class="card-body">
+          <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+                  <thead>
+                    <tr>
+                      <th scope="col">Fecha</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Estatus</th>
+                      <th scope="col">Revisar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
 
+                    <tr *ngFor="let s of allSolicitud">
+                      <th scope="row">{{ s.secEstatus }}</th>
+                      <td>{{ s.cndDatoscandidato.cndNombre }}</td>
+                      <td>{{ s.cndDatoscandidato.cndApellidopat }}</td>
+                      <td>{{ s.escEstatusCandidato.escDescripcion }}</td>
+                      <td class="text-center" >
+                          <i style="color:#007bff; margin-right:20px;"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Consultar"
+                          class="fas fa-search"
+                          [routerLink]="['/CitaClienteBackoffice', s.cndDatoscandidato.cndIdcandidato]"
+                          *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
       </div>
     </div>
   </div>
