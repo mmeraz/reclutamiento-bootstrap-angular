@@ -225,7 +225,7 @@ import { AppComponent } from './app.component';
   {path: 'CandidatosRechazadosClienteReclutamiento', component: RechaclienComponent, canActivate: [AuthGuard]},
   {path: 'CandidatosAceptadosClienteReclutamiento', component: CandiaceprecluComponent, canActivate: [AuthGuard]},
   {path: 'Solicitud2OpcionLider', component: Solicitu2liderComponent, canActivate: [AuthGuard]},
-  {path: 'IndexRetroexpectiva', component: IndexRetroComponent, canActivate: [AuthGuard]  },
+  {path: 'IndexRetroexpectiva/:id', component: IndexRetroComponent, canActivate: [AuthGuard]  },
   {path: 'IndexRetroexpectivaComparacion', component: IndexRetroComComponent, canActivate: [AuthGuard]  },
 ];
 

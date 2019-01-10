@@ -48,7 +48,15 @@
                           title="Consultar"
                           class="fas fa-search"
                           [routerLink]="['/CitaClienteBackoffice', s.cndDatoscandidato.cndIdcandidato]"
-                          *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                          *ngIf="authservice.hasRole('ROLE_ADMIN') && s.escEstatusCandidato.escIdestatus == 13 "></i>
+
+                          <i style="color:#00ff22; margin-right:20px;"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Retroexpectiva"
+                          class="fas fa-search"
+                          [routerLink]="['/IndexRetroexpectiva', s.cndDatoscandidato.cndIdcandidato]"
+                          *ngIf="authservice.hasRole('ROLE_ADMIN') && s.escEstatusCandidato.escIdestatus == 14 "></i>
                       </td>
                     </tr>
                   </tbody>
