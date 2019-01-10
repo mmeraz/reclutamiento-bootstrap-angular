@@ -6,6 +6,7 @@ import { EntrevistaService } from '../../../../service/cat.entrevista.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SeguimientoCandService } from '../../../../service/seguimientocandidato.service';
 import swal from 'sweetalert2';
+import { MailService } from 'src/app/service/mail.service';
 
 @Component({
   selector: 'app-index-retro',
@@ -22,7 +23,8 @@ export class IndexRetroComponent implements OnInit {
     private serviceEnt: EntrevistaService,
     private route: ActivatedRoute,
     private bs: SeguimientoCandService,
-    private router: Router
+    private router: Router,
+    private serviceEmail: MailService
   ) {}
 
   ngOnInit() {
@@ -38,6 +40,39 @@ export class IndexRetroComponent implements OnInit {
   updateBusiness() {
     this.route.params.subscribe(params => {
       this.bs.addAceptado(this.candidato, this.comentario);
+      this.serviceEmail.sendEmail('7');
+      this.router.navigate(['/IndexBackoffice']);
+      swal({
+        position: 'top',
+        type: 'success',
+        title: `¡¡Candidato Aceptado!!`,
+        showConfirmButton: false,
+        timer: 2500
+      });
+    });
+    this.update();
+  }
+
+  updatePendiente() {
+    this.route.params.subscribe(params => {
+      this.bs.addPendienteRespuesta(this.candidato, this.comentario);
+      this.serviceEmail.sendEmail('6'); // cambiar por el estado correcto
+      this.router.navigate(['/IndexBackoffice']);
+      swal({
+        position: 'top',
+        type: 'success',
+        title: `¡¡Candidato Pendiente de Respuesta!!`,
+        showConfirmButton: false,
+        timer: 2500
+      });
+    });
+    this.update();
+  }
+
+  updateRechazado() {
+    this.route.params.subscribe(params => {
+      this.bs.addRechazadoXCliente(this.candidato, this.comentario);
+      this.serviceEmail.sendEmail('8');
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',
@@ -47,7 +82,7 @@ export class IndexRetroComponent implements OnInit {
         timer: 2500
       });
     });
-    // this.update();
+    this.update();
   }
 
   update(): void {

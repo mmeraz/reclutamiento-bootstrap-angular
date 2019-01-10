@@ -140,7 +140,7 @@ export class SeguimientoCandService {
       .subscribe(res => console.log('Done'));
   }
 
-  addRechazadoXCliente(candidato: Catcandidato) {
+  addRechazadoXCliente(candidato: Catcandidato, comentario: string) {
     this.getHeaders();
     const obj = {
       secIdseguimientocandidato: null,
@@ -150,6 +150,7 @@ export class SeguimientoCandService {
       escDescripcion: 'rechazado por cliente'
       },
       usrUsuario: this.auth.usuario,
+      secComentario: comentario
     };
     console.log(obj.usrUsuario.usrUsuario);
     this.clienteHttp
@@ -217,6 +218,23 @@ export class SeguimientoCandService {
       escEstatusCandidato: {
       escIdestatus: 20,
       escDescripcion: 'pendiente de contrato'
+      },
+      usrUsuario: this.auth.usuario,
+    };
+    console.log(obj.usrUsuario.usrUsuario);
+    this.clienteHttp
+      .post(this.url + '/add', obj, { headers: this.headers })
+      .subscribe(res => console.log('Done'));
+  }
+
+  addPendienteRespuesta(candidato: Catcandidato, comentario: string) {
+    this.getHeaders();
+    const obj = {
+      secIdseguimientocandidato: null,
+      cndDatoscandidato: candidato,
+      escEstatusCandidato: {
+      escIdestatus: 23,
+      escDescripcion: 'Pendiente de Respuesta'
       },
       usrUsuario: this.auth.usuario,
     };

@@ -251,20 +251,20 @@
             <form>
           <div class="form-group">
               <label class="font-weight-bold" >Añadir Retroexpectiva</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
           </form>
       </div>
 
       <div class="col-lg-2 col-md-2 col-sm-12 mt-5">
 
-          <button type="button" class="btn btn-success mr-5 ">Aceptado</button>
-          <button type="button" class="btn btn-warning text-white mt-3">Rechazado</button>
+          <button type="button" class="btn btn-success mr-5 " (click)="updateBusiness()">Aceptado</button>
+          <button type="button" class="btn btn-warning text-white mt-3" (click)="updateRechazado()">Rechazado</button>
       </div>
       <div class="col-lg-2 col-md-2 col-sm-12 mt-5">
-          <button type="button" class="btn btn-secondary mb-3">Pendiente</button>
+          <button type="button" class="btn btn-secondary mb-3" (click)="updatePendiente()">Pendiente</button>
 
-          <button type="button" class="btn btn-primary text-white">Solicitud Pendiente</button>
+          <button type="button" class="btn btn-primary text-white" >Solicitud Pendiente</button>
 
 
       </div>

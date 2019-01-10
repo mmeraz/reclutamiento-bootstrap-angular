@@ -6,6 +6,7 @@ import { Catcandidato } from 'src/app/model/catcandidato.model';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
 import { SeguimientoCandService } from 'src/app/service/seguimientocandidato.service';
 import swal from 'sweetalert2';
+import { MailService } from 'src/app/service/mail.service';
 
 @Component({
   selector: 'app-citacliente-backoffice',
@@ -21,7 +22,7 @@ export class CitaclienteBackofficeComponent implements OnInit {
     private serviceEnt: EntrevistaService,
     private route: ActivatedRoute,
     private bs: SeguimientoCandService,
-    private router: Router
+    private router: Router, private serviceEmail: MailService
   ) {}
 
   ngOnInit() {
@@ -37,6 +38,7 @@ export class CitaclienteBackofficeComponent implements OnInit {
   updateBusiness() {
     this.route.params.subscribe(params => {
       this.bs.addEntrevistaAgendada(this.candidato, this.comentario);
+      this.serviceEmail.sendEmail('6');
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',
@@ -46,7 +48,7 @@ export class CitaclienteBackofficeComponent implements OnInit {
         timer: 2000
       });
     });
-    // this.update();
+    this.update();
   }
 
   update(): void {
