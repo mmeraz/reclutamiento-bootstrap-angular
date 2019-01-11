@@ -218,7 +218,7 @@ export class CatSolicitudComponent implements OnInit {
     };
     this.bs.addSolicitud(this.solicitud);
     this.mailService.sendEmail('1', this.solicitud);
-    this.router.navigate(['/Solicitud']);
+    this.router.navigate(['/IndexTiValidacion']);
   }
 
   /**
