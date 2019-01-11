@@ -587,3 +587,114 @@ Parte de las cards
   display: block;
   font-size: 18px;
 }
+
+.border-top-success{
+  border-top-color: #28a745 !important;
+}
+.border-top-primary {
+  border-top-color: #5969ff !important;
+}
+
+.border-3 {
+  border-width: 3px !important;
+}
+
+.border-secondary {
+  border-color: #ff407b !important;
+}
+
+.border-brand {
+  border-color: #ffc750 !important;
+}
+
+.border-info {
+  border-color: #25d5f2 !important;
+}
+.icon-circle {
+  border-radius: 100%;
+}
+
+.icon-circle-small {
+  line-height: 1;
+  padding: 12px 2px;
+  text-align: center;
+  font-size: 12px;
+  /* display: inline-block; */
+  border-radius: 100%;
+}
+
+.icon-circle-medium {
+  line-height: 1;
+  padding: 22px 2px;
+  text-align: center;
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 100%;
+}
+
+.icon-box {}
+
+.icon-box-xxl {}
+
+.icon-box-xl {}
+
+.icon-box-lg {
+  height: 68px;
+  width: 68px;
+}
+
+.icon-box-md {
+  height: 50px;
+  width: 50px;
+}
+
+.icon-box-sm {}
+
+.icon-box-xs {
+  height: 20px;
+  width: 20px;
+}
+.bg-primary-light {
+  background-color: #dbdeff !important;
+  color: #fff !important;
+}
+
+.bg-info-light {
+  background-color: #dffaff !important;
+  color: #fff;
+}
+
+.bg-secondary-light {
+  background-color: #ffdbe6 !important;
+}
+
+.bg-danger-light {
+  background-color: #fbd3d5 !important;
+}
+
+.bg-brand-light {
+  background-color: #fff2d5 !important;
+}
+
+.bg-success-light {
+  background-color: #c5fad3 !important;
+}
+.text-brand {
+  color: #ffc750 !important;
+}
+.rating-color {
+  color: #ffa811;
+}
+.fa-xl {}
+
+.fa-lg {}
+
+.fa-md {}
+
+.fa-sm {
+    font-size: 24px !important;
+}
+
+.fa-xs {
+    font-size: 11px !important;
+}

@@ -105,6 +105,7 @@ import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/com
 import { IndexRetroComponent } from './pages/usuarios/comercial/retroexpectiva/index-retro.component';
 import { IndexRetroComComponent } from './pages/usuarios/comercial/retroexpeccompara/index-retro-com.component';
 import { AppComponent } from './app.component';
+import { DocumentosComponent} from './pages/usuarios/recursoshumanos/documentos/documentos.component';
 
 
 
@@ -225,8 +226,9 @@ import { AppComponent } from './app.component';
   {path: 'CandidatosRechazadosClienteReclutamiento', component: RechaclienComponent, canActivate: [AuthGuard]},
   {path: 'CandidatosAceptadosClienteReclutamiento', component: CandiaceprecluComponent, canActivate: [AuthGuard]},
   {path: 'Solicitud2OpcionLider', component: Solicitu2liderComponent, canActivate: [AuthGuard]},
-  {path: 'IndexRetroexpectiva', component: IndexRetroComponent, canActivate: [AuthGuard]  },
+  {path: 'IndexRetroexpectiva/:id', component: IndexRetroComponent, canActivate: [AuthGuard]  },
   {path: 'IndexRetroexpectivaComparacion', component: IndexRetroComComponent, canActivate: [AuthGuard]  },
+  {path: 'Documento/:id', component: DocumentosComponent, canActivate: [AuthGuard]  },
 ];
 
  export const appRoutingProviders: any[] = [];
