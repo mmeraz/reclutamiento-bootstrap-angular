@@ -217,7 +217,7 @@ export class CatSolicitudComponent implements OnInit {
       percepsiones: this.listaPercepciones
     };
     this.bs.addSolicitud(this.solicitud);
-    this.mailService.sendEmail('1');
+    this.mailService.sendEmail('1', this.solicitud);
     this.router.navigate(['/Solicitud']);
   }
 

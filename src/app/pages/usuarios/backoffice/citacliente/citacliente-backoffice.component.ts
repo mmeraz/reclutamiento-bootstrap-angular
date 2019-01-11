@@ -7,6 +7,9 @@ import { Catsolicitud } from 'src/app/model/catsolicitud.model';
 import { SeguimientoCandService } from 'src/app/service/seguimientocandidato.service';
 import swal from 'sweetalert2';
 import { MailService } from 'src/app/service/mail.service';
+import { catchError } from 'rxjs/operators';
+import { AuthService } from 'src/app/service/auth.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-citacliente-backoffice',
@@ -22,12 +25,20 @@ export class CitaclienteBackofficeComponent implements OnInit {
     private serviceEnt: EntrevistaService,
     private route: ActivatedRoute,
     private bs: SeguimientoCandService,
-    private router: Router, private serviceEmail: MailService
+    private router: Router, private serviceEmail: MailService, private auth: AuthService
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.serviceEnt.getEntrevistaByC(params['id']).subscribe(res => {
+      this.serviceEnt.getEntrevistaByC(params['id']).pipe(catchError( err => {
+        if (err.status === 401) {
+          this.update();
+          this.auth.loguot();
+          this.router.navigateByUrl('/login');
+        } else {
+            return throwError(err);
+        }
+   })).subscribe(res => {
         this.entrevista = res;
         this.candidato = this.entrevista.cndDatoscandidato;
         this.solicitud = this.entrevista.solSolicitud;
@@ -38,7 +49,7 @@ export class CitaclienteBackofficeComponent implements OnInit {
   updateBusiness() {
     this.route.params.subscribe(params => {
       this.bs.addEntrevistaAgendada(this.candidato, this.comentario);
-      this.serviceEmail.sendEmail('6');
+      this.serviceEmail.sendEmail('6', this.candidato);
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',

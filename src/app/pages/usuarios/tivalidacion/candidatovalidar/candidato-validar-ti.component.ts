@@ -158,7 +158,7 @@ user: Catusuario;
       this.candidato.usuario = this.user;
       this.bsC.updateBusiness(this.candidato, this.candidato.cndIdcandidato);
       this.bsSeg.addValidar(this.candidato, this.secComentario);
-      this.serviceMail.sendEmail('5');
+      this.serviceMail.sendEmail('5', this.candidato);
       this.router.navigate(['/IndexTiValidacion']);
        swal({
         position: 'top',
@@ -174,7 +174,7 @@ user: Catusuario;
  updateRechazada() {
   this.route.params.subscribe(params => {
     this.bsSeg.addRechazado(this.candidato, this.secComentario);
-    this.serviceMail.sendEmail('8');
+    this.serviceMail.sendEmail('8', this.candidato);
     this.router.navigate(['/IndexTiValidacion']);
      swal({
       position: 'top',
