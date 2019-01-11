@@ -174,7 +174,7 @@ user: Catusuario;
  updateRechazada() {
   this.route.params.subscribe(params => {
     this.bsSeg.addRechazado(this.candidato, this.secComentario);
-    this.serviceMail.sendEmail('8', this.candidato);
+    this.serviceMail.sendEmail('6', this.candidato);
     this.router.navigate(['/IndexTiValidacion']);
      swal({
       position: 'top',
