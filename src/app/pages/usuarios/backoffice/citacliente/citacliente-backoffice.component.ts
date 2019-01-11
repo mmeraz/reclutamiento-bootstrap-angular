@@ -49,7 +49,7 @@ export class CitaclienteBackofficeComponent implements OnInit {
   updateBusiness() {
     this.route.params.subscribe(params => {
       this.bs.addEntrevistaAgendada(this.candidato, this.comentario);
-      this.serviceEmail.sendEmail('6', this.candidato);
+      this.serviceEmail.sendEmail('10', this.candidato);
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',

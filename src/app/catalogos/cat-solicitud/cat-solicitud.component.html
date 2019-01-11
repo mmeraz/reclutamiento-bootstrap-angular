@@ -14,13 +14,13 @@
           Guardar <i class="fa fa-check" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="col-md-2">
+      <!-- <div class="col-md-2">
         <button type="button"
         class="btn btn-primary"
         >
           Borrador <i class="fa fa-broom" aria-hidden="true"></i>
         </button>
-      </div>
+      </div> -->
       <div class="col-md-2">
         <button
           type="button"
@@ -81,7 +81,7 @@
                   <div class="col-md-12">
                     <select
                       [(ngModel)]="requerimiento"
-                      class="form-control"
+                      class="form-control form-control-sm"
                       id="requerimiento"
                       name="requerimiento"
                       [ngModelOptions]="{ standalone: true }"
@@ -104,7 +104,7 @@
                       id="prioridad"
                       name="prioridad"
                       [ngModelOptions]="{ stanalone: true }"
-                      class="form-control"
+                      class="form-control form-control-sm"
                     >
                       <option [ngValue]="null" selected>Selecciona uno</option>
                       <option
@@ -124,7 +124,7 @@
                     <select
                       id="presupuesto"
                       name="presupuesto"
-                      class="form-control"
+                      class="form-control form-control-sm"
                       [(ngModel)]="presupuesto"
                       [ngModelOptions]="{ stanalone: true }"
                     >
@@ -145,7 +145,7 @@
                     <select
                       id="vacante"
                       name="vacante"
-                      class="form-control"
+                      class="form-control form-control-sm"
                       [(ngModel)]="vacante"
                       [ngModelOptions]="{ stanalone: true }"
                     >
@@ -165,7 +165,7 @@
                   <div class="col-md-12">
                     <select
                       [(ngModel)]="perfil"
-                      class="form-control"
+                      class="form-control form-control-sm"
                       id="perfil"
                       name="perfil"
                       [ngModelOptions]="{ standalone: true }"
@@ -184,7 +184,7 @@
                   <div class="col-md-12">
                     <select
                       [(ngModel)]="genero"
-                      class="form-control"
+                      class="form-control form-control-sm"
                       id="genero"
                       name="genero"
                       [ngModelOptions]="{ standalone: true }"
@@ -207,7 +207,7 @@
                       name="escolaridad"
                       type="text"
                       placeholder="Grado escolar"
-                      class="form-control input-md"
+                      class="form-control input-md form-control-sm"
                       required=""
                       [(ngModel)]="escolaridad"
                       [ngModelOptions]="{ stanalone: true }"
@@ -224,7 +224,7 @@
                       min="20"
                       max="99"
                       placeholder="Escribe la edad"
-                      class="form-control input-md"
+                      class="form-control input-md form-control-sm"
                       required=""
                       [(ngModel)]="edad"
                       [ngModelOptions]="{ stanalone: true }"
@@ -277,7 +277,7 @@
                       [ngModelOptions]="{ stanalone: true }"
                       id="cliente"
                       name="cliente"
-                      class="form-control"
+                      class="form-control form-control-sm"
                     >
                       <option [ngValue]="null" selected
                         >Selecciona Cliente</option
@@ -301,7 +301,7 @@
                       <select
                         id="conClientG"
                         name="conClientG"
-                        class="form-control"
+                        class="form-control form-control-sm"
                         [(ngModel)]="conClientG"
                         [ngModelOptions]="{ stanalone: true }"
                       >
@@ -322,7 +322,7 @@
                       <select
                         id="conClientLP"
                         name="conClientLP"
-                        class="form-control"
+                        class="form-control form-control-sm"
                         [(ngModel)]="conClientLP"
                         [ngModelOptions]="{ stanalone: true }"
                       >
@@ -343,7 +343,7 @@
                       <select
                         id="conClientTL"
                         name="conClientTL"
-                        class="form-control"
+                        class="form-control form-control-sm"
                         [(ngModel)]="conClientTL"
                         [ngModelOptions]="{ stanalone: true }"
                       >
@@ -407,7 +407,7 @@
                         name="proyecto"
                         type="text"
                         placeholder="nombre del proyecto"
-                        class="form-control input-md"
+                        class="form-control input-md form-control-sm"
                         required=""
                         [(ngModel)]="nombrePro"
                         [ngModelOptions]="{ stanalone: true }"
@@ -426,7 +426,7 @@
                         name="Puesto"
                         type="text"
                         placeholder="Puesto del proyecto"
-                        class="form-control input-md"
+                        class="form-control input-md form-control-sm"
                         [(ngModel)]="puestoPro"
                         [ngModelOptions]="{ stanalone: true }"
                       />
@@ -444,7 +444,7 @@
                         name="duracion"
                         type="text"
                         placeholder="Duracion Proyecto"
-                        class="form-control input-md"
+                        class="form-control input-md form-control-sm"
                         [(ngModel)]="duracionPro"
                         [ngModelOptions]="{ stanalone: true }"
                       />
@@ -460,7 +460,7 @@
                       <select
                         id="jornada"
                         name="jornada"
-                        class="form-control"
+                        class="form-control form-control-sm"
                         [(ngModel)]="jornadaLab"
                         [ngModelOptions]="{ stanalone: true }"
                       >
@@ -473,24 +473,29 @@
                       </select>
                     </div>
                   </div>
-
+                </div>
+                <div class="row">
                   <!-- Textarea -->
+                  <div class="col-lg-3">
                   <div class="form-group">
                     <label class="col-md-12 control-label" for="descripcion"
                       >Descripción</label
                     >
                     <div class="col-md-12">
                       <textarea
-                        class="form-control"
+                        class="form-control form-control-sm"
                         id="descripcion"
                         name="descripcion"
                         [(ngModel)]="descripcion"
                         [ngModelOptions]="{ stanalone: true }"
+                        rows="6"
                       >
-Descripción del proyecto</textarea
+                        Descripción del proyecto</textarea
                       >
                     </div>
                   </div>
+                </div>
+                <div class="col-lg-3">
                   <div class="form-group">
                       <label class="col-md-12 control-label" for="direccion"
                       >Direccion de entrevista</label
@@ -500,12 +505,14 @@ Descripción del proyecto</textarea
                         name="direccion"
                         type="text"
                         placeholder="Direccion"
-                        class="form-control input-md"
+                        class="form-control input-md form-control-sm"
                         [(ngModel)]="direccion"
                         [ngModelOptions]="{ stanalone: true }"
                       />
                   </div>
+                </div>
                   <!-- Text input -->
+                  <div class="col-lg-3">
                   <div class="form-group">
                     <label class="col-md-12 control-label" for="nVacante"
                       >Numero de vacantes</label
@@ -518,13 +525,15 @@ Descripción del proyecto</textarea
                         placeholder="Numero vacantes"
                         min="1"
                         max="100"
-                        class="form-control input-md"
+                        class="form-control input-md form-control-sm"
                         [(ngModel)]="nVacante"
                         [ngModelOptions]="{ stanalone: true }"
                       />
                     </div>
                   </div>
+                </div>
                   <!-- Text input -->
+                  <div class="col-lg-3">
                   <div class="form-group">
                     <label class="col-md-12 control-label" for="duracion"
                       >Tarifa comercial</label
@@ -536,13 +545,14 @@ Descripción del proyecto</textarea
                         type="number"
                         placeholder="Tarifa comercial"
                         min="1"
-                        max="100"
-                        class="form-control input-md"
+                        max="1000000"
+                        class="form-control input-md form-control-sm"
                         [(ngModel)]="tarifaC"
                         [ngModelOptions]="{ stanalone: true }"
                       />
                     </div>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -588,7 +598,7 @@ Descripción del proyecto</textarea
                       <select
                         id="idioma"
                         name="idioma"
-                        class="form-control"
+                        class="form-control form-control-sm"
                         [(ngModel)]="idioma"
                         [ngModelOptions]="{ stanalone: true }"
                       >
@@ -613,25 +623,27 @@ Descripción del proyecto</textarea
                         name="nivel"
                         type="text"
                         placeholder=""
-                        class="form-control input-md"
+                        class="form-control form-control-sm"
                         [(ngModel)]="nvIdioma"
                         [ngModelOptions]="{ stanalone: true }"
                       />
                     </div>
                   </div>
                   <div>
-                    <i
-                      style="color:#dc3545;"
-                      data-toggle="tooltip"
-                      data-placement="center"
-                      title="Agregar"
-                      class="fas fa-plus"
-                      (click)="addIdioma()"
-                    ></i>
+                    <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addIdioma()">
+                        <i
+                        data-toggle="tooltip"
+                        data-placement="center"
+                        title="Agregar"
+                        class="fas fa-plus"
+
+                      ></i>
+                    </button>
+
                   </div>
                   <div>
                     <table
-                      class="table table-striped table-bordered table-hover"
+                      class=" table table-striped table-bordered table-hover table-sm ml-3 mt-4"
                       id="tableArea"
                     >
                       <thead class="thead-ligth">
@@ -670,7 +682,7 @@ Descripción del proyecto</textarea
                       <select
                         id="conocimiento"
                         name="conocimiento"
-                        class="form-control"
+                        class="form-control form-control-sm"
                         [(ngModel)]="conocimiento"
                         [ngModelOptions]="{ stanalone: true }"
                       >
@@ -695,25 +707,26 @@ Descripción del proyecto</textarea
                         name="nivel"
                         type="text"
                         placeholder=""
-                        class="form-control input-md"
+                        class="form-control form-control-sm"
                         [(ngModel)]="nvCono"
                         [ngModelOptions]="{ stanalone: true }"
                       />
                     </div>
                   </div>
                   <div>
-                    <i
-                      style="color:#dc3545;"
-                      data-toggle="tooltip"
-                      data-placement="center"
-                      title="Agregar"
-                      class="fas fa-plus"
-                      (click)="addConocimiento()"
-                    ></i>
+                      <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addConocimiento()">
+                          <i
+                          data-toggle="tooltip"
+                          data-placement="center"
+                          title="Agregar"
+                          class="fas fa-plus"
+
+                        ></i>
+                      </button>
                   </div>
                   <div>
                     <table
-                      class="table table-striped table-bordered table-hover"
+                      class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
                       id="tableArea"
                     >
                       <thead class="thead-ligth">
@@ -768,18 +781,19 @@ Descripción del proyecto</textarea
                     </div>
                   </div>
                   <div>
-                    <i
-                      style="color:#dc3545;"
-                      data-toggle="tooltip"
-                      data-placement="center"
-                      title="Agregar"
-                      class="fas fa-plus"
-                      (click)="addHabilidad()"
-                    ></i>
+                      <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addHabilidad()">
+                          <i
+                          data-toggle="tooltip"
+                          data-placement="center"
+                          title="Agregar"
+                          class="fas fa-plus"
+
+                        ></i>
+                      </button>
                   </div>
                   <div>
                     <table
-                      class="table table-striped table-bordered table-hover"
+                      class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
                       id="tableArea"
                     >
                       <thead class="thead-ligth">
@@ -843,7 +857,7 @@ Descripción del proyecto</textarea
                       <select
                         id="equipo"
                         name="equipo"
-                        class="form-control"
+                        class="form-control form-control-sm"
                         [(ngModel)]="equipo"
                         [ngModelOptions]="{ stanalone: true }"
                       >
@@ -856,18 +870,19 @@ Descripción del proyecto</textarea
                       </select>
                     </div>
                     <div>
-                      <i
-                        style="color:#dc3545;"
-                        data-toggle="tooltip"
-                        data-placement="center"
-                        title="Agregar"
-                        class="fas fa-plus"
-                        (click)="addEquipo()"
-                      ></i>
+                        <button class="btn btn-success btn-sm mt-4 mr-5 ml-3" (click)="addEquipo()">
+                            <i
+                            data-toggle="tooltip"
+                            data-placement="center"
+                            title="Agregar"
+                            class="fas fa-plus"
+
+                          ></i>
+                        </button>
                     </div>
                     <div>
                       <table
-                        class="table table-striped table-bordered table-hover"
+                        class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
                         id="tableArea"
                       >
                         <thead class="thead-ligth">
@@ -938,26 +953,27 @@ Descripción del proyecto</textarea
                           name="funcion"
                           type="text"
                           placeholder="Descripcion de la funcion"
-                          class="form-control input-md"
+                          class="form-control form-control-sm"
                           [(ngModel)]="descripcionF"
                           [ngModelOptions]="{ stanalone: true }"
                         />
                       </div>
                     </div>
                     <div>
-                      <i
-                        style="color:#dc3545;"
-                        data-toggle="tooltip"
-                        data-placement="center"
-                        title="Agregar"
-                        class="fas fa-plus"
-                        (click)="addFunciones()"
-                      ></i>
+                        <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addFunciones()">
+                            <i
+                            data-toggle="tooltip"
+                            data-placement="center"
+                            title="Agregar"
+                            class="fas fa-plus"
+
+                          ></i>
+                        </button>
                     </div>
                     <div>
                       <div>
                         <table
-                          class="table table-striped table-bordered table-hover"
+                          class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
                           id="tableArea"
                         >
                           <thead class="thead-ligth">
@@ -1023,7 +1039,7 @@ Descripción del proyecto</textarea
                         <select
                           id="percepcion"
                           name="percepcion"
-                          class="form-control"
+                          class="form-control form-control-sm"
                           [(ngModel)]="percepcion"
                           [ngModelOptions]="{ stanalone: true }"
                         >
@@ -1050,7 +1066,7 @@ Descripción del proyecto</textarea
                           name="descripcion"
                           type="text"
                           placeholder=""
-                          class="form-control input-md"
+                          class="form-control form-control-sm"
                           [(ngModel)]="descripcionPer"
                           [ngModelOptions]="{ stanalone: true }"
                         />
@@ -1068,25 +1084,26 @@ Descripción del proyecto</textarea
                           name="valor"
                           type="text"
                           placeholder=""
-                          class="form-control input-md"
+                          class="form-control form-control-sm"
                           [(ngModel)]="valorPer"
                           [ngModelOptions]="{ stanalone: true }"
                         />
                       </div>
                     </div>
                     <div>
-                      <i
-                        style="color:#dc3545;"
-                        data-toggle="tooltip"
-                        data-placement="center"
-                        title="Agregar"
-                        class="fas fa-plus"
-                        (click)="addPercepcion()"
-                      ></i>
+                        <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addPercepcion()">
+                            <i
+                            data-toggle="tooltip"
+                            data-placement="center"
+                            title="Agregar"
+                            class="fas fa-plus"
+
+                          ></i>
+                        </button>
                     </div>
                     <div>
                       <table
-                        class="table table-striped table-bordered table-hover"
+                        class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
                         id="tableArea"
                       >
                         <thead class="thead-ligth">

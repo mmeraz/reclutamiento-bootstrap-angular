@@ -27,6 +27,8 @@
                 <tr>
                   <th scope="col">Id</th>
                   <th scope="col">Fecha</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Cliente</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -35,6 +37,8 @@
                 <tr *ngFor="let a of allSeguimiento">
                   <th scope="row">{{ a.solSolicitud.solIdsolicitud }}</th>
                   <td>{{ a.sgsFecha }}</td>
+                  <td>{{ a.solSolicitud.proProyecto.proNombre }}</td>
+                  <td>{{ a.solSolicitud.proProyecto.cliCliente.cliNombre }}</td>
 
                   <td class="text-center" >
 
