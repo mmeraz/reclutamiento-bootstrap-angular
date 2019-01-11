@@ -40,7 +40,7 @@ export class IndexRetroComponent implements OnInit {
   updateBusiness() {
     this.route.params.subscribe(params => {
       this.bs.addAceptado(this.candidato, this.comentario);
-      this.serviceEmail.sendEmail('7');
+      this.serviceEmail.sendEmail('7', this.candidato);
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',
@@ -56,7 +56,7 @@ export class IndexRetroComponent implements OnInit {
   updatePendiente() {
     this.route.params.subscribe(params => {
       this.bs.addPendienteRespuesta(this.candidato, this.comentario);
-      this.serviceEmail.sendEmail('6'); // cambiar por el estado correcto
+      this.serviceEmail.sendEmail('6', this.candidato); // cambiar por el estado correcto
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',
@@ -72,7 +72,7 @@ export class IndexRetroComponent implements OnInit {
   updateRechazado() {
     this.route.params.subscribe(params => {
       this.bs.addRechazadoXCliente(this.candidato, this.comentario);
-      this.serviceEmail.sendEmail('8');
+      this.serviceEmail.sendEmail('8', this.candidato);
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',

@@ -1,9 +1,10 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Catusuario } from '../model/catusuario.model';
 import { CatRol } from '../model/catrol.model';
 import { Cookie } from 'ng2-cookies';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class AuthService {
     return null;
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,  private router: Router) { }
 
   login(usuario: Catusuario): Observable<any> {
     const urlEndpoint = 'http://localhost:8085/oauth/token';
@@ -68,7 +69,6 @@ export class AuthService {
   }
 
   Guardarusuario(accessToken: string): void {
-
     this._usuario = {
       usrUsuario : null,
       usrUsername: '',
@@ -111,6 +111,5 @@ export class AuthService {
     } else {
       return false;
     }
-
   }
 }

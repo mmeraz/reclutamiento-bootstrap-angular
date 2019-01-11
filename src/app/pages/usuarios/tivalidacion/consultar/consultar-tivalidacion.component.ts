@@ -148,7 +148,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
         this.user = result; });
       this.solicitud.usrUsuarioBySolIdreclutador = this.user;
       this.service.addValidar(this.segimiento.solSolicitud, this.comentario);
-      this.serviceEmail.sendEmail('2');
+      this.serviceEmail.sendEmail('2', this.solicitud);
       this.router.navigate(['/IndexTiValidacion']);
        swal({
         position: 'top',
@@ -164,7 +164,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
  updateRechazada() {
   this.route.params.subscribe(params => {
     this.service.addRechazadaTI(this.segimiento.solSolicitud, this.comentario);
-    this.serviceEmail.sendEmail('3');
+    this.serviceEmail.sendEmail('3', this.solicitud);
     this.router.navigate(['/IndexTiValidacion']);
      swal({
       position: 'top',

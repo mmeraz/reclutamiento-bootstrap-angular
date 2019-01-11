@@ -16,7 +16,6 @@ export class AppComponent {
     private router: Router) {}
 
 
-
   logout() {
     this.rerender();
     this.authService.loguot();
