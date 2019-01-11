@@ -5,15 +5,18 @@ import { Catarea } from '../model/catarea.model';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { Cookie } from 'ng2-cookies';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 }
 )
 export class AreaService {
+
+
   private url = 'http://localhost:8085/api/v1/areaNegocio';
   private headers; // agregar
-  constructor( private clienteHttp: HttpClient, private router: Router) {}
+  constructor( private clienteHttp: HttpClient, private router: Router, private auth: AuthService ) {}
 
   // private isNoAutorizado(e): boolean {
   //   if (e.status === 401 || e.status === 403) {
@@ -23,7 +26,7 @@ export class AreaService {
   //   return false;
   // }
 
-  getAreas() {
+  getAreas(): Observable<any> {
     this.getHeaders(); // agregar
     return this.clienteHttp.get(this.url + '/fetch', {
       headers: this.headers}); // agregar
@@ -47,6 +50,7 @@ export class AreaService {
     return this.clienteHttp.get<Catarea>(`${this.url}/fetch/${id}`, {
       headers: this.headers}); // agregar
   }
+
   editBusiness(id) {
     this.getHeaders(); // agregar
     return this
@@ -66,6 +70,7 @@ export class AreaService {
       .put(`${this.url}/update/${arnIdarean}`, obj, {
         headers: this.headers}).subscribe(res => console.log('')); // agregar
   }
+
   deleteBusiness(id) {
     this.getHeaders(); // agregar
     return this

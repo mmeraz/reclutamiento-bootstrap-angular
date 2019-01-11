@@ -125,6 +125,7 @@ import { RechaclienComponent } from './pages/usuarios/reclutamiento/componets/re
 import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/componets/solicitu2lider.component';
 import { IndexRetroComponent } from './pages/usuarios/comercial/retroexpectiva/index-retro.component';
 import { IndexRetroComComponent } from './pages/usuarios/comercial/retroexpeccompara/index-retro-com.component';
+import { DocumentosComponent } from './pages/usuarios/recursoshumanos/documentos/documentos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -269,7 +270,9 @@ import { IndexRetroComComponent } from './pages/usuarios/comercial/retroexpeccom
     Solicitu2liderComponent,
     IndexRetroComponent,
     IndexRetroComComponent,
-    RetroespectivasComercialComponent
+    RetroespectivasComercialComponent,
+    DocumentosComponent,
+    DocumentosComponent
   ],
   imports: [
     BrowserModule,

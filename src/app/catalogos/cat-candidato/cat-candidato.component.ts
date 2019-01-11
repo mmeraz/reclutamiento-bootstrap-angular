@@ -2,12 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CandidatoService } from '../../service/cat.candidato.service';
 import { DataTableDirective } from 'angular-datatables';
 import { Candidato } from '../../model/candidato.model';
-import { Subject } from 'rxjs';
+import { Subject, throwError } from 'rxjs';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import swal from 'sweetalert2';
 import { AuthService} from '../../service/auth.service';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cat-candidato',
@@ -27,14 +28,23 @@ export class CatCandidatoComponent implements OnInit {
               private fb: FormBuilder,
               private activatedRoute: ActivatedRoute,
               private http: HttpClient,
-              protected authservice: AuthService) { }
+              protected authservice: AuthService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
     };
-    this.candidatoService.getCandidatos().subscribe(result => {
+    this.candidatoService.getCandidatos().pipe(catchError( err => {
+      if (err.status === 401) {
+        this.update();
+        this.authservice.loguot();
+        this.router.navigateByUrl('/login');
+      } else {
+          return throwError(err);
+      }
+ })).subscribe(result => {
       this.allCandidatos = result;
       this.dtTrigger.next();
     });
@@ -56,6 +66,10 @@ export class CatCandidatoComponent implements OnInit {
       dtInstance.destroy();
     });
     this.ngOnInit();
+  }
+
+  update(): void {
+    window.location.reload();
   }
 
 

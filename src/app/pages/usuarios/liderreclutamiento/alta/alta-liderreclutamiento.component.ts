@@ -140,7 +140,7 @@ export class AltaLiderreclutamientoComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.bs.updateBusiness(this.solicitud, this.solicitud.solIdsolicitud);
       this.service.addAsigna(this.segimiento.solSolicitud);
-      this.serviceMail.sendEmail('9');
+      this.serviceMail.sendEmail('9', this.solicitud);
       this.router.navigate(['/IndexLiderreclutamiento']);
        swal({
         position: 'top',

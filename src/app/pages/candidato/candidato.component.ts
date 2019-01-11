@@ -34,6 +34,8 @@ import { SolicitudService } from '../../service/cat.solicitud.service';
 import { SeguiSolicitudService } from 'src/app/service/cat.seguisolicitud.service';
 import { SeguimientoSolService } from '../../service/seguimientosol.service';
 import { MailService } from 'src/app/service/mail.service';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-candidato',
@@ -148,7 +150,15 @@ listaEntrevista: Catentrevista[] = [];
                }
 
   ngOnInit() {
-    this.idiomaService.getIdiomas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
+    this.idiomaService.getIdiomas().pipe(catchError( err => {
+      if (err.status === 401) {
+        this.update();
+        this.auth.loguot();
+        this.router.navigateByUrl('/login');
+      } else {
+          return throwError(err);
+      }
+ })).subscribe((data: Catidioma[]) => this.allIdiomas = data);
     this.conocimientoService.getContecnicos().subscribe((data: Catcontecnicos[]) => this.allConTecnicos = data);
     this.habilidadesService.getCompHabilidades().subscribe((data: Catcomphabilidades[]) => this.allHabilidades = data);
     this.prePercepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
@@ -202,8 +212,8 @@ listaEntrevista: Catentrevista[] = [];
     console.log(this.candidato);
     this.route.params.subscribe(params => {
       this.bs.addCandidato(this.candidato);
-      this.serviceEmail.sendEmail('4');
-      this.router.navigate(['Candidato']);
+      this.serviceEmail.sendEmail('4', this.candidato);
+      this.router.navigate(['/IndexReclutamiento']);
       swal({
        position: 'top',
        type: 'success',

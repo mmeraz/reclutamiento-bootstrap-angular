@@ -1,319 +1,329 @@
-<div class="card">
-    <div class="card-header">
-        Solicitud
+<div class="container">
+  <h3>Solicitud <i class="fas fa-wallet fa-sm text-success"></i></h3>
+    <div class="card mt-4 border-3 border-top border-top-success">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <h4 class="text-muted">
+                Datos del requerimiento
+              </h4>
+            </div>
+          </div>
+
+
+          <div class="row mt-2">
+
+              <div class="col-lg-4">
+                  <h6 class="mb-2">
+                    Tipo de requerimiento:
+                    <span class="text-muted"
+                      > {{ solicitud?.arnAreanegocio.arnTipo}}</span
+                    >
+                  </h6>
+                </div>
+
+            <div class="col-lg-4">
+              <h6 class="mb-2">
+                  Prioridad:<span class="text-muted"
+                  > {{ solicitud?.priPrioridad.priNombre }}</span
+                >
+              </h6>
+            </div>
+
+            <div class="col-lg-4">
+              <h6 class="mb-2">
+                  Presupuesto:<span class="text-muted"
+                  > {{ solicitud && solicitud.solExistepresupuesto }}</span
+                >
+              </h6>
+            </div>
+
+
+
+            <div class="col-lg-4">
+              <h6 class="mb-2">
+                  Tipo Vacante:
+                <span class="text-muted"
+                  > {{ solicitud && solicitud?.tvaTipoVacante.tvaTipo}}</span
+                >
+              </h6>
+            </div>
+
+
+            <div class="col-lg-4">
+                <h6 class="mb-2">
+                    Tipo perfil:<span class="text-muted"
+                    > {{ solicitud && solicitud?.perPerfil.perPerfil }}</span
+                  >
+                </h6>
+              </div>
+
+
+
+            <div class="col-lg-4">
+                <h6 class="mb-2">
+                    Sexo:<span class="text-muted"
+                    > {{ solicitud && solicitud.solGenero }}</span
+                  >
+                </h6>
+              </div>
+
+
+            <div class="col-lg-4">
+                <h6 class="mb-2">
+                    Escolaridad:<span class="text-muted"
+                    > {{solicitud && solicitud.solEscolaridad }}</span
+                  >
+                </h6>
+              </div>
+
+
+              <div class="col-lg-4">
+                  <h6 class="mb-2">
+                      Edad:<span class="text-muted"
+                      > {{solicitud && solicitud.solEdadfinal }}</span
+                    >
+                  </h6>
+                </div>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
 
-          <h5 class="col-md-12">Datos del Requerimiento</h5>
 
-            <div class="form-group row">
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Tipo de Requerimiento:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud?.arnAreanegocio.arnTipo">
-                </div>
-
-                <label for="area" class="col-sm-2 col-form-label"><strong>Prioridad:</strong></label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud?.priPrioridad.priNombre">
-                </div>
-
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Presupuesto:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud.solExistepresupuesto">
-                </div>
-
-                <label for="area" class="col-sm-2 col-form-label"><strong>Tipo Vacante:</strong></label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud?.tvaTipoVacante.tvaTipo">
-                </div>
-
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Tipo perfil:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud?.perPerfil.perPerfil">
-                </div>
-
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Sexo:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud.solGenero">
-                </div>
-
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Escolaridad:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud.solEscolaridad">
-                </div>
-
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Edad:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud.solEdadfinal">
-                </div>
-
-            </div>
-              <br>
-
-            <h5 class="col-md-12">Datos del Cliente</h5>
-
-            <div class="form-group row">
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Cliente:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud?.cliCliente.cliNombre">
-                </div>
-
-                <label for="area" class="col-sm-2 col-form-label"><strong>Contacto:</strong></label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud?.cliCliente.contactos">
-                </div>
-            </div>
-            <br>
-
-            <h5 class="col-md-12">Datos del Proyecto</h5>
-
-            <div class="form-group row">
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Nombre del proyecto:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud?.proProyecto.proNombre">
-                </div>
-
-                <label for="area" class="col-sm-2 col-form-label"><strong>Puesto:</strong></label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud?.proProyecto.proPuestoarea">
-                </div>
-
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Duración proyecto:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud?.proProyecto.proDuracionmeses">
-                </div>
-
-                <label for="area" class="col-sm-2 col-form-label"><strong>Jornada Laboral:</strong></label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud.jolJornadalaboral.jolTipo">
-                </div>
-
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Descripción:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud?.proProyecto.proDescripcion">
-                </div>
-
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Numero de vacantes:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud.solNovacantes">
-                </div>
-
-                <label  for="area" class="col-sm-2 col-form-label"><strong>Tarifa comercial:</strong> </label>
-                <div class="col-sm-2">
-                  <input
-                  type="text"
-                  readonly
-                  class="form-control-plaintext"
-                  id="area"
-                  [(ngModel)]="solicitud && solicitud.solTarifacomercial">
-                </div>
-                </div>
-                <br>
-
-            <h5 class="col-md-12">Conocimiento requeridos</h5>
-
-            <div class="form-group row">
-                <div class="col-sm-2 ">
-                <table class="table table-striped table-bordered table-hover" id="tableIdioma">
-                    <thead  class="thead-ligth">
-                        <tr>
-                            <th scope="col">Idioma</th>
-                            <th scope="col">Nivel</th>
-                        </tr>
-                    </thead>
-                    <tbody class="tbody-ligth" >
-                        <tr *ngFor="let a of solicitud?.idiomas">
-                            <th scope="row" >{{a.idiIdioma.idiNombre}}</th>
-                            <th scope="row" >{{a.sliNivel}}</th>
-
-                        </tr>
-                    </tbody>
-                </table>
-              </div>
-                <div class="col-sm-2 offset-md-2">
-                <table class="table table-striped table-bordered table-hover" id="tableArea">
-                    <thead  class="thead-ligth">
-                        <tr>
-                            <th scope="col">Conocimiento</th>
-                            <th scope="col">Nivel</th>
-                        </tr>
-                    </thead>
-                    <tbody class="tbody-ligth" >
-                        <tr *ngFor="let a of solicitud?.conocimientos">
-                            <th scope="row" >{{a.cotConocimientosTec.cotConocimiento}}</th>
-                            <th scope="row" >{{a.socNivel}}</th>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
-                <div class="col-sm-2 offset-md-3">
-                <table class="table table-striped table-bordered table-hover" id="tableArea">
-                    <thead  class="thead-ligth">
-                        <tr>
-                            <th scope="col">Habilidades</th>
-                        </tr>
-                    </thead>
-                    <tbody class="tbody-ligth" >
-                        <tr *ngFor="let a of solicitud?.habilidades">
-                            <th scope="row" >{{a.cohCompetenciashabilidades.cohDescripcion}}</th>
-
-                        </tr>
-                    </tbody>
-                </table>
-              </div>
-            </div>
-            <br>
-
-            <h5 class="col-md-12">Equipo/Funciones</h5>
-
-            <div class="form-group row">
-                <div class="col-sm-2 ">
-                    <table class="table table-striped table-bordered table-hover" id="tableArea">
-                        <thead  class="thead-ligth">
-                            <tr>
-                                <th scope="col">Equipo</th>
-                                <th scope="col">Descripcion</th>
-                            </tr>
-                        </thead>
-                        <tbody class="tbody-ligth" >
-                            <tr *ngFor="let a of solicitud?.equipos">
-                                <th scope="row" >{{a.equEquipo.equNombre}}</th>
-                                <th scope="row" >{{a.equEquipo.equDescripcion}}</th>
-
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-sm-2 offset-md-2">
-                <table class="table table-striped table-bordered table-hover" id="tableArea">
-                    <thead  class="thead-ligth">
-                        <tr>
-                            <th scope="col">Funcion</th>
-                        </tr>
-                    </thead>
-                    <tbody class="tbody-ligth" >
-                        <tr *ngFor="let a of solicitud?.funciones">
-                            <th scope="row" >{{a.funDescripcion}}</th>
-
-                        </tr>
-                    </tbody>
-                </table>
+      <div class="card mt-4 border-3 border-top border-top-success">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <h4 class="text-muted">
+                  Datos del Cliente
+                </h4>
               </div>
             </div>
 
-            <h5 class="col-md-12">Percepciones</h5>
 
-            <div class="form-group row">
-                <div class="col-sm-2 ">
-                    <table class="table table-striped table-bordered table-hover" id="tableArea">
-                        <thead  class="thead-ligth">
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Descripcion</th>
-                                <th scope="col">Valor</th>
-                            </tr>
-                        </thead>
-                        <tbody class="tbody-ligth" >
-                            <tr *ngFor="let a of solicitud?.percepsiones">
-                                <th scope="row" >{{a.prePercepciones.preTipo}}</th>
-                                <th scope="row" >{{a.slpDescripcion}}</th>
-                                <th scope="row" >{{a.slpValorm}}</th>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="row mt-2">
+
+                <div class="col-lg-4">
+                    <h6 class="mb-2">
+                        Cliente:
+                      <span class="text-muted"
+                        > {{ solicitud && solicitud?.cliCliente.cliNombre}}</span
+                      >
+                    </h6>
+                  </div>
+
+              <div class="col-lg-4">
+                <h6 class="mb-2">
+                    Contacto:<span class="text-muted"
+                    > {{ solicitud?.cliCliente.contactos }}</span
+                  >
+                </h6>
+              </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="card mt-4 border-3 border-top border-top-success">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <h4 class="text-muted">
+                      Datos del Proyecto
+                  </h4>
                 </div>
+              </div>
+
+
+              <div class="row mt-2">
+
+                  <div class="col-lg-4">
+                      <h6 class="mb-2">
+                          Nombre del proyecto:
+                        <span class="text-muted"
+                          > {{ solicitud?.proProyecto.proNombre}}</span
+                        >
+                      </h6>
+                    </div>
+
+                <div class="col-lg-4">
+                  <h6 class="mb-2">
+                      Puesto:<span class="text-muted"
+                      > {{ solicitud?.proProyecto.proPuestoarea }}</span
+                    >
+                  </h6>
+                </div>
+
+                <div class="col-lg-4">
+                    <h6 class="mb-2">
+                        Duración proyecto:<span class="text-muted"
+                        > {{ solicitud?.proProyecto.proDuracionmeses }}</span
+                      >
+                    </h6>
+                  </div>
+
+
+                  <div class="col-lg-4">
+                      <h6 class="mb-2">
+                          Jornada Laboral:<span class="text-muted"
+                          > {{ solicitud && solicitud.jolJornadalaboral.jolTipo }}</span
+                        >
+                      </h6>
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <h6 class="mb-2">
+                            Descripción:<span class="text-muted"
+                            > {{ solicitud?.proProyecto.proDescripcion}}</span
+                          >
+                        </h6>
+                      </div>
+
+                      <div class="col-lg-4">
+                          <h6 class="mb-2">
+                              Numero de vacantes:<span class="text-muted"
+                              > {{ solicitud && solicitud.solNovacantes}}</span
+                            >
+                          </h6>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h6 class="mb-2">
+                                Tarifa comercial:<span class="text-muted"
+                                > {{ solicitud && solicitud.solTarifacomercial}}</span
+                              >
+                            </h6>
+                          </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+          <div class="card mt-4 border-3 border-top border-top-success">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h4 class="text-muted">
+                        Conocimiento requeridos
+                    </h4>
+                  </div>
+                </div>
+
+
+                <div class="row mt-2">
+                    <div class="col-lg-4">
+                        <h6 class="mb-2">
+                            Idioma / Nivel:
+                            <span class="text-muted" *ngFor="let a of solicitud?.idiomas">
+                                {{a.idiIdioma.idiNombre}} /  {{a.sliNivel}}
+                               </span
+                          >
+                        </h6>
+                      </div>
+
+                    <div class="col-lg-4">
+                        <h6 class="mb-2">
+                            Conocimiento / Nivel:
+                            <span class="text-muted" *ngFor="let b of solicitud?.conocimientos">
+                                {{b.cotConocimientosTec.cotConocimiento}} /  {{b.socNivel}}
+                               </span
+                          >
+                        </h6>
+                      </div>
+
+                      <div class="col-lg-4">
+                          <h6 class="mb-2">
+                              Habilidades:
+                              <span class="text-muted" *ngFor="let b of solicitud?.habilidades">
+                                  {{b.cohCompetenciashabilidades.cohDescripcion}}
+                                 </span
+                            >
+                          </h6>
+                        </div>
+
+                </div>
+              </div>
             </div>
 
-    </div>
-  </div>
+
+
+
+          <div class="card mt-4 border-3 border-top border-top-success">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h4 class="text-muted">
+                        Equipo/Funciones
+                    </h4>
+                  </div>
+                </div>
+
+
+                <div class="row mt-2">
+                    <div class="col-lg-8">
+                        <h6 class="mb-2">
+                            Equipo / Descripcion:
+                            <span class="text-muted" *ngFor="let a of solicitud?.equipos">
+                                {{a.equEquipo.equNombre}} /  {{a.equEquipo.equDescripcion}}
+                               </span
+                          >
+                        </h6>
+                      </div>
+
+                    <div class="col-lg-4">
+                        <h6 class="mb-2">
+                            Funcion
+                            <span class="text-muted" *ngFor="let b of solicitud?.funciones">
+                                {{b.funDescripcion}}
+                               </span
+                          >
+                        </h6>
+                      </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="card mt-4 border-3 border-top border-top-success">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h4 class="text-muted">
+                        Percepciones
+                    </h4>
+                  </div>
+                </div>
+
+
+                <div class="row mt-2">
+                    <div class="col-lg-8">
+                        <h6 class="mb-2">
+                            Nombre / Descripcion / Valor :
+                            <span class="text-muted" *ngFor="let a of solicitud?.percepsiones">
+                                {{a.prePercepciones.preTipo}} /  {{a.slpDescripcion}} /   {{a.slpValorm}}
+                               </span
+                          >
+                        </h6>
+                      </div>
+
+              </div>
+            </div>
+          </div>
+
+
 
   <div class="row">
       <div class="col-lg-12">
-        <button class="btn btn-success mr-2"
+        <button class="btn btn-success mt-4 mr-2"
         [routerLink]="['/New-candidato']"
         >Nuevo</button>
 
-        <button class="btn btn-danger"
+        <button class="btn btn-danger mt-4"
         [routerLink]="['/IndexReclutamiento']"
         >Atras</button>
       </div>
