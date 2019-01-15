@@ -106,6 +106,8 @@ import { IndexRetroComponent } from './pages/usuarios/comercial/retroexpectiva/i
 import { IndexRetroComComponent } from './pages/usuarios/comercial/retroexpeccompara/index-retro-com.component';
 import { AppComponent } from './app.component';
 import { DocumentosComponent} from './pages/usuarios/recursoshumanos/documentos/documentos.component';
+import { VisuaSolComponent } from './pages/usuarios/tivalidacion/visualizacion/visuasol.component';
+import { IndexVerifivigenciaComponent } from './pages/usuarios/comercial/verificarvigencia/index-verifivigencia.component';
 
 
 
@@ -229,6 +231,8 @@ import { DocumentosComponent} from './pages/usuarios/recursoshumanos/documentos/
   {path: 'IndexRetroexpectiva/:id', component: IndexRetroComponent, canActivate: [AuthGuard]  },
   {path: 'IndexRetroexpectivaComparacion', component: IndexRetroComComponent, canActivate: [AuthGuard]  },
   {path: 'Documento/:id', component: DocumentosComponent, canActivate: [AuthGuard]  },
+  {path: 'VisualizarSolicitud/:id', component: VisuaSolComponent, canActivate: [AuthGuard]  },
+  {path: 'IndexVerificarVigencia', component: IndexVerifivigenciaComponent, canActivate: [AuthGuard]  },
 ];
 
  export const appRoutingProviders: any[] = [];

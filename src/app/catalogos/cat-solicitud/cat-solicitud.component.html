@@ -72,6 +72,7 @@
             data-parent="#accordionEx2"
           >
             <div class="card-body rgba-teal-strong white-text">
+              <!--Forms de detaos requerimiento para validaciones-->
               <!-- Select Basic -->
               <div class="row">
                 <div class="form-group">
@@ -210,7 +211,9 @@
                       class="form-control input-md form-control-sm"
                       required=""
                       [(ngModel)]="escolaridad"
-                      [ngModelOptions]="{ stanalone: true }"
+                      formControlName="escolaridad"
+                      maxlength="50"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
                   </div>
                 </div>
@@ -228,6 +231,8 @@
                       required=""
                       [(ngModel)]="edad"
                       [ngModelOptions]="{ stanalone: true }"
+                      maxlength="2"
+                      pattern="^[0-9]*$"
                     />
                   </div>
                 </div>
@@ -411,6 +416,8 @@
                         required=""
                         [(ngModel)]="nombrePro"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="100"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -429,6 +436,8 @@
                         class="form-control input-md form-control-sm"
                         [(ngModel)]="puestoPro"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="50"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -447,6 +456,8 @@
                         class="form-control input-md form-control-sm"
                         [(ngModel)]="duracionPro"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="50"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -508,6 +519,8 @@
                         class="form-control input-md form-control-sm"
                         [(ngModel)]="direccion"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="100"
+                        pattern= "^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s] [0-9]*$"
                       />
                   </div>
                 </div>
@@ -528,6 +541,8 @@
                         class="form-control input-md form-control-sm"
                         [(ngModel)]="nVacante"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="3"
+                        pattern="^[0-9]*$"
                       />
                     </div>
                   </div>
@@ -549,6 +564,8 @@
                         class="form-control input-md form-control-sm"
                         [(ngModel)]="tarifaC"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="3"
+                        pattern="^[0-9]*$"
                       />
                     </div>
                   </div>
@@ -626,6 +643,8 @@
                         class="form-control form-control-sm"
                         [(ngModel)]="nvIdioma"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength=""
+                        pattern="^[0-9]*$"
                       />
                     </div>
                   </div>
@@ -710,6 +729,9 @@
                         class="form-control form-control-sm"
                         [(ngModel)]="nvCono"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="15"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
+
                       />
                     </div>
                   </div>
@@ -1069,6 +1091,8 @@
                           class="form-control form-control-sm"
                           [(ngModel)]="descripcionPer"
                           [ngModelOptions]="{ stanalone: true }"
+                          maxlength="50"
+                          pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                         />
                       </div>
                     </div>

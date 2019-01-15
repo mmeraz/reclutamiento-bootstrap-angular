@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SeguiSolicitudService } from 'src/app/service/cat.seguisolicitud.service';
 import { DataTableDirective } from 'angular-datatables';
 import { CatSeguimientoSol } from 'src/app/model/catsegimientosolicitud.model';
 import { Subject } from 'rxjs';
@@ -26,7 +25,7 @@ export class SolicValidadasTiComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.serviceSgsSolicitud.getSgsSeguimientoSolicitudValidadas('Alta').subscribe(result => {
+    this.serviceSgsSolicitud.getSgsSeguimientoSolicitudValidadasTI().subscribe(result => {
       this.allSeguimiento = result;
       this.dtTrigger.next();
     });

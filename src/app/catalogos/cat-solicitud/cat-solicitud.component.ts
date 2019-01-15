@@ -5,7 +5,7 @@ import { PrioridadService } from 'src/app/service/cat.prioridad.service';
 import { Catprioridad } from 'src/app/model/catprioridad.model';
 import { TipoVacanteService } from 'src/app/service/cat.tipvacante.service';
 import { CatTipoVacante } from 'src/app/model/cattipovacante.model';
-import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
 import { Catsolidioma } from 'src/app/model/catsolidioma.model';
 import { Catidioma } from 'src/app/model/catidioma.model';
@@ -49,6 +49,7 @@ import { MailService } from 'src/app/service/mail.service';
 export class CatSolicitudComponent implements OnInit {
   // a mandar el back
   solicitud: Catsolicitud;
+
 
   // info para los select :P
   allAreas: Catarea[];
@@ -150,6 +151,9 @@ export class CatSolicitudComponent implements OnInit {
     this.equipoService.getEquipos().subscribe((data: Catequipo[]) => this.allEquipo = data);
     this.perfilService.getPerfiles().subscribe((data: Catperfil[]) => this.allPerfiles = data);
   }
+
+
+
 
   /**
    * Metodo para agregar la solicitud
