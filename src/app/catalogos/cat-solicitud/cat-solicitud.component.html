@@ -9,7 +9,6 @@
           data-dismiss="modal"
           role="button"
           (click)="addSolicitud()"
-          [routerLink]="['/IndexComercial']"
         >
           Guardar <i class="fa fa-check" aria-hidden="true"></i>
         </button>
@@ -220,20 +219,34 @@
                 <div class="form-group">
                   <label class="col-md-12 control-label" for="edad">Edad</label>
                   <div class="col-md-12">
-                    <input
-                      id="edad"
-                      name="edad"
-                      type="number"
-                      min="20"
-                      max="99"
-                      placeholder="Escribe la edad"
-                      class="form-control input-md form-control-sm"
-                      required=""
-                      [(ngModel)]="edad"
+                    <select
+                      [(ngModel)]="edadString"
                       [ngModelOptions]="{ stanalone: true }"
+<<<<<<< HEAD
                       maxlength="2"
                       pattern="^[0-9]*$"
                     />
+=======
+                      id="edadString"
+                      name="edadString"
+                      class="form-control form-control-sm"
+                    >
+                      <option [ngValue]="null" selected
+                        >Selecciona el rango de edad</option
+                      >
+                      <option>Indefinido</option>
+                      <option>De 25 a 30 años</option>
+                      <option>De 30 a 35 años</option>
+                      <option>De 35 a 40 años</option>
+                      <option>De 40 a 45 años</option>
+                      <option>De 45 a 50 años</option>
+                      <option>De 20 a 30 años</option>
+                      <option>De 30 a 40 años</option>
+                      <option>De 40 a 50 años</option>
+                      <option>De 20 a 40 años</option>
+                      <option>De 30 a 50 años</option>
+                    </select>
+>>>>>>> af841ce15ee2a8468a05804245bdd3d229b45935
                   </div>
                 </div>
               </div>
@@ -488,30 +501,30 @@
                 <div class="row">
                   <!-- Textarea -->
                   <div class="col-lg-3">
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="descripcion"
-                      >Descripción</label
-                    >
-                    <div class="col-md-12">
-                      <textarea
-                        class="form-control form-control-sm"
-                        id="descripcion"
-                        name="descripcion"
-                        [(ngModel)]="descripcion"
-                        [ngModelOptions]="{ stanalone: true }"
-                        rows="6"
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="descripcion"
+                        >Descripción</label
                       >
+                      <div class="col-md-12">
+                        <textarea
+                          class="form-control form-control-sm"
+                          id="descripcion"
+                          name="descripcion"
+                          [(ngModel)]="descripcion"
+                          [ngModelOptions]="{ stanalone: true }"
+                          rows="6"
+                        >
                         Descripción del proyecto</textarea
-                      >
+                        >
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="form-group">
+                  <div class="col-lg-3">
+                    <div class="form-group">
                       <label class="col-md-12 control-label" for="direccion"
-                      >Direccion de entrevista</label
-                    >
-                    <input
+                        >Direccion de entrevista</label
+                      >
+                      <input
                         id="direccion"
                         name="direccion"
                         type="text"
@@ -522,10 +535,11 @@
                         maxlength="100"
                         pattern= "^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s] [0-9]*$"
                       />
+                    </div>
                   </div>
-                </div>
                   <!-- Text input -->
                   <div class="col-lg-3">
+<<<<<<< HEAD
                   <div class="form-group">
                     <label class="col-md-12 control-label" for="nVacante"
                       >Numero de vacantes</label
@@ -544,11 +558,30 @@
                         maxlength="3"
                         pattern="^[0-9]*$"
                       />
+=======
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="nVacante"
+                        >Numero de vacantes</label
+                      >
+                      <div class="col-md-12">
+                        <input
+                          id="nVacante"
+                          name="nVacante"
+                          type="number"
+                          placeholder="Numero vacantes"
+                          min="1"
+                          max="100"
+                          class="form-control input-md form-control-sm"
+                          [(ngModel)]="nVacante"
+                          [ngModelOptions]="{ stanalone: true }"
+                        />
+                      </div>
+>>>>>>> af841ce15ee2a8468a05804245bdd3d229b45935
                     </div>
                   </div>
-                </div>
                   <!-- Text input -->
                   <div class="col-lg-3">
+<<<<<<< HEAD
                   <div class="form-group">
                     <label class="col-md-12 control-label" for="duracion"
                       >Tarifa comercial</label
@@ -567,9 +600,27 @@
                         maxlength="3"
                         pattern="^[0-9]*$"
                       />
+=======
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="duracion"
+                        >Tarifa comercial</label
+                      >
+                      <div class="col-md-12">
+                        <input
+                          id="tarifaC"
+                          name="tarifaC"
+                          type="number"
+                          placeholder="Tarifa comercial"
+                          min="1"
+                          max="1000000"
+                          class="form-control input-md form-control-sm"
+                          [(ngModel)]="tarifaC"
+                          [ngModelOptions]="{ stanalone: true }"
+                        />
+                      </div>
+>>>>>>> af841ce15ee2a8468a05804245bdd3d229b45935
                     </div>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
@@ -649,16 +700,17 @@
                     </div>
                   </div>
                   <div>
-                    <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addIdioma()">
-                        <i
+                    <button
+                      class="btn btn-success btn-sm mt-4 mr-5"
+                      (click)="addIdioma()"
+                    >
+                      <i
                         data-toggle="tooltip"
                         data-placement="center"
                         title="Agregar"
                         class="fas fa-plus"
-
                       ></i>
                     </button>
-
                   </div>
                   <div>
                     <table
@@ -736,15 +788,17 @@
                     </div>
                   </div>
                   <div>
-                      <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addConocimiento()">
-                          <i
-                          data-toggle="tooltip"
-                          data-placement="center"
-                          title="Agregar"
-                          class="fas fa-plus"
-
-                        ></i>
-                      </button>
+                    <button
+                      class="btn btn-success btn-sm mt-4 mr-5"
+                      (click)="addConocimiento()"
+                    >
+                      <i
+                        data-toggle="tooltip"
+                        data-placement="center"
+                        title="Agregar"
+                        class="fas fa-plus"
+                      ></i>
+                    </button>
                   </div>
                   <div>
                     <table
@@ -803,15 +857,17 @@
                     </div>
                   </div>
                   <div>
-                      <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addHabilidad()">
-                          <i
-                          data-toggle="tooltip"
-                          data-placement="center"
-                          title="Agregar"
-                          class="fas fa-plus"
-
-                        ></i>
-                      </button>
+                    <button
+                      class="btn btn-success btn-sm mt-4 mr-5"
+                      (click)="addHabilidad()"
+                    >
+                      <i
+                        data-toggle="tooltip"
+                        data-placement="center"
+                        title="Agregar"
+                        class="fas fa-plus"
+                      ></i>
+                    </button>
                   </div>
                   <div>
                     <table
@@ -892,15 +948,17 @@
                       </select>
                     </div>
                     <div>
-                        <button class="btn btn-success btn-sm mt-4 mr-5 ml-3" (click)="addEquipo()">
-                            <i
-                            data-toggle="tooltip"
-                            data-placement="center"
-                            title="Agregar"
-                            class="fas fa-plus"
-
-                          ></i>
-                        </button>
+                      <button
+                        class="btn btn-success btn-sm mt-4 mr-5 ml-3"
+                        (click)="addEquipo()"
+                      >
+                        <i
+                          data-toggle="tooltip"
+                          data-placement="center"
+                          title="Agregar"
+                          class="fas fa-plus"
+                        ></i>
+                      </button>
                     </div>
                     <div>
                       <table
@@ -982,15 +1040,17 @@
                       </div>
                     </div>
                     <div>
-                        <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addFunciones()">
-                            <i
-                            data-toggle="tooltip"
-                            data-placement="center"
-                            title="Agregar"
-                            class="fas fa-plus"
-
-                          ></i>
-                        </button>
+                      <button
+                        class="btn btn-success btn-sm mt-4 mr-5"
+                        (click)="addFunciones()"
+                      >
+                        <i
+                          data-toggle="tooltip"
+                          data-placement="center"
+                          title="Agregar"
+                          class="fas fa-plus"
+                        ></i>
+                      </button>
                     </div>
                     <div>
                       <div>
@@ -1115,15 +1175,17 @@
                       </div>
                     </div>
                     <div>
-                        <button class="btn btn-success btn-sm mt-4 mr-5" (click)="addPercepcion()">
-                            <i
-                            data-toggle="tooltip"
-                            data-placement="center"
-                            title="Agregar"
-                            class="fas fa-plus"
-
-                          ></i>
-                        </button>
+                      <button
+                        class="btn btn-success btn-sm mt-4 mr-5"
+                        (click)="addPercepcion()"
+                      >
+                        <i
+                          data-toggle="tooltip"
+                          data-placement="center"
+                          title="Agregar"
+                          class="fas fa-plus"
+                        ></i>
+                      </button>
                     </div>
                     <div>
                       <table
