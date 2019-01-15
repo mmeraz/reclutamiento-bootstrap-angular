@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.authService.login(this.usuario).subscribe(response => {
-    this.rerender();
       this.saveToken(response);
       this.authService.Guardartoken(response.access_token);
       this.authService.Guardarusuario(response.access_token);
@@ -63,7 +62,7 @@ export class LoginComponent implements OnInit {
     Cookie.set('access_token', token.access_token, expireDate);
     console.log('Obtained Access token');
     this.router.navigate(['/Home']);
-
+    this.rerender();
   }
   rerender(): void {
     window.location.reload();
