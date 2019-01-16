@@ -141,8 +141,9 @@ export class SeguimientoCandService {
       .subscribe(res => console.log('Done'));
   }
 
-  addRechazadoXCliente(candidato: Catcandidato, comentario: string) {
+  addRechazadoXCliente(candidato: Catcandidato, secComentario: string) {
     this.getHeaders();
+    console.log(secComentario);
     const obj = {
       secIdseguimientocandidato: null,
       cndDatoscandidato: candidato,
@@ -150,13 +151,13 @@ export class SeguimientoCandService {
       escIdestatus: 16,
       escDescripcion: 'rechazado por cliente'
       },
-      usrUsuario: this.auth.usuario,
-      secComentario: comentario
+      secComentario: secComentario,
+      usrUsuario: this.auth.usuario
     };
     console.log(obj.usrUsuario.usrUsuario);
-    this.clienteHttp
-      .post(this.url + '/add', obj, { headers: this.headers })
-      .subscribe(res => console.log('Done'));
+    // this.clienteHttp
+    //   .post(this.url + '/add', obj, { headers: this.headers })
+    //   .subscribe(res => console.log('Done'));
   }
 
   addAceptado(candidato: Catcandidato, comentario: string  ) {
