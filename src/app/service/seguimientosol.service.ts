@@ -205,6 +205,23 @@ export class SeguimientoSolService {
          .subscribe(res => console.log('Done'));
   }
 
+  add2daOpcion(solicitud: Catsolicitud) {
+    this.getHeaders();
+    const obj = {
+      sgsIdseguimientosol: null,
+      estEstatusSolicitud: {
+        estIdestatus: 24,
+        estDescripcion: '2da opcion'
+      },
+      solSolicitud: solicitud,
+      usrUsuario: this.auth.usuario
+    };
+    console.log(obj.usrUsuario.usrUsuario);
+     this.clienteHttp.post(this.url + '/add', obj, {
+       headers: this.headers})
+         .subscribe(res => console.log('Done'));
+  }
+
   getSgsSeguimientoSolicitudValidadas(nombre: string) {
     this.getHeaders(); // agregar
     return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetchActive/1/${nombre}`, {
@@ -298,4 +315,6 @@ export class SeguimientoSolService {
     .get('access_token'));
     return this.headers;
  }
+
+
 }

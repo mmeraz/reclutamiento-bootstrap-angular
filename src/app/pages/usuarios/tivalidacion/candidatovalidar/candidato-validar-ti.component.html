@@ -55,7 +55,8 @@
                       required
                       [(ngModel)]="candidato && candidato.cndNombre"
                       required
-                      maxlength="20"
+                      maxlength="25"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
                   </div>
 
@@ -73,6 +74,8 @@
                       required
                       name="cndApellidopat"
                       [(ngModel)]="candidato && candidato.cndApellidopat"
+                      maxlength="20"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
                   </div>
 
@@ -90,6 +93,8 @@
                       required
                       name="cndApellidomat"
                       [(ngModel)]="candidato && candidato.cndApellidomat"
+                      maxlength="20"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
                   </div>
 
@@ -105,6 +110,8 @@
                       name="cndEdad"
                       [(ngModel)]="candidato && candidato.cndEdad"
                       [ngModelOptions]="{ stanalone: true }"
+                      maxlength="3"
+                      pattern="^[0-9]*$"
                     />
                   </div>
                 </div>
@@ -124,6 +131,8 @@
                       name="cndEmail"
                       [(ngModel)]="candidato && candidato.cndEmail"
                       [ngModelOptions]="{ stanalone: true }"
+                      maxlength="250"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s] [0-9]*$"
                     />
                   </div>
 
@@ -392,6 +401,8 @@
                         class="form-control form-control-sm"
                         [(ngModel)]="descripcionPerCnda"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="25"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -411,6 +422,8 @@
                           class="form-control form-control-sm"
                           [(ngModel)]="valorPerCnda"
                           [ngModelOptions]="{ stanalone: true }"
+                          maxlength="10"
+                        pattern="^[0-9]*$"
                         />
                       </div>
                     </div>
@@ -503,6 +516,8 @@
                         class="form-control form-control-sm"
                         [(ngModel)]="descripcionPerOfr"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="50"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -522,6 +537,8 @@
                           class="form-control form-control-sm"
                           [(ngModel)]="valorPerOfr"
                           [ngModelOptions]="{ stanalone: true }"
+                          maxlength="10"
+                          pattern="^[0-9]*$"
                         />
                       </div>
                     </div>
@@ -673,6 +690,8 @@
                       class="form-control form-control-sm"
                       [(ngModel)]="nvCono"
                       [ngModelOptions]="{ stanalone: true }"
+                      maxlength="15"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
                   </div>
                 </div>
@@ -767,6 +786,8 @@
                       class="form-control form-control-sm"
                       [(ngModel)]="nvIdioma"
                       [ngModelOptions]="{ stanalone: true }"
+                      maxlength="25"
+                        pattern="^[0-9]*$"
                     />
                   </div>
                 </div>

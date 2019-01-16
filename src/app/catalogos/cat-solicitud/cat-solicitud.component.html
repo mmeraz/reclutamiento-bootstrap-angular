@@ -71,6 +71,7 @@
             data-parent="#accordionEx2"
           >
             <div class="card-body rgba-teal-strong white-text">
+              <!--Forms de detaos requerimiento para validaciones-->
               <!-- Select Basic -->
               <div class="row">
                 <div class="form-group">
@@ -209,35 +210,50 @@
                       class="form-control input-md form-control-sm"
                       required=""
                       [(ngModel)]="escolaridad"
-                      [ngModelOptions]="{ stanalone: true }"
+                      formControlName="escolaridad"
+                      maxlength="50"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-md-12 control-label" for="edad">Edad</label>
+                  <label class="col-md-12 control-label" for="solEdadincial">Edad Inicial</label>
                   <div class="col-md-12">
                     <select
-                      [(ngModel)]="edadString"
-                      [ngModelOptions]="{ stanalone: true }"
-                      id="edadString"
-                      name="edadString"
+                      [(ngModel)]="solEdadincial"
                       class="form-control form-control-sm"
+                      id="solEdadincial"
+                      name="solEdadincial"
+                      [ngModelOptions]="{ standalone: true }"
                     >
-                      <option [ngValue]="null" selected
-                        >Selecciona el rango de edad</option
-                      >
-                      <option>Indefinido</option>
-                      <option>De 25 a 30 años</option>
-                      <option>De 30 a 35 años</option>
-                      <option>De 35 a 40 años</option>
-                      <option>De 40 a 45 años</option>
-                      <option>De 45 a 50 años</option>
-                      <option>De 20 a 30 años</option>
-                      <option>De 30 a 40 años</option>
-                      <option>De 40 a 50 años</option>
-                      <option>De 20 a 40 años</option>
-                      <option>De 30 a 50 años</option>
+                      <option [ngValue]="null" selected>Selecciona uno</option>
+                      <option [ngValue]="20">20</option>
+                      <option [ngValue]="25">25</option>
+                      <option [ngValue]="30">30</option>
+                      <option [ngValue]="35">35</option>
+                      <option [ngValue]="40">40</option>
+                      <option [ngValue]="45">45</option>
                     </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="edad">Edad Final  </label>
+                  <div class="col-md-12">
+                    <select
+                    [(ngModel)]="solEdadfinal"
+                    class="form-control form-control-sm"
+                    id="solEdadfinal"
+                    name="solEdadfinal"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    <option [ngValue]="null" selected>Selecciona uno</option>
+                    <option [ngValue]="25">25</option>
+                    <option [ngValue]="30">30</option>
+                    <option [ngValue]="35">35</option>
+                    <option [ngValue]="40">40</option>
+                    <option [ngValue]="45">45</option>
+                    <option [ngValue]="50">50</option>
+                  </select>
                   </div>
                 </div>
               </div>
@@ -420,6 +436,8 @@
                         required=""
                         [(ngModel)]="nombrePro"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="100"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -438,6 +456,8 @@
                         class="form-control input-md form-control-sm"
                         [(ngModel)]="puestoPro"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="50"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -456,6 +476,8 @@
                         class="form-control input-md form-control-sm"
                         [(ngModel)]="duracionPro"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="50"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -517,49 +539,53 @@
                         class="form-control input-md form-control-sm"
                         [(ngModel)]="direccion"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="100"
+                        pattern= "^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s] [0-9]*$"
                       />
                     </div>
                   </div>
                   <!-- Text input -->
                   <div class="col-lg-3">
-                    <div class="form-group">
-                      <label class="col-md-12 control-label" for="nVacante"
-                        >Numero de vacantes</label
-                      >
-                      <div class="col-md-12">
-                        <input
-                          id="nVacante"
-                          name="nVacante"
-                          type="number"
-                          placeholder="Numero vacantes"
-                          min="1"
-                          max="100"
-                          class="form-control input-md form-control-sm"
-                          [(ngModel)]="nVacante"
-                          [ngModelOptions]="{ stanalone: true }"
-                        />
-                      </div>
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="nVacante"
+                      >Numero de vacantes</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="nVacante"
+                        name="nVacante"
+                        type="number"
+                        placeholder="Numero vacantes"
+                        min="1"
+                        max="100"
+                        class="form-control input-md form-control-sm"
+                        [(ngModel)]="nVacante"
+                        [ngModelOptions]="{ stanalone: true }"
+                        maxlength="3"
+                        pattern="^[0-9]*$"
+                      />
                     </div>
                   </div>
                   <!-- Text input -->
                   <div class="col-lg-3">
-                    <div class="form-group">
-                      <label class="col-md-12 control-label" for="duracion"
-                        >Tarifa comercial</label
-                      >
-                      <div class="col-md-12">
-                        <input
-                          id="tarifaC"
-                          name="tarifaC"
-                          type="number"
-                          placeholder="Tarifa comercial"
-                          min="1"
-                          max="1000000"
-                          class="form-control input-md form-control-sm"
-                          [(ngModel)]="tarifaC"
-                          [ngModelOptions]="{ stanalone: true }"
-                        />
-                      </div>
+                  <div class="form-group">
+                    <label class="col-md-12 control-label" for="duracion"
+                      >Tarifa comercial</label
+                    >
+                    <div class="col-md-12">
+                      <input
+                        id="tarifaC"
+                        name="tarifaC"
+                        type="number"
+                        placeholder="Tarifa comercial"
+                        min="1"
+                        max="100"
+                        class="form-control input-md form-control-sm"
+                        [(ngModel)]="tarifaC"
+                        [ngModelOptions]="{ stanalone: true }"
+                        maxlength="3"
+                        pattern="^[0-9]*$"
+                      />
                     </div>
                   </div>
                 </div>
@@ -635,6 +661,8 @@
                         class="form-control form-control-sm"
                         [(ngModel)]="nvIdioma"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength=""
+                        pattern="^[0-9]*$"
                       />
                     </div>
                   </div>
@@ -720,6 +748,9 @@
                         class="form-control form-control-sm"
                         [(ngModel)]="nvCono"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="15"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
+
                       />
                     </div>
                   </div>
@@ -1087,6 +1118,8 @@
                           class="form-control form-control-sm"
                           [(ngModel)]="descripcionPer"
                           [ngModelOptions]="{ stanalone: true }"
+                          maxlength="50"
+                          pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                         />
                       </div>
                     </div>

@@ -29,9 +29,7 @@ import { SeguimientoCandService } from '../../service/seguimientocandidato.servi
 import { CatSeguimientoSol } from '../../model/catsegimientosolicitud.model';
 import { Catentrevista } from '../../model/catentrevista.model';
 import { EntrevistaService } from '../../service/cat.entrevista.service';
-import { SolicitudComponent } from '../solicitud/solicitud.component';
 import { SolicitudService } from '../../service/cat.solicitud.service';
-import { SeguiSolicitudService } from 'src/app/service/cat.seguisolicitud.service';
 import { SeguimientoSolService } from '../../service/seguimientosol.service';
 import { MailService } from 'src/app/service/mail.service';
 import { catchError } from 'rxjs/operators';

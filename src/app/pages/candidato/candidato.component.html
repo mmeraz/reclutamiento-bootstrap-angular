@@ -81,7 +81,7 @@
                       required
                       [(ngModel)]="cndNombre"
                       required
-                      maxlength="20"
+                      maxlength="25"
                       pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
 
@@ -101,6 +101,8 @@
                       required
                       name="cndApellidopat"
                       [(ngModel)]="cndApellidopat"
+                      maxlength="20"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
 
                   </div>
@@ -119,6 +121,8 @@
                       required
                       name="cndApellidomat"
                       [(ngModel)]="cndApellidomat"
+                      maxlength="20"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                     />
                   </div>
 
@@ -134,6 +138,8 @@
                       name="cndEdad"
                       [(ngModel)]="cndEdad"
                       [ngModelOptions]="{ stanalone: true }"
+                      maxlength="3"
+                      pattern="^[0-9]*$"
                     />
                   </div>
                 </div>
@@ -153,6 +159,8 @@
                       name="cndEmail"
                       [(ngModel)]="cndEmail"
                       [ngModelOptions]="{ stanalone: true }"
+                      maxlength="250"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ/s] [0-9]*$"
                     />
                   </div>
 
@@ -165,10 +173,10 @@
                     <select class="form-control form-control-sm"
                     [(ngModel)]="cndEstcivil"
                     >
-                        <option [ngValue]="" selected>Estado civil</option>
-                        <option value="Soltero">Soltero</option>
-                        <option value="Casado">Casado</option>
-                        <option value="Divorciado">Divorciado</option>
+                        <option value="" selected>Estado civil</option>
+                        <option value="Soltero">Soltero(a)</option>
+                        <option value="Casado">Casado(a)</option>
+                        <option value="Divorciado">Divorciado(a)</option>
                       </select>
                   </div>
                   <div class="col-md-3 mb-3 ">
@@ -280,6 +288,8 @@
                           name="cndDisponibilidad"
                           [(ngModel)]="cndDisponibilidad"
                           [ngModelOptions]="{ stanalone: true }"
+                          maxlength="50"
+                          pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                         />
                     </div>
                     <div class="col-md-6 col-lg-6 mb-3">
@@ -296,6 +306,8 @@
                           name="cndDispotrabajo"
                           [(ngModel)]="cndDispotrabajo"
                           [ngModelOptions]="{ stanalone: true }"
+                          maxlength="50"
+                          pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                         />
                     </div>
                 </div>
@@ -335,6 +347,8 @@
                         placeholder="Teléfono"
                         name="conTelMovil"
                         [(ngModel)]="conTelMovil"
+                        maxlength="25"
+                        pattern="^[0-9]*$"
                       />
                     </div>
                   </div>
@@ -452,6 +466,8 @@
                         class="form-control form-control-sm"
                         [(ngModel)]="descripcionPerCnda"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="25"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -565,6 +581,8 @@
                         class="form-control form-control-sm"
                         [(ngModel)]="descripcionPerOfr"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="50"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                       />
                     </div>
                   </div>
@@ -584,6 +602,8 @@
                           class="form-control form-control-sm"
                           [(ngModel)]="valorPerOfr"
                           [ngModelOptions]="{ stanalone: true }"
+                          maxlength="10"
+                          pattern="^[0-9]*$"
                         />
                       </div>
                     </div>
@@ -747,6 +767,8 @@
                     class="form-control form-control-sm"
                     [(ngModel)]="nvCono"
                     [ngModelOptions]="{ stanalone: true }"
+                    maxlength="15"
+                    pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
                   />
                 </div>
                 </div>
@@ -842,6 +864,8 @@
                         class="form-control form-control-sm"
                         [(ngModel)]="nvIdioma"
                         [ngModelOptions]="{ stanalone: true }"
+                        maxlength="25"
+                        pattern="^[0-9]*$"
                       />
                     </div>
                     </div>
@@ -927,20 +951,6 @@
                   </div>
                   </div>
 
-                  <!-- Input text del nivel de la habilidad -->
-                  <div class="col-auto">
-                    <div class="form-group">
-                    <input
-                      id="nvHab"
-                      name="nvHab"
-                      type="text"
-                      placeholder="Nivel"
-                      class="form-control form-control-sm"
-                      [(ngModel)]="nvHab"
-                      [ngModelOptions]="{ stanalone: true }"
-                    />
-                  </div>
-                  </div>
 
                   <!-- Boton para agregar la habilidad-->
                   <div class="col-auto">

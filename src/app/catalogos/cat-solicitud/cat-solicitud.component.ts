@@ -5,7 +5,7 @@ import { PrioridadService } from 'src/app/service/cat.prioridad.service';
 import { Catprioridad } from 'src/app/model/catprioridad.model';
 import { TipoVacanteService } from 'src/app/service/cat.tipvacante.service';
 import { CatTipoVacante } from 'src/app/model/cattipovacante.model';
-import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
 import { Catsolidioma } from 'src/app/model/catsolidioma.model';
 import { Catidioma } from 'src/app/model/catidioma.model';
@@ -47,6 +47,7 @@ import { MailService } from 'src/app/service/mail.service';
 export class CatSolicitudComponent implements OnInit {
   // a mandar el back
   solicitud: Catsolicitud;
+
 
   // info para los select :P
   allAreas: Catarea[];
@@ -97,9 +98,8 @@ export class CatSolicitudComponent implements OnInit {
   escolaridad: string;
   equipo: Catequipo;
   equipoSol: Catequiposol;
-  edad: number;
-  edadM: number;
-  edadString: string;
+  solEdadincial: number;
+  solEdadfinal: number;
   direccion: string;
   experiencia: string;
   conClientG: Catcontactcliente;
@@ -151,18 +151,14 @@ export class CatSolicitudComponent implements OnInit {
     this.perfilService.getPerfiles().subscribe((data: Catperfil[]) => this.allPerfiles = data);
   }
 
+
+
+
   /**
    * Metodo para agregar la solicitud
    */
   addSolicitud() {
-    if (this.edadString === 'Indefinido') {
-      this.edad = 0;
-      this.edadM = 0;
-    } else {
-      const a = this.edadString.split(' ', 5);
-      this.edad = parseInt(a[1], 0);
-      this.edadM = parseInt(a[3], 0);
-    }
+
     this.solicitud = {
       solIdsolicitud: null,
       arnAreanegocio: this.requerimiento,
@@ -206,8 +202,8 @@ export class CatSolicitudComponent implements OnInit {
       solTarifacomercial: this.tarifaC,
       solGenero: this.genero,
       solEscolaridad: this.escolaridad,
-      solEdadincial: this.edad,
-      solEdadfinal: this.edadM,
+      solEdadincial: this.solEdadincial,
+      solEdadfinal: this.solEdadfinal,
       cndCalle: this.direccion,
       solNumextent: null,
       solNumintent: null,

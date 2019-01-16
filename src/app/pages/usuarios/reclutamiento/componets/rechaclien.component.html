@@ -10,7 +10,7 @@
   aria-expanded="true"
   aria-controls="collapseOne"
   >
-  Candidatos Aceptados por el cliente
+  Candidatos rechazados por el cliente
   </button>
   </h5>
   </div>
@@ -40,8 +40,15 @@
   <td>{{ a.usrUsuario.usrUsername }}</td>
   <td>{{ a.cndDatoscandidato.cndNombre }}</td>
   <td>{{ a.secEstatus }}</td>
-  <td> <i class="fa fa-search"
-  ></i></td>
+  <td>
+      <i style="color:rgb(243, 7, 7); margin-right:20px;"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Observar"
+      class="fas fa-search"
+      [routerLink]="['/RechazadoClienteCand', a.secIdseguimientocandidato]"
+      ></i>
+  </td>
   </tr>
   </tbody>
   </table>

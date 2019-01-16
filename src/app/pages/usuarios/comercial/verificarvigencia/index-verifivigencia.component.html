@@ -1,3 +1,202 @@
-<p>
-  index-verifivigencia works!
-</p>
+<div class="container">
+  <div class="card border-3 border-top border-top-primary">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h5 class="text-muted">
+            Candidato <i class="fas fa-user-alt fa-sm text-info"></i>
+          </h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Nombre:
+            <span class="text-muted"
+              > {{ candidato?.cndNombre }}
+              {{ candidato?.cndApellidopat }}
+              {{ candidato?.cndApellidomat }}</span
+            >
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Sexo:<span class="text-muted"
+              >{{ candidato?.cndGenero }}</span
+            >
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Email:
+
+            <span class="text-muted"
+              >{{ candidato?.cndEmail }}</span
+            >
+          </h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Estado Civil:
+            <span class="text-muted"
+              >{{ candidato?.cndEstcivil }}
+            </span>
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Edad: <span class="text-muted">{{ candidato?.cndEdad }}</span>
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Telefono:
+            <span
+              class="text-muted"
+              *ngFor="let c of candidato?.conContactocans"
+              >{{ c.conTelmovil }}, </span>
+          </h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h6 class="mb-2">
+            Dirección:
+            <span class="text-muted"
+              > {{ candidato?.cndCalle }}
+            </span>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-4 border-3 border-top border-top-success">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h4 class="text-muted">
+            Solicitud <i class="fas fa-wallet fa-sm text-success"></i>
+          </h4>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Proyecto:
+            <span class="text-muted"
+              > {{ solicitud?.proProyecto.proNombre }}</span
+            >
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Prioridad:<span class="text-muted"
+              >{{ solicitud?.priPrioridad.priNombre }}</span
+            >
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Cliente:
+            <span class="text-muted"
+              >{{ solicitud?.cliCliente.cliNombre }}</span
+            >
+          </h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <h6 class="mb-2">
+            Dirección:
+            <span class="text-muted"
+              >{{ solicitud?.cndCalle }}
+            </span>
+          </h6>
+        </div>
+        <div class="col-lg-6">
+          <h6 class="mb-2">
+            Lugar entrevista:
+            <span class="text-muted"
+              >{{ solicitud?.solLugarasignacion }}</span
+            >
+          </h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <h6 class="mb-2">
+            Nombre contacto:
+            <span class="text-muted"
+              >{{solicitud?.proProyecto.clcContactoClienteByProIdconclilid.clcNombre}}</span
+            >
+          </h6>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <h6 class="mb-2">
+            Teléfono:
+            <span class="text-muted">
+              <span
+                class="text-muted"
+                *ngIf="
+                  solicitud?.proProyecto.clcContactoClienteByProIdconclilid
+                    .clcExtension != null
+                "
+                ><b>
+                  ext({{
+                    solicitud?.proProyecto.clcContactoClienteByProIdconclilid
+                      .clcExtension
+                  }})</b
+                ></span>
+                {{
+                solicitud?.proProyecto.clcContactoClienteByProIdconclilid
+                  .clcTelefono
+              }}
+            </span>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="card mt-4 border-3 border-top border-top-success">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h4 class="text-muted">
+            Comentarios  <i class=""></i>
+          </h4>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 mt-4">
+    <button
+      type="button"
+      class="btn btn-primary mr-2 "
+      (click)="updateBusiness()"
+    >
+      Editar
+    </button>
+
+    <button
+    type="button"
+    class="btn btn-danger text-white mr-2"
+    >
+      Perdido
+    </button>
+
+  </div>
+</div>
+</div>
