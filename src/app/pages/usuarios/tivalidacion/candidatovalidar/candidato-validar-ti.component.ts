@@ -163,7 +163,7 @@ user: Catusuario;
        swal({
         position: 'top',
         type: 'success',
-        title: `¡¡Solicitud Validada con éxito!!`,
+        title: `¡¡Candidato validado con éxito!!`,
         showConfirmButton: false,
         timer: 2500
       });

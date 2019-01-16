@@ -215,20 +215,43 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-md-12 control-label" for="edad">Edad</label>
+                  <label class="col-md-12 control-label" for="solEdadincial">Edad Inicial</label>
                   <div class="col-md-12">
-                    <input
-                      id="edad"
-                      name="edad"
-                      type="number"
-                      min="20"
-                      max="99"
-                      placeholder="Escribe la edad"
-                      class="form-control input-md form-control-sm"
-                      required=""
-                      [(ngModel)]="edad"
-                      [ngModelOptions]="{ stanalone: true }"
-                    />
+                    <select
+                      [(ngModel)]="solEdadincial"
+                      class="form-control form-control-sm"
+                      id="solEdadincial"
+                      name="solEdadincial"
+                      [ngModelOptions]="{ standalone: true }"
+                    >
+                      <option [ngValue]="null" selected>Selecciona uno</option>
+                      <option [ngValue]="20">20</option>
+                      <option [ngValue]="25">25</option>
+                      <option [ngValue]="30">30</option>
+                      <option [ngValue]="35">35</option>
+                      <option [ngValue]="40">40</option>
+                      <option [ngValue]="45">45</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="edad">Edad Final  </label>
+                  <div class="col-md-12">
+                    <select
+                    [(ngModel)]="solEdadfinal"
+                    class="form-control form-control-sm"
+                    id="solEdadfinal"
+                    name="solEdadfinal"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    <option [ngValue]="null" selected>Selecciona uno</option>
+                    <option [ngValue]="25">25</option>
+                    <option [ngValue]="30">30</option>
+                    <option [ngValue]="35">35</option>
+                    <option [ngValue]="40">40</option>
+                    <option [ngValue]="45">45</option>
+                    <option [ngValue]="50">50</option>
+                  </select>
                   </div>
                 </div>
               </div>

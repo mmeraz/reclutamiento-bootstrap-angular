@@ -63,6 +63,7 @@ export class SeguimientoCandService {
       escIdestatus: 9,
       escDescripcion: 'Rechazado por TI'
       },
+      secComentario: secComentario,
       usrUsuario: this.auth.usuario,
     };
     console.log(obj.usrUsuario.usrUsuario);
@@ -305,6 +306,7 @@ export class SeguimientoCandService {
     return this.clienteHttp.get(`${this.url}/fetchActive/3`,
        {headers: this.headers});
   }
+
   getSecSeguimientoRechazadoTI() {
     this.getHeaders();
     return this.clienteHttp.get(`${this.url}/fetchActive/9`,
@@ -379,5 +381,14 @@ export class SeguimientoCandService {
     );
     return this.headers;
   }
+
+  editBusiness(id) {
+    this.getHeaders(); // agregar
+    return this
+            .clienteHttp
+            .get(`${this.url}/fetch/${id}`, {
+              headers: this.headers});
+    }
+
 }
 

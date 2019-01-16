@@ -1,23 +1,26 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-12">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Candidato</h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            {{ candidato?.cndNombre }} {{ candidato?.cndApellidopat }}
-            {{ candidato?.cndApellidomat }}
-          </h6>
-          <p class="card-text" *ngFor="let con of candidato?.conContactocans">
-            Contacto: {{ con.conTelmovil }}
-          </p>
-          <p class="card-text">Email:{{ candidato?.cndEmail }}</p>
+
+<div class="row">
+  <div class="col-lg-6">
+      <div class="card border-3 border-top border-top-primary">
+          <div class="card-body">
+
+            <h5 class="card-title">Candidato</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ candidato?.cndNombre }} {{ candidato?.cndApellidopat }}
+                {{ candidato?.cndApellidomat }}
+              </h6>
+              <p class="card-text" *ngFor="let con of candidato?.conContactocans">
+                Contacto: {{ con.conTelmovil }}
+              </p>
+              <p class="card-text">Email:{{ candidato?.cndEmail }}</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
+
+        <div class="col-lg-6">
+            <div class="card border-3 border-top border-top-primary">
+                <div class="card-body">
           <h5 class="card-title">Cliente</h5>
           <h6 class="card-subtitle mb-2 text-muted">
             {{
@@ -33,10 +36,11 @@
             }}
           </p>
           <p class="card-text">Dirección: {{ solicitud?.cndCalle }}</p>
-        </div>
-      </div>
-    </div>
+                </div>
+              </div>
   </div>
+</div>
+
 
   <div class="row mt-5">
     <div class="col-lg-4 col-md-4 col-sm-12">

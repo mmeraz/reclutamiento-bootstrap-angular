@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SeguimientoCandService } from '../../../../service/seguimientocandidato.service';
 import swal from 'sweetalert2';
 import { MailService } from 'src/app/service/mail.service';
+import { SeguimientoSolService } from '../../../../service/seguimientosol.service';
 
 @Component({
   selector: 'app-index-retro',
@@ -24,7 +25,8 @@ export class IndexRetroComponent implements OnInit {
     private route: ActivatedRoute,
     private bs: SeguimientoCandService,
     private router: Router,
-    private serviceEmail: MailService
+    private serviceEmail: MailService,
+    private segSolicitudService: SeguimientoSolService
   ) {}
 
   ngOnInit() {
@@ -56,6 +58,7 @@ export class IndexRetroComponent implements OnInit {
   updatePendiente() {
     this.route.params.subscribe(params => {
       this.bs.addPendienteRespuesta(this.candidato, this.comentario);
+      this.segSolicitudService.add2daOpcion(this.solicitud);
       this.serviceEmail.sendEmail('6', this.candidato); // cambiar por el estado correcto
       this.router.navigate(['/IndexBackoffice']);
       swal({

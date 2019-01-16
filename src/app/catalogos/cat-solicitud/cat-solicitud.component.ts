@@ -99,7 +99,8 @@ export class CatSolicitudComponent implements OnInit {
   escolaridad: string;
   equipo: Catequipo;
   equipoSol: Catequiposol;
-  edad: number;
+  solEdadincial: number;
+  solEdadfinal: number;
   direccion: string;
   experiencia: string;
   conClientG: Catcontactcliente;
@@ -199,8 +200,8 @@ export class CatSolicitudComponent implements OnInit {
       solTarifacomercial: this.tarifaC,
       solGenero: this.genero,
       solEscolaridad: this.escolaridad,
-      solEdadincial: null,
-      solEdadfinal: this.edad,
+      solEdadincial: this.solEdadincial,
+      solEdadfinal: this.solEdadfinal,
       cndCalle: this.direccion,
       solNumextent: null,
       solNumintent: null,

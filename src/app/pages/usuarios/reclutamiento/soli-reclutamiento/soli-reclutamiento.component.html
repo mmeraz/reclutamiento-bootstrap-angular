@@ -112,10 +112,10 @@
                     </h6>
                   </div>
 
-              <div class="col-lg-4">
+              <div class="col-lg-6">
                 <h6 class="mb-2">
-                    Contacto:<span class="text-muted"
-                    > {{ solicitud?.cliCliente.contactos }}</span
+                    Contacto:<span class="text-muted" *ngFor="let c of solicitud?.cliCliente.contactos"
+                    > {{c.clcNombre}}  {{c.clcTelefono}},   </span
                   >
                 </h6>
               </div>
