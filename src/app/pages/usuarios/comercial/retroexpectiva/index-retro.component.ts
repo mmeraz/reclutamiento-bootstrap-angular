@@ -79,8 +79,8 @@ export class IndexRetroComponent implements OnInit {
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',
-        type: 'success',
-        title: `¡¡Candidato contratado!!`,
+        type: 'warning',
+        title: `¡¡Candidato rechazado!!`,
         showConfirmButton: false,
         timer: 2500
       });

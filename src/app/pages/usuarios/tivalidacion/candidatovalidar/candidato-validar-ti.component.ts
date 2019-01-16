@@ -25,8 +25,6 @@ import { SeguimientoCandService } from '../../../../service/seguimientocandidato
 import { Catseguicandidato } from '../../../../model/catseguicandidato.model';
 import { Catusuario } from '../../../../model/catusuario.model';
 import { UsuarioService } from '../../../../service/cat.usuario.service';
-import { SolicitudService } from 'src/app/service/cat.solicitud.service';
-import { SeguiSolicitudService } from 'src/app/service/cat.seguisolicitud.service';
 import { SeguimientoSolService } from 'src/app/service/seguimientosol.service';
 import { EntrevistaService } from 'src/app/service/cat.entrevista.service';
 import { Catentrevista } from 'src/app/model/catentrevista.model';

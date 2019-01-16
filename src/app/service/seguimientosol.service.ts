@@ -315,4 +315,6 @@ export class SeguimientoSolService {
     .get('access_token'));
     return this.headers;
  }
+
+
 }

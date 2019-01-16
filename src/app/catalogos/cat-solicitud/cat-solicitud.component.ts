@@ -5,7 +5,7 @@ import { PrioridadService } from 'src/app/service/cat.prioridad.service';
 import { Catprioridad } from 'src/app/model/catprioridad.model';
 import { TipoVacanteService } from 'src/app/service/cat.tipvacante.service';
 import { CatTipoVacante } from 'src/app/model/cattipovacante.model';
-import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Catsolicitud } from 'src/app/model/catsolicitud.model';
 import { Catsolidioma } from 'src/app/model/catsolidioma.model';
 import { Catidioma } from 'src/app/model/catidioma.model';
@@ -36,8 +36,6 @@ import { AuthService } from 'src/app/service/auth.service';
 import { Router } from '@angular/router';
 import { MailService } from 'src/app/service/mail.service';
 
-
-
 @Component({
   selector: 'app-cat-solicitud',
   templateUrl: './cat-solicitud.component.html',
@@ -49,6 +47,7 @@ import { MailService } from 'src/app/service/mail.service';
 export class CatSolicitudComponent implements OnInit {
   // a mandar el back
   solicitud: Catsolicitud;
+
 
   // info para los select :P
   allAreas: Catarea[];
@@ -152,11 +151,14 @@ export class CatSolicitudComponent implements OnInit {
     this.perfilService.getPerfiles().subscribe((data: Catperfil[]) => this.allPerfiles = data);
   }
 
+
+
+
   /**
    * Metodo para agregar la solicitud
    */
   addSolicitud() {
-    console.log('TODO terminar metodos');
+
     this.solicitud = {
       solIdsolicitud: null,
       arnAreanegocio: this.requerimiento,
@@ -220,6 +222,7 @@ export class CatSolicitudComponent implements OnInit {
     this.bs.addSolicitud(this.solicitud);
     this.mailService.sendEmail('1', this.solicitud);
     this.router.navigate(['/IndexTiValidacion']);
+    this.refresh();
   }
 
   /**
@@ -228,7 +231,7 @@ export class CatSolicitudComponent implements OnInit {
   addIdioma() {
     this.idiomaSol = {
       id: null,
-      solSolicitud: null,
+      solSolicitud: this.solicitud,
       idiIdioma: this.idioma,
       sliNivel: this.nvIdioma
     };
@@ -237,6 +240,9 @@ export class CatSolicitudComponent implements OnInit {
     this.nvIdioma = null;
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
   /**
    * Metodo para agregar el contactoa la solicitud;
    */
@@ -252,7 +258,7 @@ export class CatSolicitudComponent implements OnInit {
     this.conoSol = {
       id: null,
       cotConocimientosTec: this.conocimiento,
-      solSolicitud: null,
+      solSolicitud: this.solicitud,
       socNivel: this.nvCono
     };
     this.listaConocimiento.push(this.conoSol);
@@ -266,7 +272,7 @@ export class CatSolicitudComponent implements OnInit {
   addHabilidad() {
     this.habSol = {
       cohCompetenciashabilidades: this.habilidad,
-      solSolicitud: null,
+      solSolicitud: this.solicitud,
       hbsNivel: this.nvhab
     };
     this.listaHabilidades.push(this.habSol);
@@ -281,7 +287,7 @@ export class CatSolicitudComponent implements OnInit {
   addFunciones() {
     this.funcion = {
       funIdfunciones: null,
-      solSolicitud: null,
+      solSolicitud: this.solicitud,
       funDescripcion: this.descripcionF
     };
     this.listaFunciones.push(this.funcion);
@@ -296,7 +302,7 @@ export class CatSolicitudComponent implements OnInit {
     this.percepcionsol = {
       slpIdpercepciones: null,
       prePercepciones: this.percepcion,
-      solSolicitud: null,
+      solSolicitud: this.solicitud,
       slpValorm: this.valorPer,
       slpDescripcion: this.descripcionPer
     };
@@ -313,7 +319,7 @@ export class CatSolicitudComponent implements OnInit {
     this.equipoSol = {
       eslIdequiposol: null,
       equEquipo: this.equipo,
-      solSolicitud: null
+      solSolicitud: this.solicitud
     };
     this.listaEquipo.push(this.equipoSol);
     this.equipo = null;
@@ -380,3 +386,4 @@ export class CatSolicitudComponent implements OnInit {
     this.index = null;
   }
 }
+

@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SeguiSolicitudService } from '../../../../service/cat.seguisolicitud.service';
 import { DataTableDirective } from 'angular-datatables';
 import { Catsolicitud } from '../../../../model/catsolicitud.model';
 import { Subject } from 'rxjs';

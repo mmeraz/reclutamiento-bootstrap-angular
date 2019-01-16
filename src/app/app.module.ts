@@ -126,7 +126,9 @@ import { Solicitu2liderComponent } from './pages/usuarios/liderreclutamiento/com
 import { IndexRetroComponent } from './pages/usuarios/comercial/retroexpectiva/index-retro.component';
 import { IndexRetroComComponent } from './pages/usuarios/comercial/retroexpeccompara/index-retro-com.component';
 import { DocumentosComponent } from './pages/usuarios/recursoshumanos/documentos/documentos.component';
+import { VisuaSolComponent } from './pages/usuarios/tivalidacion/visualizacion/visuasol.component';
 import { CandRechazadoComponent } from './pages/usuarios/reclutamiento/cand-rechazado/cand-rechazado.component';
+import { RechazadoClienteCandComponent } from './pages/candidato/rechazado-cliente/rechazado-cliente-cand.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -274,7 +276,10 @@ import { CandRechazadoComponent } from './pages/usuarios/reclutamiento/cand-rech
     RetroespectivasComercialComponent,
     DocumentosComponent,
     DocumentosComponent,
+    VisuaSolComponent,
+    RechazadoClienteCandComponent,
     CandRechazadoComponent
+
   ],
   imports: [
     BrowserModule,

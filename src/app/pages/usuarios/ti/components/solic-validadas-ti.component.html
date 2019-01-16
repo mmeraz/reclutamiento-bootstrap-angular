@@ -35,7 +35,7 @@
               <tbody>
 
                 <tr *ngFor="let a of allSeguimiento">
-                  <th scope="row">{{ a.solSolicitud.solIdsolicitud }}</th>
+                  <th scope="row">{{ a.sgsIdseguimientosol }}</th>
                   <td>{{ a.sgsFecha }}</td>
                   <td>{{ a.solSolicitud.proProyecto.proNombre }}</td>
                   <td>{{ a.solSolicitud.proProyecto.cliCliente.cliNombre }}</td>
@@ -46,8 +46,8 @@
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Consultar"
-                      class="fas fa-search"
-
+                      class="fas fa-pencil-alt"
+                      [routerLink]="['/VisualizarSolicitud', a.solSolicitud.solIdsolicitud ]"
                       *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
                   </td>
                 </tr>
