@@ -18,6 +18,7 @@ export class RechazadoClienteCandComponent implements OnInit {
   candidato: Catcandidato;
   solicitud: Catsolicitud;
   comentario: string;
+  allSolicitud: any;
 
   constructor(
     private bs: SeguimientoCandService,
@@ -30,6 +31,7 @@ export class RechazadoClienteCandComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.bs.editBusiness(params['id']).subscribe(res => {
         this.allSeguimiento = res;
+        // this.allSolicitud = this.allSeguimiento.cndDatoscandidato.entEntrevista;
 
       });
     });

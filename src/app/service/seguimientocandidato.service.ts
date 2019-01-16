@@ -155,9 +155,9 @@ export class SeguimientoCandService {
       usrUsuario: this.auth.usuario
     };
     console.log(obj.usrUsuario.usrUsuario);
-    // this.clienteHttp
-    //   .post(this.url + '/add', obj, { headers: this.headers })
-    //   .subscribe(res => console.log('Done'));
+    this.clienteHttp
+      .post(this.url + '/add', obj, { headers: this.headers })
+      .subscribe(res => console.log('Done'));
   }
 
   addAceptado(candidato: Catcandidato, comentario: string  ) {
@@ -390,6 +390,12 @@ export class SeguimientoCandService {
             .get(`${this.url}/fetch/${id}`, {
               headers: this.headers});
     }
-
+    editBusinessEnt(id) {
+      this.getHeaders(); // agregar
+      return this
+              .clienteHttp
+              .get(`${this.url}/fetchCndComp/${id}`, {
+                headers: this.headers});
+      }
 }
 

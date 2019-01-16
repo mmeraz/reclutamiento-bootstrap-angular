@@ -29,7 +29,7 @@ export class CandRechazadoComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.bs.editBusiness(params['id']).subscribe(res => {
+      this.bs.editBusinessEnt(params['id']).subscribe(res => {
         this.allSeguimiento = res;
 
       });

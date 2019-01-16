@@ -75,7 +75,7 @@ export class IndexRetroComponent implements OnInit {
   updateRechazado() {
     this.route.params.subscribe(params => {
       this.bs.addRechazadoXCliente(this.candidato, this.secComentario);
-      this.serviceEmail.sendEmail('8', this.candidato);
+      this.serviceEmail.sendEmail('11', this.candidato);
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',
