@@ -128,7 +128,8 @@ listaHabilidades: Catcompcandidato[] = [];
     this.route.params.subscribe(params  => {
       this.bs.editBusiness(params['id']).subscribe(res => {
         this.candidato = res;
-        console.log(res.cndEstado);
+        console.log(res.cndCalle);
+        console.log(res.cndIdcandidato);
       });
     });
   }
@@ -139,7 +140,7 @@ listaHabilidades: Catcompcandidato[] = [];
   updateBusiness() {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(this.candidato, params['id']);
-       this.router.navigate(['/Candidato']);
+       // this.router.navigate(['/Candidato']);
        swal({
         position: 'top',
         type: 'success',
@@ -148,7 +149,7 @@ listaHabilidades: Catcompcandidato[] = [];
         timer: 1500
       });
     });
-    this.update();
+    // this.update();
  }
 
  update(): void {
@@ -161,12 +162,12 @@ listaHabilidades: Catcompcandidato[] = [];
    */
   addIdioma() {
     this.idiomaCnda = {
-  idcIdidiomacandidato: null,
-  cndDatoscandidato: null,
-  idiIdioma: this.Idioma,
-  idcNivel: this.nvIdioma
+    idcIdidiomacandidato: null,
+    cndDatoscandidato: null,
+    idiIdioma: this.Idioma,
+    idcNivel: this.nvIdioma
     };
-    this.listaIdiomas.push(this.idiomaCnda);
+    this.candidato.idcIdiomaCandidatos.push(this.idiomaCnda);
     this.Idioma = null;
     this.nvIdioma = null;
   }
@@ -180,7 +181,7 @@ listaHabilidades: Catcompcandidato[] = [];
       cndDatoscandidato: null,
       conTelmovil: this.conTelMovil
     };
-    this.contactosCandidato.push(this.contactoCandidato);
+    this.candidato.conContactocans.push(this.contactoCandidato);
     this.contactoCandidato = null;
   }
 
@@ -195,7 +196,7 @@ listaHabilidades: Catcompcandidato[] = [];
       cotConocimientosTec: this.conocimiento,
       cocNivel: this.nvCono
     };
-    this.listaConocimientos.push(this.conCand);
+    this.candidato.cocConTecCandidatos.push(this.conCand);
     this.conocimiento = null;
     this.nvCono = null;
   }
@@ -210,7 +211,7 @@ listaHabilidades: Catcompcandidato[] = [];
       cohCompetenciashabilidades: this.habilidad,
       chcNivel: this.nvHab
     };
-    this.listaHabilidades.push(this.habCand);
+    this.candidato.chcComcandidatos.push(this.habCand);
     this.habilidad = null;
     this.nvHab = null;
   }
@@ -228,7 +229,7 @@ listaHabilidades: Catcompcandidato[] = [];
       pcaValor: this.valorPerCnda,
       pcaDescripcion: this.descripcionPerCnda
     };
-    this.listaPercepcionCnda.push(this.percepcionesCnda);
+    this.candidato.pcaPercepcionescndas.push(this.percepcionesCnda);
     this.percepcion = null;
     this.valorPer = null;
     this.descripcionPer = null;
@@ -245,7 +246,7 @@ listaHabilidades: Catcompcandidato[] = [];
       pcoValor: this.valorPerOfr,
       pcoDescripcion: this.descripcionPerOfr
     };
-    this.listaPercepcionOfr.push(this.Percepcionesfr);
+    this.candidato.pcaPercepcionescndofrs.push(this.Percepcionesfr);
     this.percepcion = null;
     this.valorPer = null;
     this.descripcionPer = null;
@@ -256,8 +257,8 @@ listaHabilidades: Catcompcandidato[] = [];
    * @param item contacto a eliminar
    */
   deleteContacto(item: CatContactoCandidato) {
-    this.index = this.contactosCandidato.indexOf(item);
-    this.contactosCandidato.splice(this.index, 1);
+    this.index = this.candidato.conContactocans.indexOf(item);
+    this.candidato.conContactocans.splice(this.index, 1);
     this.index = null;
   }
   /**
@@ -265,8 +266,8 @@ listaHabilidades: Catcompcandidato[] = [];
    * @param item percepcion a eliminar
    */
   deletePercepcionCnda(item: Catpercepcioncnda) {
-    this.index = this.listaPercepcionCnda.indexOf(item);
-    this.listaPercepcionCnda.splice(this.index, 1);
+    this.index = this.candidato.pcaPercepcionescndas.indexOf(item);
+    this.candidato.pcaPercepcionescndas.splice(this.index, 1);
     this.index = null;
   }
 
@@ -275,8 +276,8 @@ listaHabilidades: Catcompcandidato[] = [];
    * @param item percepcion a eliminar
    */
   deletePercepcionOfr(item: Catpercepcioncndofr) {
-    this.index = this.listaPercepcionOfr.indexOf(item);
-    this.listaPercepcionOfr.splice(this.index, 1);
+    this.index = this.candidato.pcaPercepcionescndofrs.indexOf(item);
+    this.candidato.pcaPercepcionescndofrs.splice(this.index, 1);
     this.index = null;
   }
     /**
@@ -284,8 +285,8 @@ listaHabilidades: Catcompcandidato[] = [];
    * @param item CatsolIdioma
    */
   deleteIdioma(item: CatIdiomaCandidato) {
-    this.index = this.listaIdiomas.indexOf(item);
-    this.listaIdiomas.splice(this.index, 1);
+    this.index = this.candidato.idcIdiomaCandidatos.indexOf(item);
+    this.candidato.idcIdiomaCandidatos.splice(this.index, 1);
     this.index = null;
   }
   /**
@@ -293,8 +294,8 @@ listaHabilidades: Catcompcandidato[] = [];
    * @param item Catconosolicitado
    */
   deleteConocimiento(item: CatConTecCandidato) {
-    this.index = this.listaConocimientos.indexOf(item);
-    this.listaConocimientos.splice(this.index, 1);
+    this.index = this.candidato.cocConTecCandidatos.indexOf(item);
+    this.candidato.cocConTecCandidatos.splice(this.index, 1);
     this.index = null;
   }
   /**
@@ -302,8 +303,8 @@ listaHabilidades: Catcompcandidato[] = [];
    * @param item a eliminar
    */
   deleteHabilidades(item: Catcompcandidato) {
-    this.index = this.listaHabilidades.indexOf(item);
-    this.listaHabilidades.splice(this.index, 1);
+    this.index = this.candidato.chcComcandidatos.indexOf(item);
+    this.candidato.chcComcandidatos.splice(this.index, 1);
     this.index = null;
   }
 

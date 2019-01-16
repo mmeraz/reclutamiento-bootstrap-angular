@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       this.authService.Guardarusuario(response.access_token);
       console.log(this.authService.Guardarusuario);
     }, err => {
-      if (err.status === 401) {
+      if (err.status === 401 || err.status === 400) {
         swal('Error Login', 'Nombre de usuario o contraseña Incorrecta', 'error');
       }
     }
