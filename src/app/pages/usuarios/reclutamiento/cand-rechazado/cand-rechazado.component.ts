@@ -23,7 +23,6 @@ export class CandRechazadoComponent implements OnInit {
   constructor(
     private bs: SeguimientoCandService,
     private route: ActivatedRoute,
-    private router: Router,
     private serviceSegSol: SeguimientoSolService
   ) {}
 

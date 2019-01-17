@@ -110,6 +110,14 @@ import { CandRechazadoComponent } from './pages/usuarios/reclutamiento/cand-rech
 import { VisuaSolComponent } from './pages/usuarios/tivalidacion/visualizacion/visuasol.component';
 import { IndexVerifivigenciaComponent } from './pages/usuarios/comercial/verificarvigencia/index-verifivigencia.component';
 import { RechazadoClienteCandComponent } from './pages/candidato/rechazado-cliente/rechazado-cliente-cand.component';
+import { EsperasolicitudComponent } from './pages/solicitud/esperasolicitud/esperasolicitud.component';
+import { PendienterespuestaComponent } from './pages/solicitud/pendienterespuesta/pendienterespuesta.component';
+import { PerdidasolicitudComponent } from './pages/solicitud/perdidasolicitud/perdidasolicitud.component';
+import { RechazotiComponent } from './pages/solicitud/rechazadoti/rechazoti.component';
+import { SegundaopcionComponent } from './pages/solicitud/segundaopcion/segundaopcion.component';
+import { AceptadostiComponent } from './pages/solicitud/aceptadosti/aceptadosti.component';
+import { BorradorComponent } from './pages/solicitud/borrador/borrador.component';
+import { PendienteclienteComponent } from './pages/solicitud/pendientecliente/pendientecliente.component';
 
 
 
@@ -237,6 +245,14 @@ import { RechazadoClienteCandComponent } from './pages/candidato/rechazado-clien
   {path: 'VisualizarSolicitud/:id', component: VisuaSolComponent, canActivate: [AuthGuard]  },
   {path: 'IndexVerificarVigencia', component: IndexVerifivigenciaComponent, canActivate: [AuthGuard]  },
   {path: 'RechazadoClienteCand/:id', component: RechazadoClienteCandComponent, canActivate: [AuthGuard]  },
+  {path: 'EsperaSolicitud', component: EsperasolicitudComponent, canActivate: [AuthGuard]  },
+  {path: 'PendienteRespuesta', component: PendienterespuestaComponent, canActivate: [AuthGuard]  },
+  {path: 'PerdidaSolicitud', component: PerdidasolicitudComponent, canActivate: [AuthGuard]  },
+  {path: 'RechazadoTi/:id', component: RechazotiComponent, canActivate: [AuthGuard]  },
+  {path: 'SegundaOpcion', component: SegundaopcionComponent, canActivate: [AuthGuard]  },
+  {path: 'AceptadosTi/:id', component: AceptadostiComponent, canActivate: [AuthGuard]  },
+  {path: 'Borrador/:id', component: BorradorComponent, canActivate: [AuthGuard]  },
+  {path: 'PendienteCliente/:id', component: PendienteclienteComponent, canActivate: [AuthGuard]  },
 ];
 
  export const appRoutingProviders: any[] = [];

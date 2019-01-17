@@ -129,6 +129,14 @@ import { DocumentosComponent } from './pages/usuarios/recursoshumanos/documentos
 import { VisuaSolComponent } from './pages/usuarios/tivalidacion/visualizacion/visuasol.component';
 import { CandRechazadoComponent } from './pages/usuarios/reclutamiento/cand-rechazado/cand-rechazado.component';
 import { RechazadoClienteCandComponent } from './pages/candidato/rechazado-cliente/rechazado-cliente-cand.component';
+import { RechazotiComponent } from './pages/solicitud/rechazadoti/rechazoti.component';
+import { PerdidasolicitudComponent } from './pages/solicitud/perdidasolicitud/perdidasolicitud.component';
+import { EsperasolicitudComponent } from './pages/solicitud/esperasolicitud/esperasolicitud.component';
+import { PendienterespuestaComponent } from './pages/solicitud/pendienterespuesta/pendienterespuesta.component';
+import { SegundaopcionComponent } from './pages/solicitud/segundaopcion/segundaopcion.component';
+import { AceptadostiComponent } from './pages/solicitud/aceptadosti/aceptadosti.component';
+import { BorradorComponent } from './pages/solicitud/borrador/borrador.component';
+import { PendienteclienteComponent } from './pages/solicitud/pendientecliente/pendientecliente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -278,7 +286,15 @@ import { RechazadoClienteCandComponent } from './pages/candidato/rechazado-clien
     DocumentosComponent,
     VisuaSolComponent,
     RechazadoClienteCandComponent,
-    CandRechazadoComponent
+    CandRechazadoComponent,
+    RechazotiComponent,
+    PerdidasolicitudComponent,
+    EsperasolicitudComponent,
+    PendienterespuestaComponent,
+    SegundaopcionComponent,
+    AceptadostiComponent,
+    BorradorComponent,
+    PendienteclienteComponent
 
   ],
   imports: [

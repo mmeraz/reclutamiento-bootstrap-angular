@@ -24,6 +24,7 @@
                   <th scope="col">Cliente</th>
                   <th scope="col">Puesto</th>
                   <th scope="col">Prioridad</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
@@ -34,6 +35,14 @@
                   <td>{{ a.solSolicitud.cliCliente.cliNombre}}</td>
                   <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>
                   <td>{{ a.solSolicitud.priPrioridad.priNombre }}</td>
+                  <td>
+                    <i style="color:#0044ff; margin-right:20px;"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Aceptado"
+                    class="fas fa-search"
+                    [routerLink]="['/AceptadosTi', a.sgsIdseguimientosol]"
+                    *ngIf="authservice.hasRole('ROLE_ADMIN')"></i></td>
                 </tr>
               </tbody>
             </table>

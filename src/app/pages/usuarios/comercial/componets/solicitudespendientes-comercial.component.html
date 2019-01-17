@@ -31,6 +31,7 @@
                   <th scope="col">Cliente</th>
                   <th scope="col">Puesto</th>
                   <th scope="col">Prioridad</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
@@ -41,6 +42,13 @@
                   <td>{{ a.solSolicitud.cliCliente.cliNombre}}</td>
                   <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>
                   <td>{{ a.solSolicitud.priPrioridad.priNombre }}</td>
+                  <td><i style="color:#eeff00; margin-right:20px;"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="SolicitudesPendientes"
+                  class="fas fa-search"
+                  [routerLink]="['/SolicitudesPendientes', a.sgsIdseguimientosol]"
+                  *ngIf="authservice.hasRole('ROLE_ADMIN')"></i></td>
                 </tr>
               </tbody>
             </table>
