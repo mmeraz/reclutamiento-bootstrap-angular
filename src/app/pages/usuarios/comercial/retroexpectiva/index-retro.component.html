@@ -142,10 +142,7 @@
             <span class="text-muted">
               <span
                 class="text-muted"
-                *ngIf="
-                  solicitud?.proProyecto.clcContactoClienteByProIdconclilid
-                    .clcExtension != null
-                "
+                *ngIf="solicitud?.proProyecto.clcContactoClienteByProIdconclilid.clcExtension != null"
                 ><b>
                   ext({{
                     solicitud?.proProyecto.clcContactoClienteByProIdconclilid
@@ -171,8 +168,10 @@
         <h5> Añadir Retrospectiva</h5>
         <textarea
           class="form-control"
-          id="exampleFormControlTextarea1"
           rows="5"
+          [(ngModel)]="secComentario"
+          name="secComentario"
+          id="secComentario"
         ></textarea>
       </div>
     </form>

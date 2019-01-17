@@ -19,7 +19,7 @@ export class IndexRetroComponent implements OnInit {
   private entrevista: Catentrevista;
   candidato: Catcandidato;
   solicitud: Catsolicitud;
-  comentario: string;
+  secComentario: string;
   constructor(
     private serviceEnt: EntrevistaService,
     private route: ActivatedRoute,
@@ -41,7 +41,7 @@ export class IndexRetroComponent implements OnInit {
 
   updateBusiness() {
     this.route.params.subscribe(params => {
-      this.bs.addAceptado(this.candidato, this.comentario);
+      this.bs.addAceptado(this.candidato, this.secComentario);
       this.serviceEmail.sendEmail('7', this.candidato);
       this.router.navigate(['/IndexBackoffice']);
       swal({
@@ -57,7 +57,7 @@ export class IndexRetroComponent implements OnInit {
 
   updatePendiente() {
     this.route.params.subscribe(params => {
-      this.bs.addPendienteRespuesta(this.candidato, this.comentario);
+      this.bs.addPendienteRespuesta(this.candidato, this.secComentario);
       this.segSolicitudService.add2daOpcion(this.solicitud);
       this.serviceEmail.sendEmail('6', this.candidato); // cambiar por el estado correcto
       this.router.navigate(['/IndexBackoffice']);
@@ -74,8 +74,8 @@ export class IndexRetroComponent implements OnInit {
 
   updateRechazado() {
     this.route.params.subscribe(params => {
-      this.bs.addRechazadoXCliente(this.candidato, this.comentario);
-      this.serviceEmail.sendEmail('8', this.candidato);
+      this.bs.addRechazadoXCliente(this.candidato, this.secComentario);
+      this.serviceEmail.sendEmail('11', this.candidato);
       this.router.navigate(['/IndexBackoffice']);
       swal({
         position: 'top',

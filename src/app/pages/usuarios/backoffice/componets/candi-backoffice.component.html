@@ -57,7 +57,14 @@
                           class="fas fa-search"
                           [routerLink]="['/IndexRetroexpectiva', s.cndDatoscandidato.cndIdcandidato]"
                           *ngIf="authservice.hasRole('ROLE_ADMIN') && s.escEstatusCandidato.escIdestatus == 14 "></i>
-                      </td>
+                          <i style="color:#ff0800; margin-right:20px;"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Retroexpectiva"
+                          class="fas fa-search"
+                          [routerLink]="['/RechazadoClienteCand', s.secIdseguimientocandidato]"
+                          *ngIf="authservice.hasRole('ROLE_ADMIN') && s.escEstatusCandidato.escIdestatus == 16 "></i>
+                        </td>
                     </tr>
                   </tbody>
                 </table>
