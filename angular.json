@@ -33,10 +33,7 @@
                             "./node_modules/bootstrap/dist/js/bootstrap.min.js",
                             "./node_modules/popper.js/dist/umd/popper.min.js",
                             "./node_modules/datatables.net/js/jquery.dataTables.js",
-                            "./src/custom.js",
-                            "https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.7/push.min.js"
-
-
+                            "./src/custom.js"
                         ]
                     },
                     "configurations": {
