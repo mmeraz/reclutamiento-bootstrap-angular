@@ -154,7 +154,6 @@
                         placeholder="Edad"
                         name="cndEdad"
                         [(ngModel)]="cndEdad"
-                        [ngModelOptions]="{ stanalone: true }"
                         maxlength="3"
                         pattern="[0-9]+"
                         #edad="ngModel"
@@ -394,13 +393,17 @@
                         <input
                           type="text"
                           class="form-control form-control-sm"
-                          id="contacto"
                           placeholder="Teléfono"
                           name="conTelMovil"
                           [(ngModel)]="conTelMovil"
                           maxlength="25"
                           pattern="^[0-9]*$"
+                          #telefono
                         />
+                        <span *ngIf="!telefono.valid && telefono.touched"
+                          class="text-white bg-danger">
+                        El teléfono es requerido o solo acepta numeros
+                        </span>
                       </div>
                     </div>
                     <!-- Boton para agregar el contacto -->
@@ -487,7 +490,6 @@
                           name="percepcion"
                           class="form-control form-control-sm"
                           [(ngModel)]="percepcion"
-                          [ngModelOptions]="{ stanalone: true }"
                         >
                           <option [ngValue]="null" selected>
                             Tipo percepción
@@ -506,16 +508,19 @@
                     <div class="col-auto">
                       <div class="form-group">
                         <input
-                          id="descripcionPerCnda"
                           name="descripcionPerCnda"
                           type="text"
                           placeholder="Descripción"
                           class="form-control form-control-sm"
                           [(ngModel)]="descripcionPerCnda"
-                          [ngModelOptions]="{ stanalone: true }"
                           maxlength="25"
                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
+                          #percepcionCnda="ngModel"
                         />
+                        <span *ngIf="!percepcionCnda.valid && percepcionCnda.touched"
+                              class="text-white bg-danger">
+                          La descripción es requerida ó solo acepta letras.
+                        </span>
                       </div>
                     </div>
 
@@ -527,14 +532,17 @@
                             <div class="input-group-text">$</div>
                           </div>
                           <input
-                            id="valor"
                             name="valorPerCnda"
                             type="text"
                             placeholder="Valor"
                             class="form-control form-control-sm"
                             [(ngModel)]="valorPerCnda"
-                            [ngModelOptions]="{ stanalone: true }"
+                            #valorCnda="ngModel"
                           />
+                          <span *ngIf="!valorCnda.valid && valorCnda.touched"
+                          class="text-white bg-danger">
+                      El valor  es requerido ó solo acepta numeros.
+                    </span>
                         </div>
                       </div>
                     </div>
@@ -591,7 +599,6 @@
                           name="percepcion"
                           class="form-control form-control-sm"
                           [(ngModel)]="percepcion"
-                          [ngModelOptions]="{ stanalone: true }"
                         >
                           <option [ngValue]="null" selected>
                             Tipo percepción
@@ -610,16 +617,19 @@
                     <div class="col-auto">
                       <div class="form-group">
                         <input
-                          id="descripcion"
                           name="descripcionPerOfr"
                           type="text"
                           placeholder="Descripción"
                           class="form-control form-control-sm"
                           [(ngModel)]="descripcionPerOfr"
-                          [ngModelOptions]="{ stanalone: true }"
                           maxlength="50"
                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
+                          #percepcionOfr="ngModel"
                         />
+                        <span *ngIf="!percepcionOfr.valid && percepcionOfr.touched"
+                        class="text-white bg-danger">
+                    La descripción es requerida ó solo acepta letras.
+                  </span>
                       </div>
                     </div>
 
@@ -631,16 +641,19 @@
                             <div class="input-group-text">$</div>
                           </div>
                           <input
-                            id="valorPerOfr"
                             name="valorPerOfr"
                             type="text"
                             placeholder="Valor"
                             class="form-control form-control-sm"
                             [(ngModel)]="valorPerOfr"
-                            [ngModelOptions]="{ stanalone: true }"
                             maxlength="10"
                             pattern="^[0-9]*$"
+                            #valorOfr="ngModel"
                           />
+                          <span *ngIf="!valorOfr.valid && valorOfr.touched"
+                          class="text-white bg-danger">
+                      El valor es requerido ó solo acepta numeros.
+                    </span>
                         </div>
                       </div>
                     </div>
@@ -775,7 +788,6 @@
                         name="conocimiento"
                         class="form-control form-control-sm"
                         [(ngModel)]="conocimiento"
-                        [ngModelOptions]="{ stanalone: true }"
                       >
                         <option [ngValue]="null" selected>Conocimiento</option>
                         <option
@@ -798,7 +810,12 @@
                         [(ngModel)]="nvCono"
                         maxlength="15"
                         pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
+                        #conocimiento="ngModel"
                       />
+                      <span *ngIf="!conocimiento.valid && conocimiento.touched"
+                      class="text-white bg-danger">
+                  El nivel es requerido ó solo acepta letras.
+                </span>
                     </div>
                   </div>
 
@@ -860,7 +877,6 @@
                         name="Idioma"
                         class="form-control form-control-sm"
                         [(ngModel)]="Idioma"
-                        [ngModelOptions]="{ stanalone: true }"
                       >
                         <option [ngValue]="null" selected>Idioma</option>
                         <option *ngFor="let i of allIdiomas" [ngValue]="i">{{
@@ -874,16 +890,19 @@
                   <div class="col-auto">
                     <div class="form-group">
                       <input
-                        id="nvIdioma"
                         name="nvIdioma"
                         type="text"
                         placeholder="Nivel"
                         class="form-control form-control-sm"
                         [(ngModel)]="nvIdioma"
-                        [ngModelOptions]="{ stanalone: true }"
                         maxlength="25"
                         pattern="^[0-9]*$"
+                        #idioma="ngModel"
                       />
+                      <span *ngIf="!idioma.valid && idioma.touched"
+                      class="text-white bg-danger">
+                  El nivel es requerido ó solo acepta letras.
+                </span>
                     </div>
                   </div>
 
