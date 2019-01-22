@@ -35,3 +35,24 @@ jQuery(function($) {
     //     $(".page-wrapper").addClass("toggled");
     // });
 });
+
+//Notificaciones
+function notificarme() {
+
+  if (window.Notification) {
+    console.log('Este navegador no soporta notificaciones');
+    return;
+  }
+  if( Notification.permission === 'granted') {
+    new Notification ( 'Hola Mundo! - granted');
+  } else if(Notification.permission !== 'denied' || Notification.permission === 'default'){
+    Notification.requestPermission(function(permission){
+      console.log(permission);
+      if( permission ==='granted') {
+        new Notification ('Hola mundo! - pregunta');
+      }
+    });
+  }
+}
+
+notificarme();

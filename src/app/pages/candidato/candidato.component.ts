@@ -34,6 +34,7 @@ import { SeguimientoSolService } from '../../service/seguimientosol.service';
 import { MailService } from 'src/app/service/mail.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Candidato } from '../../model/candidato.model';
 
 @Component({
   selector: 'app-candidato',
@@ -378,5 +379,9 @@ listaEntrevista: Catentrevista[] = [];
     this.index = null;
   }
 
+
+  onSubmit() {
+    console.log(this.candidato);
+  }
 
 }

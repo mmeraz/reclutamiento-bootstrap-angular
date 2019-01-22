@@ -294,7 +294,7 @@ import { PendienteclienteComponent } from './pages/solicitud/pendientecliente/pe
     SegundaopcionComponent,
     AceptadostiComponent,
     BorradorComponent,
-    PendienteclienteComponent
+    PendienteclienteComponent,
 
   ],
   imports: [

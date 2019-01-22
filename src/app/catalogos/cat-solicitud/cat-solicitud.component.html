@@ -203,7 +203,6 @@
                   >
                   <div class="col-md-12">
                     <input
-                      id="escolaridad"
                       name="escolaridad"
                       type="text"
                       placeholder="Grado escolar"
@@ -212,7 +211,12 @@
                       [(ngModel)]="escolaridad"
                       maxlength="50"
                       pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
+                      ngModel
+                      #escolaridad1="ngModel" appSinNumeros
                     />
+                    <div *ngIf="escolaridad1.errors" class="alert alert-danger">
+                      No se permite ingresar numeros
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">
