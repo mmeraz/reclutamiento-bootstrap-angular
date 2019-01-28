@@ -83,10 +83,10 @@
                         required
                         maxlength="25"
                         pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
-                        #nombre="ngModel"
+                        #var1="ngModel"
                       />
                       <span
-                        *ngIf="!nombre.valid && nombre.touched"
+                        *ngIf="var1.invalid && var1.touched"
                         class="text-white bg-danger"
                       >
                         El nombre es requerido ó solo acepta letras.
@@ -102,16 +102,17 @@
                       <input
                         type="text"
                         class="form-control form-control-sm"
-                        #apellidoPat="ngModel"
+                        #var2="ngModel"
                         name="cndApellidopat"
                         placeholder="Apellido Paterno"
                         required
                         [(ngModel)]="cndApellidopat"
                         maxlength="20"
                         pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
+
                       />
                       <span
-                        *ngIf="!apellidoPat.valid && apellidoPat.touched"
+                        *ngIf="var2.invalid && var2.touched"
                         class="text-white bg-danger"
                       >
                         El apellido paterno es requerido ó solo acepta letras.
@@ -130,13 +131,13 @@
                         placeholder="Apellido Materno"
                         name="cndApellidomat"
                         required
-                        #apellidoMat="ngModel"
+                        #var3="ngModel"
                         [(ngModel)]="cndApellidomat"
                         maxlength="20"
                         pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
                       />
                       <span
-                        *ngIf="!apellidoMat.valid && apellidoMat.touched"
+                        *ngIf="var3.invalid && var3.touched"
                         class="text-white bg-danger"
                         >El apellido materno es requerido ó solo acepta letras
                       </span>
@@ -156,11 +157,11 @@
                         [(ngModel)]="cndEdad"
                         maxlength="3"
                         pattern="[0-9]+"
-                        #edad="ngModel"
+                        #var4="ngModel"
                         required
                       />
                       <span
-                        *ngIf="!edad.valid && edad.touched"
+                        *ngIf="var4.invalid && var4.touched"
                         class="text-white bg-danger"
                         >La edad es requerida ó solo acepta numeros.
                       </span>
@@ -182,10 +183,11 @@
                         [(ngModel)]="cndEmail"
                         maxlength="250"
                         pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-                        #email="ngModel"
+                        required
+                        #var5="ngModel"
                       />
                       <span
-                      *ngIf="!email.valid && email.touched"
+                      *ngIf="var5.invalid && var5.touched"
                       class="text-white bg-danger"
                       >El email es requerido ó no cumple el formato
                       [ejemplo@ejemplo.com].
@@ -201,12 +203,17 @@
                       <select
                         class="form-control form-control-sm"
                         [(ngModel)]="cndEstcivil"
+                        name="estCivil"
+                        #select7="ngModel"
+                        required
                       >
-                        <option value="" selected>Estado civil</option>
+                        <option [ngValue]="" selected>Estado civil</option>
                         <option value="Soltero">Soltero(a)</option>
                         <option value="Casado">Casado(a)</option>
                         <option value="Divorciado">Divorciado(a)</option>
                       </select>
+                      <span *ngIf="select7.invalid && select7.touched"
+                      class="text-white bg-danger"> Es requerido</span>
                     </div>
                     <div class="col-md-3 mb-3 ">
                       <label
@@ -217,14 +224,16 @@
                       <select
                         [(ngModel)]="cndGenero"
                         class="form-control form-control-sm"
-                        id="genero"
                         name="genero"
-                        [ngModelOptions]="{ standalone: true }"
+                        required
+                        #select8="ngModel"
                       >
                         <option value="" selected>Selecciona uno</option>
                         <option value="H">Hombre</option>
                         <option value="M">Mujer</option>
                       </select>
+                      <span *ngIf="select8.invalid && select8.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                     </div>
                   </div>
 
@@ -238,11 +247,16 @@
                       <select
                         class="form-control form-control-sm"
                         [(ngModel)]="cndTrabaja"
+                        name="trabaja"
+                        #select9="ngModel"
+                        required
                       >
                         <option value="" selected>Trabaja</option>
                         <option value="true">Sí</option>
                         <option value="false">No</option>
                       </select>
+                      <span *ngIf="select9.invalid && select9.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                     </div>
 
                     <div class="col-md-2 col-lg-2 mb-3">
@@ -254,11 +268,16 @@
                       <select
                         class="form-control form-control-sm"
                         [(ngModel)]="cndHijos"
+                        name="hijos"
+                        required
+                        #select10="ngModel"
                       >
                         <option [ngValue]="null" selected>Hijos</option>
                         <option value="true">Sí</option>
                         <option value="false">No</option>
                       </select>
+                      <span *ngIf="select10.invalid && select10.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                     </div>
                     <div class="col-md-2 col-lg-2 mb-3">
                       <label
@@ -269,11 +288,16 @@
                       <select
                         class="form-control form-control-sm"
                         [(ngModel)]="cndVisa"
+                        name="visa"
+                        required
+                        #select11="ngModel"
                       >
                         <option value="null" selected>Visa</option>
                         <option value="true">Sí</option>
                         <option value="false">No</option>
                       </select>
+                      <span *ngIf="select11.invalid && select11.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                     </div>
 
                     <div class="col-md-2 col-lg-2 mb-3">
@@ -285,11 +309,16 @@
                       <select
                         class="form-control form-control-sm"
                         [(ngModel)]="cndPasaporte"
+                        name="pasaporte"
+                        required
+                        #select12="ngModel"
                       >
                         <option [ngValue]="" selected>Pasaporte</option>
                         <option value="true">Sí</option>
                         <option value="false">No</option>
                       </select>
+                      <span *ngIf="select12.invalid && select12.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                     </div>
                     <div class="col-md-3 col-lg-3 mb-3">
                       <label
@@ -300,11 +329,16 @@
                       <select
                         class="form-control form-control-sm"
                         [(ngModel)]="cndDispoViajar"
+                        name="disponibilidadviajar"
+                        required
+                        #select13="ngModel"
                       >
                         <option value="" selected>Disponibilidad</option>
                         <option value="true">Sí</option>
                         <option value="false">No</option>
                       </select>
+                      <span *ngIf="select13.invalid && select13.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                     </div>
                   </div>
                   <div class="form-row">
@@ -322,11 +356,11 @@
                         [(ngModel)]="cndDisponibilidad"
                         maxlength="50"
                         pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ .-/]*$"
-                        #dispoEntrevista="ngModel"
+                        #var6="ngModel"
                         required
                       />
                       <span
-                      *ngIf="!dispoEntrevista.valid && dispoEntrevista.touched"
+                      *ngIf="var6.invalid && var6.touched"
                       class="text-white bg-danger"
                       >La disponibilidad de entrevista es requerida ó solo acepta letras.
                     </span>
@@ -346,11 +380,11 @@
                         [(ngModel)]="cndDispotrabajo"
                         maxlength="50"
                         pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ .-/]*$"
-                        #dispoTrabajo="ngModel"
+                        #var7="ngModel"
                         required
                       />
                       <span
-                      *ngIf="!dispoTrabajo.valid && dispoTrabajo.touched"
+                      *ngIf="var7.invalid && var7.touched"
                       class="text-white bg-danger"
                       >La disponibilidad de trabajo es requerida ó solo acepta letras.
                     </span>
@@ -372,10 +406,10 @@
                           [(ngModel)]="cndCalle"
                           name="cndCalle"
                           maxlength="250"
-                          #direccion="ngModel"
+                          #var8="ngModel"
                           pattern="^[a-zA0-9ZñÑáéíóúÁÉÍÓÚ .-/]*$"
                         ></textarea>
-                        <span *ngIf="!direccion.valid && direccion.touched"
+                        <span *ngIf="var8.invalid && var8.touched"
                           class="text-white bg-danger">
                         La dirección es requerida.
                         </span>
@@ -398,9 +432,10 @@
                           [(ngModel)]="conTelMovil"
                           maxlength="25"
                           pattern="^[0-9]*$"
-                          #telefono
+                          #var9="ngModel"
+                          required
                         />
-                        <span *ngIf="!telefono.valid && telefono.touched"
+                        <span *ngIf="var9.invalid && var9.touched"
                           class="text-white bg-danger">
                         El teléfono es requerido o solo acepta numeros
                         </span>
@@ -486,10 +521,11 @@
                     <div class="col-auto">
                       <div class="form-group">
                         <select
-                          id="percepcion"
                           name="percepcion"
                           class="form-control form-control-sm"
                           [(ngModel)]="percepcion"
+                          required
+                          #select14="ngModel"
                         >
                           <option [ngValue]="null" selected>
                             Tipo percepción
@@ -501,6 +537,8 @@
                             {{ per.preTipo }}
                           </option>
                         </select>
+                        <span *ngIf="select14.invalid && select14.touched"
+                              class="text-white bg-danger"> Es requerido</span>
                       </div>
                     </div>
 
@@ -515,9 +553,10 @@
                           [(ngModel)]="descripcionPerCnda"
                           maxlength="25"
                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
-                          #percepcionCnda="ngModel"
+                          #var10="ngModel"
+                          required
                         />
-                        <span *ngIf="!percepcionCnda.valid && percepcionCnda.touched"
+                        <span *ngIf="var10.invalid && var10.touched"
                               class="text-white bg-danger">
                           La descripción es requerida ó solo acepta letras.
                         </span>
@@ -537,9 +576,9 @@
                             placeholder="Valor"
                             class="form-control form-control-sm"
                             [(ngModel)]="valorPerCnda"
-                            #valorCnda="ngModel"
+                            #var11="ngModel"
                           />
-                          <span *ngIf="!valorCnda.valid && valorCnda.touched"
+                          <span *ngIf="var11.valid && var11.touched"
                           class="text-white bg-danger">
                       El valor  es requerido ó solo acepta numeros.
                     </span>
@@ -595,10 +634,11 @@
                     <div class="col-auto">
                       <div class="form-group">
                         <select
-                          id="percepcion"
                           name="percepcion"
                           class="form-control form-control-sm"
                           [(ngModel)]="percepcion"
+                          required
+                          #select2="ngModel"
                         >
                           <option [ngValue]="null" selected>
                             Tipo percepción
@@ -610,6 +650,8 @@
                             {{ per.preTipo }}
                           </option>
                         </select>
+                        <span *ngIf="select2.invalid && select2.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                       </div>
                     </div>
 
@@ -624,9 +666,10 @@
                           [(ngModel)]="descripcionPerOfr"
                           maxlength="50"
                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$"
-                          #percepcionOfr="ngModel"
+                          #var12="ngModel"
+                          required
                         />
-                        <span *ngIf="!percepcionOfr.valid && percepcionOfr.touched"
+                        <span *ngIf="var12.invalid && var12.touched"
                         class="text-white bg-danger">
                     La descripción es requerida ó solo acepta letras.
                   </span>
@@ -648,9 +691,10 @@
                             [(ngModel)]="valorPerOfr"
                             maxlength="10"
                             pattern="^[0-9]*$"
-                            #valorOfr="ngModel"
+                            #var13="ngModel"
+                            required
                           />
-                          <span *ngIf="!valorOfr.valid && valorOfr.touched"
+                          <span *ngIf="var13.invalid && var13.touched"
                           class="text-white bg-danger">
                       El valor es requerido ó solo acepta numeros.
                     </span>
@@ -725,7 +769,6 @@
               <div class="card-body">
                 <div class="form-group">
                   <label
-                    for="exampleFormControlSelect1"
                     class="font-weight-bold"
                     >Solicitud</label
                   >
@@ -733,8 +776,8 @@
                     [(ngModel)]="solSolicitud"
                     class="form-control form-control-sm"
                     name="solSolicitud"
-                    id="solSolicitud"
-                    placeholder="Selecciona uno"
+                    required
+                    #select3="ngModel"
                   >
                     <option [ngValue]="null" selected
                       >Selecciona una solicitud</option
@@ -746,6 +789,8 @@
                       {{ sol.solSolicitud.proProyecto.proNombre }}
                     </option>
                   </select>
+                  <span *ngIf="select3.invalid && select3.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                 </div>
               </div>
             </div>
@@ -784,10 +829,11 @@
                   <div class="col-auto">
                     <div class="form-group">
                       <select
-                        id="conocimiento"
                         name="conocimiento"
                         class="form-control form-control-sm"
                         [(ngModel)]="conocimiento"
+                        required
+                        #select4="ngModel"
                       >
                         <option [ngValue]="null" selected>Conocimiento</option>
                         <option
@@ -796,6 +842,8 @@
                           >{{ cono.cotConocimiento }}</option
                         >
                       </select>
+                      <span *ngIf="select4.invalid && select4.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                     </div>
                   </div>
 
@@ -810,9 +858,10 @@
                         [(ngModel)]="nvCono"
                         maxlength="15"
                         pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
-                        #conocimiento="ngModel"
+                        #var14="ngModel"
+                        required
                       />
-                      <span *ngIf="!conocimiento.valid && conocimiento.touched"
+                      <span *ngIf="var14.invalid && var14.touched"
                       class="text-white bg-danger">
                   El nivel es requerido ó solo acepta letras.
                 </span>
@@ -873,16 +922,19 @@
                   <div class="col-auto">
                     <div class="form-group">
                       <select
-                        id="Idioma"
                         name="Idioma"
                         class="form-control form-control-sm"
                         [(ngModel)]="Idioma"
+                        required
+                        #select5="ngModel"
                       >
                         <option [ngValue]="null" selected>Idioma</option>
                         <option *ngFor="let i of allIdiomas" [ngValue]="i">{{
                           i.idiNombre
                         }}</option>
                       </select>
+                      <span *ngIf="select5.invalid && select5.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                     </div>
                   </div>
 
@@ -897,9 +949,9 @@
                         [(ngModel)]="nvIdioma"
                         maxlength="25"
                         pattern="^[0-9]*$"
-                        #idioma="ngModel"
+                        #var15="ngModel"
                       />
-                      <span *ngIf="!idioma.valid && idioma.touched"
+                      <span *ngIf="var15.valid && var15.touched"
                       class="text-white bg-danger">
                   El nivel es requerido ó solo acepta letras.
                 </span>
@@ -993,10 +1045,11 @@
                   <div class="col-auto">
                     <div class="form-group">
                       <select
-                        id="habilidad"
                         name="habilidad"
                         class="form-control form-control-sm"
                         [(ngModel)]="habilidad"
+                        required
+                        #select6="ngModel"
                       >
                         <option [ngValue]="null" selected>Habilidad</option>
                         <option
@@ -1005,6 +1058,8 @@
                           >{{ h.cohDescripcion }}</option
                         >
                       </select>
+                      <span *ngIf="select6.invalid && select6.touched"
+                        class="text-white bg-danger"> Es requerido</span>
                     </div>
                   </div>
 
