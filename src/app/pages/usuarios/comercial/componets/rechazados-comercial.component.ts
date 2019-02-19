@@ -12,26 +12,8 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class RechazadosComercialComponent implements OnInit {
 
-  @ViewChild(DataTableDirective)
-  dtElement: DataTableDirective;
-  dtOptions: DataTables.Settings = {};
-  arrayAreas: CatSeguimientoSol[];
-  allSeguimiento: any = [];
-  dtTrigger: Subject<any> = new Subject();
-  constructor(private serviceSgsSolicitud: SeguimientoSolService, protected authservice: AuthService) { }
 
   ngOnInit() {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
-    };
-    this.serviceSgsSolicitud.getSgsSeguimietoRechazadas().subscribe(result => {
-      this.allSeguimiento = result;
-      this.dtTrigger.next();
-    });
   }
 
-  getListSize(): number {
-    return 0;
-  }
 }

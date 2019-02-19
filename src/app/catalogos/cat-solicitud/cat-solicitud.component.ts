@@ -73,7 +73,7 @@ export class CatSolicitudComponent implements OnInit {
   presupuesto: string;
   prioridad: Catprioridad = null;
   requerimiento: Catarea = null;
-  vacante: CatTipoVacante = null;
+  vacante: CatTipoVacante;
   cliente: Catcliente = null;
   habilidad: Catcomphabilidades;
   conocimiento: Catcontecnicos;
@@ -98,13 +98,17 @@ export class CatSolicitudComponent implements OnInit {
   escolaridad: string;
   equipo: Catequipo;
   equipoSol: Catequiposol;
-  solEdadincial: number;
+  solEdadincial: string;
   solEdadfinal: number;
   direccion: string;
   experiencia: string;
   conClientG: Catcontactcliente;
   conClientLP: Catcontactcliente;
   conClientTL: Catcontactcliente;
+  edadString: string;
+  edad: number;
+  edadM: number;
+  tipo: number;
 
   // lista de la solicitud (relaciones)
   contactosCliente: Catcontactcliente[] = [];
@@ -141,6 +145,7 @@ export class CatSolicitudComponent implements OnInit {
     this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
     this.prioridadService.getPrioridades().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
     this.tipoVacanteService.getTipoVacantes().subscribe((data: CatTipoVacante[]) => this.allVacantes = data);
+    console.log(this.allVacantes);
     this.idiomaService.getIdiomas().subscribe((data: Catidioma[]) => this.allIdiomas = data);
     this.clienteService.getClientes().subscribe((data: Catcliente[]) => this.allClientes = data);
     this.jornadaService.getJornadas().subscribe((data: Catjornadalab[]) => this.allJornada = data);
@@ -149,6 +154,7 @@ export class CatSolicitudComponent implements OnInit {
     this.percepcionService.getPercepciones().subscribe((data: Catprepercepcion[]) => this.allPercepciones = data);
     this.equipoService.getEquipos().subscribe((data: Catequipo[]) => this.allEquipo = data);
     this.perfilService.getPerfiles().subscribe((data: Catperfil[]) => this.allPerfiles = data);
+    this.tipo = 1;
   }
 
 
@@ -158,6 +164,15 @@ export class CatSolicitudComponent implements OnInit {
    * Metodo para agregar la solicitud
    */
   addSolicitud() {
+    if (this.edadString === 'Indefinido') {
+      this.edad = 0;
+      this.edadM = 0;
+    } else {
+      const a = this.edadString.split(' ', 5);
+      this.edad = parseInt(a[1], 0);
+      this.edadM = parseInt(a[3], 0);
+    }
+
 
     this.solicitud = {
       solIdsolicitud: null,
@@ -168,7 +183,20 @@ export class CatSolicitudComponent implements OnInit {
       priPrioridad: this.prioridad,
       proProyecto: {
         proIdproyecto: null,
-        clcContactoClienteByProIdconclitode: this.conClientTL,
+        clcContactoClienteByProIdconclitode: {
+          clcIdconcli: 4,
+          cliCliente: {
+            cliIdcliente: 8,
+            cliNombre: null,
+            cliRazonsocial: null,
+            contactos: null
+           },
+          clcNombre: 'Test',
+          clcTelefono: '1234568',
+          clcEmail: 'test@testing.com',
+          clcTipo: 'T',
+          clcExtension: ''
+        },
         clcContactoClienteByProIdconclilid: this.conClientLP,
         clcContactoClienteByProIdconcligerente: this.conClientG,
         cliCliente: this.cliente,
@@ -179,7 +207,10 @@ export class CatSolicitudComponent implements OnInit {
         proObservaciones: null,
         proDuracionmeses: this.duracionPro
       },
-      tvaTipoVacante: this.vacante,
+      tvaTipoVacante: {
+        tvaIdtipovacante: 1,
+        tvaTipo: 'Nuevo Ingreso'
+    },
       usrUsuarioBySolIdreclutador: {
         usrUsuario: 1,
         usrUsername: 'mmeraz',
@@ -202,8 +233,8 @@ export class CatSolicitudComponent implements OnInit {
       solTarifacomercial: this.tarifaC,
       solGenero: this.genero,
       solEscolaridad: this.escolaridad,
-      solEdadincial: this.solEdadincial,
-      solEdadfinal: this.solEdadfinal,
+      solEdadincial: this.edad,
+      solEdadfinal: this.edadM,
       cndCalle: this.direccion,
       solNumextent: null,
       solNumintent: null,
@@ -220,6 +251,8 @@ export class CatSolicitudComponent implements OnInit {
       percepsiones: this.listaPercepciones
     };
     this.bs.addSolicitud(this.solicitud);
+    console.log(this.solicitud);
+
     this.mailService.sendEmail('1', this.solicitud);
     this.router.navigate(['/IndexTiValidacion']);
     this.refresh();

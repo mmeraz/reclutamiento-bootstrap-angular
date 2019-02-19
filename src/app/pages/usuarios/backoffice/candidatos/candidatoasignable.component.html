@@ -1,0 +1,152 @@
+<div class="accordion" id="accordionExample">
+
+
+    <div class="card border border-bluedark">
+
+    <div class="card-header bg-bluedark" id="headingOne">
+
+    <h5 class="mb-0">
+
+    <button
+
+    class="btn btn-link text-white"
+
+    type="button"
+
+    data-toggle="collapse"
+
+    data-target="#collapseCandidato"
+
+    aria-expanded="true"
+
+    aria-controls="collapseOne"
+
+    >
+
+    Candidatos Aceptado Por Cliente
+
+    </button>
+
+    </h5>
+
+    </div>
+
+
+
+    <div
+
+    id="collapseCandidato"
+
+    class="collapse"
+
+    aria-labelledby="headingOne"
+
+    data-parent="#accordionExample"
+
+    >
+
+    <div class="card-body">
+
+    <div class="row">
+
+    <div class="col-sm-12 col-md-12 col-lg-12">
+
+    <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+
+    <thead>
+
+    <tr>
+
+    <th scope="col">Fecha</th>
+
+    <th scope="col">Nombre</th>
+
+    <th scope="col">Apellido</th>
+
+    <th scope="col">Estatus</th>
+
+    <th scope="col">Revisar</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+
+
+    <tr *ngFor="let s of allSolicitud">
+
+    <th scope="row">{{ s.secEstatus }}</th>
+
+    <td>{{ s.cndDatoscandidato.cndNombre }}</td>
+
+    <td>{{ s.cndDatoscandidato.cndApellidopat }}</td>
+
+    <td>{{ s.escEstatusCandidato.escDescripcion }}</td>
+
+    <td class="text-center" >
+
+    <i style="color:#007bff; margin-right:20px;"
+
+    data-toggle="tooltip"
+
+    data-placement="top"
+
+    title="Consultar"
+
+    class="fas fa-search"
+
+    [routerLink]="['/CitaClienteBackoffice', s.cndDatoscandidato.cndIdcandidato]"
+
+    *ngIf="authservice.hasRole('ROLE_ADMIN') && s.escEstatusCandidato.escIdestatus == 13 "></i>
+
+
+
+    <i style="color:#00ff22; margin-right:20px;"
+
+    data-toggle="tooltip"
+
+    data-placement="top"
+
+    title="Retroexpectiva"
+
+    class="fas fa-search"
+
+    [routerLink]="['/IndexRetroexpectiva', s.cndDatoscandidato.cndIdcandidato]"
+
+    *ngIf="authservice.hasRole('ROLE_ADMIN') && s.escEstatusCandidato.escIdestatus == 14 "></i>
+
+    <i style="color:#ff0800; margin-right:20px;"
+
+    data-toggle="tooltip"
+
+    data-placement="top"
+
+    title="Retroexpectiva"
+
+    class="fas fa-search"
+
+    [routerLink]="['/RechazadoClienteCand', s.secIdseguimientocandidato]"
+
+    *ngIf="authservice.hasRole('ROLE_ADMIN') && s.escEstatusCandidato.escIdestatus == 16 "></i>
+
+    </td>
+
+    </tr>
+
+    </tbody>
+
+    </table>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>

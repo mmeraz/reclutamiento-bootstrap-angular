@@ -116,6 +116,7 @@ export class ConsultarTivalidacionComponent implements OnInit {
     cliente: Catcliente;
     user: Catusuario;
     comentario: string;
+    edadString: string;
 
   ngOnInit() {
     this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
@@ -262,6 +263,12 @@ export class ConsultarTivalidacionComponent implements OnInit {
  deleteFuncion(item: Catfunciones) {
   this.index = this.solicitud.funciones.indexOf(item);
   this.solicitud.funciones.splice(this.index, 1);
+  this.index = null;
+ }
+
+ deletePercepcion(item: SlpSolPercepciones) {
+  this.index = this.solicitud.percepsiones.indexOf(item);
+  this.solicitud.percepsiones.splice(this.index, 1);
   this.index = null;
  }
 

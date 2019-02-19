@@ -104,7 +104,7 @@
                     name="vacante"
                     class="form-control"
                     [(ngModel)]="solicitud && solicitud.tvaTipoVacante.tvaIdtipovacante"
-
+                    hidden
                   >
                     <option [ngValue]="null" selected>Selecciona una</option>
                     <option *ngFor="let item of allVacantes" [ngValue]="item.tvaIdtipovacante">{{

@@ -27,7 +27,7 @@ export class AceptadosComercialComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.serviceSgsSolicitud.getSgsSeguimientoSolicitudValidadas('Alta').pipe(catchError( err => {
+    this.serviceSgsSolicitud.getSgsSeguimientoSolicitudValidadas('Baja').pipe(catchError( err => {
       if (err.status === 401) {
         this.update();
         this.authservice.loguot();

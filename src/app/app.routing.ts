@@ -118,7 +118,41 @@ import { SegundaopcionComponent } from './pages/solicitud/segundaopcion/segundao
 import { AceptadostiComponent } from './pages/solicitud/aceptadosti/aceptadosti.component';
 import { BorradorComponent } from './pages/solicitud/borrador/borrador.component';
 import { PendienteclienteComponent } from './pages/solicitud/pendientecliente/pendientecliente.component';
-
+import { AltaAceptadoComponent } from './pages/usuarios/comercial/componets/aceptados/alta-aceptado/alta-aceptado.component';
+import { MediaAceptadoComponent } from './pages/usuarios/comercial/componets/aceptados/media-aceptado/media-aceptado.component';
+import { BajaAceptadoComponent } from './pages/usuarios/comercial/componets/aceptados/baja-aceptado/baja-aceptado.component';
+import { AltaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/alta-rechazado/alta-rechazado.component';
+import { MediaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/media-rechazado/media-rechazado.component';
+import { BajaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/baja-rechazado/baja-rechazado.component';
+import { RequerivalibackComponent } from './pages/usuarios/backoffice/requerimientos/requerivaliback.component';
+import { RequericancebackComponent } from './pages/usuarios/backoffice/requerimientos/requericanceback.component';
+import { RequeripenvatibackComponent } from './pages/usuarios/backoffice/requerimientos/requeripenvatiback.component';
+import { RequeriporasigbackComponent } from './pages/usuarios/backoffice/requerimientos/requeriporasigback.component';
+import { RequeriasignadabackComponent } from './pages/usuarios/backoffice/requerimientos/requeriasignadaback.component';
+import { RequerirechatibackComponent } from './pages/usuarios/backoffice/requerimientos/requerirechatiback.component';
+import { RequeripendiresbackComponent } from './pages/usuarios/backoffice/requerimientos/requeripendiresback.component';
+import { RequeriacepclibackComponent } from './pages/usuarios/backoffice/requerimientos/requeriacepcliback.component';
+import { RequeriperdidabackComponent } from './pages/usuarios/backoffice/requerimientos/requeriperdidaback.component';
+import { RequerienesperabackComponent } from './pages/usuarios/backoffice/requerimientos/requerienesperaback.component';
+import { RequerisegundaopbackComponent } from './pages/usuarios/backoffice/requerimientos/requerisegundaopback.component';
+import { CandidatovalidadoComponent } from './pages/usuarios/backoffice/candidatos/candidatovalidado.component';
+import { CandidatoentrevistaComponent } from './pages/usuarios/backoffice/candidatos/candidatoentrevista.component';
+import { CandidatorechazadotiComponent } from './pages/usuarios/backoffice/candidatos/candidatorechazadoti.component';
+import { CandidatopendientrevistaComponent } from './pages/usuarios/backoffice/candidatos/candidatopendientrevista.component';
+import { CandidatoentrevistadoComponent } from './pages/usuarios/backoffice/candidatos/candidatoentrevistado.component';
+import { CandidatoentreagendaComponent } from './pages/usuarios/backoffice/candidatos/candidatoentreagenda.component';
+import { CandidatoaceptacliComponent } from './pages/usuarios/backoffice/candidatos/candidatoaceptacli.component';
+import { CandidatorechazacliComponent } from './pages/usuarios/backoffice/candidatos/candidatorechazacli.component';
+import { CandidatorechazacandiComponent } from './pages/usuarios/backoffice/candidatos/candidatorechazacandi.component';
+import { CandidatopendientevalitiComponent } from './pages/usuarios/backoffice/candidatos/candidatopendientevaliti.component';
+import { CandidatopendicontraComponent } from './pages/usuarios/backoffice/candidatos/candidatopendicontra.component';
+import { CandidatopendientedocuComponent } from './pages/usuarios/backoffice/candidatos/candidatopendientedocu.component';
+import { CandidatocontratadoComponent } from './pages/usuarios/backoffice/candidatos/candidatocontratado.component';
+import { CandidatoasignableComponent } from './pages/usuarios/backoffice/candidatos/candidatoasignable.component';
+import { CandidatopendiresComponent } from './pages/usuarios/backoffice/candidatos/candidatopendires.component';
+import { CandidatosegunopComponent } from './pages/usuarios/backoffice/candidatos/candidatosegunop.component';
+import { SegSolicitudComponent } from './pages/usuarios/backoffice/seguimiento/seg-solicitud/seg-solicitud.component';
+import { SegCandidatoComponent } from './pages/usuarios/backoffice/seguimiento/seg-candidato/seg-candidato.component';
 
 
 
@@ -253,6 +287,44 @@ import { PendienteclienteComponent } from './pages/solicitud/pendientecliente/pe
   {path: 'AceptadosTi/:id', component: AceptadostiComponent, canActivate: [AuthGuard]  },
   {path: 'Borrador/:id', component: BorradorComponent, canActivate: [AuthGuard]  },
   {path: 'PendienteCliente/:id', component: PendienteclienteComponent, canActivate: [AuthGuard]  },
+  {path: 'AltaAceptado/:id', component: AltaAceptadoComponent, canActivate: [AuthGuard]  },
+  {path: 'MediaAceptado/:id', component: MediaAceptadoComponent, canActivate: [AuthGuard]  },
+  {path: 'BajaAceptado/:id', component: BajaAceptadoComponent, canActivate: [AuthGuard]  },
+
+  {path: 'AltaRechazado/:id', component: AltaRechazadoComponent, canActivate: [AuthGuard]  },
+  {path: 'MediaRechazado/:id', component: MediaRechazadoComponent, canActivate: [AuthGuard]  },
+  {path: 'BajaRechazado/:id', component: BajaRechazadoComponent, canActivate: [AuthGuard]  },
+
+  // BACKOFFICE
+  {path: 'RequerimientosValidadosBackOffice', component: RequerivalibackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosCanceladosBackOffice', component: RequericancebackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosPendientesValidadosTIBackOffice', component: RequeripenvatibackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosPorAsignarBackOffice', component: RequeriporasigbackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosAsignadasBackOffice', component: RequeriasignadabackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosPendienteRespuestaBackOffice', component: RequeripendiresbackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosRechazadoTIBackOffice', component: RequerirechatibackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosAceptadosClienteBackOffice', component: RequeriacepclibackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosPerdidaBackOffice', component: RequeriperdidabackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosEnEsperaBackOffice', component: RequerienesperabackComponent, canActivate: [AuthGuard]  },
+  {path: 'RequerimientosSegundaOpcionBackOffice', component: RequerisegundaopbackComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoValidado', component: CandidatovalidadoComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoEntrevista', component: CandidatoentrevistaComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoRechazadoPorTI', component: CandidatorechazadotiComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoPendienteDeEntrevista', component: CandidatopendientrevistaComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoEntrevistado', component: CandidatoentrevistadoComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoEntrevistaAgendada', component: CandidatoentreagendaComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoAceptadoPorCliente', component: CandidatoaceptacliComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoRechazadoPorCliente', component: CandidatorechazacliComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoRechazadoPorCandidato', component: CandidatorechazacandiComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoPendienteValidacionTI', component: CandidatopendientevalitiComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoPendienteDocumentacion', component: CandidatopendientedocuComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoPendienteContrato', component: CandidatopendicontraComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoContratado', component: CandidatocontratadoComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoAsignable', component: CandidatoasignableComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoPendienteRespuesta', component: CandidatopendiresComponent, canActivate: [AuthGuard]  },
+  {path: 'CandidatoSegundaOpcion', component: CandidatosegunopComponent, canActivate: [AuthGuard]  },
+  {path: 'SegSolicitud/:id', component: SegSolicitudComponent, canActivate: [AuthGuard]  },
+  {path: 'SegCandidato/:id', component: SegCandidatoComponent, canActivate: [AuthGuard]  },
 ];
 
  export const appRoutingProviders: any[] = [];

@@ -1,0 +1,68 @@
+<div class="accordion" id="accordionExample">
+    <div class="card border border-danger">
+    <div class="card-header bg-danger" id="headingOne">
+    <h5 class="mb-0">
+    <button
+    class="btn btn-link text-white"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapseCandRechazadoTI"
+    aria-expanded="true"
+    aria-controls="collapseOne"
+    >
+    Rechazados TI
+    </button>
+    </h5>
+    </div>
+
+    <div
+    id="collapseCandRechazadoTI"
+    class="collapse"
+    aria-labelledby="headingOne"
+    data-parent="#accordionExample"
+    >
+    <div class="card-body">
+
+     <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Proyecto</th>
+                <th scope="col"></th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let a of allSeguimiento">
+                <th scope="row">{{ a.cndDatoscandidato.cndIdcandidato }}</th>
+                <td>{{ a.cndDatoscandidato.cndNombre}}</td>
+                <td>{{ a.solSolicitud.cliCliente.cliNombre }}</td>
+                <td>{{ a.solSolicitud.proProyecto.proNombre }}</td>
+                <td class="text-center" >
+                    <i style=" margin-right:20px;"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Consultar"
+                    class="fas fa-search text-danger"
+                    [routerLink]="['/CandidatoValidarTi', a.entIdentrevista]"
+                    *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+    </div>
+
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>

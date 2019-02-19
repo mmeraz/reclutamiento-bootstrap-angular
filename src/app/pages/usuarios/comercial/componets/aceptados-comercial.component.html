@@ -1,54 +1,28 @@
-<div class="accordion" id="accordionExample">
-  <div class="card border ">
-    <div class="card-header " id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link "
-        type="button"
-        data-toggle="collapse"
-        data-target="#collapseAceptados"
-        aria-expanded="true"
-        aria-controls="collapseOne">
-          Aceptados por TI
-        </button>
-      </h5>
-    </div>
-
-    <div id="collapseAceptados" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        <div class="container">
-          <table id="dataTable" datatable class="row-border hover table-sm" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
-              <thead>
-                <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Cliente</th>
-                  <th scope="col">Puesto</th>
-                  <th scope="col">Prioridad</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr *ngFor="let a of allSeguimiento">
-                  <th scope="row">{{ a.solSolicitud.solIdsolicitud }}</th>
-                  <td>{{ a.sgsFecha }}</td>
-                  <td>{{ a.solSolicitud.cliCliente.cliNombre}}</td>
-                  <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>
-                  <td>{{ a.solSolicitud.priPrioridad.priNombre }}</td>
-                  <td>
-                    <i style="color:#0044ff; margin-right:20px;"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Aceptado"
-                    class="fas fa-search"
-                    [routerLink]="['/AceptadosTi', a.sgsIdseguimientosol]"
-                    *ngIf="authservice.hasRole('ROLE_ADMIN')"></i></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
+<!--Carta principal-->
+<div class="card mt-4 border-3 border-top border-top-success">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h6 class="text-muted">
+          Aceptados
+        </h6>
       </div>
     </div>
+    <div class="row mt-2">
+        <div class="col-lg-12">
+          <app-alta-aceptado></app-alta-aceptado>
+          </div>
   </div>
-    </div>
+    <div class="row mt-2">
+        <div class="col-lg-12">
+          <app-media-aceptado></app-media-aceptado>
+          </div>
+  </div>
+    <div class="row mt-2">
+        <div class="col-lg-12">
+          <app-baja-aceptado></app-baja-aceptado>
+          </div>
+  </div>
+</div>
+</div>
+

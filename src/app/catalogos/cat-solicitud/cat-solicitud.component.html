@@ -1,307 +1,393 @@
 <div class="card">
-    <div class="card-header">
-      <div class="row">
-        <h5>Nueva Solicitud</h5>
-        <div class="col-md-2 offset-md-4">
-          <button
-            type="button"
-            class="btn btn-success"
-            data-dismiss="modal"
-            role="button"
-            (click)="addSolicitud()"
-          >
-            Guardar <i class="fa fa-check" aria-hidden="true"></i>
-          </button>
-        </div>
-        <!-- <div class="col-md-2">
+  <div class="card-header">
+    <div class="row">
+      <h5>Nueva Solicitud</h5>
+      <div class="col-md-2 offset-md-4">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-dismiss="modal"
+          role="button"
+          (click)="addSolicitud()"
+          [disabled]="
+            var1.invalid ||
+            var2.invalid ||
+            var3.invalid ||
+            var4.invalid ||
+            var5.invalid ||
+            var6.invalid ||
+            var7.invalid ||
+            select1.invalid ||
+            select2.invalid ||
+            select3.invalid ||
+            select5.invalid ||
+            select6.invalid ||
+            select7.invalid ||
+            text1.invalid ||
+            select13.invalid
+          "
+        >
+          Guardar <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+      </div>
+      <!-- <div class="col-md-2">
           <button type="button"
           class="btn btn-primary"
           >
             Borrador <i class="fa fa-broom" aria-hidden="true"></i>
           </button>
         </div> -->
-        <div class="col-md-2">
-          <button
-            type="button"
-            class="btn btn-danger"
-            data-dismiss="modal"
-            [routerLink]="['/IndexComercial']"
-          >
-            Cancelar <i class="fas fa-backspace"></i>
-          </button>
-        </div>
+      <div class="col-md-2">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-dismiss="modal"
+          [routerLink]="['/IndexComercial']"
+        >
+          Cancelar <i class="fas fa-backspace"></i>
+        </button>
       </div>
     </div>
-    <div class="card-body">
-      <div>
-        <!-- Accordion wrapper -->
-        <div
-          class="accordion l-accordion accordion-12"
-          id="accordionEx2"
-          role="tablist"
-          aria-multiselectable="false"
-        >
-          <!-- Accordion card -->
-          <div class="card">
-            <!-- Card header -->
-            <div
-              class="card-header z-depth-1 teal lighten-4"
-              role="tab"
-              id="heading10"
-            >
-              <a
-                data-toggle="collapse"
-                data-parent="#accordionEx2"
-                href="#collapse10"
-                aria-expanded="false"
-                aria-controls="collapse10"
-              >
-                <h6 class="mb-0 black-text font-weight-bold">
-                  Datos del requerimiento
-                </h6>
-              </a>
-            </div>
-
-            <!-- Card body -->
-            <div
-              id="collapse10"
-              class="collapse show"
-              role="tabpanel"
-              aria-labelledby="heading10"
+  </div>
+  <div class="card-body">
+    <div>
+      <!-- Accordion wrapper -->
+      <div
+        class="accordion l-accordion accordion-12"
+        id="accordionEx2"
+        role="tablist"
+        aria-multiselectable="false"
+      >
+        <!-- Accordion card -->
+        <div class="card">
+          <!-- Card header -->
+          <div
+            class="card-header z-depth-1 teal lighten-4"
+            role="tab"
+            id="heading10"
+          >
+            <a
+              data-toggle="collapse"
               data-parent="#accordionEx2"
+              href="#collapse10"
+              aria-expanded="false"
+              aria-controls="collapse10"
             >
-              <div class="card-body rgba-teal-strong white-text">
-                <!--Forms de detaos requerimiento para validaciones-->
+              <h6 class="mb-0 black-text font-weight-bold">
+                Datos del requerimiento
+              </h6>
+            </a>
+          </div>
+
+          <!-- Card body -->
+          <div
+            id="collapse10"
+            class="collapse show"
+            role="tabpanel"
+            aria-labelledby="heading10"
+            data-parent="#accordionEx2"
+          >
+            <div class="card-body rgba-teal-strong white-text">
+              <!--Forms de detaos requerimiento para validaciones-->
+              <!-- Select Basic -->
+              <div class="row">
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="requerimiento"
+                    >Área de negocio</label
+                  >
+                  <div class="col-md-12">
+                    <select
+                      [(ngModel)]="requerimiento"
+                      class="form-control form-control-sm"
+                      name="requerimiento"
+                      required
+                      #select1="ngModel"
+                    >
+                      <option [ngValue]="null" selected>Selecciona uno</option>
+                      <option *ngFor="let r of allAreas" [ngValue]="r">{{
+                        r.arnTipo
+                      }}</option>
+                    </select>
+                    <span
+                      *ngIf="select1.invalid && select1.touched"
+                      class="text-white bg-danger"
+                    >
+                      El campo es requerido</span
+                    >
+                  </div>
+                </div>
                 <!-- Select Basic -->
-                <div class="row">
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="requerimiento"
-                      >Área de negocio</label
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="prioridad"
+                    >Prioridad</label
+                  >
+                  <div class="col-md-12">
+                    <select
+                      [(ngModel)]="prioridad"
+                      class="form-control form-control-sm"
+                      name="prioridad"
+                      required
+                      #select2="ngModel"
                     >
-                    <div class="col-md-12">
-                      <select
-                        [(ngModel)]="requerimiento"
-                        class="form-control form-control-sm"
-                        name="requerimiento"
-                        required
-                        #select1="ngModel"
+                      <option [ngValue]="null" selected>Selecciona uno</option>
+                      <option
+                        *ngFor="let item of allPrioridad"
+                        [ngValue]="item"
+                        >{{ item.priNombre }}</option
                       >
-                        <option [ngValue]="null" selected>Selecciona uno</option>
-                        <option *ngFor="let r of allAreas" [ngValue]="r">{{
-                          r.arnTipo
-                        }}</option>
-                      </select>
-                      <span *ngIf="select1.invalid && select1.touched"
-                        class="text-white bg-danger">
-                                  El campo es requerido</span>
-                    </div>
-                  </div>
-                  <!-- Select Basic -->
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="prioridad"
-                      >Prioridad</label
+                    </select>
+
+                    <span
+                      *ngIf="select2.invalid && select2.touched"
+                      class="text-white bg-danger"
                     >
-                    <div class="col-md-12">
-                      <select
-                        [(ngModel)]="prioridad"
-                        class="form-control form-control-sm"
-                        name="prioridad"
-                        required
-                        #select2="ngModel"
-
-                      >
-                        <option [ngValue]="null" selected>Selecciona uno</option>
-                        <option
-                          *ngFor="let item of allPrioridad"
-                          [ngValue]="item"
-                          >{{ item.priNombre }}</option
-                        >
-                      </select>
-
-                      <span *ngIf="select2.invalid && select2.touched"
-                      class="text-white bg-danger">
-                      El campo es requerido</span>
-
-                    </div>
-                  </div>
-                  <!-- Select Basic -->
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="presupuesto"
-                      >Presupuesto</label
+                      El campo es requerido</span
                     >
-                    <div class="col-md-12">
-                      <select
+                  </div>
+                </div>
+                <!-- Select Basic -->
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="presupuesto"
+                    >Presupuesto</label
+                  >
+                  <div class="col-md-12">
+                    <select
                       [(ngModel)]="presupuesto"
                       class="form-control form-control-sm"
                       name="presupuesto"
                       required
-                        #select3="ngModel"
-                      >
-                        <option [ngValue]="" selected="true"
-                          >Selecciona uno</option
-                        >
-                        <option value="S">Si</option>
-                        <option value="N">No</option>
-                      </select>
-
-
-                      <span *ngIf="select3.invalid && select3.touched"
-                      class="text-white bg-danger">
-                      El campo es requerido</span>
-
-
-                    </div>
-                  </div>
-                  <!-- Select Basic -->
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="vacante"
-                      >Tipo Vacante</label
+                      #select3="ngModel"
                     >
-                    <div class="col-md-12">
-                      <select
-                      [(ngModel)]="vacante"
+                      <option [ngValue]="" selected="true"
+                        >Selecciona uno</option
+                      >
+                      <option value="S">Si</option>
+                      <option value="N">No</option>
+                    </select>
+
+                    <span
+                      *ngIf="select3.invalid && select3.touched"
+                      class="text-white bg-danger"
+                    >
+                      El campo es requerido</span
+                    >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="perfil"
+                    >Tipo perfil</label
+                  >
+                  <div class="col-md-12">
+                    <select
+                      [(ngModel)]="perfil"
                       class="form-control form-control-sm"
-                      name="vacante"
+                      name="perfil"
                       required
-                      #select4="ngModel"
-                      >
-                        <option [ngValue]="null" selected>Selecciona una</option>
-                        <option
-                          *ngFor="let item of allVacantes"
-                          [ngValue]="item"
-                          >{{ item.tvaTipo }}</option
-                        >
-                      </select>
-
-                      <span *ngIf="select4.invalid && select4.touched"
-                      class="text-white bg-danger">
-                        El campo es requerido</span>
-
-
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="perfil"
-                      >Tipo perfil</label
-                    >
-                    <div class="col-md-12">
-                      <select
-                        [(ngModel)]="perfil"
-                        class="form-control form-control-sm"
-                        name="perfil"
-                        required
-                        #select5="ngModel"
-                      >
-                        <option [ngValue]="null" selected>Selecciona uno</option>
-                        <option *ngFor="let p of allPerfiles" [ngValue]="p">{{
-                          p.perPerfil
-                        }}</option>
-                      </select>
-
-                      <span *ngIf="select5.invalid && select5.touched"
-                      class="text-white bg-danger">
-                      El campo es requerido</span>
-
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="genero"
-                      >Sexo</label
-                    >
-                    <div class="col-md-12">
-                      <select
-                        [(ngModel)]="genero"
-                        class="form-control form-control-sm"
-                        name="genero"
-                        required
-                        #select6="ngModel"
-                      >
-                        <option selected>Selecciona uno</option>
-                        <option value="I">Indistinto</option>
-                        <option value="H">Hombre</option>
-                        <option value="M">Mujer</option>
-                      </select>
-
-                      <span *ngIf="select6.invalid && select6.touched"
-                      class="text-white bg-danger">
-                      El campo es requerido</span>
-
-
-                    </div>
-                  </div>
-                  <!-- Text input -->
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="escolaridad"
-                      >Escolaridad</label
-                    >
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        placeholder="Grado escolar"
-                        class="form-control input-md form-control-sm"
-                        required
-                        [(ngModel)]="escolaridad"
-                        maxlength="50"
-                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
-                        #var1="ngModel"
-                      />
-                      <span *ngIf="var1.valid && var1.touched"
-                      class="text-white bg-danger">
-                        El campo es requerido ó solo acepta letras.
-                      </span>
-
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="solEdadincial">Edad Inicial</label>
-                    <div class="col-md-12">
-                      <select
-                        [(ngModel)]="solEdadincial"
-                        class="form-control form-control-sm"
-                        name="solEdadincial"
-                        required
-                        #select7="ngModel"
-                      >
-                        <option [ngValue]="null" selected>Selecciona uno</option>
-                        <option [ngValue]="20">20</option>
-                        <option [ngValue]="25">25</option>
-                        <option [ngValue]="30">30</option>
-                        <option [ngValue]="35">35</option>
-                        <option [ngValue]="40">40</option>
-                        <option [ngValue]="45">45</option>
-                      </select>
-
-                      <span *ngIf="select7.invalid && select7.touched"
-                            class="text-white bg-danger">
-                          El campo es requerido</span>
-
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="edad">Edad Final  </label>
-                    <div class="col-md-12">
-                      <select
-                      [(ngModel)]="solEdadfinal"
-                      class="form-control form-control-sm"
-                      name="solEdadfinal"
-                      required
-                      #select8="ngModel"
+                      #select5="ngModel"
                     >
                       <option [ngValue]="null" selected>Selecciona uno</option>
-                      <option [ngValue]="25">25</option>
-                      <option [ngValue]="30">30</option>
-                      <option [ngValue]="35">35</option>
-                      <option [ngValue]="40">40</option>
-                      <option [ngValue]="45">45</option>
-                      <option [ngValue]="50">50</option>
+                      <option *ngFor="let p of allPerfiles" [ngValue]="p">{{
+                        p.perPerfil
+                      }}</option>
                     </select>
-                    <span *ngIf="select8.invalid && select8.touched"
-                      class="text-white bg-danger">
-                      El campo es requerido</span>
 
-                    </div>
+                    <span
+                      *ngIf="select5.invalid && select5.touched"
+                      class="text-white bg-danger"
+                    >
+                      El campo es requerido</span
+                    >
                   </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="genero"
+                    >Sexo</label
+                  >
+                  <div class="col-md-12">
+                    <select
+                      [(ngModel)]="genero"
+                      class="form-control form-control-sm"
+                      name="genero"
+                      required
+                      #select6="ngModel"
+                    >
+                      <option selected>Selecciona uno</option>
+                      <option value="I">Indistinto</option>
+                      <option value="H">Hombre</option>
+                      <option value="M">Mujer</option>
+                    </select>
+
+                    <span
+                      *ngIf="select6.invalid && select6.touched"
+                      class="text-white bg-danger"
+                    >
+                      El campo es requerido</span
+                    >
+                  </div>
+                </div>
+                <!-- Text input -->
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="escolaridad"
+                    >Escolaridad</label
+                  >
+                  <div class="col-md-12">
+                    <input
+                      type="text"
+                      placeholder="Grado escolar"
+                      class="form-control input-md form-control-sm"
+                      required
+                      [(ngModel)]="escolaridad"
+                      maxlength="50"
+                      pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
+                      #var1="ngModel"
+                    />
+                    <span
+                      *ngIf="var1.invalid && var1.touched"
+                      class="text-white bg-danger"
+                    >
+                      El campo es requerido ó solo acepta letras.
+                    </span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="solEdadincial"
+                    >Edad</label
+                  >
+                  <div class="col-md-12">
+                    <select
+                      [(ngModel)]="edadString"
+                      [ngModelOptions]="{ stanalone: true }"
+                      id="edadString"
+                      name="edadString"
+                      class="form-control form-control-sm"
+                      #select7="ngModel"
+                      required
+                    >
+                      <option [ngValue]="null" selected
+                        >Selecciona el rango de edad</option
+                      >
+                      <option>Indefinido</option>
+                      <option>De 25 a 30 años</option>
+                      <option>De 30 a 35 años</option>
+                      <option>De 35 a 40 años</option>
+                      <option>De 40 a 45 años</option>
+                      <option>De 45 a 50 años</option>
+                      <option>De 20 a 30 años</option>
+                      <option>De 30 a 40 años</option>
+                      <option>De 40 a 50 años</option>
+                      <option>De 20 a 40 años</option>
+                      <option>De 30 a 50 años</option>
+                    </select>
+
+                    <span
+                      *ngIf="select7.invalid && select7.touched"
+                      class="text-white bg-danger"
+                    >
+                      El campo es requerido</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Accordion card -->
+
+        <!-- Accordion card -->
+        <div class="card">
+          <!-- Card header -->
+          <div
+            class="card-header z-depth-1 teal lighten-3"
+            role="tab"
+            id="heading11"
+          >
+            <a
+              class="collapsed"
+              data-toggle="collapse"
+              data-parent="#accordionEx2"
+              href="#collapse11"
+              aria-expanded="false"
+              aria-controls="collapse11"
+            >
+              <h6 class="mb-0 black-text font-weight-bold">Datos Cliente</h6>
+            </a>
+          </div>
+
+          <!-- Card body -->
+          <div
+            id="collapse11"
+            class="collapse"
+            role="tabpanel"
+            aria-labelledby="heading11"
+            data-parent="#accordionEx2"
+          >
+            <div class="card-body rgba-teal-strong white-text">
+              <div class="row">
+                <div class="form-group">
+                  <label class="col-md-12 control-label" for="cliente"
+                    >Cliente</label
+                  >
+                  <div class="col-md-12">
+                    <select
+                      [(ngModel)]="cliente"
+                      class="form-control form-control-sm"
+                      name="cliente"
+                      required
+                      #select9="ngModel"
+                    >
+                      <option [ngValue]="null" selected
+                        >Selecciona Cliente</option
+                      >
+                      <option *ngFor="let c of allClientes" [ngValue]="c">{{
+                        c.cliNombre
+                      }}</option>
+                    </select>
+
+                    <span
+                      *ngIf="select9.invalid && select9.touched"
+                      class="text-white bg-danger"
+                    >
+                      El campo es requerido para seleccionar el cliente</span
+                    >
+                  </div>
+                </div>
+                <div class="form-group" *ngIf="cliente">
+                  <label for="" class="control-label">
+                    <h5>Contactos</h5>
+                  </label>
+                  <span *ngFor="let c of cliente?.contactos">
+                    <h6 *ngIf="c.clcTipo == 'G'">
+                      <b>Gerente: </b>
+
+                      <select
+                        id="clcCliente"
+                        name="clcCliente"
+                        class="form-control-sm"
+                        [(ngModel)]="conClientG"
+                        readonly
+                      >
+                        <option
+                          [ngValue]="c"
+                          >{{ c.clcNombre }}</option
+                        >
+                      </select>
+
+                    </h6>
+                    <h6 *ngIf="c.clcTipo == 'L'">
+                      <b>Líder: </b>
+                      <select
+                      name="conClientLP"
+                      class="form-control-sm"
+                      [(ngModel)]="conClientLP"
+                      readonly
+                    >
+                      <option
+                        [ngValue]="c"
+                        >{{ c.clcNombre }}</option
+                      >
+                    </select>
+                    </h6>
+                  </span>
                 </div>
               </div>
             </div>
@@ -312,183 +398,36 @@
           <div class="card">
             <!-- Card header -->
             <div
-              class="card-header z-depth-1 teal lighten-3"
+              class="card-header z-depth-1 teal lighten-2"
               role="tab"
-              id="heading11"
+              id="heading12"
             >
               <a
                 class="collapsed"
                 data-toggle="collapse"
                 data-parent="#accordionEx2"
-                href="#collapse11"
+                href="#collapse12"
                 aria-expanded="false"
-                aria-controls="collapse11"
+                aria-controls="collapse12"
               >
-                <h6 class="mb-0 black-text font-weight-bold">Datos Cliente</h6>
+                <h6 class="mb-0 black-text font-weight-bold">
+                  Datos del proyecto
+                </h6>
               </a>
             </div>
 
             <!-- Card body -->
             <div
-              id="collapse11"
+              id="collapse12"
               class="collapse"
               role="tabpanel"
-              aria-labelledby="heading11"
+              aria-labelledby="heading12"
               data-parent="#accordionEx2"
             >
               <div class="card-body rgba-teal-strong white-text">
                 <div class="row">
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="cliente"
-                      >Cliente</label
-                    >
-                    <div class="col-md-12">
-                      <select
-                        [(ngModel)]="cliente"
-                        class="form-control form-control-sm"
-                        name="cliente"
-                       required
-                       #select9="ngModel"
-                      >
-                        <option [ngValue]="null" selected
-                          >Selecciona Cliente</option
-                        >
-                        <option *ngFor="let c of allClientes" [ngValue]="c">{{
-                          c.cliNombre
-                        }}</option>
-                      </select>
-
-                      <span *ngIf="select9.invalid && select9.touched"
-                      class="text-white bg-danger">
-                      El campo es requerido</span>
-
-                    </div>
-                  </div>
-                  <!-- Select Basic -->
-                  <div class="form-group" *ngIf="cliente">
-                    <label class="col-md-12 control-label" for="clcCliente"
-                      ><b>Contactos</b></label
-                    >
-                    <div class="form-group">
-                      <label class="col-md-12 control-label" for="conClientG"
-                        >Contacto gerente</label
-                      >
-                      <div class="col-md-12">
-                        <select
-                        [(ngModel)]="conClientG"
-                        class="form-control form-control-sm"
-                        name="conClientG"
-                         required
-                         #select10="ngModel"
-                        >
-                          <option [ngValue]="null" selected
-                            >Selecciona Contacto</option
-                          >
-                          <option
-                            *ngFor="let clc of cliente.contactos"
-                            [ngValue]="clc"
-                            >{{ clc.clcNombre }}</option
-                          >
-                        </select>
-
-                        <span *ngIf="select10.invalid && select10.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido</span>
-
-                      </div>
-                      <label class="col-md-12 control-label" for="conClientLP"
-                        >Contacto lider</label
-                      >
-                      <div class="col-md-12">
-                        <select
-                        [(ngModel)]="conClientLP"
-                        class="form-control form-control-sm"
-                        name="conClientLP"
-                        required
-                        #select11="ngModel"
-                        >
-                          <option [ngValue]="null" selected
-                            >Selecciona Contacto</option
-                          >
-                          <option
-                            *ngFor="let clca of cliente.contactos"
-                            [ngValue]="clca"
-                            >{{ clca.clcNombre }}</option
-                          >
-                        </select>
-
-
-
-                      </div>
-                      <label class="col-md-12 control-label" for="conClientTL"
-                        >Contacto tomador de decisiones</label
-                      >
-                      <div class="col-md-12">
-                        <select
-                        [(ngModel)]="conClientTL"
-                        class="form-control form-control-sm"
-                          name="conClientTL"
-                          required
-                          #select12="ngModel"
-
-                        >
-                          <option [ngValue]="null" selected
-                            >Selecciona Contacto</option
-                          >
-                          <option
-                            *ngFor="let clcb of cliente.contactos"
-                            [ngValue]="clcb"
-                            >{{ clcb.clcNombre }}</option
-                          >
-                        </select>
-
-                        <span *ngIf="select12.invalid && select12.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido</span>
-
-
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Accordion card -->
-
-            <!-- Accordion card -->
-            <div class="card">
-              <!-- Card header -->
-              <div
-                class="card-header z-depth-1 teal lighten-2"
-                role="tab"
-                id="heading12"
-              >
-                <a
-                  class="collapsed"
-                  data-toggle="collapse"
-                  data-parent="#accordionEx2"
-                  href="#collapse12"
-                  aria-expanded="false"
-                  aria-controls="collapse12"
-                >
-                  <h6 class="mb-0 black-text font-weight-bold">
-                    Datos del proyecto
-                  </h6>
-                </a>
-              </div>
-
-              <!-- Card body -->
-              <div
-                id="collapse12"
-                class="collapse"
-                role="tabpanel"
-                aria-labelledby="heading12"
-                data-parent="#accordionEx2"
-              >
-                <div class="card-body rgba-teal-strong white-text">
-                  <div class="row">
-                    <!-- Text input -->
+                  <!-- Text input -->
+                  <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="col-md-12 control-label" for="proyecto"
                         >Nombre del proyecto</label
@@ -506,15 +445,17 @@
                           #var2="ngModel"
                         />
 
-                        <span *ngIf="var2.invalid && var2.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido ó solo acepta letras.
+                        <span
+                          *ngIf="var2.invalid && var2.touched"
+                          class="text-white bg-danger"
+                        >
+                          El campo es requerido ó solo acepta letras.
                         </span>
-
                       </div>
                     </div>
-
-                    <!-- Text input -->
+                  </div>
+                  <!-- Text input -->
+                  <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="col-md-12 control-label" for="Puesto"
                         >Puesto</label
@@ -532,15 +473,17 @@
                           #var3="ngModel"
                         />
 
-                        <span *ngIf="var3.invalid && var3.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido ó solo acepta letras.
-                      </span>
-
+                        <span
+                          *ngIf="var3.invalid && var3.touched"
+                          class="text-white bg-danger"
+                        >
+                          El campo es requerido ó solo acepta letras.
+                        </span>
+                      </div>
                     </div>
-                    </div>
-
-                    <!-- Text input -->
+                  </div>
+                  <!-- Text input -->
+                  <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="col-md-12 control-label" for="duracion"
                         >Duración proyecto</label
@@ -554,30 +497,32 @@
                           required
                           [(ngModel)]="duracionPro"
                           maxlength="50"
-                          pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
+                          pattern="^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$"
                           #var4="ngModel"
                         />
 
-                        <span *ngIf="var4.valid && var4.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido ó solo acepta letras.
+                        <span
+                          *ngIf="var4.invalid && var4.touched"
+                          class="text-white bg-danger"
+                        >
+                          El campo es requerido ó solo acepta letras.
                         </span>
-
                       </div>
                     </div>
-
-                    <!-- Select Basic -->
+                  </div>
+                  <!-- Select Basic -->
+                  <div class="col-lg-3- col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="col-md-12 control-label" for="jornada"
                         >Jornada Laboral</label
                       >
                       <div class="col-md-12">
                         <select
-                        [(ngModel)]="jornadaLab"
-                        class="form-control form-control-sm"
-                        name="jornada"
-                        required
-                        #select13="ngModel"
+                          [(ngModel)]="jornadaLab"
+                          class="form-control form-control-sm"
+                          name="jornada"
+                          required
+                          #select13="ngModel"
                         >
                           <option value="" selected>Selecciona una</option>
                           <option
@@ -587,59 +532,72 @@
                           >
                         </select>
 
-                        <span *ngIf="select13.invalid && select13.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido</span>
-
-
+                        <span
+                          *ngIf="select13.invalid && select13.touched"
+                          class="text-white bg-danger"
+                        >
+                          El campo es requerido</span
+                        >
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <!-- Textarea -->
-                    <div class="col-lg-3">
-                      <div class="form-group">
-                        <label class="col-md-12 control-label" for="descripcion"
-                          >Descripción</label
-                        >
-                        <div class="col-md-12">
-                          <textarea
+                </div>
+                <!--Cierre del row-->
+                <div class="row">
+                  <!-- Textarea -->
+                  <div class="col-lg-3 col-md-3 col-sm-12">
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="descripcion"
+                        >Descripción</label
+                      >
+                      <div class="col-md-12">
+                        <textarea
                           [(ngModel)]="descripcion"
                           class="form-control form-control-sm"
                           name="descripcion"
-                            rows="6"
-                          >
-                          Descripción del proyecto</textarea
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="form-group">
-                        <label class="col-md-12 control-label" for="direccion"
-                          >Direccion de entrevista</label
-                        >
-                        <input
-                          name="direccion"
-                          type="text"
-                          placeholder="Direccion"
-                          class="form-control input-md form-control-sm"
+                          rows="6"
                           required
-                          [(ngModel)]="direccion"
-                          maxlength="100"
-                          pattern= "^[a-zA-ZñÑáéíóúÁÉÍÓÚ0123456789 ]*$"
-                          #var5="ngModel"
-                        />
-
-                        <span *ngIf="var5.valid && var5.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido ó solo acepta letras y numeros.
+                          pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
+                          #text1="ngModel"
+                        >
+                          Descripción del proyecto</textarea
+                        >
+                        <span
+                          *ngIf="text1.invalid && text1.touched"
+                          class="text-white bg-danger"
+                        >
+                          El campo es requerido o solo acepta letras.
                         </span>
-
                       </div>
                     </div>
-                    <!-- Text input -->
-                    <div class="col-lg-3">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12">
+                    <div class="form-group">
+                      <label class="col-md-12 control-label" for="direccion"
+                        >Direccion de entrevista</label
+                      >
+                      <input
+                        name="direccion"
+                        type="text"
+                        placeholder="Direccion"
+                        class="form-control input-md form-control-sm"
+                        required
+                        [(ngModel)]="direccion"
+                        maxlength="100"
+                        pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ0123456789., ]*$"
+                        #var5="ngModel"
+                      />
+
+                      <span
+                        *ngIf="var5.invalid && var5.touched"
+                        class="text-white bg-danger"
+                      >
+                        El campo es requerido ó solo acepta letras y numeros.
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Text input -->
+                  <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="col-md-12 control-label" for="nVacante"
                         >Numero de vacantes</label
@@ -653,20 +611,22 @@
                           max="100"
                           [(ngModel)]="nVacante"
                           maxlength="3"
-                          pattern="^[0123456789 ]*$"
+                          pattern="^[0-9 ]*$"
                           #var6="ngModel"
+                          required
                         />
 
-                        <span *ngIf="var6.valid && var6.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido ó solo acepta numeros.
+                        <span
+                          *ngIf="var6.invalid && var6.touched"
+                          class="text-white bg-danger"
+                        >
+                          El campo es requerido ó solo acepta numeros.
                         </span>
-
                       </div>
                     </div>
                   </div>
-                    <!-- Text input -->
-                    <div class="col-lg-3">
+                  <!-- Text input -->
+                  <div class="col-lg-3 col-md-sm-12">
                     <div class="form-group">
                       <label class="col-md-12 control-label" for="duracion"
                         >Tarifa comercial</label
@@ -681,22 +641,23 @@
                           class="form-control input-md form-control-sm"
                           [(ngModel)]="tarifaC"
                           maxlength="3"
-                          pattern="^[0123456789 ]*$"
+                          pattern="^[0-9 ]*$"
                           #var7="ngModel"
+                          required
                         />
 
-                        <span *ngIf="var7.valid && var7.touched"
-                        class="text-white bg-danger">
+                        <span
+                          *ngIf="var7.invalid && var7.touched"
+                          class="text-white bg-danger"
+                        >
                           El campo es requerido ó solo acepta números.
                         </span>
-
                       </div>
                     </div>
                   </div>
-
+                </div>
               </div>
             </div>
-          </div>
 
             <!-- Accordion card -->
             <div class="card">
@@ -731,63 +692,69 @@
                 <div class="card-body rgba-teal-strong white-text">
                   <div class="row">
                     <!-- Select Basic -->
-                    <div class="form-group">
-                      <label class="col-md-12 control-label" for="idioma"
-                        >Idioma</label
-                      >
-                      <div class="col-md-12">
-                        <select
-                        [(ngModel)]="idioma"
-                        class="form-control form-control-sm"
-                        name="idioma"
-                        required
-                        #select14="ngModel"
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                      <div class="form-group">
+                        <label class="col-md-12 control-label" for="idioma"
+                          >Idioma</label
                         >
-                          <option value="" selected>Selecciona uno</option>
-                          <option
-                            *ngFor="let item of allIdiomas"
-                            [ngValue]="item"
-                            >{{ item.idiNombre }}</option
+                        <div class="col-md-12">
+                          <select
+                            [(ngModel)]="idioma"
+                            class="form-control form-control-sm"
+                            name="idioma"
+                            required
+                            #select14="ngModel"
                           >
-                        </select>
+                            <option value="" selected>Selecciona uno</option>
+                            <option
+                              *ngFor="let item of allIdiomas"
+                              [ngValue]="item"
+                              >{{ item.idiNombre }}</option
+                            >
+                          </select>
 
-                        <span *ngIf="select14.invalid && select14.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido</span>
-
-
+                          <span
+                            *ngIf="select14.invalid && select14.touched"
+                            class="text-white bg-danger"
+                          >
+                            El campo es requerido.</span
+                          >
+                        </div>
                       </div>
                     </div>
-
                     <!-- Text input -->
-                    <div class="form-group">
-                      <label class="col-md-12 control-label" for="nivel"
-                        >Nivel</label
-                      >
-                      <div class="col-md-12">
-                        <input
-                          name="nivel"
-                          type="text"
-                          placeholder=""
-                          class="form-control form-control-sm"
-                          required
-                          [(ngModel)]="nvIdioma"
-                          maxlength=""
-                          pattern="^[0123456789 ]*$"
-                          #var8="ngModel"
-                        />
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                      <div class="form-group">
+                        <label class="col-md-12 control-label" for="nivel"
+                          >Nivel</label
+                        >
+                        <div class="col-md-12">
+                          <input
+                            name="nivel"
+                            type="text"
+                            placeholder=""
+                            class="form-control form-control-sm"
+                            required
+                            [(ngModel)]="nvIdioma"
+                            maxlength=""
+                            pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
+                            #var8="ngModel"
+                          />
 
-                        <span *ngIf="var8.valid && var8.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido ó solo acepta letras.
-                        </span>
-
+                          <span
+                            *ngIf="var8.invalid && var8.touched"
+                            class="text-white bg-danger"
+                          >
+                            Solo acepta letras.
+                          </span>
+                        </div>
                       </div>
                     </div>
-                    <div>
+                    <div class="col-lg-1 col-md-1 col-sm-1">
                       <button
                         class="btn btn-success btn-sm mt-4 mr-5"
                         (click)="addIdioma()"
+                        [disabled]="var8.invalid || select14.invalid"
                       >
                         <i
                           data-toggle="tooltip"
@@ -797,50 +764,49 @@
                         ></i>
                       </button>
                     </div>
-                    <div>
-                      <table
-                        class=" table table-striped table-bordered table-hover table-sm ml-3 mt-4"
-                        id="tableArea"
-                      >
-                        <thead class="thead-ligth">
-                          <tr>
-                            <th scope="col">Idioma</th>
-                            <th scope="col">Nivel</th>
-                            <th scope="col">Eliminar</th>
-                          </tr>
-                        </thead>
-                        <tbody class="tbody-ligth">
-                          <tr *ngFor="let a of listaIdioma">
-                            <th scope="row">{{ a.idiIdioma.idiNombre }}</th>
-                            <th scope="row">{{ a.sliNivel }}</th>
-                            <td align="center" style="width: 6em;">
-                              <i
-                                style="color:#dc3545;"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Eliminar"
-                                class="fas fa-trash-alt"
-                                (click)="deleteIdioma(a)"
-                              ></i>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  </div>
+                  <!-- Etiquetas donde se agregan los idiomas -->
+                  <div class="row">
+                    <div
+                      class="col-xs-12 col-sm-12 col-md-4 col-lg-3"
+                      *ngFor="let i of listaIdioma"
+                    >
+                      <div class="offer offer-primary">
+                        <div
+                          class="shape"
+                          (click)="deleteIdioma(i)"
+                          data-toggle="tooltip"
+                          title="eliminar"
+                        >
+                          <div class="shape-text">
+                            <i class="fa fa-times"></i>
+                          </div>
+                        </div>
+                        <div class="offer-content">
+                          <h3 class="lead">
+                            {{ i.idiIdioma.idiNombre }}
+                          </h3>
+                          <p>
+                            {{ i.sliNivel }}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <!-- Select Basic -->
                   <div class="row">
-                    <div class="form-group">
-                      <label class="col-md-12 control-label" for="conocimiento"
-                        >Conocimiento</label
-                      >
-                      <div class="col-md-12">
+                    <div class="col-lg-3 col-md-6">
+                      <div class="form-group">
+                        <label class=" control-label" for="conocimiento"
+                          >Conocimiento</label
+                        >
+
                         <select
-                        [(ngModel)]="conocimiento"
-                        class="form-control form-control-sm"
-                        name="conocimiento"
-                        required
-                        #select15="ngModel"
+                          [(ngModel)]="conocimiento"
+                          class="form-control form-control-sm"
+                          name="conocimiento"
+                          required
+                          #select15="ngModel"
                         >
                           <option [ngValue]="null">Selecciona uno</option>
                           <option
@@ -850,21 +816,22 @@
                           >
                         </select>
 
-                        <span *ngIf="select16.invalid && select16.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido</span>
-
-
-
+                        <span
+                          *ngIf="select15.invalid && select15.touched"
+                          class="text-white bg-danger"
+                        >
+                          El campo es requerido</span
+                        >
                       </div>
                     </div>
 
                     <!-- Text input -->
-                    <div class="form-group">
-                      <label class="col-md-12 control-label" for="nivel"
-                        >Nivel</label
-                      >
-                      <div class="col-md-12">
+                    <div class="col-lg-3 col-md-6">
+                      <div class="form-group">
+                        <label class="col-md-12 control-label" for="nivel"
+                          >Nivel</label
+                        >
+
                         <input
                           name="nivel"
                           type="text"
@@ -873,23 +840,22 @@
                           required
                           [(ngModel)]="nvCono"
                           maxlength="15"
-                          pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
+                          pattern="^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$"
                           #var9="ngModel"
-                           />
-
-
-                        <span *ngIf="var9.valid && var9.touched"
-                        class="text-white bg-danger">
-                          El campo es requerido ó solo acepta letras.
-                        </span>
-
-
+                        />
+                        <span
+                          *ngIf="var9.invalid && var9.touched"
+                          class="text-white bg-danger"
+                        >
+                          El campo es requerido ó acepta solo letras</span
+                        >
                       </div>
                     </div>
                     <div>
                       <button
                         class="btn btn-success btn-sm mt-4 mr-5"
                         (click)="addConocimiento()"
+                        [disabled]="var9.invalid || select15.invalid"
                       >
                         <i
                           data-toggle="tooltip"
@@ -899,39 +865,36 @@
                         ></i>
                       </button>
                     </div>
-                    <div>
-                      <table
-                        class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
-                        id="tableArea"
-                      >
-                        <thead class="thead-ligth">
-                          <tr>
-                            <th scope="col">Conocimiento</th>
-                            <th scope="col">Nivel</th>
-                            <th scope="col">Eliminar</th>
-                          </tr>
-                        </thead>
-                        <tbody class="tbody-ligth">
-                          <tr *ngFor="let a of listaConocimiento">
-                            <th scope="row">
-                              {{ a.cotConocimientosTec.cotConocimiento }}
-                            </th>
-                            <th scope="row">{{ a.socNivel }}</th>
-                            <td align="center" style="width: 6em;">
-                              <i
-                                style="color:#dc3545;"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Eliminar"
-                                class="fas fa-trash-alt"
-                                (click)="deleteConocimiento(a)"
-                              ></i>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  </div>
+                  <!-- Etiquetas donde se agregan los conocimientos -->
+                  <div class="row">
+                    <div
+                      class="col-xs-12 col-sm-12 col-md-4 col-lg-3"
+                      *ngFor="let c of listaConocimiento"
+                    >
+                      <div class="offer offer-success">
+                        <div
+                          class="shape"
+                          (click)="deleteConocimiento(c)"
+                          data-toggle="tooltip"
+                          title="eliminar"
+                        >
+                          <div class="shape-text">
+                            <i class="fa fa-times"></i>
+                          </div>
+                        </div>
+                        <div class="offer-content">
+                          <h3 class="lead">
+                            {{ c.cotConocimientosTec.cotConocimiento }}
+                          </h3>
+                          <p>
+                            {{ c.socNivel }}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <!-- Términa las etiquetas de los conocimientos -->
                   <!-- Select Basic -->
                   <div class="row">
                     <div class="form-group">
@@ -940,13 +903,11 @@
                       >
                       <div class="col-md-12">
                         <select
-                        [(ngModel)]="habilidad"
-                        class="form-control"
-                        name="habilidades"
-                        required
-                        #select16="ngModel"
-
-
+                          [(ngModel)]="habilidad"
+                          class="form-control form-control-sm"
+                          name="habilidades"
+                          required
+                          #select16="ngModel"
                         >
                           <option [ngValue]="null">Selecciona uno</option>
                           <option
@@ -956,16 +917,19 @@
                           >
                         </select>
 
-                        <span *ngIf="select16.invalid && select16.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido</span>
-
+                        <span
+                          *ngIf="select16.invalid && select16.touched"
+                          class="text-white bg-danger"
+                        >
+                          El campo es requerido</span
+                        >
                       </div>
                     </div>
                     <div>
                       <button
                         class="btn btn-success btn-sm mt-4 mr-5"
                         (click)="addHabilidad()"
+                        [disabled]="select16.invalid"
                       >
                         <i
                           data-toggle="tooltip"
@@ -975,42 +939,43 @@
                         ></i>
                       </button>
                     </div>
-                    <div>
-                      <table
-                        class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
-                        id="tableArea"
-                      >
-                        <thead class="thead-ligth">
-                          <tr>
-                            <th scope="col">Habilidad</th>
-                            <th scope="col">Eliminar</th>
-                          </tr>
-                        </thead>
-                        <tbody class="tbody-ligth">
-                          <tr *ngFor="let a of listaHabilidades">
-                            <th scope="row">
-                              {{ a.cohCompetenciashabilidades.cohDescripcion }}
-                            </th>
-                            <td align="center" style="width: 6em;">
-                              <i
-                                style="color:#dc3545;"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                title="Eliminar"
-                                class="fas fa-trash-alt"
-                                (click)="deleteHabilidades(a)"
-                              ></i>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  </div>
+                  <!-- Etiquetas donde se agregan las habilidades -->
+                  <div class="row">
+                    <div
+                      class="col-xs-12 col-sm-12 col-md-4 col-lg-3"
+                      *ngFor="let h of listaHabilidades"
+                    >
+                      <div class="offer offer-warning">
+                        <div
+                          class="shape"
+                          (click)="deleteHabilidades(h)"
+                          data-toggle="tooltip"
+                          title="eliminar"
+                        >
+                          <div class="shape-text">
+                            <i class="fa fa-times"></i>
+                          </div>
+                        </div>
+                        <div class="offer-content">
+                          <h3 class="lead">
+                            {{ h.cohCompetenciashabilidades.cohDescripcion }}
+                          </h3>
+                          <p></p>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <!-- Términa las etiquetas de los conocimientos -->
                 </div>
               </div>
               <div class="card">
                 <!-- Card header -->
-                <div class="card-header z-depth-1 teal" role="tab" id="heading1">
+                <div
+                  class="card-header z-depth-1 teal"
+                  role="tab"
+                  id="heading1"
+                >
                   <a
                     class="collapsed"
                     data-toggle="collapse"
@@ -1039,8 +1004,8 @@
                           >Equipos</label
                         >
                         <select
-                        [(ngModel)]="equipo"
-                        class="form-control form-control-sm"
+                          [(ngModel)]="equipo"
+                          class="form-control form-control-sm"
                           name="equipo"
                           required
                           #select17="ngModel"
@@ -1053,17 +1018,19 @@
                           }}</option>
                         </select>
 
-
-                        <span *ngIf="select17.invalid && select17.touched"
-                        class="text-white bg-danger">
-                        El campo es requerido</span>
-
-
+                        <span
+                          *ngIf="select17.invalid && select17.touched"
+                          class="text-danger "
+                        >
+                          El campo es requerido, si se quiere agregar un
+                          equipo.</span
+                        >
                       </div>
                       <div>
                         <button
                           class="btn btn-success btn-sm mt-4 mr-5 ml-3"
                           (click)="addEquipo()"
+                          [disabled]="select17.invalid"
                         >
                           <i
                             data-toggle="tooltip"
@@ -1073,46 +1040,47 @@
                           ></i>
                         </button>
                       </div>
-                      <div>
-                        <table
-                          class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
-                          id="tableArea"
-                        >
-                          <thead class="thead-ligth">
-                            <tr>
-                              <th scope="col">Equipo</th>
-                              <th scope="col">Descripción</th>
-                              <th scope="col">Eliminar</th>
-                            </tr>
-                          </thead>
-                          <tbody class="tbody-ligth">
-                            <tr *ngFor="let a of listaEquipo">
-                              <th scope="row">{{ a.equEquipo.equNombre }}</th>
-                              <th scope="row">
-                                {{ a.equEquipo.equDescripcion }}
-                              </th>
-                              <td align="center" style="width: 6em;">
-                                <i
-                                  style="color:#dc3545;"
-                                  data-toggle="tooltip"
-                                  data-placement="top"
-                                  title="Eliminar"
-                                  class="fas fa-trash-alt"
-                                  (click)="deleteEquipo(a)"
-                                ></i>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </div>
+                    <!-- Etiquetas donde se agregan los equipos-->
+                    <div class="row">
+                      <div
+                        class="col-xs-12 col-sm-12 col-md-4 col-lg-3"
+                        *ngFor="let e of listaEquipo"
+                      >
+                        <div class="offer offer-warning">
+                          <div
+                            class="shape"
+                            (click)="deleteEquipo(e)"
+                            data-toggle="tooltip"
+                            title="eliminar"
+                          >
+                            <div class="shape-text">
+                              <i class="fa fa-times"></i>
+                            </div>
+                          </div>
+                          <div class="offer-content">
+                            <h3 class="lead">
+                              {{ e.equEquipo.equNombre }}
+                            </h3>
+                            <p>
+                              {{ e.equEquipo.equDescripcion }}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <!-- Términa las etiquetas de los equipos -->
                   </div>
                 </div>
               </div>
               <!-- Accordion card -->
               <div class="card">
                 <!-- Card header -->
-                <div class="card-header z-depth-1 teal" role="tab" id="heading14">
+                <div
+                  class="card-header z-depth-1 teal"
+                  role="tab"
+                  id="heading14"
+                >
                   <a
                     class="collapsed"
                     data-toggle="collapse"
@@ -1142,28 +1110,28 @@
                         >
                         <div class="col-md-12">
                           <input
-
                             name="funcion"
                             type="text"
                             placeholder="Descripcion de la funcion"
                             class="form-control form-control-sm"
                             required
-                            [(ngModel)]="descripcionfuncion"
+                            [(ngModel)]="descripcionF"
                             pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
                             #var10="ngModel"
-
                           />
 
-                          <span *ngIf="var10.valid && var10.touched"
-                          class="text-white bg-danger">
-                          El campo es requerido ó solo acepta letras.
+                          <span
+                            *ngIf="var10.invalid && var10.touched"
+                            class="text-white bg-danger"
+                          >
+                            El campo es requerido ó solo acepta letras.
                           </span>
-
                         </div>
                       </div>
                       <div>
                         <button
                           class="btn btn-success btn-sm mt-4 mr-5"
+                          [disabled]="var10.invalid"
                           (click)="addFunciones()"
                         >
                           <i
@@ -1174,44 +1142,47 @@
                           ></i>
                         </button>
                       </div>
-                      <div>
-                        <div>
-                          <table
-                            class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
-                            id="tableArea"
+                    </div>
+                    <!-- Etiquetas donde se agregan las funciones-->
+                    <div class="row">
+                      <div
+                        class="col-xs-12 col-sm-12 col-md-4 col-lg-3"
+                        *ngFor="let f of listaFunciones"
+                      >
+                        <div class="offer offer-warning">
+                          <div
+                            class="shape"
+                            (click)="deleteFuncion(f)"
+                            data-toggle="tooltip"
+                            title="eliminar"
                           >
-                            <thead class="thead-ligth">
-                              <tr>
-                                <th scope="col">Funcion</th>
-                                <th scope="col">Eliminar</th>
-                              </tr>
-                            </thead>
-                            <tbody class="tbody-ligth">
-                              <tr *ngFor="let a of listaFunciones">
-                                <th scope="row">{{ a.funDescripcion }}</th>
-                                <td align="center" style="width: 6em;">
-                                  <i
-                                    style="color:#dc3545;"
-                                    data-toggle="tooltip"
-                                    data-placement="top"
-                                    title="Eliminar"
-                                    class="fas fa-trash-alt"
-                                    (click)="deleteFuncion(a)"
-                                  ></i>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
+                            <div class="shape-text">
+                              <i class="fa fa-times"></i>
+                            </div>
+                          </div>
+                          <div class="offer-content">
+                            <h3 class="lead">
+                              Función
+                            </h3>
+                            <p>
+                              {{ f.funDescripcion }}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <!-- Términa las etiquetas de los conocimientos -->
                   </div>
                 </div>
               </div>
               <!-- Accordion card -->
               <div class="card">
                 <!-- Card header -->
-                <div class="card-header z-depth-1 teal" role="tab" id="heading15">
+                <div
+                  class="card-header z-depth-1 teal"
+                  role="tab"
+                  id="heading15"
+                >
                   <a
                     class="collapsed"
                     data-toggle="collapse"
@@ -1220,7 +1191,9 @@
                     aria-expanded="false"
                     aria-controls="collapse15"
                   >
-                    <h6 class="mb-0 black-text font-weight-bold">Percepciones</h6>
+                    <h6 class="mb-0 black-text font-weight-bold">
+                      Percepciones
+                    </h6>
                   </a>
                 </div>
 
@@ -1241,8 +1214,8 @@
                         >
                         <div class="col-md-12">
                           <select
-                          [(ngModel)]="percepcion"
-                          class="form-control form-control-sm"
+                            [(ngModel)]="percepcion"
+                            class="form-control form-control-sm"
                             name="percepcion"
                             required
                             #select18="ngModel"
@@ -1257,10 +1230,12 @@
                             >
                           </select>
 
-                          <span *ngIf="select18.invalid && select18.touched"
-                          class="text-white bg-danger">
-                          El campo es requerido</span>
-
+                          <span
+                            *ngIf="select18.invalid && select18.touched"
+                            class="text-white bg-danger"
+                          >
+                            El campo es requerido</span
+                          >
                         </div>
                       </div>
 
@@ -1282,11 +1257,12 @@
                             #var11="ngModel"
                           />
 
-                          <span *ngIf="var11.valid && var11.touched"
-                          class="text-white bg-danger">
-                          El campo es requerido ó solo acepta letras.
+                          <span
+                            *ngIf="var11.invalid && var11.touched"
+                            class="text-white bg-danger"
+                          >
+                            Solo acepta letras.
                           </span>
-
                         </div>
                       </div>
 
@@ -1303,22 +1279,25 @@
                             class="form-control form-control-sm"
                             required
                             [(ngModel)]="valorPer"
-                            pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
+                            pattern="^[0-9 ]*$"
                             #var12="ngModel"
                           />
 
-                          <span *ngIf="var12.valid && var12.touched"
-                          class="text-white bg-danger">
-                          El campo es requerido ó solo acepta letras.
+                          <span
+                            *ngIf="var12.invalid && var12.touched"
+                            class="text-white bg-danger"
+                          >
+                            Solo acepta numeros
                           </span>
-
-
                         </div>
                       </div>
                       <div>
                         <button
                           class="btn btn-success btn-sm mt-4 mr-5"
                           (click)="addPercepcion()"
+                          [disabled]="
+                            var12.invalid || var11.invalid || select18.invalid
+                          "
                         >
                           <i
                             data-toggle="tooltip"
@@ -1328,46 +1307,42 @@
                           ></i>
                         </button>
                       </div>
-                      <div>
-                        <table
-                          class="table table-striped table-bordered table-hover table-sm ml-3 mt-4"
-                          id="tableArea"
-                        >
-                          <thead class="thead-ligth">
-                            <tr>
-                              <th scope="col">Tipo de percepcion</th>
-                              <th scope="col">Descripción</th>
-                              <th scope="col">Valor</th>
-                              <th scope="col">Eliminar</th>
-                            </tr>
-                          </thead>
-                          <tbody class="tbody-ligth">
-                            <tr *ngFor="let a of listaPercepciones">
-                              <td>{{ a.prePercepciones.preTipo }}</td>
-                              <td>{{ a.slpDescripcion }}</td>
-                              <td>{{ a.slpValorm }}</td>
-                              <td align="center" style="width: 6em;">
-                                <i
-                                  style="color:#dc3545;"
-                                  data-toggle="tooltip"
-                                  data-placement="top"
-                                  title="Eliminar!"
-                                  class="fas fa-trash-alt"
-                                  (click)="deletePercepcion(a)"
-                                ></i>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </div>
+                    <!-- Etiquetas de las percepciones -->
+                    <div class="row">
+                      <div
+                        class="col-xs-12 col-sm-12 col-md-4 col-lg-3"
+                        *ngFor="let p of listaPercepciones"
+                      >
+                        <div class="offer offer-info">
+                          <div
+                            class="shape"
+                            (click)="deletePercepcion(p)"
+                            data-toggle="tooltip"
+                            title="eliminar"
+                          >
+                            <div class="shape-text">
+                              <i class="fa fa-times"></i>
+                            </div>
+                          </div>
+                          <div class="offer-content">
+                            <h3 class="lead">
+                              {{ p.prePercepciones.preTipo }}
+                            </h3>
+                            <p>{{ p.slpDescripcion }} ${{ p.slpValorm }}.00</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <!--Terminan las etiquetas de las percepciones-->
                   </div>
                 </div>
               </div>
             </div>
             <!-- /.Accordion wrapper -->
           </div>
-
+        </div>
       </div>
     </div>
   </div>
+</div>

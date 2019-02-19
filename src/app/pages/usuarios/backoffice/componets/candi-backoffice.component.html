@@ -1,3 +1,212 @@
+<h4>Candidatos <i class="fas fa-user fa-sm text-primary"></i></h4> <!-- Titulo de los requerimientos-->
+<div class="card mt-4 border-3 border-top border-top-primary shadow-sm">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-12">
+          <h5 class="text-muted">
+              Seguimiento
+            </h5>
+      </div>
+    </div>
+
+  <!--Carta de pendiente validación-->
+  <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="card mt-2 border-2 border-top border-top-primary shadow-sm">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <h6>Pendiente de validacion</h6>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                <app-cand-pend-val-ti></app-cand-pend-val-ti>
+           </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </div>  <!--Términa la carta de pendiente validación-->
+
+
+    <!--Carta de rechazados validación-->
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card mt-2 border-2 border-top border-top-danger shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <h6>Rechazados por TI</h6>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                  <app-cand-rech-ti></app-cand-rech-ti>
+             </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </div>  <!--Términa la carta rechazados validación-->
+
+
+        <!--Carta pendiente de entrevista-->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card mt-2 border-2 border-top border-top-warning shadow-sm">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h6>Pendiente de entrevista</h6>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                      <app-cand-pend-entre></app-cand-pend-entre>
+                 </div>
+              </div>
+
+            </div>
+          </div>
+          </div>
+        </div>  <!--Términa la carta pendiente de entrevista-->
+
+        <!--Carta entrevista agendada-->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card mt-2 border-2 border-top border-top-success-light shadow-sm">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h6>Entrevista agendada</h6>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                      <app-cand-agendado></app-cand-agendado>
+                 </div>
+              </div>
+
+            </div>
+          </div>
+          </div>
+        </div>  <!--Términa la carta entrevista agendada-->
+
+                <!--Carta entrevistado-->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card mt-2 border-2 border-top border-top-success shadow-sm">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h6>Entrevistado</h6>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                              <app-cand-entrevistado></app-cand-entrevistado>
+                         </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  </div>
+                </div>  <!--Términa la carta entrevistado-->
+
+                <!--Carta rechazado cliente-->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card mt-2 border-2 border-top border-top-danger shadow-sm">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h6>Rechazado cliente</h6>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                              <app-cand-rech-cliente></app-cand-rech-cliente>
+                         </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  </div>
+                </div>  <!--Términa la carta rechazado cliente-->
+
+                <!--Carta Rechazado Candidato-->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card mt-2 border-2 border-top border-top-danger shadow-sm">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h6>Rechazado Candidato</h6>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                              <app-cand-rech-cand></app-cand-rech-cand>
+                         </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  </div>
+                </div>  <!--Términa la carta rechazado cliente-->
+
+
+                <!--Carta Pendiente documentación-->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card mt-2 border-2 border-top border-top-warning shadow-sm">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h6>Pendiente documentación</h6>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                              <app-cand-pend-doc></app-cand-pend-doc>
+                         </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  </div>
+                </div>  <!--Términa la carta pendiente documentación-->
+
+                <!--Carta Pendiente contratación-->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card mt-2 border-2 border-top border-top-warning shadow-sm">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h6>Pendiente contratación</h6>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                              <app-cand-pend-contrato></app-cand-pend-contrato>
+                         </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  </div>
+                </div>  <!--Términa la carta pendiente contratación-->
+
+  </div>
+</div>
+
+
+
+
 <div class="accordion" id="accordionExample">
   <div class="card border border-bluedark">
     <div class="card-header bg-bluedark" id="headingOne">

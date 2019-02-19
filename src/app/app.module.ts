@@ -137,6 +137,72 @@ import { SegundaopcionComponent } from './pages/solicitud/segundaopcion/segundao
 import { AceptadostiComponent } from './pages/solicitud/aceptadosti/aceptadosti.component';
 import { BorradorComponent } from './pages/solicitud/borrador/borrador.component';
 import { PendienteclienteComponent } from './pages/solicitud/pendientecliente/pendientecliente.component';
+import { AltaAceptadoComponent } from './pages/usuarios/comercial/componets/aceptados/alta-aceptado/alta-aceptado.component';
+import { BajaAceptadoComponent } from './pages/usuarios/comercial/componets/aceptados/baja-aceptado/baja-aceptado.component';
+import { MediaAceptadoComponent } from './pages/usuarios/comercial/componets/aceptados/media-aceptado/media-aceptado.component';
+import { AltaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/alta-rechazado/alta-rechazado.component';
+import { MediaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/media-rechazado/media-rechazado.component';
+import { BajaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/baja-rechazado/baja-rechazado.component';
+import { RequerivalibackComponent } from './pages/usuarios/backoffice/requerimientos/requerivaliback.component';
+import { RequericancebackComponent } from './pages/usuarios/backoffice/requerimientos/requericanceback.component';
+import { RequeripenvatibackComponent } from './pages/usuarios/backoffice/requerimientos/requeripenvatiback.component';
+import { RequeriporasigbackComponent } from './pages/usuarios/backoffice/requerimientos/requeriporasigback.component';
+import { RequeriasignadabackComponent } from './pages/usuarios/backoffice/requerimientos/requeriasignadaback.component';
+import { RequerirechatibackComponent } from './pages/usuarios/backoffice/requerimientos/requerirechatiback.component';
+import { RequeripendiresbackComponent } from './pages/usuarios/backoffice/requerimientos/requeripendiresback.component';
+import { RequeriacepclibackComponent } from './pages/usuarios/backoffice/requerimientos/requeriacepcliback.component';
+import { RequeriperdidabackComponent } from './pages/usuarios/backoffice/requerimientos/requeriperdidaback.component';
+import { RequerienesperabackComponent } from './pages/usuarios/backoffice/requerimientos/requerienesperaback.component';
+import { RequerisegundaopbackComponent } from './pages/usuarios/backoffice/requerimientos/requerisegundaopback.component';
+import { CandidatovalidadoComponent } from './pages/usuarios/backoffice/candidatos/candidatovalidado.component';
+import { CandidatoentrevistaComponent } from './pages/usuarios/backoffice/candidatos/candidatoentrevista.component';
+import { CandidatorechazadotiComponent } from './pages/usuarios/backoffice/candidatos/candidatorechazadoti.component';
+import { CandidatopendientevalitiComponent } from './pages/usuarios/backoffice/candidatos/candidatopendientevaliti.component';
+import { CandidatopendientrevistaComponent } from './pages/usuarios/backoffice/candidatos/candidatopendientrevista.component';
+import { CandidatoentreagendaComponent } from './pages/usuarios/backoffice/candidatos/candidatoentreagenda.component';
+import { CandidatoentrevistadoComponent } from './pages/usuarios/backoffice/candidatos/candidatoentrevistado.component';
+import { CandidatorechazacliComponent } from './pages/usuarios/backoffice/candidatos/candidatorechazacli.component';
+import { CandidatoaceptacliComponent } from './pages/usuarios/backoffice/candidatos/candidatoaceptacli.component';
+import { CandidatorechazacandiComponent } from './pages/usuarios/backoffice/candidatos/candidatorechazacandi.component';
+import { CandidatopendientedocuComponent } from './pages/usuarios/backoffice/candidatos/candidatopendientedocu.component';
+import { CandidatopendicontraComponent } from './pages/usuarios/backoffice/candidatos/candidatopendicontra.component';
+import { CandidatocontratadoComponent } from './pages/usuarios/backoffice/candidatos/candidatocontratado.component';
+import { CandidatoasignableComponent } from './pages/usuarios/backoffice/candidatos/candidatoasignable.component';
+import { CandidatopendiresComponent } from './pages/usuarios/backoffice/candidatos/candidatopendires.component';
+import { CandidatosegunopComponent } from './pages/usuarios/backoffice/candidatos/candidatosegunop.component';
+import { AltaPendTiComponent } from './pages/usuarios/backoffice/requerimientos/pendienteTI/alta-pend-ti/alta-pend-ti.component';
+import { MediaPendTiComponent } from './pages/usuarios/backoffice/requerimientos/pendienteTI/media-pend-ti/media-pend-ti.component';
+import { BajaPendTiComponent } from './pages/usuarios/backoffice/requerimientos/pendienteTI/baja-pend-ti/baja-pend-ti.component';
+import { BajaValTiComponent } from './pages/usuarios/backoffice/requerimientos/validadasTI/baja-val-ti/baja-val-ti.component';
+import { AltaValTiComponent } from './pages/usuarios/backoffice/requerimientos/validadasTI/alta-val-ti/alta-val-ti.component';
+import { MediaValTiComponent } from './pages/usuarios/backoffice/requerimientos/validadasTI/media-val-ti/media-val-ti.component';
+import { BajaRechaTiComponent } from './pages/usuarios/backoffice/requerimientos/rechazadasTI/baja-recha-ti/baja-recha-ti.component';
+import { AltaRechaTiComponent } from './pages/usuarios/backoffice/requerimientos/rechazadasTI/alta-recha-ti/alta-recha-ti.component';
+import { MediaRechaTiComponent } from './pages/usuarios/backoffice/requerimientos/rechazadasTI/media-recha-ti/media-recha-ti.component';
+import { MediaAsignadasComponent } from './pages/usuarios/backoffice/requerimientos/asignadas/media-asignadas/media-asignadas.component';
+import { AltaAsignadasComponent } from './pages/usuarios/backoffice/requerimientos/asignadas/alta-asignadas/alta-asignadas.component';
+import { BajaAsignadasComponent } from './pages/usuarios/backoffice/requerimientos/asignadas/baja-asignadas/baja-asignadas.component';
+import { SegSolicitudComponent } from './pages/usuarios/backoffice/seguimiento/seg-solicitud/seg-solicitud.component';
+import { SegCandidatoComponent } from './pages/usuarios/backoffice/seguimiento/seg-candidato/seg-candidato.component';
+import { AltaPendRespuestaComponent } from './pages/usuarios/backoffice/requerimientos/pendienteRespuesta/alta-pend-respuesta/alta-pend-respuesta.component';
+import { MediaPendRespuestaComponent } from './pages/usuarios/backoffice/requerimientos/pendienteRespuesta/media-pend-respuesta/media-pend-respuesta.component';
+import { BajaPendRespuestaComponent } from './pages/usuarios/backoffice/requerimientos/pendienteRespuesta/baja-pend-respuesta/baja-pend-respuesta.component';
+import { BajaAcepClienteComponent } from './pages/usuarios/backoffice/requerimientos/aceptadasCliente/baja-acep-cliente/baja-acep-cliente.component';
+import { MediaAcepClienteComponent } from './pages/usuarios/backoffice/requerimientos/aceptadasCliente/media-acep-cliente/media-acep-cliente.component';
+import { AltaAcepClienteComponent } from './pages/usuarios/backoffice/requerimientos/aceptadasCliente/alta-acep-cliente/alta-acep-cliente.component';
+import { AltaPerdidosComponent } from './pages/usuarios/backoffice/requerimientos/perdidos/alta-perdidos/alta-perdidos.component';
+import { BajaPerdidosComponent } from './pages/usuarios/backoffice/requerimientos/perdidos/baja-perdidos/baja-perdidos.component';
+import { MediaPerdidosComponent } from './pages/usuarios/backoffice/requerimientos/perdidos/media-perdidos/media-perdidos.component';
+import { CandPendValTiComponent } from './pages/usuarios/backoffice/candidatos/pendientesTI/cand-pend-val-ti/cand-pend-val-ti.component';
+import { CandRechTiComponent } from './pages/usuarios/backoffice/candidatos/rechazadosTI/cand-rech-ti/cand-rech-ti.component';
+import { CandPendEntreComponent } from './pages/usuarios/backoffice/candidatos/pendienteEntrevista/cand-pend-entre/cand-pend-entre.component';
+import { CandAgendadoComponent } from './pages/usuarios/backoffice/candidatos/entrevistaAgendada/cand-agendado/cand-agendado.component';
+import { CandEntrevistadoComponent } from './pages/usuarios/backoffice/candidatos/entrevistado/cand-entrevistado/cand-entrevistado.component';
+import { CandRechClienteComponent } from './pages/usuarios/backoffice/candidatos/rechazadoCliente/cand-rech-cliente/cand-rech-cliente.component';
+import { CandRechCandComponent } from './pages/usuarios/backoffice/candidatos/rechazadoCandidato/cand-rech-cand/cand-rech-cand.component';
+import { CandAceptadoComponent } from './pages/usuarios/backoffice/candidatos/aceptadoCliente/cand-aceptado/cand-aceptado.component';
+import { CandPendDocComponent } from './pages/usuarios/backoffice/candidatos/pendienteDoc/cand-pend-doc/cand-pend-doc.component';
+import { CandPendContratoComponent } from './pages/usuarios/backoffice/candidatos/pendienteDoc/cand-pend-contrato/cand-pend-contrato.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -295,7 +361,72 @@ import { PendienteclienteComponent } from './pages/solicitud/pendientecliente/pe
     AceptadostiComponent,
     BorradorComponent,
     PendienteclienteComponent,
-
+    RequerivalibackComponent,
+    RequericancebackComponent,
+    RequeripenvatibackComponent,
+    RequeriporasigbackComponent,
+    RequeriasignadabackComponent,
+    RequerirechatibackComponent,
+    RequeripendiresbackComponent,
+    RequeriacepclibackComponent,
+    RequeriperdidabackComponent,
+    RequerienesperabackComponent,
+    RequerisegundaopbackComponent,
+    CandidatovalidadoComponent,
+    CandidatoentrevistaComponent,
+    CandidatorechazadotiComponent,
+    CandidatopendientevalitiComponent,
+    CandidatopendientrevistaComponent,
+    CandidatoentreagendaComponent,
+    CandidatoentrevistadoComponent,
+    CandidatorechazacliComponent,
+    CandidatoaceptacliComponent,
+    CandidatorechazacandiComponent,
+    CandidatopendientedocuComponent,
+    CandidatopendicontraComponent,
+    CandidatocontratadoComponent,
+    CandidatoasignableComponent,
+    CandidatopendiresComponent,
+    CandidatosegunopComponent,
+    AltaAceptadoComponent,
+    BajaAceptadoComponent,
+    MediaAceptadoComponent,
+    AltaRechazadoComponent,
+    MediaRechazadoComponent,
+    BajaRechazadoComponent,
+    AltaPendTiComponent,
+    MediaPendTiComponent,
+    BajaPendTiComponent,
+    BajaValTiComponent,
+    AltaValTiComponent,
+    MediaValTiComponent,
+    BajaRechaTiComponent,
+    AltaRechaTiComponent,
+    MediaRechaTiComponent,
+    MediaAsignadasComponent,
+    AltaAsignadasComponent,
+    BajaAsignadasComponent,
+    SegSolicitudComponent,
+    SegCandidatoComponent,
+    AltaPendRespuestaComponent,
+    MediaPendRespuestaComponent,
+    BajaPendRespuestaComponent,
+    BajaAcepClienteComponent,
+    MediaAcepClienteComponent,
+    AltaAcepClienteComponent,
+    AltaPerdidosComponent,
+    BajaPerdidosComponent,
+    MediaPerdidosComponent,
+    CandPendValTiComponent,
+    CandRechTiComponent,
+    CandPendEntreComponent,
+    CandAgendadoComponent,
+    CandEntrevistadoComponent,
+    CandRechClienteComponent,
+    CandRechCandComponent,
+    CandAceptadoComponent,
+    CandPendDocComponent,
+    CandPendContratoComponent
   ],
   imports: [
     BrowserModule,

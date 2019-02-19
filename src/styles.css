@@ -594,9 +594,22 @@ Parte de las cards
 .border-top-primary {
   border-top-color: #5969ff !important;
 }
+.border-top-danger{
+  border-top-color: #dc3545 !important;
+}
+.border-top-warning{
+  border-top-color: #ffc107 !important;
+}
+.border-top-success-light{
+  border-top-color: #00ff44  !important;
+}
 
 .border-3 {
   border-width: 3px !important;
+}
+
+.text-succes-light{
+  color: #00ff44 !important;
 }
 
 .border-secondary {
@@ -677,8 +690,9 @@ Parte de las cards
 }
 
 .bg-success-light {
-  background-color: #c5fad3 !important;
+  background-color: #00ff44 !important;
 }
+.
 .text-brand {
   color: #ffc750 !important;
 }

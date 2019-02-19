@@ -239,6 +239,11 @@ export class SeguimientoSolService {
     return this.clienteHttp.get(this.url + '/fetchActive/10', {
       headers: this.headers});
   }
+  getSgsSeguimientoSolicitudesXValidar(nombre: string) {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(`${this.url}/fetchActive/10/${nombre}`, {
+      headers: this.headers});
+  }
 
   getSgsSeguimientoAsignada() {
     this.getHeaders(); // agregar
@@ -258,6 +263,16 @@ export class SeguimientoSolService {
       headers: this.headers});
   }
 
+  getSgsSeguimientoPendientePrioridad(nombre: string) {
+    this.getHeaders();
+    return this.clienteHttp.get(`${this.url}/fetchActive/14/${nombre}`, {
+      headers: this.headers});
+  }
+  getSgsSeguimietoRechazadasTI(nombre: string) {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get<CatSeguimientoSol>(`${this.url}/fetchActive/15/${nombre}`, {
+      headers: this.headers});
+  }
   getSgsSeguimietoRechazadas() {
     this.getHeaders();
     return this.clienteHttp.get(this.url + '/fetchActive/15', {
@@ -276,9 +291,21 @@ export class SeguimientoSolService {
       headers: this.headers});
   }
 
+  getSgsSeguimietoAceptadaXClientePrioridad(nombre: string) {
+    this.getHeaders();
+    return this.clienteHttp.get(`${this.url}//fetchActive/16/${nombre}`, {
+      headers: this.headers});
+  }
+
   getSgsSeguimietoAceptadaXPerdida() {
     this.getHeaders();
     return this.clienteHttp.get(this.url + '/fetchActive/17', {
+      headers: this.headers});
+  }
+
+  getSgsSeguimietoXPerdidas(nombre: string) {
+    this.getHeaders();
+    return this.clienteHttp.get(`${this.url}/fetchActive/17/${nombre}`, {
       headers: this.headers});
   }
 
@@ -297,6 +324,12 @@ export class SeguimientoSolService {
   getSgsSeguimientoSolicitudByUser() {
     this.getHeaders(); // agregar
     return this.clienteHttp.get(`${this.url}/fetchByReclutador/${this.auth.usuario.usrUsuario}`, {
+      headers: this.headers});
+  }
+
+  getSgsSeguimientoSolicitudAsignadaByPrioridad( nombre: string) {
+    this.getHeaders(); // agregar
+    return this.clienteHttp.get(`${this.url}/fetchByAsignada/${nombre}`, {
       headers: this.headers});
   }
 

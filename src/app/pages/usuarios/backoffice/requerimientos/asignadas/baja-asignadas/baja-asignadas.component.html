@@ -1,0 +1,70 @@
+<div class="accordion" id="accordionExample">
+    <div class="card border border-success">
+    <div class="card-header bg-success" id="headingOne">
+    <h5 class="mb-0">
+    <button
+    class="btn btn-link text-white"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapseReqAsigBaja"
+    aria-expanded="true"
+    aria-controls="collapseOne"
+    >
+    Prioridad Baja
+    </button>
+    </h5>
+    </div>
+
+    <div
+    id="collapseReqAsigBaja"
+    class="collapse"
+    aria-labelledby="headingOne"
+    data-parent="#accordionExample"
+    >
+    <div class="card-body">
+
+     <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+    <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+    <thead>
+    <tr>
+    <th scope="col">Folio</th>
+    <th scope="col">Fecha</th>
+    <th scope="col">Cliente</th>
+    <th scope="col">Estatus</th>
+    <th scope="col">Reclutador</th>
+    <th scope="col">Prioridad</th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let s of allSolicitud">
+      <th scope="row">{{ s.solSolicitud.solIdsolicitud }}</th>
+    <th >{{ s.sgsFecha }}</th>
+    <td>{{ s.solSolicitud?.cliCliente.cliNombre }}</td>
+    <td>{{ s.estEstatusSolicitud.estDescripcion }}</td>
+    <td>{{ s.solSolicitud.usrUsuarioBySolIdreclutador.usrNombreusuario }}</td>
+    <td>{{s.solSolicitud?.priPrioridad.priNombre}}</td>
+    <td class="text-center" >
+        <i style=" margin-right:20px;"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="Consultar"
+        class="fas fa-search text-success"
+        [routerLink]="['/SegSolicitud', s.solSolicitud.solIdsolicitud]"
+        *ngIf="authservice.hasRole('ROLE_ADMIN') || authservice.hasRole('ROLE_BACKOFFICE')"></i>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
