@@ -62,7 +62,7 @@ export class CatContecnicosComponent implements OnInit {
   deleteBusiness(id, cotConocimiento, cotTipo) {
       swal({
         title: 'Está seguro?',
-      text: `¿Seguro desea eliminar el conocimiento ${cotTipo}?, ${cotConocimiento}? `,
+      text: `¿Seguro desea eliminar el conocimiento ${cotConocimiento}? `,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',

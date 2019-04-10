@@ -40,7 +40,7 @@ export class EditIdiomaComponent implements OnInit {
        swal({
         position: 'top',
         type: 'success',
-        title: `Idioma modificada con éxito`,
+        title: `Idioma modificado con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

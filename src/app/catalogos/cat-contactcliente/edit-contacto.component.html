@@ -10,7 +10,7 @@
                           <label for="clcNombre">Nombre</label>
                           <input [(ngModel)]="contacto.clcNombre" maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcNombre" formControlName="clcNombre" #clcNombre>
                           <div *ngIf="editForm.get('clcNombre').errors && editForm.get('clcNombre').dirty">
-                              <p style="color:darkred;" *ngIf="editForm.get('clcNombre').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="editForm.get('clcNombre').hasError('required')">El nombre es requerido</p>
                               <p style="color:darkred;" *ngIf="editForm.get('clcNombre').hasError('maxlength')">Máximo 40 carácteres</p>
                               <p style="color:darkred;" *ngIf="editForm.get('clcNombre').hasError('pattern')">Solo se aceptan letras</p>
                           </div>
@@ -18,15 +18,15 @@
                           <label for="clcTelefono">Telefono</label>
                           <input [(ngModel)]="contacto.clcTelefono" maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcTelefono" formControlName="clcTelefono" #clcTelefono>
                           <div *ngIf="editForm.get('clcTelefono').errors && editForm.get('clcTelefono').dirty">
-                              <p style="color:darkred;" *ngIf="editForm.get('clcTelefono').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="editForm.get('clcTelefono').hasError('required')">El telefono es requerido</p>
                               <p style="color:darkred;" *ngIf="editForm.get('clcTelefono').hasError('maxlength')">Máximo 40 carácteres</p>
-                              <p style="color:darkred;" *ngIf="editForm.get('clcTelefono').hasError('pattern')">Solo se aceptan letras</p>
+                              <p style="color:darkred;" *ngIf="editForm.get('clcTelefono').hasError('pattern')">Solo se aceptan números</p>
                           </div>
 
                           <label for="clcEmail">Email</label>
                           <input [(ngModel)]="contacto.clcEmail" maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcEmail" formControlName="clcEmail" #clcEmail>
                           <div *ngIf="editForm.get('clcEmail').errors && editForm.get('clcEmail').dirty">
-                              <p style="color:darkred;" *ngIf="editForm.get('clcEmail').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="editForm.get('clcEmail').hasError('required')">El mail es requerido</p>
                               <p style="color:darkred;" *ngIf="editForm.get('clcEmail').hasError('maxlength')">Máximo 40 carácteres</p>
                               <p style="color:darkred;" *ngIf="editForm.get('clcEmail').hasError('pattern')">Solo se aceptan letras</p>
                           </div>
@@ -34,7 +34,7 @@
                           <label for="clcTipo">Tipo</label>
                           <input [(ngModel)]="contacto.clcTipo" maxlength="1" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcTipo" formControlName="clcTipo" #clcTipo>
                           <div *ngIf="editForm.get('clcTipo').errors && editForm.get('clcTipo').dirty">
-                              <p style="color:darkred;" *ngIf="editForm.get('clcTipo').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="editForm.get('clcTipo').hasError('required')">El tipo es requerido</p>
                               <p style="color:darkred;" *ngIf="editForm.get('clcTipo').hasError('maxlength')">Máximo 40 carácteres</p>
                               <p style="color:darkred;" *ngIf="editForm.get('clcTipo').hasError('pattern')">Solo se aceptan letras</p>
                           </div>
@@ -42,9 +42,9 @@
                           <label for="clcExtension">Extension</label>
                           <input [(ngModel)]="contacto.clcExtension" maxlength="40" type="text" required class="form-control" placeholder="Escribe la nueva área" name="clcExtension" formControlName="clcExtension" #clcExtension>
                           <div *ngIf="editForm.get('clcExtension').errors && editForm.get('clcExtension').dirty">
-                              <p style="color:darkred;" *ngIf="editForm.get('clcExtension').hasError('required')">El área es requerida</p>
+                              <p style="color:darkred;" *ngIf="editForm.get('clcExtension').hasError('required')">La extensión es requerida</p>
                               <p style="color:darkred;" *ngIf="editForm.get('clcExtension').hasError('maxlength')">Máximo 40 carácteres</p>
-                              <p style="color:darkred;" *ngIf="editForm.get('clcExtension').hasError('pattern')">Solo se aceptan letras</p>
+                              <p style="color:darkred;" *ngIf="editForm.get('clcExtension').hasError('pattern')">Solo se aceptan números</p>
                           </div>
                       </div>
                   </form>

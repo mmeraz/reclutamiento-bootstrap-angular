@@ -41,7 +41,7 @@ export class EditPerfilComponent implements OnInit {
        swal({
         position: 'top',
         type: 'success',
-        title: `Perfil modificada con éxito`,
+        title: `Perfil modificado con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

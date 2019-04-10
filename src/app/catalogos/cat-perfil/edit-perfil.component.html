@@ -7,7 +7,7 @@
                   <label for="perPerfil">perfil</label>
                   <input [(ngModel)]="perfil.perPerfil" maxlength="100" type="text" required class="form-control" name="perPerfil" formControlName="perPerfil" #perPerfil>
                   <div *ngIf="editForm.get('perPerfil').errors && editForm.get('perPerfil').dirty">
-                      <p class="text-danger" *ngIf="editForm.get('perPerfil').hasError('required')">El perfil es requerida</p>
+                      <p class="text-danger" *ngIf="editForm.get('perPerfil').hasError('required')">El perfil es requerido</p>
                       <p class="text-danger" *ngIf="editForm.get('perPerfil').hasError('maxlength')">Máximo 100 carácteres</p>
                       <p class="text-danger" *ngIf="editForm.get('perPerfil').hasError('pattern')">Solo se aceptan letras</p>
                   </div>

@@ -39,6 +39,7 @@ export class EstasolicitudService {
       headers: this.headers});
   }
   editBusiness(id) {
+    this.getHeaders();
     return this
             .clienteHttp
             .get(`${this.url}/fetch/${id}`, {
@@ -53,13 +54,16 @@ export class EstasolicitudService {
       };
     this
       .clienteHttp
-      .put(`${this.url}/update/${estIdestatus}`, obj)
-      .subscribe(res => console.log('Done editado'));
+      .put(`${this.url}/update/${estIdestatus}`, obj, {
+        headers: this.headers});
+      // .subscribe(res => console.log('Done editado'));
   }
   deleteBusiness(id) {
+    this.getHeaders();
     return this
               .clienteHttp
-              .delete(`${this.url}/delete/${id}`);
+              .delete(`${this.url}/delete/${id}`,{
+                headers: this.headers});
   }
 
   getHeaders() {

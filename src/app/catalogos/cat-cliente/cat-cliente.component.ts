@@ -60,7 +60,7 @@ export class CatClienteComponent implements OnInit {
   deleteBusiness(id, cliNombre) {
     swal({
       title: 'Está seguro?',
-    text: `¿Seguro desea eliminar al área ${cliNombre}?`,
+    text: `¿Seguro desea eliminar el cliente ${cliNombre}?`,
       type: 'warning',
       showCancelButton: true,
     confirmButtonColor: '#3085d6',
@@ -72,7 +72,7 @@ export class CatClienteComponent implements OnInit {
       this.clienteService.deleteBusiness(id).subscribe(data => {
           this.allCliente = this.allCliente.filter(c => c.cliNombre !== id);
         });
-        swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+        swal('Eliminado!', 'Se ha eliminado el cliente.', 'success');
         this.rerender();
       }
     });

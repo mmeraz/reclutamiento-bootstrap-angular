@@ -60,7 +60,8 @@ export class PrePercepcionService {
     this.getHeaders();
     return this
               .clienteHttp
-              .delete(`${this.url}/delete/${id}`);
+              .delete(`${this.url}/delete/${id}`, {
+                headers: this.headers});
   }
   getHeaders() {
     this.headers = new HttpHeaders();

@@ -12,7 +12,7 @@
                       <p class="text-danger" *ngIf="editForm.get('jolTipo').hasError('pattern')">Solo se aceptan letras</p>
                   </div>
                   <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-success" role="button" (click)='updateBusiness(jolTipo.value)' [disabled]="editForm.invalid">Editar</button>
-                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Jornada">Cancelar</button>
+                  <button style="margin-top:15px;margin-right:15px;" type="button" class="btn btn-danger" routerLink="/Jornada-laboral">Cancelar</button>
               </div>
           </form>
       </div>

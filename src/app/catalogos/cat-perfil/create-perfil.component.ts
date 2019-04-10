@@ -39,7 +39,7 @@ export class CreatePerfilComponent implements OnInit {
       swal({
         position: 'top',
         type: 'success',
-        title: `Perfil creada con éxito`,
+        title: `Perfil creado con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

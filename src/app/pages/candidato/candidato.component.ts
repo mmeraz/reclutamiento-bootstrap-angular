@@ -212,7 +212,7 @@ listaEntrevista: Catentrevista[] = [];
     this.route.params.subscribe(params => {
       this.bs.addCandidato(this.candidato);
       this.serviceEmail.sendEmail('4', this.candidato);
-      this.router.navigate(['/IndexReclutamiento']);
+      // this.router.navigate(['/IndexReclutamiento']);
       swal({
        position: 'top',
        type: 'success',
@@ -221,7 +221,7 @@ listaEntrevista: Catentrevista[] = [];
        timer: 2500
      });
    });
-  this.update();
+  // this.update();
   }
 
   update(): void {

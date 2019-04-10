@@ -18,7 +18,7 @@
                 <form [formGroup]="addForm" (submit)="saveData()">
                     <div class="form-group">
                         <label for="arnTipo">Estatus</label>
-                        <input maxlength="15" type="text" required class="form-control" placeholder="Escribe el nuevo estatus" name="escDescripcion" formControlName="escDescripcion" #escDescripcion>
+                        <input maxlength="30" type="text" required class="form-control" placeholder="Escribe el nuevo estatus" name="escDescripcion" formControlName="escDescripcion" #escDescripcion>
                         <div *ngIf="addForm.get('escDescripcion').errors && addForm.get('escDescripcion').dirty">
                             <p style="color:darkred;" *ngIf="addForm.get('escDescripcion').hasError('required')">El estatus es requerida</p>
                             <p style="color:darkred;" *ngIf="addForm.get('arnTipo').hasError('maxlength')">Máximo 15 carácteres</p>

@@ -40,7 +40,7 @@ export class CreateEquipoComponent implements OnInit {
       swal({
         position: 'top',
         type: 'success',
-        title: `Equipo creada con éxito`,
+        title: `Equipo creado con éxito`,
         showConfirmButton: false,
         timer: 1500
       });

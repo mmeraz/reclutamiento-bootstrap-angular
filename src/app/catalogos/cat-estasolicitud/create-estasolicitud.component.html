@@ -9,7 +9,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nueva estatus solicitud</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo estatus solicitud</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -18,7 +18,7 @@
                 <form [formGroup]="addForm" (submit)="saveData()">
                     <div class="form-group">
                         <label for="estDescripcion">Estatus Solicitud</label>
-                        <input maxlength="15" type="text" required class="form-control" placeholder="Escribe el nuevo estatus de solicitud" name="estDescripcion" formControlName="estDescripcion" #estDescripcion>
+                        <input maxlength="30" type="text" required class="form-control" placeholder="Escribe el nuevo estatus de solicitud" name="estDescripcion" formControlName="estDescripcion" #estDescripcion>
                         <div *ngIf="addForm.get('estDescripcion').errors && addForm.get('estDescripcion').dirty">
                             <p style="color:darkred;" *ngIf="addForm.get('estDescripcion').hasError('required')">El área es requerida</p>
                             <p style="color:darkred;" *ngIf="addForm.get('estDescripcion').hasError('maxlength')">Máximo 15 carácteres</p>

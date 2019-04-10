@@ -57,7 +57,9 @@
                       data-placement="top"
                       title="Eliminar"
                       class="fas fa-trash-alt"
-                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                      *ngIf="authservice.hasRole('ROLE_ADMIN')"
+                      (click)="deleteBusiness(c.cotIdconocimiento, c.cotConocimiento)"
+                      ></i>
                   </td>
                 </tr>
               </tbody>

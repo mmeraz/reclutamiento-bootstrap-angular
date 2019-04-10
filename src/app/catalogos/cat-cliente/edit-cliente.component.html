@@ -12,7 +12,7 @@
                         <p class="text-danger" *ngIf="editForm.get('cliNombre').hasError('pattern')">Solo se aceptan letras</p>
                     </div>
 
-                    <label for="cliRazonsocial">Cliente</label>
+                    <label for="cliRazonsocial">Razón Social</label>
                     <input [(ngModel)]="cliente.cliRazonsocial" maxlength="150" type="text" required class="form-control" name="cliRazonsocial" formControlName="cliRazonsocial" #cliRazonsocial>
                     <div *ngIf="editForm.get('cliRazonsocial').errors && editForm.get('cliRazonsocial').dirty">
                         <p class="text-danger" *ngIf="editForm.get('cliRazonsocial').hasError('required')">El cliente requerido</p>

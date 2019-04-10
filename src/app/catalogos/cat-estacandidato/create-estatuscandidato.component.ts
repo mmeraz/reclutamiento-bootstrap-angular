@@ -29,7 +29,7 @@ export class CreateEstatuscandidatoComponent implements OnInit {
     }
     createForm() {
       this.addForm = this.fb.group({
-        escDescripcion: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+        escDescripcion: ['', [Validators.required, Validators.maxLength(30), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ2\\s]*$')] ]
       });
     }
 
