@@ -61,20 +61,20 @@ export class CatEstasolicitudComponent implements OnInit {
 
   deleteBusiness(id, estDescripcion) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro desea eliminar al estatus solicitud ${estDescripcion}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
+        confirmButtonText: 'Si, ¡eliminar!',
         cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.value) {
         this.estasolicitudService.deleteBusiness(id).subscribe(data => {
             this.allEstasolicitud = this.allEstasolicitud.filter(c => c.estIdestatus !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el estatus solicitud.', 'success');
+          swal('¡Eliminado!', 'Se ha eliminado el estatus solicitud.', 'success');
           this.rerender();
         }
       });

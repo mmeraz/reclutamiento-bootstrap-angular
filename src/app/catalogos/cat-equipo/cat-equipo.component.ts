@@ -61,20 +61,20 @@ export class CatEquipoComponent implements OnInit {
 
   deleteBusiness(id, equNombre, equDescripcion) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro desea eliminar al equipo ${equNombre}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
+        confirmButtonText: 'Si, ¡eliminar!',
         cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.value) {
         this.equipoService.deleteBusiness(id).subscribe(data => {
             this.allEquipo = this.allEquipo.filter(c => c.equIdequipo !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el equipo.', 'success');
+          swal('¡Eliminado!', 'Se ha eliminado el equipo.', 'success');
         }
         this.rerender();
       });

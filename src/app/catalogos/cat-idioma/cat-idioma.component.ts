@@ -62,20 +62,20 @@ export class CatIdiomaComponent implements OnInit {
 
   deleteBusiness(id, idiNombre) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro desea eliminar el idioma ${idiNombre}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
+        confirmButtonText: 'Si, ¡eliminar!',
         cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.value) {
         this.idiomaService.deleteBusiness(id).subscribe(data => {
             this.allIdiomas = this.allIdiomas.filter(i => i.idiIdioma !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el idioma.', 'success');
+          swal('¡Eliminado!', 'Se ha eliminado el idioma.', 'success');
           this.rerender();
         }
       });

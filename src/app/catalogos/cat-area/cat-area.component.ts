@@ -53,20 +53,20 @@ export class CatAreaComponent implements OnInit {
 
   deleteBusiness(id, arntipo) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro desea eliminar al área ${arntipo}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
+        confirmButtonText: 'Si, ¡eliminar!',
         cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.value) {
         this.areaService.deleteBusiness(id).subscribe(data => {
             this.allAreas = this.allAreas.filter(c => c.arnIdarea !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el área.', 'success');
+          swal('¡Eliminado!', 'Se ha eliminado el área.', 'success');
           this.rerender();
         }
       });

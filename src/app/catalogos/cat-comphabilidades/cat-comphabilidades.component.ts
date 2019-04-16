@@ -62,7 +62,7 @@ export class CatComphabilidadesComponent implements OnInit {
 
   deleteBusiness(id, cohDescripcion) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro que desea eliminar la habilidad ${cohDescripcion}?`,
         type: 'warning',
         showCancelButton: true,

@@ -62,7 +62,7 @@ export class CatTipvacanteComponent implements OnInit {
 
   deleteBusiness(id, tvaTipo) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro desea eliminar al tipo de vacante ${tvaTipo}?`,
         type: 'warning',
         showCancelButton: true,
@@ -75,7 +75,7 @@ export class CatTipvacanteComponent implements OnInit {
         this.tipvacanteService.deleteBusiness(id).subscribe(data => {
             this.allTipvacante = this.allTipvacante.filter(c => c.tvaIdtipovacante !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el tipo vacante.', 'success');
+          swal('¡Eliminado!', 'Se ha eliminado el tipo vacante.', 'success');
           this.rerender();
         }
       });
