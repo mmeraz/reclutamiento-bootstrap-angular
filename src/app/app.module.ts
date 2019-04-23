@@ -143,15 +143,11 @@ import { MediaAceptadoComponent } from './pages/usuarios/comercial/componets/ace
 import { AltaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/alta-rechazado/alta-rechazado.component';
 import { MediaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/media-rechazado/media-rechazado.component';
 import { BajaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/baja-rechazado/baja-rechazado.component';
-import { RequerivalibackComponent } from './pages/usuarios/backoffice/requerimientos/requerivaliback.component';
 import { RequericancebackComponent } from './pages/usuarios/backoffice/requerimientos/requericanceback.component';
 import { RequeripenvatibackComponent } from './pages/usuarios/backoffice/requerimientos/requeripenvatiback.component';
 import { RequeriporasigbackComponent } from './pages/usuarios/backoffice/requerimientos/requeriporasigback.component';
-import { RequeriasignadabackComponent } from './pages/usuarios/backoffice/requerimientos/requeriasignadaback.component';
 import { RequerirechatibackComponent } from './pages/usuarios/backoffice/requerimientos/requerirechatiback.component';
-import { RequeripendiresbackComponent } from './pages/usuarios/backoffice/requerimientos/requeripendiresback.component';
 import { RequeriacepclibackComponent } from './pages/usuarios/backoffice/requerimientos/requeriacepcliback.component';
-import { RequeriperdidabackComponent } from './pages/usuarios/backoffice/requerimientos/requeriperdidaback.component';
 import { RequerienesperabackComponent } from './pages/usuarios/backoffice/requerimientos/requerienesperaback.component';
 import { RequerisegundaopbackComponent } from './pages/usuarios/backoffice/requerimientos/requerisegundaopback.component';
 import { CandidatovalidadoComponent } from './pages/usuarios/backoffice/candidatos/candidatovalidado.component';
@@ -361,15 +357,11 @@ import { CandPendContratoComponent } from './pages/usuarios/backoffice/candidato
     AceptadostiComponent,
     BorradorComponent,
     PendienteclienteComponent,
-    RequerivalibackComponent,
     RequericancebackComponent,
     RequeripenvatibackComponent,
     RequeriporasigbackComponent,
-    RequeriasignadabackComponent,
     RequerirechatibackComponent,
-    RequeripendiresbackComponent,
     RequeriacepclibackComponent,
-    RequeriperdidabackComponent,
     RequerienesperabackComponent,
     RequerisegundaopbackComponent,
     CandidatovalidadoComponent,
