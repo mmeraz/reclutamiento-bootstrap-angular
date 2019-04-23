@@ -253,7 +253,7 @@ export class SeguimientoSolService {
 
   getSgsSeguimientoAsignadas(id: number) {
     this.getHeaders();
-    return this.clienteHttp.get(`${this.url}/fetchAsignadas/${id}`,
+    return this.clienteHttp.get(`${this.url}/fetchAsignada/${id}`,
     {headers: this.headers});
   }
 
@@ -293,7 +293,7 @@ export class SeguimientoSolService {
 
   getSgsSeguimietoAceptadaXClientePrioridad(nombre: string) {
     this.getHeaders();
-    return this.clienteHttp.get(`${this.url}//fetchActive/16/${nombre}`, {
+    return this.clienteHttp.get(`${this.url}/fetchActive/16/${nombre}`, {
       headers: this.headers});
   }
 
@@ -329,7 +329,7 @@ export class SeguimientoSolService {
 
   getSgsSeguimientoSolicitudAsignadaByPrioridad( nombre: string) {
     this.getHeaders(); // agregar
-    return this.clienteHttp.get(`${this.url}/fetchByAsignada/${nombre}`, {
+    return this.clienteHttp.get(`${this.url}/fetchAsignadas/${nombre}`, {
       headers: this.headers});
   }
 
