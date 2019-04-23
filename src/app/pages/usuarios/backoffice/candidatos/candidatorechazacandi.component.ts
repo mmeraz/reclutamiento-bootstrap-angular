@@ -20,9 +20,9 @@ export class CandidatorechazacandiComponent implements OnInit {
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
   arraySolicitudes: Catcandidato[];
-  allSolicitud: Catseguicandidato[] = [];
+  allCandidato: any = [];
   dtTrigger: Subject<any> = new Subject();
-  constructor(private serviceSolicitud: SeguimientoCandService,
+  constructor(private candSErvice: SeguimientoCandService,
               protected authservice: AuthService) { }
 
   ngOnInit(): void {
@@ -30,8 +30,8 @@ export class CandidatorechazacandiComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-   this.serviceSolicitud.getSecSeguimientoActivoAll().subscribe(result => {
-      this.allSolicitud = result;
+   this.candSErvice.getSecSeguimientoRechazadoXCandidato().subscribe(result => {
+      this.allCandidato = result;
       this.dtTrigger.next();
     }) ;
   }
