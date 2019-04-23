@@ -65,14 +65,15 @@
                       class="fas fa-pencil-alt"
                       [routerLink]="['/EditUser', a.usrUsuario]"
                       *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
-
-                      <i style="color:#dc3545;"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title="Eliminar"
-                      class="fas fa-trash-alt"
-                      (click)="deleteBusiness(a.usrUsuario,a.usrNombreusuario)"
-                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                  </td>
+                  <td>
+                    <i style="color:#dc3545;"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Eliminar"
+                    class="fas fa-trash-alt"
+                    (click)="deleteBusiness(a.usrUsuario,a.usrNombreusuario)"
+                    *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
                   </td>
                 </tr>
               </tbody>

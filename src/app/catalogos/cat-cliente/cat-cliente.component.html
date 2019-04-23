@@ -51,9 +51,10 @@
                       title="Editar"
                       class="fas fa-pencil-alt"
                       [routerLink]="['/EditCliente', a.cliIdcliente]"
-                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
-
-                      <i style="color:#dc3545;"
+                      *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>                     
+                  </td>
+                  <td>
+                     <i style="color:#dc3545;"
                       data-toggle="tooltip"
                       data-placement="top"
                       title="Eliminar"
