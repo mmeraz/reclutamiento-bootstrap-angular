@@ -50,6 +50,7 @@ export class EditAreaComponent implements OnInit {
 
  update(): void {
   window.location.reload();
+  //this.router.navigate(['Area']);
 }
 
  saveData() {

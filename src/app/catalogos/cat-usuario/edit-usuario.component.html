@@ -31,7 +31,7 @@
                   <input [(ngModel)]="usuario.usrTelefono" maxlength="15" type="text" required class="form-control" name="usrTelefono" formControlName="usrTelefono" #usrTelefono>
 
 
-                  <div *ngIf="editForm.get('Username').errors && editForm.get('Username').dirty">
+                  <div *ngIf="editForm.get('Username').errors && editForm.get('Username').dirty && editForm.get('Username').touched ">
                       <p class="text-danger" *ngIf="editForm.get('Username').hasError('required')">El username es requerida</p>
                       <p class="text-danger" *ngIf="editForm.get('Username').hasError('maxlength')">Máximo 25 carácteres</p>
                       <p class="text-danger" *ngIf="editForm.get('Username').hasError('pattern')">Solo se aceptan letras</p>
