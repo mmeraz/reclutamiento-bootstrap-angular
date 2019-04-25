@@ -108,12 +108,7 @@
                         r.arnTipo
                       }}</option>
                     </select>
-                    <span
-                      *ngIf="select1.invalid && select1.touched"
-                      class="text-white bg-danger"
-                    >
-                      El campo es requerido</span
-                    >
+                    <small  *ngIf="select1.invalid && select1.touched" class="form-text text-danger">El campo es requerido</small>
                   </div>
                 </div>
                 <!-- Select Basic -->
@@ -136,13 +131,7 @@
                         >{{ item.priNombre }}</option
                       >
                     </select>
-
-                    <span
-                      *ngIf="select2.invalid && select2.touched"
-                      class="text-white bg-danger"
-                    >
-                      El campo es requerido</span
-                    >
+                    <small  *ngIf="select2.invalid && select2.touched" class="form-text text-danger">El campo es requerido</small>
                   </div>
                 </div>
                 <!-- Select Basic -->
@@ -158,19 +147,12 @@
                       required
                       #select3="ngModel"
                     >
-                      <option [ngValue]="" selected="true"
-                        >Selecciona uno</option
+                      <option [ngValue]="" selected>Selecciona uno</option
                       >
                       <option value="S">Si</option>
                       <option value="N">No</option>
                     </select>
-
-                    <span
-                      *ngIf="select3.invalid && select3.touched"
-                      class="text-white bg-danger"
-                    >
-                      El campo es requerido</span
-                    >
+                    <small  *ngIf="select3.invalid && select3.touched" class="form-text text-danger">El campo es requerido</small>
                   </div>
                 </div>
                 <div class="form-group">
@@ -190,13 +172,7 @@
                         p.perPerfil
                       }}</option>
                     </select>
-
-                    <span
-                      *ngIf="select5.invalid && select5.touched"
-                      class="text-white bg-danger"
-                    >
-                      El campo es requerido</span
-                    >
+                    <small  *ngIf="select5.invalid && select5.touched" class="form-text text-danger">El campo es requerido</small>
                   </div>
                 </div>
                 <div class="form-group">
@@ -216,13 +192,7 @@
                       <option value="H">Hombre</option>
                       <option value="M">Mujer</option>
                     </select>
-
-                    <span
-                      *ngIf="select6.invalid && select6.touched"
-                      class="text-white bg-danger"
-                    >
-                      El campo es requerido</span
-                    >
+                    <small  *ngIf="select6.invalid && select6.touched" class="form-text text-danger">El campo es requerido</small>
                   </div>
                 </div>
                 <!-- Text input -->
@@ -241,12 +211,7 @@
                       pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
                       #var1="ngModel"
                     />
-                    <span
-                      *ngIf="var1.invalid && var1.touched"
-                      class="text-white bg-danger"
-                    >
-                      El campo es requerido ó solo acepta letras.
-                    </span>
+                    <small  *ngIf="var1.invalid && var1.touched" class="form-text text-danger">El campo es requerido ó solo acepta letras</small>
                   </div>
                 </div>
                 <div class="form-group">
@@ -278,13 +243,7 @@
                       <option>De 20 a 40 años</option>
                       <option>De 30 a 50 años</option>
                     </select>
-
-                    <span
-                      *ngIf="select7.invalid && select7.touched"
-                      class="text-white bg-danger"
-                    >
-                      El campo es requerido</span
-                    >
+                    <small  *ngIf="select7.invalid && select7.touched" class="form-text text-danger">El campo es requerido</small>
                   </div>
                 </div>
               </div>
@@ -342,13 +301,7 @@
                         c.cliNombre
                       }}</option>
                     </select>
-
-                    <span
-                      *ngIf="select9.invalid && select9.touched"
-                      class="text-white bg-danger"
-                    >
-                      El campo es requerido para seleccionar el cliente</span
-                    >
+                    <small  *ngIf="select9.invalid && select9.touched" class="form-text text-danger">El campo es requerido para seleccionar el cliente</small>
                   </div>
                 </div>
                 <div class="form-group" *ngIf="cliente">
@@ -444,13 +397,7 @@
                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
                           #var2="ngModel"
                         />
-
-                        <span
-                          *ngIf="var2.invalid && var2.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido ó solo acepta letras.
-                        </span>
+                        <small  *ngIf="var2.invalid && var2.touched" class="form-text text-danger">El campo es requerido ó solo acepta letras</small>
                       </div>
                     </div>
                   </div>
@@ -472,13 +419,7 @@
                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
                           #var3="ngModel"
                         />
-
-                        <span
-                          *ngIf="var3.invalid && var3.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido ó solo acepta letras.
-                        </span>
+                        <small  *ngIf="var3.invalid && var3.touched" class="form-text text-danger">El campo es requerido ó solo acepta letras</small>
                       </div>
                     </div>
                   </div>
@@ -500,13 +441,7 @@
                           pattern="^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$"
                           #var4="ngModel"
                         />
-
-                        <span
-                          *ngIf="var4.invalid && var4.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido ó solo acepta letras.
-                        </span>
+                        <small  *ngIf="var4.invalid && var4.touched" class="form-text text-danger">El campo es requerido ó solo acepta letras</small>
                       </div>
                     </div>
                   </div>
@@ -531,13 +466,7 @@
                             >{{ item.jolTipo }}</option
                           >
                         </select>
-
-                        <span
-                          *ngIf="select13.invalid && select13.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido</span
-                        >
+                        <small  *ngIf="select13.invalid && select13.touched" class="form-text text-danger">El campo es requerido</small>
                       </div>
                     </div>
                   </div>
@@ -562,19 +491,14 @@
                         >
                           Descripción del proyecto</textarea
                         >
-                        <span
-                          *ngIf="text1.invalid && text1.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido o solo acepta letras.
-                        </span>
+                        <small  *ngIf="text1.invalid && text1.touched" class="form-text text-danger">El campo es requerido ó solo acepta letras</small>
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="form-group">
                       <label class="col-md-12 control-label" for="direccion"
-                        >Direccion de entrevista</label
+                        >Dirección de entrevista</label
                       >
                       <input
                         name="direccion"
@@ -587,13 +511,7 @@
                         pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ0123456789., ]*$"
                         #var5="ngModel"
                       />
-
-                      <span
-                        *ngIf="var5.invalid && var5.touched"
-                        class="text-white bg-danger"
-                      >
-                        El campo es requerido ó solo acepta letras y numeros.
-                      </span>
+                      <small  *ngIf="var5.invalid && var5.touched" class="form-text text-danger">El campo es requerido ó solo acepta letras y numeros</small>
                     </div>
                   </div>
                   <!-- Text input -->
@@ -615,13 +533,7 @@
                           #var6="ngModel"
                           required
                         />
-
-                        <span
-                          *ngIf="var6.invalid && var6.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido ó solo acepta numeros.
-                        </span>
+                        <small  *ngIf="var6.invalid && var6.touched" class="form-text text-danger">El campo es requerido ó solo acepta numeros</small>
                       </div>
                     </div>
                   </div>
@@ -634,24 +546,18 @@
                       <div class="col-md-12">
                         <input
                           name="tarifaC"
-                          type="number"
+                          type="text"
                           placeholder="Tarifa comercial"
                           min="1"
                           max="100"
                           class="form-control input-md form-control-sm"
                           [(ngModel)]="tarifaC"
-                          maxlength="3"
+                          maxlength="6"
                           pattern="^[0-9 ]*$"
                           #var7="ngModel"
                           required
                         />
-
-                        <span
-                          *ngIf="var7.invalid && var7.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido ó solo acepta números.
-                        </span>
+                        <small  *ngIf="var7.invalid && var7.touched" class="form-text text-danger">El campo es requerido ó solo acepta números</small>
                       </div>
                     </div>
                   </div>
@@ -712,13 +618,7 @@
                               >{{ item.idiNombre }}</option
                             >
                           </select>
-
-                          <span
-                            *ngIf="select14.invalid && select14.touched"
-                            class="text-white bg-danger"
-                          >
-                            El campo es requerido.</span
-                          >
+                          <small  *ngIf="select14.invalid && select14.touched" class="form-text text-danger">El campo es requerido para agregar un idioma.</small>
                         </div>
                       </div>
                     </div>
@@ -740,13 +640,7 @@
                             pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
                             #var8="ngModel"
                           />
-
-                          <span
-                            *ngIf="var8.invalid && var8.touched"
-                            class="text-white bg-danger"
-                          >
-                            Solo acepta letras.
-                          </span>
+                          <small  *ngIf="var8.invalid && var8.touched" class="form-text text-danger">Es requerido para agregar un idioma ó solo acepta letras. </small>
                         </div>
                       </div>
                     </div>
@@ -815,13 +709,7 @@
                             >{{ cono.cotConocimiento }}</option
                           >
                         </select>
-
-                        <span
-                          *ngIf="select15.invalid && select15.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido</span
-                        >
+                        <small  *ngIf="select15.invalid && select15.touched" class="form-text text-danger">El campo es requerido si se quiere agregar otro conocimiento</small>
                       </div>
                     </div>
 
@@ -843,12 +731,7 @@
                           pattern="^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$"
                           #var9="ngModel"
                         />
-                        <span
-                          *ngIf="var9.invalid && var9.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido ó acepta solo letras</span
-                        >
+                        <small  *ngIf="var9.invalid && var9.touched" class="form-text text-danger">El campo es requerido si se quiere agregar otro conocimiento ó solo acepta letras</small>
                       </div>
                     </div>
                     <div>
@@ -916,13 +799,8 @@
                             >{{ hab.cohDescripcion }}</option
                           >
                         </select>
+                        <small  *ngIf="select16.invalid && select16.touched" class="form-text text-danger">El campo es requerido para agregar una nueva función.</small>
 
-                        <span
-                          *ngIf="select16.invalid && select16.touched"
-                          class="text-white bg-danger"
-                        >
-                          El campo es requerido</span
-                        >
                       </div>
                     </div>
                     <div>
@@ -1017,14 +895,7 @@
                             e.equNombre
                           }}</option>
                         </select>
-
-                        <span
-                          *ngIf="select17.invalid && select17.touched"
-                          class="text-danger "
-                        >
-                          El campo es requerido, si se quiere agregar un
-                          equipo.</span
-                        >
+                        <small  *ngIf="select17.invalid && select17.touched" class="form-text text-danger">El campo es requerido para agregar un  equipo</small>
                       </div>
                       <div>
                         <button
@@ -1119,13 +990,7 @@
                             pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
                             #var10="ngModel"
                           />
-
-                          <span
-                            *ngIf="var10.invalid && var10.touched"
-                            class="text-white bg-danger"
-                          >
-                            El campo es requerido ó solo acepta letras.
-                          </span>
+                          <small  *ngIf="var10.invalid && var10.touched" class="form-text text-danger">El campo es requerido si se quiere agregar una función ó solo acepta letras.</small>
                         </div>
                       </div>
                       <div>
@@ -1229,13 +1094,7 @@
                               >{{ per.preTipo }}</option
                             >
                           </select>
-
-                          <span
-                            *ngIf="select18.invalid && select18.touched"
-                            class="text-white bg-danger"
-                          >
-                            El campo es requerido</span
-                          >
+                          <small  *ngIf="select18.invalid && select18.touched" class="form-text text-danger">El campo es requerido para agregar una percepción</small>
                         </div>
                       </div>
 
@@ -1256,13 +1115,7 @@
                             pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$"
                             #var11="ngModel"
                           />
-
-                          <span
-                            *ngIf="var11.invalid && var11.touched"
-                            class="text-white bg-danger"
-                          >
-                            Solo acepta letras.
-                          </span>
+                          <small  *ngIf="var11.invalid && var11.touched" class="form-text text-danger">El campo es requerido para agregar una percepción ó solo acepta letras</small>
                         </div>
                       </div>
 
@@ -1281,14 +1134,9 @@
                             [(ngModel)]="valorPer"
                             pattern="^[0-9 ]*$"
                             #var12="ngModel"
+                            maxlength="6"
                           />
-
-                          <span
-                            *ngIf="var12.invalid && var12.touched"
-                            class="text-white bg-danger"
-                          >
-                            Solo acepta numeros
-                          </span>
+                          <small  *ngIf="var12.invalid && var12.touched" class="form-text text-danger">El campo es requerido para agregar una percepción ó solo acepta numeros</small>
                         </div>
                       </div>
                       <div>
@@ -1329,7 +1177,7 @@
                             <h3 class="lead">
                               {{ p.prePercepciones.preTipo }}
                             </h3>
-                            <p>{{ p.slpDescripcion }} ${{ p.slpValorm }}.00</p>
+                            <p>{{ p.slpDescripcion }} {{ p.slpValorm | currency:'MXN' }}</p>
                           </div>
                         </div>
                       </div>
