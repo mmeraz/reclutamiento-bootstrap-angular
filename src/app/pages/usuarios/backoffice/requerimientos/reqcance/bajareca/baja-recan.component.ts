@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
-import { Catsolicitud } from '../../../../model/catsolicitud.model';
+import { Catsolicitud } from '../../../../../../model/catsolicitud.model';
 import { Subject } from 'rxjs';
-import { SeguimientoSolService } from '../../../../service/seguimientosol.service';
-import { AuthService } from '../../../../service/auth.service';
+import { SeguimientoSolService } from '../../../../../../service/seguimientosol.service';
+import { AuthService } from '../../../../../../service/auth.service';
 
 @Component({
-  selector: 'app-requerisegundaopback',
-  templateUrl: './requerisegundaopback.component.html',
+  selector: 'app-baja-recan',
+  templateUrl: './baja-recan.component.html',
   styles: []
 })
-export class RequerisegundaopbackComponent implements OnInit {
+export class BajaRecanComponent implements OnInit {
 
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
@@ -26,7 +26,7 @@ export class RequerisegundaopbackComponent implements OnInit {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-   this.serviceSolicitud.getSgsSeguimientoSolicitudAct().subscribe(result => {
+   this.serviceSolicitud.getSgsSeguimietoAceptadaXClientePrioridad('Baja').subscribe(result => {
       this.allSolicitud = result;
       this.dtTrigger.next();
     }) ;
@@ -42,4 +42,3 @@ export class RequerisegundaopbackComponent implements OnInit {
   }
 
 }
-

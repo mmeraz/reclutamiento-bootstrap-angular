@@ -76,7 +76,6 @@ import { Solicitud2ReclutamientoComponent } from './pages/usuarios/reclutamiento
 import { IndexBackofficeComponent } from './pages/usuarios/backoffice/index-backoffice.component';
 import { RequeriBackofficeComponent } from './pages/usuarios/backoffice/componets/requeri-backoffice.component';
 import { CandiBackofficeComponent } from './pages/usuarios/backoffice/componets/candi-backoffice.component';
-import { RequipeBackofficeComponent } from './pages/usuarios/backoffice/componets/requipe-backoffice.component';
 import { IndexLiderreclutamientoComponent } from './pages/usuarios/liderreclutamiento/index-liderreclutamiento.component';
 import { PrialLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/prial-liderreclu.component';
 import { PrimeLiderrecluComponent } from './pages/usuarios/liderreclutamiento/componets/prime-liderreclu.component';
@@ -124,13 +123,6 @@ import { BajaAceptadoComponent } from './pages/usuarios/comercial/componets/acep
 import { AltaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/alta-rechazado/alta-rechazado.component';
 import { MediaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/media-rechazado/media-rechazado.component';
 import { BajaRechazadoComponent } from './pages/usuarios/comercial/componets/rechazados/baja-rechazado/baja-rechazado.component';
-import { RequericancebackComponent } from './pages/usuarios/backoffice/requerimientos/requericanceback.component';
-import { RequeripenvatibackComponent } from './pages/usuarios/backoffice/requerimientos/requeripenvatiback.component';
-import { RequeriporasigbackComponent } from './pages/usuarios/backoffice/requerimientos/requeriporasigback.component';
-import { RequerirechatibackComponent } from './pages/usuarios/backoffice/requerimientos/requerirechatiback.component';
-import { RequeriacepclibackComponent } from './pages/usuarios/backoffice/requerimientos/requeriacepcliback.component';
-import { RequerienesperabackComponent } from './pages/usuarios/backoffice/requerimientos/requerienesperaback.component';
-import { RequerisegundaopbackComponent } from './pages/usuarios/backoffice/requerimientos/requerisegundaopback.component';
 import { CandidatovalidadoComponent } from './pages/usuarios/backoffice/candidatos/candidatovalidado.component';
 import { CandidatoentrevistaComponent } from './pages/usuarios/backoffice/candidatos/candidatoentrevista.component';
 import { CandidatorechazadotiComponent } from './pages/usuarios/backoffice/candidatos/candidatorechazadoti.component';
@@ -243,7 +235,6 @@ import { SegCandidatoComponent } from './pages/usuarios/backoffice/seguimiento/s
   {path: 'IndexBackoffice', component: IndexBackofficeComponent, canActivate: [AuthGuard]  },
   {path: 'RequerimientosBackoffice', component: RequeriBackofficeComponent, canActivate: [AuthGuard]  },
   {path: 'CandidatosBackoffice', component: CandiBackofficeComponent, canActivate: [AuthGuard]  },
-  {path: 'RequerimientosPerdidosBackoffice', component: RequipeBackofficeComponent, canActivate: [AuthGuard]  },
   {path: 'IndexLiderreclutamiento', component: IndexLiderreclutamientoComponent, canActivate: [AuthGuard]  },
   {path: 'PrioridadAltaLiderreclutamiento', component: PrialLiderrecluComponent, canActivate: [AuthGuard]  },
   {path: 'PrioridadMediaLiderreclutamiento', component: PrimeLiderrecluComponent, canActivate: [AuthGuard]  },
@@ -292,13 +283,6 @@ import { SegCandidatoComponent } from './pages/usuarios/backoffice/seguimiento/s
   {path: 'BajaRechazado/:id', component: BajaRechazadoComponent, canActivate: [AuthGuard]  },
 
   // BACKOFFICE
-  {path: 'RequerimientosCanceladosBackOffice', component: RequericancebackComponent, canActivate: [AuthGuard]  },
-  {path: 'RequerimientosPendientesValidadosTIBackOffice', component: RequeripenvatibackComponent, canActivate: [AuthGuard]  },
-  {path: 'RequerimientosPorAsignarBackOffice', component: RequeriporasigbackComponent, canActivate: [AuthGuard]  },
-  {path: 'RequerimientosRechazadoTIBackOffice', component: RequerirechatibackComponent, canActivate: [AuthGuard]  },
-  {path: 'RequerimientosAceptadosClienteBackOffice', component: RequeriacepclibackComponent, canActivate: [AuthGuard]  },
-  {path: 'RequerimientosEnEsperaBackOffice', component: RequerienesperabackComponent, canActivate: [AuthGuard]  },
-  {path: 'RequerimientosSegundaOpcionBackOffice', component: RequerisegundaopbackComponent, canActivate: [AuthGuard]  },
   {path: 'CandidatoValidado', component: CandidatovalidadoComponent, canActivate: [AuthGuard]  },
   {path: 'CandidatoEntrevista', component: CandidatoentrevistaComponent, canActivate: [AuthGuard]  },
   {path: 'CandidatoRechazadoPorTI', component: CandidatorechazadotiComponent, canActivate: [AuthGuard]  },
