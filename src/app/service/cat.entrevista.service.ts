@@ -83,5 +83,10 @@ export class EntrevistaService {
       return this.clienteHttp.get(`${this.url}/fetchActive/15`,
          {headers: this.headers});
     }
+    getSecCandidatoRechTI() {
+      this.getHeaders();
+      return this.clienteHttp.get(`${this.url}/fetchEntrevista/9`,
+         {headers: this.headers});
+    }
 
 }

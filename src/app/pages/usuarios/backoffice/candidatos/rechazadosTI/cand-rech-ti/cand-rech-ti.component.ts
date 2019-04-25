@@ -21,15 +21,15 @@ export class CandRechTiComponent implements OnInit {
   allSeguimiento: any = [];
   dtTrigger: Subject<any> = new Subject();
 
-  constructor(private serviceSecCandidato: SeguimientoCandService, protected authservice: AuthService,
-              private serviceEntrevista: EntrevistaService) { }
+  constructor(private entrevistaService: EntrevistaService, protected authservice: AuthService,
+              ) { }
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
     };
-    this.serviceSecCandidato.getSecSeguimientoRechazadoTI().subscribe(result => {
+    this.entrevistaService.getSecCandidatoRechTI().subscribe(result => {
       this.allSeguimiento = result;
       this.dtTrigger.next();
     });
