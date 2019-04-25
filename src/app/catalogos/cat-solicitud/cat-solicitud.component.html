@@ -1,8 +1,9 @@
 <div class="card">
   <div class="card-header">
     <div class="row">
-      <h5>Nueva Solicitud</h5>
-      <div class="col-md-3 offset-md-2">
+
+      <div class="col-lg-6"><h5>Nueva Solicitud</h5></div>
+      <div class="col-lg-6 align-content-lg-end">
         <button
           type="button"
           class="btn btn-success"
@@ -29,23 +30,19 @@
         >
           Guardar <i class="fa fa-check" aria-hidden="true"></i>
         </button>
-      </div>
-      <!-- <div class="col-md-2">
-          <button type="button"
-          class="btn btn-primary"
-          >
-            Borrador <i class="fa fa-broom" aria-hidden="true"></i>
-          </button>
-        </div> -->
-      <div class="col-md-2">
         <button
-          type="button"
-          class="btn btn-danger"
-          data-dismiss="modal"
-          [routerLink]="['/IndexComercial']"
-        >
-          Cancelar <i class="fas fa-backspace"></i>
-        </button>
+        type="button"
+        class="btn btn-danger ml-2"
+        data-dismiss="modal"
+        [routerLink]="['/IndexComercial']"
+      >
+        Cancelar <i class="fas fa-backspace"></i>
+      </button>
+      <!-- <button type="button"
+      class="btn btn-primary"
+      >
+        Borrador <i class="fa fa-broom" aria-hidden="true"></i>
+      </button> -->
       </div>
     </div>
   </div>
@@ -59,11 +56,11 @@
         aria-multiselectable="false"
       >
         <!-- Accordion card -->
-        <div class="card">
+        <div class="card  ">
           <!-- Card header -->
           <div
-            class="card-header z-depth-1 teal lighten-4"
-            role="tab"
+            class="card-header  bg-success mb-1"
+
             id="heading10"
           >
             <a
@@ -73,7 +70,7 @@
               aria-expanded="false"
               aria-controls="collapse10"
             >
-              <h6 class="mb-0 black-text font-weight-bold">
+              <h6 class="mb-0 text-white font-weight-bold">
                 Datos del requerimiento
               </h6>
             </a>
@@ -82,7 +79,7 @@
           <!-- Card body -->
           <div
             id="collapse10"
-            class="collapse show"
+            class="collapse "
             role="tabpanel"
             aria-labelledby="heading10"
             data-parent="#accordionEx2"
@@ -256,19 +253,19 @@
         <div class="card">
           <!-- Card header -->
           <div
-            class="card-header z-depth-1 teal lighten-3"
+            class="card-header z-depth-1 teal lighten-3 bg-success mb-1"
             role="tab"
             id="heading11"
           >
             <a
-              class="collapsed"
+              class="collapsed "
               data-toggle="collapse"
               data-parent="#accordionEx2"
               href="#collapse11"
               aria-expanded="false"
               aria-controls="collapse11"
             >
-              <h6 class="mb-0 black-text font-weight-bold">Datos Cliente</h6>
+              <h6 class="mb-0 text-white font-weight-bold">Datos Cliente</h6>
             </a>
           </div>
 
@@ -351,7 +348,7 @@
           <div class="card">
             <!-- Card header -->
             <div
-              class="card-header z-depth-1 teal lighten-2"
+              class="card-header bg-success mb-1"
               role="tab"
               id="heading12"
             >
@@ -363,7 +360,7 @@
                 aria-expanded="false"
                 aria-controls="collapse12"
               >
-                <h6 class="mb-0 black-text font-weight-bold">
+                <h6 class="mb-0 text-white font-weight-bold">
                   Datos del proyecto
                 </h6>
               </a>
@@ -569,7 +566,7 @@
             <div class="card">
               <!-- Card header -->
               <div
-                class="card-header z-depth-1 teal lighten-1"
+                class="card-header z-depth-1 teal lighten-1 bg-success mb-1"
                 role="tab"
                 id="heading13"
               >
@@ -581,7 +578,7 @@
                   aria-expanded="true"
                   aria-controls="collapse13"
                 >
-                  <h6 class="mb-0 black-text font-weight-bold">
+                  <h6 class="mb-0 text-white font-weight-bold">
                     Conocimiento requeridos
                   </h6>
                 </a>
@@ -850,7 +847,7 @@
               <div class="card">
                 <!-- Card header -->
                 <div
-                  class="card-header z-depth-1 teal"
+                  class="card-header z-depth-1 teal bg-success mb-1"
                   role="tab"
                   id="heading1"
                 >
@@ -862,7 +859,7 @@
                     aria-expanded="false"
                     aria-controls="collapse1"
                   >
-                    <h6 class="mb-0 black-text font-weight-bold">Equipo</h6>
+                    <h6 class="mb-0 text-white font-weight-bold">Equipo</h6>
                   </a>
                 </div>
 
@@ -948,7 +945,7 @@
               <div class="card">
                 <!-- Card header -->
                 <div
-                  class="card-header z-depth-1 teal"
+                  class="card-header z-depth-1 teal bg-success mb-1"
                   role="tab"
                   id="heading14"
                 >
@@ -960,7 +957,7 @@
                     aria-expanded="false"
                     aria-controls="collapse14"
                   >
-                    <h6 class="mb-0 black-text font-weight-bold">Funciones</h6>
+                    <h6 class="mb-0 text-white font-weight-bold">Funciones</h6>
                   </a>
                 </div>
 
@@ -1044,7 +1041,7 @@
               <div class="card">
                 <!-- Card header -->
                 <div
-                  class="card-header z-depth-1 teal"
+                  class="card-header z-depth-1 teal bg-success"
                   role="tab"
                   id="heading15"
                 >
@@ -1056,7 +1053,7 @@
                     aria-expanded="false"
                     aria-controls="collapse15"
                   >
-                    <h6 class="mb-0 black-text font-weight-bold">
+                    <h6 class="mb-0 text-white font-weight-bold">
                       Percepciones
                     </h6>
                   </a>

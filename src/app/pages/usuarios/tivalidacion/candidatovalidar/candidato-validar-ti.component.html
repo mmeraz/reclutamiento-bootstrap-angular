@@ -2,11 +2,11 @@
   <div class="jumbotron">
 
      <!-- Carta donde se encuentra el collapsible con toda la información -->
-  <div class="card" style="width: 100%;">
+  <div class="card bg-success" style="width: 100%;">
     <!-- <form [formGroup]="addForm" (submit)="saveData()"> -->
     <div class="card-header">
       <div class="row">
-        <div class="col-lg-6"><h5>Validar Candidato</h5></div>
+        <div class="col-lg-6 text-white "><h5>Validar Candidato</h5></div>
       </div>
     </div>
 
@@ -18,17 +18,16 @@
               Titulo del primer collapsible - tambien boton para abrir el primer collapsible
             -->
           <div class="card">
-            <div class="card-header" id="headingOne">
-              <button
-                class="btn btn-link"
-                type="button"
+            <div class="card-header bg-success mb-1 " id="headingOne">
+              <a
+
                 data-toggle="collapse"
                 data-target="#collapseOne"
                 aria-expanded="false"
                 aria-controls="collapseOne"
               >
-                <h6 class="mb-0">Datos del candidato</h6>
-              </button>
+                <h6 class="mb-1 text-white ">Datos del candidato</h6>
+              </a>
             </div>
             <!-- Primer collapsible -->
             <div
@@ -345,17 +344,16 @@
 
           <!-- Segundo titulo del collapsible -->
           <div class="card">
-            <div class="card-header" id="headingTwo">
-              <button
-                class="btn btn-link collapsed"
-                type="button"
+            <div class="card-header bg-success mb-1" id="headingOne">
+              <a
+
                 data-toggle="collapse"
                 data-target="#collapseTwo"
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                <h6 class="mb-0">Percepciones</h6>
-              </button>
+                <h6 class=" text-white" >Percepciones</h6>
+            </a>
             </div>
 
             <!-- Contenido del segundo collapsible -->
@@ -597,21 +595,19 @@
               </div>
             </div>
           </div>
-        </div>
 
         <!-- Collapsible tres -->
         <div class="card">
-          <div class="card-header" id="headingThree">
-            <button
-              class="btn btn-link collapsed"
-              type="button"
+          <div class="card-header bg-success mb-1" id="headingThree">
+            <a
+
               data-toggle="collapse"
               data-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              <h6 class="mb-0">Asignación de solicitud</h6>
-            </button>
+              <h6 class=" text-white">Asignación de solicitud</h6>
+          </a>
           </div>
           <div
             id="collapseThree"
@@ -632,17 +628,16 @@
 
         <!-- Collapsible 4 -->
         <div class="card">
-          <div class="card-header" id="headingOne">
-            <button
-              class="btn btn-link"
-              type="button"
+          <div class="card-header bg-success mb-1" id="headingOne">
+            <a
+
               data-toggle="collapse"
               data-target="#collapseFour"
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              <h6 class="mb-0">Conocimientos y habilidades</h6>
-            </button>
+              <h6 class=" text-white">Conocimientos y habilidades</h6>
+          </a>
           </div>
 
           <div
@@ -941,6 +936,9 @@
             </div>
           </div>
         </div>
+
+        </div>
+
       </li>
     </ul>
     <!-- </form> -->
