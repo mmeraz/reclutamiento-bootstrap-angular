@@ -13,3 +13,12 @@
   color: white !important;
 }
 
+
+a:hover{
+  text-decoration-line: none !important;
+}
+
+#headingOne  {
+  cursor: pointer !important;
+}
+
