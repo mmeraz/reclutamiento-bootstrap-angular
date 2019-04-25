@@ -254,8 +254,8 @@ export class CatSolicitudComponent implements OnInit {
     console.log(this.solicitud);
 
     this.mailService.sendEmail('1', this.solicitud);
-    this.router.navigate(['/IndexTiValidacion']);
-    this.refresh();
+    // this.router.navigate(['/IndexTiValidacion']);
+    // this.refresh();
   }
 
   /**
