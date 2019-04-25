@@ -61,20 +61,20 @@ export class CatJornadalabComponent implements OnInit {
 
   deleteBusiness(id, jolTipo) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro desea eliminar la jornada ${jolTipo}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
+        confirmButtonText: 'Si, ¡eliminar!',
         cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.value) {
         this.jornadalabService.deleteBusiness(id).subscribe(data => {
             this.allJornadalab = this.allJornadalab.filter(c => c.jolIdjornada !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el jornada.', 'success');
+          swal('¡Eliminado!', 'Se ha eliminado el jornada.', 'success');
           this.rerender();
         }
       });

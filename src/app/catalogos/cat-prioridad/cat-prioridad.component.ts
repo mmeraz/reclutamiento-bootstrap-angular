@@ -58,20 +58,20 @@ export class CatPrioridadComponent implements OnInit {
 
   deleteBusiness(id, priNombre) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro desea eliminar la prioridad ${priNombre}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
+        confirmButtonText: 'Si, ¡eliminar!',
         cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.value) {
         this.prioridadService.deleteBusiness(id).subscribe(data => {
             this.allPrioridad = this.allPrioridad.filter(c => c.priNombre !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado prioridad.', 'success');
+          swal('¡Eliminado!', 'Se ha eliminado prioridad.', 'success');
           this.rerender();
         }
       });

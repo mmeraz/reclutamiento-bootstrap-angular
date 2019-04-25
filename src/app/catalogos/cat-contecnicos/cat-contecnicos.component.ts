@@ -61,20 +61,20 @@ export class CatContecnicosComponent implements OnInit {
 
   deleteBusiness(id, cotConocimiento, cotTipo) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro desea eliminar el conocimiento ${cotConocimiento}? `,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
+        confirmButtonText: 'Si, ¡eliminar!',
         cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.value) {
         this.contecnicosService.deleteBusiness(id).subscribe(data => {
             this.allContecnicos = this.allContecnicos.filter(c => c.cotIdconcimientostec !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado el conocimientos técnicos.', 'success');
+          swal('¡Eliminado!', 'Se ha eliminado el conocimientos técnicos.', 'success');
         }
         this.rerender();
       });

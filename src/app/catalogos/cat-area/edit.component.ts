@@ -21,7 +21,7 @@ export class EditAreaComponent implements OnInit {
 
      createForm() {
       this.editForm = this.fb.group({
-        arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s]*$')] ]
+        arnTipo: ['', [Validators.required, Validators.maxLength(40), Validators.pattern('^[a-zA-ZñÑáéíóúÁÉÍÓÚ.,&\\s]*$')] ]
         });
       }
 

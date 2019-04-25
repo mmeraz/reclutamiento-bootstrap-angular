@@ -62,20 +62,20 @@ export class CatPrepercepcionComponent implements OnInit {
 
   deleteBusiness(id, preTipo) {
       swal({
-        title: 'Está seguro?',
+        title: '¿Está seguro?',
       text: `¿Seguro desea eliminar al precepcion ${preTipo}?`,
         type: 'warning',
         showCancelButton: true,
       confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
+        confirmButtonText: 'Si, ¡eliminar!',
         cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.value) {
         this.precepcionService.deleteBusiness(id).subscribe(data => {
             this.allPercepcion = this.allPercepcion.filter(c => c.preIdprestaciones !== id);
           });
-          swal('Eliminado!', 'Se ha eliminado la precepcion.', 'success');
+          swal('¡Eliminado!', 'Se ha eliminado la precepcion.', 'success');
           this.rerender();
         }
       });

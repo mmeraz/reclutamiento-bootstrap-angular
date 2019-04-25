@@ -1,0 +1,15 @@
+
+
+.accordion, .card-header{
+  padding: .5rem !important;
+}
+
+.btn-link:hover{
+  text-decoration-line: none !important;
+
+}
+
+.btn-link {
+  color: white !important;
+}
+

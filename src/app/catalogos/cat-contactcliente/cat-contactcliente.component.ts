@@ -31,20 +31,20 @@ export class CatContactclienteComponent implements OnInit {
   }
   deleteBusiness(id, clcIdconcli) {
     swal({
-      title: 'Está seguro?',
+      title: '¿Está seguro?',
     text: `¿Seguro desea eliminar el contacto cliente ${clcIdconcli}?`,
       type: 'warning',
       showCancelButton: true,
     confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, eliminar!',
+      confirmButtonText: 'Si, ¡eliminar!',
       cancelButtonText: 'Cancelar'
     }).then(result => {
       if (result.value) {
       this.contaclienteService.deleteBusiness(id).subscribe(data => {
           this.contactos = this.contactos.filter(c => c.clcIdconcli !== id);
         });
-        swal('Eliminado!', 'Se ha eliminado el contacto cliente.', 'success');
+        swal('¡Eliminado!', 'Se ha eliminado el contacto cliente.', 'success');
       }
     });
 }

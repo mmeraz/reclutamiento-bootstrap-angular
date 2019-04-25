@@ -59,13 +59,13 @@ export class CatClienteComponent implements OnInit {
   }
   deleteBusiness(id, cliNombre) {
     swal({
-      title: 'Está seguro?',
+      title: '¿Está seguro?',
     text: `¿Seguro desea eliminar el cliente ${cliNombre}?`,
       type: 'warning',
       showCancelButton: true,
     confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, eliminar!',
+      confirmButtonText: 'Si, ¡eliminar!',
       cancelButtonText: 'Cancelar'
     }).then(result => {
       if (result.value) {

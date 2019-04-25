@@ -62,20 +62,20 @@ export class CatUsuarioComponent implements OnInit {
 
     deleteBusiness(id, usrUsername) {
         swal({
-          title: 'Está seguro?',
+          title: '¿Está seguro?',
         text: `¿Seguro desea eliminar al usuario ${usrUsername}?` ,
         type: 'warning',
           showCancelButton: true,
         confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          confirmButtonText: 'Si, eliminar!',
+          confirmButtonText: 'Si, ¡eliminar!',
           cancelButtonText: 'Cancelar'
         }).then(result => {
           if (result.value) {
           this.usuarioService.deleteBusiness(id).subscribe(data => {
               this.allUsuario = this.allUsuario.filter(c => c.usrUsuario !== id);
             });
-            swal('Eliminado!', 'Se ha eliminado el usuario.', 'success');
+            swal('¡Eliminado!', 'Se ha eliminado el usuario.', 'success');
             this.rerender();
           }
         });
