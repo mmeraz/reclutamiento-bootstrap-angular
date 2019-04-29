@@ -141,6 +141,8 @@ import { CandidatopendiresComponent } from './pages/usuarios/backoffice/candidat
 import { CandidatosegunopComponent } from './pages/usuarios/backoffice/candidatos/candidatosegunop.component';
 import { SegSolicitudComponent } from './pages/usuarios/backoffice/seguimiento/seg-solicitud/seg-solicitud.component';
 import { SegCandidatoComponent } from './pages/usuarios/backoffice/seguimiento/seg-candidato/seg-candidato.component';
+import { CandiValitiComponent } from './pages/usuarios/tivalidacion/candi-valiti/candi-valiti.component';
+import { CandidatoValiComponent } from './pages/usuarios/reclutamiento/candidato-vali/candidato-vali.component';
 
 
 
@@ -301,6 +303,8 @@ import { SegCandidatoComponent } from './pages/usuarios/backoffice/seguimiento/s
   {path: 'CandidatoSegundaOpcion', component: CandidatosegunopComponent, canActivate: [AuthGuard]  },
   {path: 'SegSolicitud/:id', component: SegSolicitudComponent, canActivate: [AuthGuard]  },
   {path: 'SegCandidato/:id', component: SegCandidatoComponent, canActivate: [AuthGuard]  },
+  {path: 'CandiValTI/:id', component: CandiValitiComponent, canActivate: [AuthGuard]},
+  {path: 'CandiValTI2/:id', component: CandidatoValiComponent, canActivate: [AuthGuard]},
 ];
 
  export const appRoutingProviders: any[] = [];

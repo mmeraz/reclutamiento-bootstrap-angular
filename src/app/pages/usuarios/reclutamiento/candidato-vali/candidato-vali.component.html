@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="card border-3 border-top border-top-primary">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h5 class="text-muted">
+            Candidato <i class="fas fa-user-alt fa-sm text-info"></i>
+          </h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Nombre:
+            <span class="text-muted"> {{ allSeguimiento?.cndDatoscandidato.cndNombre }}
+              {{ allSeguimiento?.cndDatoscandidato.cndApellidopat }}
+              {{ allSeguimiento?.cndDatoscandidato.cndApellidomat }}</span>
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Sexo:<span class="text-muted">{{ allSeguimiento?.cndDatoscandidato.cndGenero }}</span>
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Email:
+
+            <span class="text-muted">{{ allSeguimiento?.cndDatoscandidato.cndEmail }}</span>
+          </h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Estado Civil:
+            <span class="text-muted">{{ allSeguimiento?.cndDatoscandidato.cndEstcivil }}
+            </span>
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Edad: <span class="text-muted">{{ allSeguimiento?.cndDatoscandidato.cndEdad }}</span>
+          </h6>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="mb-2">
+            Telefono:
+            <span class="text-muted"
+              *ngFor="let c of allSeguimiento?.cndDatoscandidato.conContactocans">{{ c.conTelmovil }}, </span>
+          </h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h6 class="mb-2">
+            Dirección:
+            <span class="text-muted"> {{ allSeguimiento?.cndDatoscandidato.cndCalle }}
+            </span>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card border-3 border-top border-top-primary">
+        <div class="card-body">
+          <h5 class="card-title">Comentario TI: </h5>
+          <h6 class="card-subtitle mb-2">
+            <span class="text-muted">{{ allSeguimiento?.secComentario }}</span>
+          </h6>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-1">
+      <div class="form-group">
+        <button class="btn btn-danger mt-2" [routerLink]="['/IndexReclutamiento']">
+          Atras
+        </button>
+      </div>
+    </div>
+
+    <div class="col-lg-1">
+      <div class="form-group">
+        <button class="btn btn-success mt-2" [routerLink]="['/New-candidato']">
+          Nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

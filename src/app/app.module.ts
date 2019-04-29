@@ -202,6 +202,8 @@ import { BajaPorasigComponent } from './pages/usuarios/backoffice/requerimientos
 import { AltaReqseopComponent } from './pages/usuarios/backoffice/requerimientos/reqeseop/altareqseop/alta-reqseop.component';
 import { MediaReqseopComponent } from './pages/usuarios/backoffice/requerimientos/reqeseop/mediareqseop/media-reqseop.component';
 import { BajaReqseopComponent } from './pages/usuarios/backoffice/requerimientos/reqeseop/bajareqseop/baja-reqseop.component';
+import { CandidatoValiComponent } from './pages/usuarios/reclutamiento/candidato-vali/candidato-vali.component';
+import { CandiValitiComponent } from './pages/usuarios/tivalidacion/candi-valiti/candi-valiti.component';
 
 @NgModule({
   declarations: [
@@ -426,6 +428,8 @@ import { BajaReqseopComponent } from './pages/usuarios/backoffice/requerimientos
     AltaReqseopComponent,
     MediaReqseopComponent,
     BajaReqseopComponent,
+    CandidatoValiComponent,
+    CandiValitiComponent,
   ],
   imports: [
     BrowserModule,
