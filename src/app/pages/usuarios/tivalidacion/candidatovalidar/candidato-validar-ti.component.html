@@ -952,14 +952,16 @@
           <textarea class="form-control"
                     id="exampleFormControlTextarea1"
                     rows="9"
-                    maxlength="250"
+                    required
+                    minlength="100"
+                    #comentario="ngModel"
                     [(ngModel)]="secComentario"></textarea>
         </div>
         </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="mt-lg-5 mt-md-5"></div>
-      <button class="btn btn-success btn-sm mr-2" (click)="updateBusiness()">Validar</button>
+      <button class="btn btn-success btn-sm mr-2" [disabled]="comentario.invalid" (click)="updateBusiness()">Validar</button>
       <button class="btn btn-danger btn-sm" (click)="updateRechazada()">Rechazar</button>
 
     </div>

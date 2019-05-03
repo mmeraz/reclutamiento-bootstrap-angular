@@ -1,7 +1,23 @@
 <div class="container">
   <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <div>
+
+ <!-- Carta donde se encuentra el collapsible con toda la información -->
+ <div class="card " style="width: 100%;">
+    <!-- <form [formGroup]="addForm" (submit)="saveData()"> -->
+    <div class="card-header bg-success">
+      <div class="row">
+        <div class="col-lg-6 text-white "><h5>Validar Candidato</h5></div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
         <!-- Accordion wrapper -->
         <div
           class="accordion l-accordion accordion-12"
@@ -13,7 +29,7 @@
           <div class="card">
             <!-- Card header -->
             <div
-              class="card-header z-depth-1 teal lighten-4"
+              class="card-header z-depth-1 teal lighten-4 bg-success mb-1"
               role="tab"
               id="heading10"
             >
@@ -24,7 +40,7 @@
                 aria-expanded="false"
                 aria-controls="collapse10"
               >
-                <h6 class="mb-0 black-text font-weight-bold">
+                <h6 class="mb-1 text-white font-weight-bold">
                   Datos del requerimiento
                 </h6>
               </a>
@@ -33,24 +49,24 @@
             <!-- Card body -->
             <div
               id="collapse10"
-              class="collapse show"
+              class="collapse  "
               role="tabpanel"
               aria-labelledby="heading10"
               data-parent="#accordionEx2"
             >
-              <div class="card-body rgba-teal-strong white-text">
+              <div class="card-body rgba-teal-strong  ">
                 <!-- Select Basic -->
                 <div class="row">
-                  <div class="form-group">
+                  <div class="form-group ">
                     <label class="col-md-12 control-label" for="requerimiento"
                       >Tipo Requerimiento</label
                     >
-                    <div class="col-md-12">
+                    <div class="col-md-12 ">
                       <select
                         [(ngModel)]="
                           solicitud && solicitud.arnAreanegocio.arnIdarean
                         "
-                        class="form-control form-control-sm"
+                        class="form-control form-control-sm "
                         id="requerimiento"
                         name="requerimiento"
                       >
@@ -89,8 +105,8 @@
                     </div>
                   </div>
                   <!-- Select Basic -->
-                  <div class="form-group">
-                    <label class="col-md-12 control-label" for="presupuesto"
+                  <div class="form-group ">
+                    <label class="col-md-12 control-label " for="presupuesto"
                       >Presupuesto</label
                     >
                     <div class="col-md-12">
@@ -227,7 +243,7 @@
           <div class="card">
             <!-- Card header -->
             <div
-              class="card-header z-depth-1 teal lighten-3"
+              class="card-header z-depth-1 teal lighten-3 bg-success mb-1"
               role="tab"
               id="heading11"
             >
@@ -239,7 +255,7 @@
                 aria-expanded="false"
                 aria-controls="collapse11"
               >
-                <h6 class="mb-0 black-text font-weight-bold">Datos Cliente</h6>
+                <h6 class="mb-0 text-white font-weight-bold ">Datos Cliente</h6>
               </a>
             </div>
 
@@ -331,7 +347,7 @@
           <div class="card">
             <!-- Card header -->
             <div
-              class="card-header z-depth-1 teal lighten-2"
+              class="card-header z-depth-1 teal lighten-2 bg-success mb-1"
               role="tab"
               id="heading12"
             >
@@ -343,7 +359,7 @@
                 aria-expanded="false"
                 aria-controls="collapse12"
               >
-                <h6 class="mb-0 black-text font-weight-bold">
+                <h6 class="mb-0 text-white font-weight-bold">
                   Datos del proyecto
                 </h6>
               </a>
@@ -501,7 +517,7 @@ Descripción del proyecto</textarea
           <div class="card">
             <!-- Card header -->
             <div
-              class="card-header z-depth-1 teal lighten-1"
+              class="card-header z-depth-1 teal lighten-1 bg-success mb-1"
               role="tab"
               id="heading13"
             >
@@ -513,7 +529,7 @@ Descripción del proyecto</textarea
                 aria-expanded="true"
                 aria-controls="collapse13"
               >
-                <h6 class="mb-0 black-text font-weight-bold">
+                <h6 class="mb-0 text-white font-weight-bold">
                   Conocimiento requeridos
                 </h6>
               </a>
@@ -772,7 +788,7 @@ Descripción del proyecto</textarea
             </div>
             <div class="card">
               <!-- Card header -->
-              <div class="card-header z-depth-1 teal" role="tab" id="heading1">
+              <div class="card-header z-depth-1 teal bg-success mb-1" role="tab" id="heading1">
                 <a
                   class="collapsed"
                   data-toggle="collapse"
@@ -781,7 +797,7 @@ Descripción del proyecto</textarea
                   aria-expanded="false"
                   aria-controls="collapse1"
                 >
-                  <h6 class="mb-0 black-text font-weight-bold">
+                  <h6 class="mb-0 text-white font-weight-bold">
                     Equipos
                   </h6>
                 </a>
@@ -790,16 +806,16 @@ Descripción del proyecto</textarea
               <!-- Card body -->
               <div
                 id="collapse1"
-                class="collapse"
+                class="collapse "
                 role="tabpanel"
                 aria-labelledby="heading1"
                 data-parent="#accordionEx2"
               >
-                <div class="card-body rgba-teal-strong white-text">
+                <div class="card-body rgba-teal-strong white-text ">
                   <div class="row">
                     <!-- Select Basic -->
-                    <div class="form-group">
-                      <label class="col-md-12 control-label" for="equipo"
+                    <div class="form-group ">
+                      <label class="col-md-12 control-label " for="equipo"
                         >Equipos</label
                       >
                       <select
@@ -870,7 +886,7 @@ Descripción del proyecto</textarea
             <!-- Accordion card -->
             <div class="card">
               <!-- Card header -->
-              <div class="card-header z-depth-1 teal" role="tab" id="heading14">
+              <div class="card-header z-depth-1 teal bg-success mb-1" role="tab" id="heading14">
                 <a
                   class="collapsed"
                   data-toggle="collapse"
@@ -879,7 +895,7 @@ Descripción del proyecto</textarea
                   aria-expanded="false"
                   aria-controls="collapse14"
                 >
-                  <h6 class="mb-0 black-text font-weight-bold">
+                  <h6 class="mb-0 text-white font-weight-bold">
                     Funciones
                   </h6>
                 </a>
@@ -963,7 +979,7 @@ Descripción del proyecto</textarea
             <!-- Accordion card -->
             <div class="card">
               <!-- Card header -->
-              <div class="card-header z-depth-1 teal" role="tab" id="heading15">
+              <div class="card-header z-depth-1 teal bg-success" role="tab" id="heading15">
                 <a
                   class="collapsed"
                   data-toggle="collapse"
@@ -972,7 +988,7 @@ Descripción del proyecto</textarea
                   aria-expanded="false"
                   aria-controls="collapse15"
                 >
-                  <h6 class="mb-0 black-text font-weight-bold">Percepciones</h6>
+                  <h6 class="mb-1 text-white font-weight-bold">Percepciones</h6>
                 </a>
               </div>
 
@@ -1089,52 +1105,63 @@ Descripción del proyecto</textarea
                 </div>
               </div>
             </div>
+
+          </div>
+
+
+        </div>
+
+
             <!-- /.Accordion wrapper -->
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <form>
-                <div class="form-group">
-                  <label class="font-weight-bold">Comentario</label>
-                  <textarea
-                    [(ngModel)]="comentario"
-                    class="form-control form-control-sm"
-                    id="exampleFormControlTextarea1"
-                    rows="10"
-                    #text1="ngModel"
-                    required
-                    minlength="100"
-                    [ngModelOptions]="{ standalone: true }"
-                  ></textarea>
-                  <span *ngIf="text1.invalid && text1.touched"
-                      class="text-danger">
-                    El campo es requerido ó mínimo 100 caracteres.
-                  </span>
-                </div>
-              </form>
-            </div>
-            <div class="col-lg-6 mt-5">
-              <button
-                type="button"
-                class="btn btn-success mr-2"
-                (click)="updateBusiness()"
-                [disabled]="text1.invalid"
-              >
-                Validar
-              </button>
 
-              <button
-                type="button"
-                class="btn btn-danger"
-                (click)="updateRechazada()"
-                [disabled]="text1.invalid"
-              >
-                Rechazar
-              </button>
+          <div class="row">
+              <div class="col-lg-12">
+                <form>
+                  <div class="form-group">
+                    <label class="font-weight-bold">Comentario</label>
+                    <textarea
+                      [(ngModel)]="comentario"
+                      class="form-control form-control-sm"
+                      id="exampleFormControlTextarea1"
+                      rows="10"
+                      #text1="ngModel"
+                      required
+                      minlength="100"
+                      [ngModelOptions]="{ standalone: true }"
+                    ></textarea>
+                    <span *ngIf="text1.invalid && text1.touched"
+                        class="text-danger">
+                      El campo es requerido ó mínimo 100 caracteres.
+                    </span>
+                  </div>
+                </form>
+              </div>
+              <div class="col-lg-6 mt-5">
+                <button
+                  type="button"
+                  class="btn btn-success mr-2"
+                  (click)="updateBusiness()"
+                  [disabled]="text1.invalid"
+                >
+                  Validar
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="updateRechazada()"
+                  [disabled]="text1.invalid"
+                >
+                  Rechazar
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+
+
+
+
+
+
     </div>
   </div>
-</div>
