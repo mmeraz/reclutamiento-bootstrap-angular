@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="card border-3 border-top border-top-primary">
+  <div class="card border-3 border-top border-top-danger">
     <div class="card-body">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <h5 class="text-muted">
-            Candidato <i class="fas fa-user-alt fa-sm text-info"></i>
+            Candidato Rechazado <i class="fas fa-user-alt fa-sm text-danger"></i>
           </h5>
         </div>
       </div>
@@ -64,9 +64,31 @@
     </div>
   </div>
 
+
   <div class="row">
     <div class="col-lg-12">
-      <div class="card border-3 border-top border-top-primary">
+      <div class="card border-3 border-top border-top-danger">
+        <div class="card-body">
+          <h5 class="card-title">Cliente</h5>
+          <h6 class="card-subtitle mb-2">
+            <span class="text-muted">{{ allSeguimiento?.cndDatoscandidato.entEntrevista[0].solSolicitud.cliCliente.cliNombre }}</span>
+          </h6>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card border-3 border-top border-top-danger">
         <div class="card-body">
           <h5 class="card-title">Comentario TI: </h5>
           <h6 class="card-subtitle mb-2">
@@ -77,6 +99,9 @@
       </div>
     </div>
   </div>
+
+
+
 
   <div class="row">
     <div class="col-lg-1">

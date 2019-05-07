@@ -10,7 +10,7 @@
           aria-expanded="true"
           aria-controls="collapseOne"
         >
-          Candidatos validados
+          Candidatos Validados
         </button>
       </h5>
     </div>
@@ -35,13 +35,17 @@
                   </thead>
                   <tbody>
 
+
+
+
+
                     <tr *ngFor="let a of allSeguimiento">
                       <th scope="row">{{ a.cndDatoscandidato.cndIdcandidato }}</th>
                       <td>{{ a.usrUsuario.usrUsername }}</td>
                       <td>{{ a.cndDatoscandidato.cndNombre }}</td>
                       <td>{{ a.secEstatus }}</td>
                       <td> <i class="fa fa-search"
-                        [routerLink]="['/CandiValTI', a.sgsIdseguimientosol]"
+                        [routerLink]="['/CandiValTI', a.secIdseguimientocandidato]"
                     *ngIf="authservice.hasRole('ROLE_ADMIN')"></i></td>
                     </tr>
                   </tbody>

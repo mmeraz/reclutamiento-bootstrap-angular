@@ -1,13 +1,22 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+
+
+
 <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-5 col-md-offset col-sm-12">
-        <h6>Solicitudes por validar / </h6>
+        <h4>Solicitudes por validar  </h4>
       </div>
       <div class="col-lg-6 col-md-5 col-sm-12">
        <!-- <button class="btn btn-success btn-sm" [routerLink]="['/Candidato']"> Nuevo</button> -->
       </div>
     </div>
 
+  </div>
+
+</div>
 
     <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
         <thead>
@@ -17,6 +26,7 @@
             <th scope="col">Cliente</th>
             <th scope="col">Puesto</th>
             <th scope="col">Prioridad</th>
+            <th scope="col">Proyecto</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -28,6 +38,7 @@
             <td>{{ a.solSolicitud.cliCliente.cliNombre}}</td>
             <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>
             <td>{{ a.solSolicitud.priPrioridad.priNombre }}</td>
+            <td>{{ a.solSolicitud.proProyecto.proNombre }}</td>
             <td class="text-center" >
                 <i style="color:#007bff; margin-right:20px;"
                 data-toggle="tooltip"
@@ -35,8 +46,11 @@
                 title="Consultar"
                 class="fas fa-search"
                 [routerLink]="['/ConsultarTiValidacion', a.sgsIdseguimientosol]"
-                *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                *ngIf="authservice.hasRole('ROLE_ADMIN') || authservice.hasRole('ROLE_VALIDACION')"></i>
             </td>
           </tr>
         </tbody>
       </table>
+
+      </div>
+    </div>
