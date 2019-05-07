@@ -6,7 +6,7 @@
     class="btn btn-link text-white"
     type="button"
     data-toggle="collapse"
-    data-target="#collapseCandPendienteDocumentacion"
+    data-target="#collapseCandPendienteContrato"
     aria-expanded="true"
     aria-controls="collapseOne"
     >
@@ -16,7 +16,7 @@
     </div>
 
     <div
-    id="collapseCandPendienteDocumentacion"
+    id="collapseCandPendienteContrato"
     class="collapse"
     aria-labelledby="headingOne"
     data-parent="#accordionExample"
@@ -48,7 +48,7 @@
                     data-toggle="tooltip"
                     data-placement="top"
                     title="Consultar"
-                    class="fas fa-search text-primary"
+                    class="fas fa-search text-warning"
                     [routerLink]="['/CandidatoValidarTi', a.entIdentrevista]"
                     *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
                 </td>

@@ -89,7 +89,7 @@
 
     <td class="text-center" >
 
-    <i style="color:#007bff; margin-right:20px;"
+    <i style=" margin-right:20px;"
 
     data-toggle="tooltip"
 
@@ -97,11 +97,11 @@
 
     title="Consultar"
 
-    class="fas fa-search"
+    class="fas fa-search text-danger"
 
     [routerLink]="['/CitaClienteBackoffice', s.cndDatoscandidato.cndIdcandidato]"
 
-    *ngIf="authservice.hasRole('ROLE_ADMIN') && s.escEstatusCandidato.escIdestatus == 13 "></i>
+    *ngIf="authservice.hasRole('ROLE_ADMIN')  || authservice.hasRole('ROLE_') "></i>
 
 
 

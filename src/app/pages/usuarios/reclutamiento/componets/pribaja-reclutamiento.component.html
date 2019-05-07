@@ -31,6 +31,7 @@
                   <th scope="col">Cliente</th>
                   <th scope="col">Puesto</th>
                   <th scope="col">Prioridad</th>
+                  <th scope="col">Proyecto</th>
                 </tr>
               </thead>
               <tbody>
@@ -41,6 +42,7 @@
                   <td>{{ a.solSolicitud.cliCliente.cliNombre}}</td>
                   <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>
                   <td>{{ a.solSolicitud.priPrioridad.priNombre }}</td>
+                  <td>{{ a.solSolicitud.proProyecto.proNombre }}</td>
                   <td class="text-center">
                     <i style="color:rgb(116, 226, 82); margin-right:20px;"
                     data-toggle="tooltip"
@@ -56,7 +58,8 @@
                     title="Observar"
                     class="fas fa-search"
                     [routerLink]="['/Solicitud-reclutamiento', a.solSolicitud.solIdsolicitud]"
-                    *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                    *ngIf="authservice.hasRole('ROLE_ADMIN')
+                    || authservice.hasRole('ROLE_LIDERRECLU')"></i>
                 </td>
                 </tr>
               </tbody>

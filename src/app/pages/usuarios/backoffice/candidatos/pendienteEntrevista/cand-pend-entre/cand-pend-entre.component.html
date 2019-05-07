@@ -49,8 +49,9 @@
                     data-placement="top"
                     title="Consultar"
                     class="fas fa-search text-warning"
-                    [routerLink]="['/CandidatoValidarTi', a.entIdentrevista]"
-                    *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                    [routerLink]="['/CitaClienteBackoffice', a.cndDatoscandidato.cndIdcandidato]"
+                    *ngIf="authservice.hasRole('ROLE_ADMIN') ||
+                    authservice.hasRole('ROLE_BACKOFFICE')"></i>
                 </td>
               </tr>
             </tbody>

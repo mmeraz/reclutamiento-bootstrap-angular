@@ -7,7 +7,7 @@
           <!-- <div id="close-sidebar" class="btn btn-sm btn-light">
               <i class="fas fa-bars"></i>
           </div> -->
-          <a class="btn btn-lg text-light" href="/Home"><b> RECLUTAMIENTO</b></a>
+          <a class="btn btn-lg text-light" href="/Inicio"><b> RECLUTAMIENTO</b></a>
 
             <a id="close-sidebar" class="btn btn-sm btn-link" style="color:#fff;">
                 <i class="fas fa-bars"></i>
@@ -21,30 +21,30 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_ADMIN')">
-                    <button type="button" style="color:#fff!important;font-weight: 500!important;" class="btn  btn-link" routerLink="/Area" >Home </button>
+                    <button type="button" style="color:#fff!important;font-weight: 500!important;" class="btn  btn-link" routerLink="/Area" >Inicio </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_COMERCIAL')">
-                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn  btn-link" routerLink="/IndexComercial" >Home </button>
+                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn  btn-link" routerLink="/IndexComercial" >Inicio </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_RECLUTADOR')">
-                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/IndexReclutamiento" >Home </button>
+                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/IndexReclutamiento" >Inicio </button>
                 </li>
                 <li class="nav-item" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_LIDERRECLU')">
-                      <!-- <a  class="nav-link btn btn-outline-primary" routerLink="/IndexLiderreclutamiento" >Home </a> -->
-                      <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/IndexLiderreclutamiento">Home</button>
+                      <!-- <a  class="nav-link btn btn-outline-primary" routerLink="/IndexLiderreclutamiento" >Inicio </a> -->
+                      <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/IndexLiderreclutamiento">Inicio</button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_VALIDACION')">
-                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/IndexTiValidacion" >Home </button>
+                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/IndexTiValidacion" >Inicio </button>
                 </li>
                 <li class="nav-item active" *ngIf="authService.isAuthenticated() && authService.hasRole('ROLE_BACKOFFICE')">
-                    <button type="button" style="color:#fff!important;font-weight: 500!important;"class="btn btn-link" routerLink="/IndexBackoffice" >Home </button>
+                    <button type="button" style="color:#fff!important;font-weight: 500!important;"class="btn btn-link" routerLink="/IndexBackoffice" >Inicio </button>
                 </li>
 
                 <li class="nav-item" *ngIf="!authService.isAuthenticated()">
                     <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" routerLink="/login" >Login</button>
                 </li>
                 <li class="nav-item offset-md-1" *ngIf="authService.isAuthenticated()">
-                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" (click)="logout()" >Logout</button>
+                    <button type="button"style="color:#fff!important;font-weight: 500!important;" class="btn btn-link" (click)="Salir()" >Salir</button>
                 </li>
               </ul>
         </form>

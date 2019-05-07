@@ -31,9 +31,9 @@
   <th scope="col">Folio</th>
   <th scope="col">Fecha</th>
   <th scope="col">Cliente</th>
+  <th scope="col">Proyecto</th>
   <th scope="col">Estatus</th>
   <th scope="col">Reclutador</th>
-  <th scope="col">Prioridad</th>
   <th></th>
   </tr>
   </thead>
@@ -43,9 +43,9 @@
   <th scope="row">{{ s.solSolicitud.solIdsolicitud }}</th>
   <th >{{ s.sgsFecha }}</th>
   <td>{{ s.solSolicitud?.cliCliente.cliNombre }}</td>
+  <td>{{ s.solSolicitud?.proProyecto.proNombre }}</td>
   <td>{{ s.estEstatusSolicitud.estDescripcion }}</td>
   <td>{{ s.solSolicitud.usrUsuarioBySolIdreclutador.usrNombreusuario }}</td>
-  <td>{{s.solSolicitud?.priPrioridad.priNombre}}</td>
   <td class="text-center" >
       <i style=" margin-right:20px;"
       data-toggle="tooltip"

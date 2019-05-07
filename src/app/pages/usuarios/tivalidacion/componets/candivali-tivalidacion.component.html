@@ -36,7 +36,8 @@
                         title="Consultar"
                         class="fas fa-search"
                         [routerLink]="['/CandidatoValidarTi', a.entIdentrevista]"
-                        *ngIf="authservice.hasRole('ROLE_ADMIN')"></i>
+                        *ngIf="authservice.hasRole('ROLE_ADMIN') ||
+                        authservice.hasRole('ROLE_VALIDACION')"></i>
                     </td>
                   </tr>
                 </tbody>
