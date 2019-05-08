@@ -34,14 +34,14 @@
     <th scope="col">Proyecto</th>
     <th scope="col">Estatus</th>
     <th scope="col">Reclutador</th>
-    <th></th>
+    <th>Consulta</th>
     </tr>
     </thead>
     <tbody>
 
     <tr *ngFor="let s of allSolicitud">
-    <th scope="row">{{ s.solSolicitud.solIdsolicitud }}</th>
-    <th >{{ s.sgsFecha }}</th>
+    <td scope="row">{{ s.solSolicitud.solIdsolicitud }}</td>
+    <td >{{ s.sgsFecha }}</td>
     <td>{{ s.solSolicitud?.cliCliente.cliNombre }}</td>
     <td>{{ s.solSolicitud?.proProyecto.proNombre }}</td>
     <td>{{ s.estEstatusSolicitud.estDescripcion }}</td>

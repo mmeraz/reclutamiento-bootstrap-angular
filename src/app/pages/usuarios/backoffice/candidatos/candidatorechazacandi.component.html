@@ -23,7 +23,7 @@
 
     >
 
-    Candidatos Rechazados Por Candidato
+    Rechazado por Candidato
 
     </button>
 
@@ -58,14 +58,10 @@
     <tr>
 
     <th scope="col">Fecha</th>
-
     <th scope="col">Nombre</th>
-
-    <th scope="col">Apellido</th>
-
+    <th scope="col">Apellidos</th>
     <th scope="col">Estatus</th>
-
-    <th scope="col">Revisar</th>
+    <th scope="col">Consultar</th>
 
     </tr>
 
@@ -79,14 +75,10 @@
 
     <tr *ngFor="let s of allCandidato">
 
-    <th scope="row">{{ s.secEstatus }}</th>
-
+    <td scope="row">{{ s.secEstatus }}</td>
     <td>{{ s.cndDatoscandidato.cndNombre }}</td>
-
-    <td>{{ s.cndDatoscandidato.cndApellidopat }}</td>
-
+    <td>{{ s.cndDatoscandidato.cndApellidopat}} {{s.cndDatoscandidato.cndApellidomat}}</td>
     <td>{{ s.escEstatusCandidato.escDescripcion }}</td>
-
     <td class="text-center" >
 
     <i style=" margin-right:20px;"
@@ -101,7 +93,7 @@
 
     [routerLink]="['/CitaClienteBackoffice', s.cndDatoscandidato.cndIdcandidato]"
 
-    *ngIf="authservice.hasRole('ROLE_ADMIN')  || authservice.hasRole('ROLE_') "></i>
+    *ngIf="authservice.hasRole('ROLE_ADMIN')  || authservice.hasRole('ROLE_BACKOFFICE') "></i>
 
 
 

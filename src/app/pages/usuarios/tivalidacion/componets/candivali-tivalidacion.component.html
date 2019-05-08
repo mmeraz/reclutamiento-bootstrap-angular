@@ -20,12 +20,13 @@
                     <th scope="col">Proyecto</th>
                     <th scope="col"></th>
 
+
                   </tr>
                 </thead>
                 <tbody>
 
                   <tr *ngFor="let a of allSeguimiento">
-                    <th scope="row">{{ a.cndDatoscandidato.cndIdcandidato }}</th>
+                    <td scope="row">{{ a.cndDatoscandidato.cndIdcandidato }}</td>
                     <td>{{ a.cndDatoscandidato.cndNombre}}</td>
                     <td>{{ a.solSolicitud.cliCliente.cliNombre }}</td>
                     <td>{{ a.solSolicitud.proProyecto.proNombre }}</td>

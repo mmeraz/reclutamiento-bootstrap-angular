@@ -28,12 +28,13 @@
             <th scope="col">Prioridad</th>
             <th scope="col">Proyecto</th>
             <th scope="col"></th>
+
           </tr>
         </thead>
         <tbody>
 
           <tr *ngFor="let a of allSeguimiento">
-            <th scope="row">{{ a.solSolicitud.solIdsolicitud }}</th>
+            <td scope="row">{{ a.solSolicitud.solIdsolicitud }}</td>
             <td>{{ a.sgsFecha }}</td>
             <td>{{ a.solSolicitud.cliCliente.cliNombre}}</td>
             <td>{{ a.solSolicitud.proProyecto.proPuestoarea }}</td>

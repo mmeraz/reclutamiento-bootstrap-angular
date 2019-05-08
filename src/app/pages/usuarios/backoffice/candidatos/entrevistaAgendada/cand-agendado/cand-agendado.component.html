@@ -30,19 +30,22 @@
               <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
                 <th scope="col">Cliente</th>
                 <th scope="col">Proyecto</th>
-                <th scope="col"></th>
+                <th scope="col">Consulta</th>
 
               </tr>
             </thead>
             <tbody>
 
               <tr *ngFor="let a of allSeguimiento">
-                <th scope="row">{{ a.cndDatoscandidato.cndIdcandidato }}</th>
+                <td scope="row">{{ a.cndDatoscandidato.cndIdcandidato }}</td>
                 <td>{{ a.cndDatoscandidato.cndNombre}}</td>
+                <td>{{ a.cndDatoscandidato.cndApellidopat}} {{a.cndDatoscandidato.cndApellidomat}}</td>
                 <td>{{ a.solSolicitud.cliCliente.cliNombre }}</td>
                 <td>{{ a.solSolicitud.proProyecto.proNombre }}</td>
+
                 <td class="text-center" >
                     <i style=" margin-right:20px;"
                     data-toggle="tooltip"

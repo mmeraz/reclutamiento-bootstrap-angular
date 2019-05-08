@@ -145,7 +145,7 @@ export class AltaLiderreclutamientoComponent implements OnInit {
        swal({
         position: 'top',
         type: 'success',
-        title: `¡¡Solicitud modificada con éxito!!`,
+        title: `¡¡Solicitud asignada con éxito!!`,
         showConfirmButton: false,
         timer: 1500
       });

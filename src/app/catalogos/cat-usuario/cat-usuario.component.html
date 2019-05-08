@@ -37,12 +37,13 @@
                   <th scope="col">Perfil</th>
                   <th scope="col">Telefono</th>
                   <th scope="col"></th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
 
                 <tr *ngFor="let a of allUsuario">
-                  <th scope="row">{{ a.usrUsuario }}</th>
+                  <td scope="row">{{ a.usrUsuario }}</td>
                   <td>{{ a.usrUsername }}</td>
                   <td>{{ a.usrNombreusuario }}</td>
                   <td>{{ a.usrEmail }}</td>
