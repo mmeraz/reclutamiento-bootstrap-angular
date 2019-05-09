@@ -37,7 +37,6 @@ export class EditEquipoComponent implements OnInit {
   updateBusiness(equNombre, equDescripcion) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness( equNombre, equDescripcion, params['id']);
-       this.router.navigate(['Equipo']);
        swal({
         position: 'top',
         type: 'success',
@@ -50,7 +49,9 @@ export class EditEquipoComponent implements OnInit {
  }
 
  update(): void {
-  window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Equipo']);
+  }, 500);
 }
 
 saveData() {

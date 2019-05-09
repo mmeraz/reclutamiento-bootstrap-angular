@@ -57,7 +57,8 @@
                       title="Rechazado"
                       class="fas fa-search"
                       [routerLink]="['/RechazadoTi', a.sgsIdseguimientosol]"
-                      *ngIf="authservice.hasRole('ROLE_ADMIN')"
+                      *ngIf="authservice.hasRole('ROLE_ADMIN')
+                      || authservice.hasRole('ROLE_COMERCIAL')"
                     ></i>
                   </td>
                 </tr>

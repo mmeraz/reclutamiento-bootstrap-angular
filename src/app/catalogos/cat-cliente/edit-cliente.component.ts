@@ -39,7 +39,6 @@ export class EditClienteComponent implements OnInit {
    updateBusiness(cliNombre, cliRazonsocial) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(cliNombre, cliRazonsocial, params['id']);
-       this.router.navigate(['Cliente']);
        swal({
         position: 'top',
         type: 'success',
@@ -52,7 +51,10 @@ export class EditClienteComponent implements OnInit {
  }
 
  update(): void {
-  window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Cliente']);
+  }, 500);
+
 }
 
  saveData() {

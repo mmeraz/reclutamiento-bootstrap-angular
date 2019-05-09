@@ -136,11 +136,11 @@ export class CatSolicitudComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder, private bs: SolicitudService, private auth: AuthService,
     private mailService: MailService) {
-    }
+  }
 
-    /**
-     * Inicializacio de la clase
-     */
+  /**
+   * Inicializacio de la clase
+   */
   ngOnInit() {
     this.areaService.getAreas().subscribe((data: Catarea[]) => this.allAreas = data);
     this.prioridadService.getPrioridades().subscribe((data: Catprioridad[]) => this.allPrioridad = data);
@@ -190,7 +190,7 @@ export class CatSolicitudComponent implements OnInit {
             cliNombre: null,
             cliRazonsocial: null,
             contactos: null
-           },
+          },
           clcNombre: 'Test',
           clcTelefono: '1234568',
           clcEmail: 'test@testing.com',
@@ -210,7 +210,7 @@ export class CatSolicitudComponent implements OnInit {
       tvaTipoVacante: {
         tvaIdtipovacante: 1,
         tvaTipo: 'Nuevo Ingreso'
-    },
+      },
       usrUsuarioBySolIdreclutador: {
         usrUsuario: 1,
         usrUsername: 'mmeraz',
@@ -220,10 +220,10 @@ export class CatSolicitudComponent implements OnInit {
         usrPerfil: 'A',
         usrTelefono: '1234567890',
         roles: [
-            {
-                id: null,
-                nombre: 'ROLE_ADMIN'
-            }
+          {
+            id: null,
+            nombre: 'ROLE_ADMIN'
+          }
         ]
       },
       usrUsuarioBySolIdcomercial: this.auth.usuario,
@@ -254,8 +254,7 @@ export class CatSolicitudComponent implements OnInit {
     console.log(this.solicitud);
 
     this.mailService.sendEmail('1', this.solicitud);
-    this.router.navigate(['/IndexTiValidacion']);
-    this.refresh();
+    this.update();
   }
 
   /**
@@ -273,8 +272,23 @@ export class CatSolicitudComponent implements OnInit {
     this.nvIdioma = null;
   }
 
-  refresh(): void {
-    window.location.reload();
+  update(): void {
+    for (const user of this.auth.usuario.roles) {
+      if (user.nombre === 'ROLE_ADMIN') {
+        setTimeout(() => {
+          this.router.navigate(['/IndexTiValidacion']);
+        }, 500);
+        console.log('Entraste como admin');
+
+      } else {
+        setTimeout(() => {
+          this.router.navigate(['/IndexComercial']);
+        }, 500);
+        console.log('Entraste como comercial');
+
+      }
+
+    }
   }
   /**
    * Metodo para agregar el contactoa la solicitud;

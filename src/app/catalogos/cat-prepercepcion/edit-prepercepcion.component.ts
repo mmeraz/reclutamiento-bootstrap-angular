@@ -38,7 +38,6 @@ export class EditPrepercepcionComponent implements OnInit {
    updateBusiness(preTipo) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(preTipo, params['id']);
-      this.router.navigate(['Pre-percepcion']);
        swal({
         position: 'top',
         type: 'success',
@@ -50,8 +49,10 @@ export class EditPrepercepcionComponent implements OnInit {
       this.update();
  }
 
-  update(): void {
-   window.location.reload();
+ update(): void {
+  setTimeout(() => {
+    this.router.navigate(['Pre-percepcion']);
+  }, 500);
  }
 
  saveData() {

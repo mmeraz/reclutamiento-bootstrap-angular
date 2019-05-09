@@ -39,7 +39,6 @@ export class EditContecnicosComponent implements OnInit {
    updateBusiness( cotConocimiento, cotTipo ) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(cotConocimiento, cotTipo, params['id']);
-       this.router.navigate(['Conocimientos-tecnicos']);
        swal({
         position: 'top',
         type: 'success',
@@ -52,7 +51,9 @@ export class EditContecnicosComponent implements OnInit {
  }
 
  update(): void {
-  window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Conocimientos-tecnicos']);
+  }, 500);
 }
 
  saveData() {

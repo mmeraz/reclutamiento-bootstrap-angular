@@ -43,7 +43,6 @@ export class EditContactoComponent implements OnInit {
    updateBusiness( clcNombre, clcTelefono, clcEmail, clcTipo, clcExtension) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(clcNombre, clcTelefono, clcEmail, clcTipo, clcExtension, params['id']);
-       this.router.navigate(['Contacto-cliente']);
        swal({
         position: 'top',
         type: 'success',
@@ -55,8 +54,10 @@ export class EditContactoComponent implements OnInit {
     this.update();
  }
 
-  update(): void {
-   window.location.reload();
+ update(): void {
+  setTimeout(() => {
+    this.router.navigate(['Contacto-cliente']);
+  }, 500);
  }
 
  saveData() {

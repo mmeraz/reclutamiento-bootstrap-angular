@@ -38,7 +38,6 @@ export class EditComphabilidadesComponent implements OnInit {
    updateBusiness(cohDescripcion) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(cohDescripcion, params['id']);
-       this.router.navigate(['Habilidades']);
        swal({
         position: 'top',
         type: 'success',
@@ -51,7 +50,9 @@ export class EditComphabilidadesComponent implements OnInit {
  }
 
  update(): void {
-   window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Habilidades']);
+  }, 500);
  }
 
  saveData() {

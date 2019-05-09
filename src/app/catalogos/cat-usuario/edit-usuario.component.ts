@@ -43,7 +43,6 @@ export class EditUsuarioComponent implements OnInit {
   updateBusiness(usrUsername, usrNombreUsuario, usrPassword, usrEmail,  usrPerfil, usrTelefono) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(usrUsername, usrNombreUsuario, usrPassword, usrEmail,  usrPerfil, usrTelefono, params['id']);
-       this.router.navigate(['Usuarios']);
        swal({
         position: 'top',
         type: 'success',
@@ -52,11 +51,13 @@ export class EditUsuarioComponent implements OnInit {
         timer: 1500
       });
     });
-    //this.update();
+    this.update();
  }
 
  update(): void {
-  window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Usuarios']);
+  }, 500);
 }
 
  saveData() {

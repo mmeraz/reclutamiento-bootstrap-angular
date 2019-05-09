@@ -36,21 +36,21 @@ export class EditAreaComponent implements OnInit {
    updateBusiness(arnTipo) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(arnTipo, params['id']);
-       this.router.navigate(['Area']);
        swal({
-        position: 'top',
-        type: 'success',
-        title: `Área modificada con éxito`,
-        showConfirmButton: false,
-        timer: 1500
+         position: 'top',
+         type: 'success',
+         title: `Área modificada con éxito`,
+         showConfirmButton: false,
+         timer: 1500
+        });
       });
-    });
-    this.update();
- }
+      this.update();
+    }
 
- update(): void {
-  window.location.reload();
-  //this.router.navigate(['Area']);
+    update(): void {
+      setTimeout(() => {
+        this.router.navigate(['Area']);
+      }, 500);
 }
 
  saveData() {

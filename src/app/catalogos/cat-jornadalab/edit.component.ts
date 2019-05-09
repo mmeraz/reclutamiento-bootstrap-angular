@@ -38,7 +38,6 @@ export class EditJornadaComponent implements OnInit {
    updateBusiness(jolTipo) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(jolTipo, params['id']);
-       this.router.navigate(['Jornada-laboral']);
        swal({
         position: 'top',
         type: 'success',
@@ -51,7 +50,9 @@ export class EditJornadaComponent implements OnInit {
  }
 
  update(): void {
-  window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Jornada-laboral']);
+  }, 500);
 }
 
  saveData() {

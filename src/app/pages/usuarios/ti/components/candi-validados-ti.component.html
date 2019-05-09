@@ -30,7 +30,7 @@
                       <th scope="col">Reclutador</th>
                       <th scope="col">Candidato</th>
                       <th scope="col">Fecha</th>
-                      <th scope="col"></th>
+                      <th scope="col">Consulta</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -40,12 +40,12 @@
 
 
                     <tr *ngFor="let a of allSeguimiento">
-                      <th scope="row">{{ a.cndDatoscandidato.cndIdcandidato }}</th>
+                      <td scope="row">{{ a.cndDatoscandidato.cndIdcandidato }}</td>
                       <td>{{ a.usrUsuario.usrUsername }}</td>
                       <td>{{ a.cndDatoscandidato.cndNombre }}</td>
                       <td>{{ a.secEstatus }}</td>
                       <td> <i class="fa fa-search"
-                        [routerLink]="['/CandiValTI', a.secIdseguimientocandidato]"
+                        [routerLink]="['/CandiValTI2', a.secIdseguimientocandidato]"
                     *ngIf="authservice.hasRole('ROLE_ADMIN')
                     || authservice.hasRole('ROLE_VALIDACION') "></i></td>
                     </tr>

@@ -38,7 +38,6 @@ export class EditEstasolicitudComponent implements OnInit {
    updateBusiness(estDescripcion) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(estDescripcion, params['id']);
-       this.router.navigate(['Estatus-solicitud']);
        swal({
         position: 'top',
         type: 'success',
@@ -51,7 +50,9 @@ export class EditEstasolicitudComponent implements OnInit {
  }
 
  update(): void {
-  window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Estatus-solicitud']);
+  }, 500);
 }
 
  saveData() {

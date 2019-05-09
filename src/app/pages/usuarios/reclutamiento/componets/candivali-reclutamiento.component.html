@@ -41,8 +41,11 @@
                   <td>{{ a.cndDatoscandidato.cndNombre }}</td>
                   <td>{{ a.secEstatus }}</td>
                   <td> <i class="fa fa-search"
-                    [routerLink]="['/CandiValTI2', a.sgsIdseguimientosol]"
-                    *ngIf="authservice.hasRole('ROLE_ADMIN')">
+                    [routerLink]="['/CandiValTI2', a.secIdseguimientocandidato]"
+                    *ngIf="authservice.hasRole('ROLE_ADMIN')
+                    || authservice.hasRole('ROLE_RECLUTADOR') || authservice.hasRole('ROLE_LIDERRECLU') ||
+                     authservice.hasRole('ROLE_VALIDACION')"
+                    >
                     </i></td>
                 </tr>
               </tbody>

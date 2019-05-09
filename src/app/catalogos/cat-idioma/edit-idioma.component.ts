@@ -36,7 +36,6 @@ export class EditIdiomaComponent implements OnInit {
    updateBusiness(idiNombre) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(idiNombre, params['id']);
-       this.router.navigate(['Idioma']);
        swal({
         position: 'top',
         type: 'success',
@@ -49,7 +48,9 @@ export class EditIdiomaComponent implements OnInit {
  }
 
  update(): void {
-  window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Idioma']);
+  }, 500);
 }
 
  saveData() {

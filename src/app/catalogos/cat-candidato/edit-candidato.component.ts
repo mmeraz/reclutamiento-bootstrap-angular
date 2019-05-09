@@ -153,7 +153,10 @@ listaHabilidades: Catcompcandidato[] = [];
  }
 
  update(): void {
-  window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Candidato']);
+  }, 500);
+
  }
 
 

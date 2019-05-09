@@ -37,7 +37,6 @@ export class EditPerfilComponent implements OnInit {
   updateBusiness(perPerfil) {
     this.route.params.subscribe(params => {
        this.bs.updateBusiness(perPerfil, params['id']);
-       this.router.navigate(['Perfil']);
        swal({
         position: 'top',
         type: 'success',
@@ -50,7 +49,9 @@ export class EditPerfilComponent implements OnInit {
  }
 
  update(): void {
-  window.location.reload();
+  setTimeout(() => {
+    this.router.navigate(['Perfil']);
+  }, 500);
 }
 
  saveData() {
